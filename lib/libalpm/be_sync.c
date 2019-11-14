@@ -707,7 +707,7 @@ alpm_db_t *_alpm_db_register_sync(alpm_handle_t *handle, const char *treename,
 {
 	alpm_db_t *db;
 
-	_alpm_log(handle, ALPM_LOG_DEBUG, "registering sync database '%s'\n", treename);
+	_alpm_log(handle, ALPM_LOG_DEBUG, "registering sync database '%s' with siglevel %i\n", treename, level);
 
 #ifndef HAVE_LIBGPGME
 	if(level != 0 && level != ALPM_SIG_USE_DEFAULT) {
