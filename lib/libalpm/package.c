@@ -98,6 +98,7 @@ static alpm_list_t *_pkg_get_provides(alpm_pkg_t *pkg)   { return pkg->provides;
 static alpm_list_t *_pkg_get_replaces(alpm_pkg_t *pkg)   { return pkg->replaces; }
 static alpm_filelist_t *_pkg_get_files(alpm_pkg_t *pkg)  { return &(pkg->files); }
 static alpm_list_t *_pkg_get_backup(alpm_pkg_t *pkg)     { return pkg->backup; }
+static alpm_list_t *_pkg_get_alternatives(alpm_pkg_t *pkg) { return pkg->alternatives; }
 
 static void *_pkg_changelog_open(alpm_pkg_t UNUSED *pkg)
 {
@@ -162,6 +163,7 @@ const struct pkg_operations default_pkg_ops = {
 	.get_replaces    = _pkg_get_replaces,
 	.get_files       = _pkg_get_files,
 	.get_backup      = _pkg_get_backup,
+	.get_alternatives = _pkg_get_alternatives,
 
 	.changelog_open  = _pkg_changelog_open,
 	.changelog_read  = _pkg_changelog_read,
@@ -418,6 +420,13 @@ alpm_list_t SYMEXPORT *alpm_pkg_get_backup(alpm_pkg_t *pkg)
 	return pkg->ops->get_backup(pkg);
 }
 
+alpm_list_t SYMEXPORT *alpm_pkg_get_alternatives(alpm_pkg_t *pkg)
+{
+	ASSERT(pkg != NULL, return NULL);
+	pkg->handle->pm_errno = ALPM_ERR_OK;
+	return pkg->ops->get_alternatives(pkg);
+}
+
 alpm_db_t SYMEXPORT *alpm_pkg_get_db(alpm_pkg_t *pkg)
 {
 	/* Sanity checks */
@@ -632,6 +641,7 @@ int _alpm_pkg_dup(alpm_pkg_t *pkg, alpm_pkg_t **new_ptr)
 	newpkg->optdepends = list_depdup(pkg->optdepends);
 	newpkg->conflicts  = list_depdup(pkg->conflicts);
 	newpkg->provides   = list_depdup(pkg->provides);
+	newpkg->alternatives = alpm_list_strdup(pkg->alternatives);
 
 	if(pkg->files.count) {
 		size_t filenum;
@@ -709,6 +719,7 @@ void _alpm_pkg_free(alpm_pkg_t *pkg)
 	free_deplist(pkg->provides);
 	alpm_list_free(pkg->removes);
 	_alpm_pkg_free(pkg->oldpkg);
+	FREELIST(pkg->alternatives);
 
 	if(pkg->origin == ALPM_PKG_FROM_FILE) {
 		FREE(pkg->origin_data.file);

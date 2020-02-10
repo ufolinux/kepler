@@ -630,6 +630,7 @@ write_pkginfo() {
 	write_kv_pair "optdepend"   "${optdepends[@]//+([[:space:]])/ }"
 	write_kv_pair "makedepend"  "${makedepends[@]}"
 	write_kv_pair "checkdepend" "${checkdepends[@]}"
+	write_kv_pair "alternative" "${alternative[@]}"
 }
 
 write_buildinfo() {

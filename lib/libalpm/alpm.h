@@ -2555,6 +2555,12 @@ alpm_filelist_t *alpm_pkg_get_files(alpm_pkg_t *pkg);
  */
 alpm_list_t *alpm_pkg_get_backup(alpm_pkg_t *pkg);
 
+/** Returns the list of alternatives provided by the package
+ * @param pkg a pointer to package
+ * @return a reference to a list of char* objects
+ */
+alpm_list_t *alpm_pkg_get_alternatives(alpm_pkg_t *pkg);
+
 /** Returns the database containing pkg.
  * Returns a pointer to the alpm_db_t structure the package is
  * originating from, or NULL if the package was loaded from a file.

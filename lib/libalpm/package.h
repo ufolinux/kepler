@@ -66,6 +66,7 @@ struct pkg_operations {
 	alpm_list_t *(*get_replaces) (alpm_pkg_t *);
 	alpm_filelist_t *(*get_files) (alpm_pkg_t *);
 	alpm_list_t *(*get_backup) (alpm_pkg_t *);
+	alpm_list_t *(*get_alternatives) (alpm_pkg_t *);
 
 	void *(*changelog_open) (alpm_pkg_t *);
 	size_t (*changelog_read) (void *, size_t, const alpm_pkg_t *, void *);
@@ -120,6 +121,7 @@ struct _alpm_pkg_t {
 	alpm_list_t *provides;
 	alpm_list_t *removes; /* in transaction targets only */
 	alpm_pkg_t *oldpkg; /* in transaction targets only */
+	alpm_list_t *alternatives;
 
 	const struct pkg_operations *ops;
 

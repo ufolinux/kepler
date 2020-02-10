@@ -244,6 +244,8 @@ static int parse_descfile(alpm_handle_t *handle, struct archive *a, alpm_pkg_t *
 				CALLOC(backup, 1, sizeof(alpm_backup_t), return -1);
 				STRDUP(backup->name, ptr, FREE(backup); return -1);
 				newpkg->backup = alpm_list_add(newpkg->backup, backup);
+			} else if(strcmp(key, "alternative") == 0) {
+				newpkg->alternatives = alpm_list_add(newpkg->alternatives, strdup(ptr));
 			} else if(strcmp(key, "force") == 0) {
 				/* deprecated, skip it */
 			} else if(strcmp(key, "makepkgopt") == 0) {
