@@ -402,8 +402,8 @@ All options and directives for the split packages default to the global values
 given in the PKGBUILD. Nevertheless, the following ones can be overridden within
 each split package's packaging function:
 `pkgdesc`, `arch`, `url`, `license`, `groups`, `depends`, `optdepends`,
-`provides`, `conflicts`, `replaces`, `backup`, `options`, `install`, and
-`changelog`.
+`provides`, `conflicts`, `replaces`, `backup`, `options`, `install`,
+`changelog` and `alternative`.
 
 Note that makepkg does not consider split package `depends` when checking
 if dependencies are installed before package building and with `--syncdeps`.

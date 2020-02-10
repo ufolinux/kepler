@@ -710,6 +710,16 @@ create_package() {
 		fi
 	done
 
+	# check for alternative files
+	for i in ${alternative[@]}; do
+		msg2 "$(gettext "Adding %s file...")" "$i.alternative"
+		if ! cp "$startdir/$i.alternative" ".ALTERNATIVE.$i"; then
+			error "$(gettext "Failed to add %s file to package.")" "$i.alternative"
+			exit $E_MISSING_FILE
+		fi
+		chmod 644 ".ALTERNATIVE.$i"
+	done
+
 	# tar it up
 	local fullver=$(get_full_version)
 	local pkg_file="$PKGDEST/${pkgname}-${fullver}-${pkgarch}${PKGEXT}"

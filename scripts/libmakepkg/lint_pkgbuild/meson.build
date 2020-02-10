@@ -1,6 +1,7 @@
 libmakepkg_module = 'lint_pkgbuild'
 
 sources = [
+  'alternative.sh.in',
   'arch.sh.in',
   'arch_specific.sh.in',
   'backup.sh.in',

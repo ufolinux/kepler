@@ -28,8 +28,8 @@ source "$LIBRARY/util/util.sh"
 
 known_hash_algos=({ck,md5,sha{1,224,256,384,512},b2})
 
-pkgbuild_schema_arrays=(arch backup checkdepends conflicts depends groups
-                        license makedepends noextract optdepends options
+pkgbuild_schema_arrays=(alternative arch backup checkdepends conflicts depends
+                        groups license makedepends noextract optdepends options
                         provides replaces source validpgpkeys
                         "${known_hash_algos[@]/%/sums}")
 
@@ -42,7 +42,7 @@ pkgbuild_schema_arch_arrays=(checkdepends conflicts depends makedepends
 
 pkgbuild_schema_package_overrides=(pkgdesc arch url license groups depends
                                    optdepends provides conflicts replaces
-                                   backup options install changelog)
+                                   backup options install changelog alternative)
 
 readonly -a known_hash_algos pkgbuild_schema_arrays \
 	pkgbuild_schema_strings pkgbuild_schema_arch_arrays \
