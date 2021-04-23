@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Arch Linux Pacman package manager\n"
 "Report-Msgid-Bugs-To: http://bugs.archlinux.org/index.php?project=3\n"
-"POT-Creation-Date: 2020-06-19 09:48+1000\n"
+"POT-Creation-Date: 2021-04-23 10:22+1000\n"
 "PO-Revision-Date: 2019-10-14 00:05+0000\n"
 "Last-Translator: Allan McRae <allan@archlinux.org>\n"
 "Language-Team: English (United Kingdom) (http://www.transifex.com/toofishes/"
@@ -510,101 +510,6 @@ msgstr "Package directory is ready."
 #: scripts/makepkg.sh.in:1470
 msgid "Finished making: %s"
 msgstr "Finished making: %s"
-
-#: scripts/makepkg-template.pl.in:55
-#, perl-format
-msgid "can't create '%s': %s"
-msgstr "can't create '%s': %s"
-
-#: scripts/makepkg-template.pl.in:73
-msgid "invalid key/value pair\n"
-msgstr "invalid key/value pair\n"
-
-#: scripts/makepkg-template.pl.in:82
-msgid "invalid template line: can't find template name\n"
-msgstr "invalid template line: can't find template name\n"
-
-#: scripts/makepkg-template.pl.in:87
-#, perl-format
-msgid "invalid chars used in name '%s'. allowed: [:alnum:]+_.@-\n"
-msgstr "invalid chars used in name '%s'. allowed: [:alnum:]+_.@-\n"
-
-#: scripts/makepkg-template.pl.in:114
-#, perl-format
-msgid "Couldn't detect version for template '%s'\n"
-msgstr "Couldn't detect version for template '%s'\n"
-
-#: scripts/makepkg-template.pl.in:125
-#, perl-format
-msgid "Failed to find template file matching '%s'\n"
-msgstr "Failed to find template file matching '%s'\n"
-
-#: scripts/makepkg-template.pl.in:136
-#, perl-format
-msgid "failed to open '%s': %s\n"
-msgstr "failed to open '%s': %s\n"
-
-#: scripts/makepkg-template.pl.in:153
-#, perl-format
-msgid "Unknown template marker '%s'\n"
-msgstr "Unknown template marker '%s'\n"
-
-#: scripts/makepkg-template.pl.in:175
-msgid "makepkg-template [options]\n"
-msgstr "makepkg-template [options]\n"
-
-#: scripts/makepkg-template.pl.in:177
-msgid "Options:\n"
-msgstr "Options:\n"
-
-#: scripts/makepkg-template.pl.in:178
-#, perl-format
-msgid "  --input, -p <file>    Build script to read (default: %s)\n"
-msgstr "  --input, -p <file>    Build script to read (default: %s)\n"
-
-#: scripts/makepkg-template.pl.in:179
-msgid "  --output, -o <file>   file to output to (default: input file)\n"
-msgstr "  --output, -o <file>   file to output to (default: input file)\n"
-
-#: scripts/makepkg-template.pl.in:180
-msgid "  --newest, -n          update templates to newest version\n"
-msgstr "  --newest, -n          update templates to newest version\n"
-
-#: scripts/makepkg-template.pl.in:181
-msgid ""
-"                        (default: use version specified in the template "
-"markers)\n"
-msgstr ""
-"                        (default: use version specified in the template "
-"markers)\n"
-
-#: scripts/makepkg-template.pl.in:182
-msgid "  --template-dir <dir>  directory to search for templates\n"
-msgstr "  --template-dir <dir>  directory to search for templates\n"
-
-#: scripts/makepkg-template.pl.in:183
-#, perl-format
-msgid "                        (default: %s)\n"
-msgstr "                        (default: %s)\n"
-
-#: scripts/makepkg-template.pl.in:184
-msgid "  --help, -h            This help message\n"
-msgstr "  --help, -h            This help message\n"
-
-#: scripts/makepkg-template.pl.in:185
-msgid "  --version             Version information\n"
-msgstr "  --version             Version information\n"
-
-#: scripts/makepkg-template.pl.in:194
-#, fuzzy
-msgid ""
-"Copyright (c) 2013-2020 Pacman Development Team <pacman-dev@archlinux.org>.\n"
-"This is free software; see the source for copying conditions.\n"
-"There is NO WARRANTY, to the extent permitted by law.\n"
-msgstr ""
-"Copyright (c) 2013-2018 Pacman Development Team <pacman-dev@archlinux.org>.\n"
-"This is free software; see the source for copying conditions.\n"
-"There is NO WARRANTY, to the extent permitted by law.\n"
 
 #: scripts/pacman-db-upgrade.sh.in:40
 msgid "Upgrade the local pacman database to a newer format"
@@ -1307,6 +1212,10 @@ msgstr "SIGNATURE NOT FOUND"
 msgid "SOURCE FILE NOT FOUND"
 msgstr "SOURCE FILE NOT FOUND"
 
+#: scripts/libmakepkg/integrity/verify_signature.sh.in:203
+msgid "_"
+msgstr ""
+
 #: scripts/libmakepkg/lint_config/paths.sh.in:39
 #: scripts/libmakepkg/lint_pkgbuild/arch.sh.in:47
 #: scripts/libmakepkg/lint_pkgbuild/pkgname.sh.in:53
@@ -1620,3 +1529,80 @@ msgstr "You do not have write permission for the directory $%s (%s)."
 #: scripts/libmakepkg/util/util.sh.in:109
 msgid "Failed to source %s"
 msgstr "Failed to source %s"
+
+#, perl-format
+#~ msgid "can't create '%s': %s"
+#~ msgstr "can't create '%s': %s"
+
+#~ msgid "invalid key/value pair\n"
+#~ msgstr "invalid key/value pair\n"
+
+#~ msgid "invalid template line: can't find template name\n"
+#~ msgstr "invalid template line: can't find template name\n"
+
+#, perl-format
+#~ msgid "invalid chars used in name '%s'. allowed: [:alnum:]+_.@-\n"
+#~ msgstr "invalid chars used in name '%s'. allowed: [:alnum:]+_.@-\n"
+
+#, perl-format
+#~ msgid "Couldn't detect version for template '%s'\n"
+#~ msgstr "Couldn't detect version for template '%s'\n"
+
+#, perl-format
+#~ msgid "Failed to find template file matching '%s'\n"
+#~ msgstr "Failed to find template file matching '%s'\n"
+
+#, perl-format
+#~ msgid "failed to open '%s': %s\n"
+#~ msgstr "failed to open '%s': %s\n"
+
+#, perl-format
+#~ msgid "Unknown template marker '%s'\n"
+#~ msgstr "Unknown template marker '%s'\n"
+
+#~ msgid "makepkg-template [options]\n"
+#~ msgstr "makepkg-template [options]\n"
+
+#~ msgid "Options:\n"
+#~ msgstr "Options:\n"
+
+#, perl-format
+#~ msgid "  --input, -p <file>    Build script to read (default: %s)\n"
+#~ msgstr "  --input, -p <file>    Build script to read (default: %s)\n"
+
+#~ msgid "  --output, -o <file>   file to output to (default: input file)\n"
+#~ msgstr "  --output, -o <file>   file to output to (default: input file)\n"
+
+#~ msgid "  --newest, -n          update templates to newest version\n"
+#~ msgstr "  --newest, -n          update templates to newest version\n"
+
+#~ msgid ""
+#~ "                        (default: use version specified in the template "
+#~ "markers)\n"
+#~ msgstr ""
+#~ "                        (default: use version specified in the template "
+#~ "markers)\n"
+
+#~ msgid "  --template-dir <dir>  directory to search for templates\n"
+#~ msgstr "  --template-dir <dir>  directory to search for templates\n"
+
+#, perl-format
+#~ msgid "                        (default: %s)\n"
+#~ msgstr "                        (default: %s)\n"
+
+#~ msgid "  --help, -h            This help message\n"
+#~ msgstr "  --help, -h            This help message\n"
+
+#~ msgid "  --version             Version information\n"
+#~ msgstr "  --version             Version information\n"
+
+#~ msgid ""
+#~ "Copyright (c) 2013-2018 Pacman Development Team <pacman-dev@archlinux."
+#~ "org>.\n"
+#~ "This is free software; see the source for copying conditions.\n"
+#~ "There is NO WARRANTY, to the extent permitted by law.\n"
+#~ msgstr ""
+#~ "Copyright (c) 2013-2018 Pacman Development Team <pacman-dev@archlinux."
+#~ "org>.\n"
+#~ "This is free software; see the source for copying conditions.\n"
+#~ "There is NO WARRANTY, to the extent permitted by law.\n"

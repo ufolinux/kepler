@@ -3,17 +3,17 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
-# Alexander F Rødseth <rodseth@gmail.com>, 2015-2020
-# Alexander F Rødseth <rodseth@gmail.com>, 2011-2013
+# Alexander F. Rødseth <rodseth@gmail.com>, 2015-2021
+# Alexander F. Rødseth <rodseth@gmail.com>, 2011-2013
 # Harald H. <haarektrans@gmail.com>, 2016
 # Jon Gjengset <jon@thesquareplanet.com>, 2011,2013-2015,2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Arch Linux Pacman package manager\n"
 "Report-Msgid-Bugs-To: http://bugs.archlinux.org/index.php?project=3\n"
-"POT-Creation-Date: 2020-06-19 09:48+1000\n"
-"PO-Revision-Date: 2020-04-29 10:22+0000\n"
-"Last-Translator: Alexander F Rødseth <rodseth@gmail.com>\n"
+"POT-Creation-Date: 2021-04-23 10:22+1000\n"
+"PO-Revision-Date: 2021-03-24 21:51+0000\n"
+"Last-Translator: Alexander F. Rødseth <rodseth@gmail.com>\n"
 "Language-Team: Norwegian Bokmål (http://www.transifex.com/toofishes/"
 "archlinux-pacman/language/nb/)\n"
 "Language: nb\n"
@@ -132,7 +132,7 @@ msgstr "Ugyldig verdi for %s: %s"
 
 #: scripts/makepkg.sh.in:674
 msgid "Missing %s directory."
-msgstr "Mangler mappen %s"
+msgstr "Finner ikke mappen %s"
 
 #: scripts/makepkg.sh.in:680
 msgid "Creating package \"%s\"..."
@@ -346,7 +346,7 @@ msgstr "  --nosign         Ikke signer pakken"
 
 #: scripts/makepkg.sh.in:985
 msgid "  --packagelist    Only list package filepaths that would be produced"
-msgstr "  --packagelist    List bare stier i pakker som ville blitt produsert"
+msgstr "  --packagelist    List bare stier i pakker som ville blitt laget"
 
 #: scripts/makepkg.sh.in:986
 msgid "  --printsrcinfo   Print the generated SRCINFO and exit"
@@ -504,101 +504,6 @@ msgstr "Pakkemappen er klar."
 #: scripts/makepkg.sh.in:1470
 msgid "Finished making: %s"
 msgstr "Bygget ferdig: %s"
-
-#: scripts/makepkg-template.pl.in:55
-#, perl-format
-msgid "can't create '%s': %s"
-msgstr "kunne ikke opprette '%s': %s"
-
-#: scripts/makepkg-template.pl.in:73
-msgid "invalid key/value pair\n"
-msgstr "ugyldig kombinasjon av nøkkel og verdi\n"
-
-#: scripts/makepkg-template.pl.in:82
-msgid "invalid template line: can't find template name\n"
-msgstr "ugyldig formatlinje: fant ikke formatnavn\n"
-
-#: scripts/makepkg-template.pl.in:87
-#, perl-format
-msgid "invalid chars used in name '%s'. allowed: [:alnum:]+_.@-\n"
-msgstr "ugyldige tegn brukt i navnet '%s'. Tillatt: [:alnum]+_.@-\n"
-
-#: scripts/makepkg-template.pl.in:114
-#, perl-format
-msgid "Couldn't detect version for template '%s'\n"
-msgstr "Fant ikke versionsnummer for malen '%s'\n"
-
-#: scripts/makepkg-template.pl.in:125
-#, perl-format
-msgid "Failed to find template file matching '%s'\n"
-msgstr "Fant ikke en mal som passer '%s'\n"
-
-#: scripts/makepkg-template.pl.in:136
-#, perl-format
-msgid "failed to open '%s': %s\n"
-msgstr "kunne ikke åpne '%s': %s\n"
-
-#: scripts/makepkg-template.pl.in:153
-#, perl-format
-msgid "Unknown template marker '%s'\n"
-msgstr "Ukjent mal-markør '%s'\n"
-
-#: scripts/makepkg-template.pl.in:175
-msgid "makepkg-template [options]\n"
-msgstr "makepkg-template [valg]\n"
-
-#: scripts/makepkg-template.pl.in:177
-msgid "Options:\n"
-msgstr "Tilvalg:\n"
-
-#: scripts/makepkg-template.pl.in:178
-#, perl-format
-msgid "  --input, -p <file>    Build script to read (default: %s)\n"
-msgstr "--input, -p <fil> Byggefilen som skal brukes (standardvalg: %s)\n"
-
-#: scripts/makepkg-template.pl.in:179
-msgid "  --output, -o <file>   file to output to (default: input file)\n"
-msgstr "--output, -o <fil> utskriftsfil (standardvalg: samme som input fil)\n"
-
-#: scripts/makepkg-template.pl.in:180
-msgid "  --newest, -n          update templates to newest version\n"
-msgstr "--newest, -n oppdatert formater til nyeste versjon\n"
-
-#: scripts/makepkg-template.pl.in:181
-msgid ""
-"                        (default: use version specified in the template "
-"markers)\n"
-msgstr "(standard: bruk versjonsnummeret oppgit i formatmarkørene)\n"
-
-#: scripts/makepkg-template.pl.in:182
-msgid "  --template-dir <dir>  directory to search for templates\n"
-msgstr "--template-dir <mappe> mappe som skal søkes i etter formater\n"
-
-#: scripts/makepkg-template.pl.in:183
-#, perl-format
-msgid "                        (default: %s)\n"
-msgstr "(standard: %s)\n"
-
-#: scripts/makepkg-template.pl.in:184
-msgid "  --help, -h            This help message\n"
-msgstr "  --help, -h            Denne hjelpeteksten\n"
-
-#: scripts/makepkg-template.pl.in:185
-msgid "  --version             Version information\n"
-msgstr "  --version             Versjoneringsinformasjon\n"
-
-#: scripts/makepkg-template.pl.in:194
-#, fuzzy
-msgid ""
-"Copyright (c) 2013-2020 Pacman Development Team <pacman-dev@archlinux.org>.\n"
-"This is free software; see the source for copying conditions.\n"
-"There is NO WARRANTY, to the extent permitted by law.\n"
-msgstr ""
-"Kopibeskyttet (c) 2013-2018 Utviklingsteamet for Pacman <pacman-"
-"dev@archlinux.org>.\n"
-"Dette er fri programvare; les kildekoden for å finne betingelser for "
-"kopiering.\n"
-"Det gis INGEN GARANTIER, så langt det er mulig innenfor loven.\n"
 
 #: scripts/pacman-db-upgrade.sh.in:40
 msgid "Upgrade the local pacman database to a newer format"
@@ -1313,6 +1218,10 @@ msgstr "SIGNATUR MANGLER"
 msgid "SOURCE FILE NOT FOUND"
 msgstr "KILDEFIL MANGLER"
 
+#: scripts/libmakepkg/integrity/verify_signature.sh.in:203
+msgid "_"
+msgstr ""
+
 #: scripts/libmakepkg/lint_config/paths.sh.in:39
 #: scripts/libmakepkg/lint_pkgbuild/arch.sh.in:47
 #: scripts/libmakepkg/lint_pkgbuild/pkgname.sh.in:53
@@ -1541,7 +1450,7 @@ msgstr "Kunne ikke sjekke ut versjon %s, git tag-en har blitt forfalsket"
 
 #: scripts/libmakepkg/source/local.sh.in:39
 msgid "%s was not found in the build directory and is not a URL."
-msgstr "%s ble ikke funnet i build-mappen, og den er heller ikke en URL."
+msgstr "%s ble ikke funnet i byggemappen, og den er heller ikke en URL."
 
 #: scripts/libmakepkg/tidy.sh.in:41
 msgid "Tidying install..."
@@ -1627,3 +1536,80 @@ msgstr "Du har ikke skriverettigheter til $%s(%s)."
 #: scripts/libmakepkg/util/util.sh.in:109
 msgid "Failed to source %s"
 msgstr "%s inneholder feil"
+
+#, perl-format
+#~ msgid "can't create '%s': %s"
+#~ msgstr "kunne ikke opprette '%s': %s"
+
+#~ msgid "invalid key/value pair\n"
+#~ msgstr "ugyldig kombinasjon av nøkkel og verdi\n"
+
+#~ msgid "invalid template line: can't find template name\n"
+#~ msgstr "ugyldig formatlinje: fant ikke formatnavn\n"
+
+#, perl-format
+#~ msgid "invalid chars used in name '%s'. allowed: [:alnum:]+_.@-\n"
+#~ msgstr "ugyldige tegn brukt i navnet '%s'. Tillatt: [:alnum]+_.@-\n"
+
+#, perl-format
+#~ msgid "Couldn't detect version for template '%s'\n"
+#~ msgstr "Fant ikke versionsnummer for malen '%s'\n"
+
+#, perl-format
+#~ msgid "Failed to find template file matching '%s'\n"
+#~ msgstr "Fant ikke en mal som passer '%s'\n"
+
+#, perl-format
+#~ msgid "failed to open '%s': %s\n"
+#~ msgstr "kunne ikke åpne '%s': %s\n"
+
+#, perl-format
+#~ msgid "Unknown template marker '%s'\n"
+#~ msgstr "Ukjent mal-markør '%s'\n"
+
+#~ msgid "makepkg-template [options]\n"
+#~ msgstr "makepkg-template [valg]\n"
+
+#~ msgid "Options:\n"
+#~ msgstr "Tilvalg:\n"
+
+#, perl-format
+#~ msgid "  --input, -p <file>    Build script to read (default: %s)\n"
+#~ msgstr "--input, -p <fil> Byggefilen som skal brukes (standardvalg: %s)\n"
+
+#~ msgid "  --output, -o <file>   file to output to (default: input file)\n"
+#~ msgstr ""
+#~ "--output, -o <fil> utskriftsfil (standardvalg: samme som input fil)\n"
+
+#~ msgid "  --newest, -n          update templates to newest version\n"
+#~ msgstr "--newest, -n oppdatert formater til nyeste versjon\n"
+
+#~ msgid ""
+#~ "                        (default: use version specified in the template "
+#~ "markers)\n"
+#~ msgstr "(standard: bruk versjonsnummeret oppgit i formatmarkørene)\n"
+
+#~ msgid "  --template-dir <dir>  directory to search for templates\n"
+#~ msgstr "--template-dir <mappe> mappe som skal søkes i etter formater\n"
+
+#, perl-format
+#~ msgid "                        (default: %s)\n"
+#~ msgstr "(standard: %s)\n"
+
+#~ msgid "  --help, -h            This help message\n"
+#~ msgstr "  --help, -h            Denne hjelpeteksten\n"
+
+#~ msgid "  --version             Version information\n"
+#~ msgstr "  --version             Versjoneringsinformasjon\n"
+
+#~ msgid ""
+#~ "Copyright (c) 2013-2018 Pacman Development Team <pacman-dev@archlinux."
+#~ "org>.\n"
+#~ "This is free software; see the source for copying conditions.\n"
+#~ "There is NO WARRANTY, to the extent permitted by law.\n"
+#~ msgstr ""
+#~ "Kopibeskyttet (c) 2013-2018 Utviklingsteamet for Pacman <pacman-"
+#~ "dev@archlinux.org>.\n"
+#~ "Dette er fri programvare; les kildekoden for å finne betingelser for "
+#~ "kopiering.\n"
+#~ "Det gis INGEN GARANTIER, så langt det er mulig innenfor loven.\n"

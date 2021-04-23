@@ -8,7 +8,7 @@
 # Antoine Lubineau <antoine@lubignon.info>, 2012
 # Antoine Lubineau <antoine@lubignon.info>, 2012-2014,2018
 # Cedric Girard <girard.cedric@gmail.com>, 2014
-# Charles Monzat <c.monzat@laposte.net>, 2018-2019
+# Charles Monzat <c.monzat@laposte.net>, 2018-2020
 # Charles Monzat <c.monzat@laposte.net>, 2015-2018
 # Charles Monzat <c.monzat@laposte.net>, 2018
 # Charles Monzat <c.monzat@laposte.net>, 2018
@@ -20,8 +20,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Arch Linux Pacman package manager\n"
 "Report-Msgid-Bugs-To: http://bugs.archlinux.org/index.php?project=3\n"
-"POT-Creation-Date: 2020-06-19 09:48+1000\n"
-"PO-Revision-Date: 2019-10-20 19:02+0000\n"
+"POT-Creation-Date: 2021-04-23 10:22+1000\n"
+"PO-Revision-Date: 2020-10-06 08:45+0000\n"
 "Last-Translator: Charles Monzat <c.monzat@laposte.net>\n"
 "Language-Team: French (http://www.transifex.com/toofishes/archlinux-pacman/"
 "language/fr/)\n"
@@ -619,12 +619,12 @@ msgstr "la satisfaction des dépendances a échoué"
 #: lib/libalpm/error.c:137
 #, c-format
 msgid "conflicting dependencies"
-msgstr "conflit de dépendances"
+msgstr "conflit de dépendances "
 
 #: lib/libalpm/error.c:139
 #, c-format
 msgid "conflicting files"
-msgstr "conflit de fichiers"
+msgstr "conflit de fichiers "
 
 #: lib/libalpm/error.c:142
 #, c-format

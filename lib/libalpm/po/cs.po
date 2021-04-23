@@ -9,6 +9,7 @@
 # IAmNotImportant, 2017
 # Jaroslav Lichtblau <jlichtblau@seznam.cz>, 2014-2015
 # Jaroslav Lichtblau <jlichtblau@seznam.cz>, 2014
+# Lukáš Kucharczyk <lukas@kucharczyk.xyz>, 2020
 # mmm <markotahal@gmail.com>, 2013
 # mmm <markotahal@gmail.com>, 2011
 # IAmNotImportant, 2017
@@ -18,9 +19,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Arch Linux Pacman package manager\n"
 "Report-Msgid-Bugs-To: http://bugs.archlinux.org/index.php?project=3\n"
-"POT-Creation-Date: 2020-06-19 09:48+1000\n"
-"PO-Revision-Date: 2019-10-07 08:12+0000\n"
-"Last-Translator: Allan McRae <allan@archlinux.org>\n"
+"POT-Creation-Date: 2021-04-23 10:22+1000\n"
+"PO-Revision-Date: 2020-06-26 07:36+0000\n"
+"Last-Translator: Lukáš Kucharczyk <lukas@kucharczyk.xyz>\n"
 "Language-Team: Czech (http://www.transifex.com/toofishes/archlinux-pacman/"
 "language/cs/)\n"
 "Language: cs\n"
@@ -649,7 +650,7 @@ msgstr "chyba volání externího programu pro stahování souborů"
 #: lib/libalpm/error.c:159
 #, c-format
 msgid "compiled without signature support"
-msgstr ""
+msgstr "zkompilováno bez podpory podepisování"
 
 #: lib/libalpm/error.c:162
 #, c-format
@@ -806,12 +807,12 @@ msgstr "Chyba GPGME: %s\n"
 #: lib/libalpm/signing.c:284
 #, c-format
 msgid "looking up key %s using WKD\n"
-msgstr ""
+msgstr "vyhledávání klíče %s pomocí WKD\n"
 
 #: lib/libalpm/signing.c:293
 #, c-format
 msgid "gpg error: %s\n"
-msgstr ""
+msgstr "chyba gpg: %s\n"
 
 #: lib/libalpm/signing.c:441 lib/libalpm/signing.c:515
 #, c-format
@@ -821,7 +822,7 @@ msgstr "do klíčenky nelze zapisovat\n"
 #: lib/libalpm/signing.c:539
 #, c-format
 msgid "key \"%s\" on keyserver\n"
-msgstr ""
+msgstr "klíč \"%s\" na serveru\n"
 
 #: lib/libalpm/signing.c:544
 #, c-format
@@ -933,7 +934,7 @@ msgstr "selhalo získání některých souborů\n"
 #: lib/libalpm/sync.c:1054
 #, c-format
 msgid "failed to read file %s: %s\n"
-msgstr ""
+msgstr "načtení souboru %s se nezdařilo: %s\n"
 
 #: lib/libalpm/sync.c:1241
 #, c-format

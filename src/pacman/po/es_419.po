@@ -5,7 +5,7 @@
 # Translators:
 # Allan McRae <allan@archlinux.org>, 2014
 # Angel Velasquez <angvp@archlinux.org>, 2011
-# ice, 2016
+# ice, 2016,2020
 # Jennifer o Jenni <jcmm986@gmail.com>, 2012
 # Jennifer o Jenni <jcmm986@gmail.com>, 2012
 # Juan Antonio Cánovas Pérez <traumness@gmail.com>, 2011
@@ -24,9 +24,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Arch Linux Pacman package manager\n"
 "Report-Msgid-Bugs-To: http://bugs.archlinux.org/index.php?project=3\n"
-"POT-Creation-Date: 2020-06-19 09:48+1000\n"
-"PO-Revision-Date: 2019-10-13 23:47+0000\n"
-"Last-Translator: Allan McRae <allan@archlinux.org>\n"
+"POT-Creation-Date: 2021-04-23 10:22+1000\n"
+"PO-Revision-Date: 2020-10-26 05:33+0000\n"
+"Last-Translator: ice\n"
 "Language-Team: Spanish (Latin America) (http://www.transifex.com/toofishes/"
 "archlinux-pacman/language/es_419/)\n"
 "Language: es_419\n"
@@ -199,12 +199,12 @@ msgstr ""
 #: src/pacman/callback.c:461
 #, c-format
 msgid "Import PGP key %s?"
-msgstr ""
+msgstr "Importar llave PGP %s?"
 
 #: src/pacman/callback.c:464
 #, c-format
 msgid "Import PGP key %s, \"%s\"?"
-msgstr ""
+msgstr "Importar llave PGP %s, \"%s\"?"
 
 #: src/pacman/callback.c:523
 #, c-format
@@ -525,17 +525,17 @@ msgstr ""
 #: src/pacman/database.c:295
 #, c-format
 msgid "No database errors have been found!\n"
-msgstr ""
+msgstr "No se encontraron errores en la base de datos!\n"
 
 #: src/pacman/files.c:55
 #, c-format
 msgid "%s is owned by %s%s/%s%s %s%s%s\n"
-msgstr ""
+msgstr "%ses propiedad de %s%s/%s%s%s%s%s\n"
 
 #: src/pacman/files.c:222
 #, c-format
 msgid "invalid package: '%s'\n"
-msgstr ""
+msgstr "paquete inválido: '%s'\n"
 
 #: src/pacman/files.c:254 src/pacman/query.c:484 src/pacman/sync.c:427
 #, c-format
@@ -1033,7 +1033,7 @@ msgstr ""
 #: src/pacman/pacman.c:174
 #, c-format
 msgid "  -q, --quiet          suppress output of success messages\n"
-msgstr ""
+msgstr "-q, --quiet    suprimir la salida del mensaje correcto\n"
 
 #: src/pacman/pacman.c:181
 #, c-format
@@ -1297,12 +1297,12 @@ msgstr "no se puede realizar esta operación, a menos que sea administrador.\n"
 #: src/pacman/pacman.c:1136
 #, c-format
 msgid "chroot to '%s' failed: (%s)\n"
-msgstr ""
+msgstr "chroot a '%s' falló:(%s)\n"
 
 #: src/pacman/pacman.c:1170
 #, c-format
 msgid "failed to read arguments from stdin: (%s)\n"
-msgstr ""
+msgstr "no pudo leer argumentos de stdin: (1%s)\n"
 
 #: src/pacman/pacman.c:1175
 #, c-format

@@ -3,9 +3,9 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
-# Joop Kiefte <ikojba@gmail.com>, 2014
-# Joop Kiefte <ikojba@gmail.com>, 2014
-# Joop Kiefte <ikojba@gmail.com>, 2014
+# LaPingvino <ikojba@gmail.com>, 2014
+# LaPingvino <ikojba@gmail.com>, 2014
+# LaPingvino <ikojba@gmail.com>, 2014
 # Kinsey Favre <kinseytamsin@tutanota.com>, 2020
 # Marcus Hatt <marcushatt@marcusntx.fastmail.net>, 2015
 # Michael Moroni <michaelmoroni@disroot.org>, 2013
@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Arch Linux Pacman package manager\n"
 "Report-Msgid-Bugs-To: http://bugs.archlinux.org/index.php?project=3\n"
-"POT-Creation-Date: 2020-06-19 09:48+1000\n"
+"POT-Creation-Date: 2021-04-23 10:22+1000\n"
 "PO-Revision-Date: 2020-02-10 19:50+0000\n"
 "Last-Translator: Kinsey Favre <kinseytamsin@tutanota.com>\n"
 "Language-Team: Esperanto (http://www.transifex.com/toofishes/archlinux-"

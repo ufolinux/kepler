@@ -4,20 +4,20 @@
 #
 # Translators:
 # 0x9fff00 ​, 2019
-# 0x9fff00 ​, 2019-2020
+# 0x9fff00, 2019-2020
 # Daniel Sandman <revoltism@gmail.com>, 2013,2015
 # Johannes Löthberg <johannes@kyriasis.com>, 2015
 # Kim Svensson <ks6g10@soton.ac.uk>, 2012
-# Ludvig Holtze <ludvig.holtze@protonmail.com>, 2018
-# Ludvig Holtze <ludvig.holtze@protonmail.com>, 2018
+# 5295d3138ea8e00b2d2de31bd11919f3_81fe320 <1c0cea16b463ff899b2572870c868ca5_659576>, 2018
+# 5295d3138ea8e00b2d2de31bd11919f3_81fe320 <1c0cea16b463ff899b2572870c868ca5_659576>, 2018
 # Luna Jernberg <bittin@cafe8bitar.se>, 2020
 msgid ""
 msgstr ""
 "Project-Id-Version: Arch Linux Pacman package manager\n"
 "Report-Msgid-Bugs-To: http://bugs.archlinux.org/index.php?project=3\n"
-"POT-Creation-Date: 2020-06-19 09:48+1000\n"
-"PO-Revision-Date: 2020-05-16 15:02+0000\n"
-"Last-Translator: 0x9fff00 ​\n"
+"POT-Creation-Date: 2021-04-23 10:22+1000\n"
+"PO-Revision-Date: 2020-10-09 08:17+0000\n"
+"Last-Translator: Luna Jernberg <bittin@cafe8bitar.se>\n"
 "Language-Team: Swedish (http://www.transifex.com/toofishes/archlinux-pacman/"
 "language/sv/)\n"
 "Language: sv\n"
@@ -357,7 +357,7 @@ msgstr "--nosign Skapa inte en signatur för paketet"
 
 #: scripts/makepkg.sh.in:985
 msgid "  --packagelist    Only list package filepaths that would be produced"
-msgstr ""
+msgstr "--packagelist Lista endast paketfilpaths som kommer bli producerade"
 
 #: scripts/makepkg.sh.in:986
 msgid "  --printsrcinfo   Print the generated SRCINFO and exit"
@@ -424,6 +424,8 @@ msgid ""
 "This is free software; see the source for copying conditions.\\nThere is NO "
 "WARRANTY, to the extent permitted by law.\\n"
 msgstr ""
+"Detta är fri mjukvara; Se källkoden för under vilka förhållanden kopiering "
+"kan göras.\\nDet finns INGEN GARANTI, i den utsträckning lagen tillåter.\\n"
 
 #: scripts/makepkg.sh.in:1110 scripts/repo-add.sh.in:607
 msgid "%s signal caught. Exiting..."
@@ -519,100 +521,6 @@ msgstr "Paketkatalogen är redo."
 #: scripts/makepkg.sh.in:1470
 msgid "Finished making: %s"
 msgstr "Kompilering klar: %s"
-
-#: scripts/makepkg-template.pl.in:55
-#, perl-format
-msgid "can't create '%s': %s"
-msgstr "kan inte skapa '%s': %s"
-
-#: scripts/makepkg-template.pl.in:73
-msgid "invalid key/value pair\n"
-msgstr "ogiltigt nyckel/värde par\n"
-
-#: scripts/makepkg-template.pl.in:82
-msgid "invalid template line: can't find template name\n"
-msgstr "ogiltig mallrad: kan inte hitta mallnamn\n"
-
-#: scripts/makepkg-template.pl.in:87
-#, perl-format
-msgid "invalid chars used in name '%s'. allowed: [:alnum:]+_.@-\n"
-msgstr "ogiltiga tecken använt i namnet '%s'. tillåtna är: [:alnum:]+_.@-\n"
-
-#: scripts/makepkg-template.pl.in:114
-#, perl-format
-msgid "Couldn't detect version for template '%s'\n"
-msgstr "Kunde inte upptäcka version för mall '%s'\n"
-
-#: scripts/makepkg-template.pl.in:125
-#, perl-format
-msgid "Failed to find template file matching '%s'\n"
-msgstr "Kunde inte hitta mallfil som matchar '%s'\n"
-
-#: scripts/makepkg-template.pl.in:136
-#, perl-format
-msgid "failed to open '%s': %s\n"
-msgstr "kunde inte öppna '%s': %s\n"
-
-#: scripts/makepkg-template.pl.in:153
-#, perl-format
-msgid "Unknown template marker '%s'\n"
-msgstr "Okänd mallmarkör '%s'\n"
-
-#: scripts/makepkg-template.pl.in:175
-msgid "makepkg-template [options]\n"
-msgstr "makepkg-template [alternativ]\n"
-
-#: scripts/makepkg-template.pl.in:177
-msgid "Options:\n"
-msgstr "Alternativ:\n"
-
-#: scripts/makepkg-template.pl.in:178
-#, perl-format
-msgid "  --input, -p <file>    Build script to read (default: %s)\n"
-msgstr "--inout, -p <fil> Byggskript att läsa (standard: %s)\n"
-
-#: scripts/makepkg-template.pl.in:179
-msgid "  --output, -o <file>   file to output to (default: input file)\n"
-msgstr "--output, -o <fil> fil att sända utdata till (standard: indatafil)\n"
-
-#: scripts/makepkg-template.pl.in:180
-msgid "  --newest, -n          update templates to newest version\n"
-msgstr "--newest, -n uppdatera mallar till nyaste version\n"
-
-#: scripts/makepkg-template.pl.in:181
-msgid ""
-"                        (default: use version specified in the template "
-"markers)\n"
-msgstr "(standard: använd version specificerad i mallmarkörerna)\n"
-
-#: scripts/makepkg-template.pl.in:182
-msgid "  --template-dir <dir>  directory to search for templates\n"
-msgstr "--template-dir <katalog> katalog för att söka efter mallar\n"
-
-#: scripts/makepkg-template.pl.in:183
-#, perl-format
-msgid "                        (default: %s)\n"
-msgstr "(standard: %s)\n"
-
-#: scripts/makepkg-template.pl.in:184
-msgid "  --help, -h            This help message\n"
-msgstr "--help, -h Detta hjälpmeddelande\n"
-
-#: scripts/makepkg-template.pl.in:185
-msgid "  --version             Version information\n"
-msgstr "--version Versionsinformation\n"
-
-#: scripts/makepkg-template.pl.in:194
-#, fuzzy
-msgid ""
-"Copyright (c) 2013-2020 Pacman Development Team <pacman-dev@archlinux.org>.\n"
-"This is free software; see the source for copying conditions.\n"
-"There is NO WARRANTY, to the extent permitted by law.\n"
-msgstr ""
-"Copyright (c) 2013-2018 Pacman Development Team <pacman-dev@archlinux.org>.\n"
-"Detta är fri mjukvara; Se källkoden för under vilka förhållanden kopiering "
-"kan göras.\n"
-"Det finns INGEN GARANTI, i den utsträckning lagen tillåter.\n"
 
 #: scripts/pacman-db-upgrade.sh.in:40
 msgid "Upgrade the local pacman database to a newer format"
@@ -903,7 +811,7 @@ msgstr "%s kunde inte signeras lokalt"
 
 #: scripts/pacman-key.sh.in:482
 msgid "Remote key not fetched correctly from WKD or keyserver."
-msgstr ""
+msgstr "Fjärrnyckel hämtades inte korrekt från WKD eller nyckelserver."
 
 #: scripts/pacman-key.sh.in:487
 msgid "Remote key not fetched correctly from keyserver."
@@ -959,7 +867,7 @@ msgstr "Inga mål har angetts"
 
 #: scripts/repo-add.sh.in:58
 msgid "Usage: repo-add [options] <path-to-db> <package> ...\\n"
-msgstr ""
+msgstr "Användning: repo-add [alternativ] <path-to-db> <package>  ...\\n"
 
 #: scripts/repo-add.sh.in:60
 msgid ""
@@ -991,10 +899,12 @@ msgid ""
 "  -p, --prevent-downgrade  do not add package to database if a newer version "
 "is already present\\n"
 msgstr ""
+"-p, --prevent-downgrade lägg inte till paket i databas om nyare version "
+"redan finns\\n"
 
 #: scripts/repo-add.sh.in:69
 msgid "Usage: repo-remove [options] <path-to-db> <packagename> ...\\n"
-msgstr ""
+msgstr "Användning: repo-remove [alternativ] <path-to-db> <packagename> ...\\n"
 
 #: scripts/repo-add.sh.in:71
 msgid ""
@@ -1315,6 +1225,10 @@ msgstr "SIGNATUR EJ FUNNEN"
 msgid "SOURCE FILE NOT FOUND"
 msgstr "KÄLLFIL EJ FUNNEN"
 
+#: scripts/libmakepkg/integrity/verify_signature.sh.in:203
+msgid "_"
+msgstr ""
+
 #: scripts/libmakepkg/lint_config/paths.sh.in:39
 #: scripts/libmakepkg/lint_pkgbuild/arch.sh.in:47
 #: scripts/libmakepkg/lint_pkgbuild/pkgname.sh.in:53
@@ -1337,11 +1251,11 @@ msgstr "%s ska inte vara ett fält"
 
 #: scripts/libmakepkg/lint_config/variable.sh.in:66
 msgid "PACKAGER should have the format 'Example Name <email@address.invalid>'"
-msgstr ""
+msgstr "PACKAGER ska ha format 'Exempel Namn <email@address.invalid>'"
 
 #: scripts/libmakepkg/lint_package.sh.in:41
 msgid "Checking for packaging issues..."
-msgstr ""
+msgstr "Söker efter paket problem..."
 
 #: scripts/libmakepkg/lint_package/build_references.sh.in:36
 msgid "Package contains reference to %s"
@@ -1349,11 +1263,11 @@ msgstr "Paketet innehåller referens till %s"
 
 #: scripts/libmakepkg/lint_package/dotfiles.sh.in:34
 msgid "Dotfile found in package root '%s'"
-msgstr ""
+msgstr "Dotfil hittades i paket root '%s'"
 
 #: scripts/libmakepkg/lint_package/file_names.sh.in:36
 msgid "Package contains paths with newlines"
-msgstr ""
+msgstr "Paketet innehåller sökvägar med nya rader"
 
 #: scripts/libmakepkg/lint_package/missing_backup.sh.in:35
 msgid "%s entry file not in package : %s"
@@ -1382,7 +1296,7 @@ msgstr "%s fält innehåller okända alternativ '%s'"
 
 #: scripts/libmakepkg/lint_pkgbuild/package_function.sh.in:38
 msgid "Conflicting %s and %s functions in %s"
-msgstr ""
+msgstr "Motstridiga %s och %s funktioner i %s"
 
 #: scripts/libmakepkg/lint_pkgbuild/package_function.sh.in:41
 msgid "Missing %s function in %s"
@@ -1422,7 +1336,7 @@ msgstr "%s får endast innehålla ASCII-tecken."
 
 #: scripts/libmakepkg/lint_pkgbuild/pkgrel.sh.in:40
 msgid "%s must be of the form 'integer[.integer]', not %s."
-msgstr ""
+msgstr "%småste vara i form av ett 'heltal.[heltal]', inte %s."
 
 #: scripts/libmakepkg/lint_pkgbuild/pkgver.sh.in:41
 msgid ""
@@ -1538,7 +1452,7 @@ msgstr "Misslyckande vid uppdatering av %s %s repo"
 
 #: scripts/libmakepkg/source/git.sh.in:121
 msgid "Failure while checking out version %s, the git tag has been forged"
-msgstr ""
+msgstr "Fel vid utcheckning av version %s, git-taggen har förfalskats"
 
 #: scripts/libmakepkg/source/local.sh.in:39
 msgid "%s was not found in the build directory and is not a URL."
@@ -1623,8 +1537,85 @@ msgstr "Misslyckades med att skapa en katalog $%s (%s)."
 
 #: scripts/libmakepkg/util/util.sh.in:96
 msgid "You do not have write permission for the directory $%s (%s)."
-msgstr ""
+msgstr "Du har inte skrivrättigheter för mappen $%s (%s)."
 
 #: scripts/libmakepkg/util/util.sh.in:109
 msgid "Failed to source %s"
 msgstr "Misslyckades att källkoda %s"
+
+#, perl-format
+#~ msgid "can't create '%s': %s"
+#~ msgstr "kan inte skapa '%s': %s"
+
+#~ msgid "invalid key/value pair\n"
+#~ msgstr "ogiltigt nyckel/värde par\n"
+
+#~ msgid "invalid template line: can't find template name\n"
+#~ msgstr "ogiltig mallrad: kan inte hitta mallnamn\n"
+
+#, perl-format
+#~ msgid "invalid chars used in name '%s'. allowed: [:alnum:]+_.@-\n"
+#~ msgstr "ogiltiga tecken använt i namnet '%s'. tillåtna är: [:alnum:]+_.@-\n"
+
+#, perl-format
+#~ msgid "Couldn't detect version for template '%s'\n"
+#~ msgstr "Kunde inte upptäcka version för mall '%s'\n"
+
+#, perl-format
+#~ msgid "Failed to find template file matching '%s'\n"
+#~ msgstr "Kunde inte hitta mallfil som matchar '%s'\n"
+
+#, perl-format
+#~ msgid "failed to open '%s': %s\n"
+#~ msgstr "kunde inte öppna '%s': %s\n"
+
+#, perl-format
+#~ msgid "Unknown template marker '%s'\n"
+#~ msgstr "Okänd mallmarkör '%s'\n"
+
+#~ msgid "makepkg-template [options]\n"
+#~ msgstr "makepkg-template [alternativ]\n"
+
+#~ msgid "Options:\n"
+#~ msgstr "Alternativ:\n"
+
+#, perl-format
+#~ msgid "  --input, -p <file>    Build script to read (default: %s)\n"
+#~ msgstr "--inout, -p <fil> Byggskript att läsa (standard: %s)\n"
+
+#~ msgid "  --output, -o <file>   file to output to (default: input file)\n"
+#~ msgstr ""
+#~ "--output, -o <fil> fil att sända utdata till (standard: indatafil)\n"
+
+#~ msgid "  --newest, -n          update templates to newest version\n"
+#~ msgstr "--newest, -n uppdatera mallar till nyaste version\n"
+
+#~ msgid ""
+#~ "                        (default: use version specified in the template "
+#~ "markers)\n"
+#~ msgstr "(standard: använd version specificerad i mallmarkörerna)\n"
+
+#~ msgid "  --template-dir <dir>  directory to search for templates\n"
+#~ msgstr "--template-dir <katalog> katalog för att söka efter mallar\n"
+
+#, perl-format
+#~ msgid "                        (default: %s)\n"
+#~ msgstr "(standard: %s)\n"
+
+#~ msgid "  --help, -h            This help message\n"
+#~ msgstr "--help, -h Detta hjälpmeddelande\n"
+
+#~ msgid "  --version             Version information\n"
+#~ msgstr "--version Versionsinformation\n"
+
+#~ msgid ""
+#~ "Copyright (c) 2013-2018 Pacman Development Team <pacman-dev@archlinux."
+#~ "org>.\n"
+#~ "This is free software; see the source for copying conditions.\n"
+#~ "There is NO WARRANTY, to the extent permitted by law.\n"
+#~ msgstr ""
+#~ "Copyright (c) 2013-2018 Pacman Development Team <pacman-dev@archlinux."
+#~ "org>.\n"
+#~ "Detta är fri mjukvara; Se källkoden för under vilka förhållanden "
+#~ "kopiering kan göras.\n"
+#~ "Det finns INGEN GARANTI, i den utsträckning lagen tillåter.\n"

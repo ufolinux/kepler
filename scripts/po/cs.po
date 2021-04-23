@@ -8,6 +8,7 @@
 # IAmNotImportant, 2017
 # Jaroslav Lichtblau <jlichtblau@seznam.cz>, 2014-2016
 # Jaroslav Lichtblau <jlichtblau@seznam.cz>, 2014
+# Lukáš Kucharczyk <lukas@kucharczyk.xyz>, 2020
 # Marek Otahal <markotahalREMOVETHIS@gmail.com>, 2011
 # mmm <markotahal@gmail.com>, 2013
 # mmm <markotahal@gmail.com>, 2011
@@ -18,9 +19,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Arch Linux Pacman package manager\n"
 "Report-Msgid-Bugs-To: http://bugs.archlinux.org/index.php?project=3\n"
-"POT-Creation-Date: 2020-06-19 09:48+1000\n"
-"PO-Revision-Date: 2019-10-13 23:51+0000\n"
-"Last-Translator: Allan McRae <allan@archlinux.org>\n"
+"POT-Creation-Date: 2021-04-23 10:22+1000\n"
+"PO-Revision-Date: 2020-06-26 08:12+0000\n"
+"Last-Translator: Lukáš Kucharczyk <lukas@kucharczyk.xyz>\n"
 "Language-Team: Czech (http://www.transifex.com/toofishes/archlinux-pacman/"
 "language/cs/)\n"
 "Language: cs\n"
@@ -92,7 +93,7 @@ msgstr "Rušení..."
 
 #: scripts/makepkg.sh.in:240
 msgid "Pacman is currently in use, please wait..."
-msgstr ""
+msgstr "Pacman se používá jinde, čekejte prosím…"
 
 #: scripts/makepkg.sh.in:261
 msgid "'%s' returned a fatal error (%i): %s"
@@ -357,6 +358,7 @@ msgstr "  --nosign         Nepodepisovat balíček"
 #: scripts/makepkg.sh.in:985
 msgid "  --packagelist    Only list package filepaths that would be produced"
 msgstr ""
+"  --packagelist    Zobrazit pouze seznam balíčků, který by byl vytvořen"
 
 #: scripts/makepkg.sh.in:986
 msgid "  --printsrcinfo   Print the generated SRCINFO and exit"
@@ -420,6 +422,8 @@ msgid ""
 "This is free software; see the source for copying conditions.\\nThere is NO "
 "WARRANTY, to the extent permitted by law.\\n"
 msgstr ""
+"Toto je svobodný software; vizte zdrojový kód pro podmínky kopírování."
+"\\nNejsou poskytovány ŽÁDNÉ záruky, v rozsahu povoleném zákonem.\\n"
 
 #: scripts/makepkg.sh.in:1110 scripts/repo-add.sh.in:607
 msgid "%s signal caught. Exiting..."
@@ -512,102 +516,6 @@ msgstr "Adresář balíčků je připraven."
 #: scripts/makepkg.sh.in:1470
 msgid "Finished making: %s"
 msgstr "Dokončeno vytváření: %s"
-
-#: scripts/makepkg-template.pl.in:55
-#, perl-format
-msgid "can't create '%s': %s"
-msgstr "nelze vytvořit '%s': %s"
-
-#: scripts/makepkg-template.pl.in:73
-msgid "invalid key/value pair\n"
-msgstr "neplatný klíč/párová hodnota\n"
-
-#: scripts/makepkg-template.pl.in:82
-msgid "invalid template line: can't find template name\n"
-msgstr "neplatná řádka šablony: nelze nalézt jméno šablony\n"
-
-#: scripts/makepkg-template.pl.in:87
-#, perl-format
-msgid "invalid chars used in name '%s'. allowed: [:alnum:]+_.@-\n"
-msgstr "neplatné znanyk ve jméně '%s'. povolené: [:alnum:]+_.@-\n"
-
-#: scripts/makepkg-template.pl.in:114
-#, perl-format
-msgid "Couldn't detect version for template '%s'\n"
-msgstr "Nelze detekovat verzi pro šablonu '%s'\n"
-
-#: scripts/makepkg-template.pl.in:125
-#, perl-format
-msgid "Failed to find template file matching '%s'\n"
-msgstr "Selhalo vyhledání souboru šablony odpovídající '%s'\n"
-
-#: scripts/makepkg-template.pl.in:136
-#, perl-format
-msgid "failed to open '%s': %s\n"
-msgstr "selhalo otevření '%s': %s\n"
-
-#: scripts/makepkg-template.pl.in:153
-#, perl-format
-msgid "Unknown template marker '%s'\n"
-msgstr "Neznámý značkovač šablon '%s'\n"
-
-#: scripts/makepkg-template.pl.in:175
-msgid "makepkg-template [options]\n"
-msgstr "makepkg-template [volby]\n"
-
-#: scripts/makepkg-template.pl.in:177
-msgid "Options:\n"
-msgstr "Volby:\n"
-
-#: scripts/makepkg-template.pl.in:178
-#, perl-format
-msgid "  --input, -p <file>    Build script to read (default: %s)\n"
-msgstr "  --input, -p <file>    Sestavit skript pro čtení (výchozí: %s)\n"
-
-#: scripts/makepkg-template.pl.in:179
-msgid "  --output, -o <file>   file to output to (default: input file)\n"
-msgstr ""
-"  --output, -o <file>   soubor pro výstup na (výchozí: vstupní soubor)\n"
-
-#: scripts/makepkg-template.pl.in:180
-msgid "  --newest, -n          update templates to newest version\n"
-msgstr "  --newest, -n          aktualizovat šablony na nejnovější verzi\n"
-
-#: scripts/makepkg-template.pl.in:181
-msgid ""
-"                        (default: use version specified in the template "
-"markers)\n"
-msgstr ""
-"                        (výchozí: použít verzi uvedenou ve značkovači "
-"šablon)\n"
-
-#: scripts/makepkg-template.pl.in:182
-msgid "  --template-dir <dir>  directory to search for templates\n"
-msgstr "  --template-dir <dir>  adresář pro vyhledávání šablon\n"
-
-#: scripts/makepkg-template.pl.in:183
-#, perl-format
-msgid "                        (default: %s)\n"
-msgstr "                        (výchozí: %s)\n"
-
-#: scripts/makepkg-template.pl.in:184
-msgid "  --help, -h            This help message\n"
-msgstr "  --help, -h            Tato nápověda\n"
-
-#: scripts/makepkg-template.pl.in:185
-msgid "  --version             Version information\n"
-msgstr "  --version             Verze programu\n"
-
-#: scripts/makepkg-template.pl.in:194
-#, fuzzy
-msgid ""
-"Copyright (c) 2013-2020 Pacman Development Team <pacman-dev@archlinux.org>.\n"
-"This is free software; see the source for copying conditions.\n"
-"There is NO WARRANTY, to the extent permitted by law.\n"
-msgstr ""
-"Copyright (c) 2013-2018 Pacman Development Team <pacman-dev@archlinux.org>.\n"
-"Toto je svobodný software; vizte zdrojový kód pro podmínky kopírování.\n"
-"Nejsou poskytovány žádné záruky, v rozsahu povoleném zákonem.\n"
 
 #: scripts/pacman-db-upgrade.sh.in:40
 msgid "Upgrade the local pacman database to a newer format"
@@ -902,7 +810,7 @@ msgstr "%s se nepodařilo lokálně podepsat. "
 
 #: scripts/pacman-key.sh.in:482
 msgid "Remote key not fetched correctly from WKD or keyserver."
-msgstr ""
+msgstr "Vzdálený klíč nebyl správně načten z WKD nebo serveru s klíči. "
 
 #: scripts/pacman-key.sh.in:487
 msgid "Remote key not fetched correctly from keyserver."
@@ -958,7 +866,7 @@ msgstr "nejsou specifikovány žádné cíle "
 
 #: scripts/repo-add.sh.in:58
 msgid "Usage: repo-add [options] <path-to-db> <package> ...\\n"
-msgstr ""
+msgstr "Použití: repo-add [parametry] <path-to-db> <package> ...\\n"
 
 #: scripts/repo-add.sh.in:60
 msgid ""
@@ -990,10 +898,12 @@ msgid ""
 "  -p, --prevent-downgrade  do not add package to database if a newer version "
 "is already present\\n"
 msgstr ""
+"  -p, --prevent-downgrade  nepřidávat balíček do databáze, pokud již "
+"existuje novější verze\\n"
 
 #: scripts/repo-add.sh.in:69
 msgid "Usage: repo-remove [options] <path-to-db> <packagename> ...\\n"
-msgstr ""
+msgstr "Použití: repo-remove [parametry] <path-to-db> <packagename> ...\\n"
 
 #: scripts/repo-add.sh.in:71
 msgid ""
@@ -1090,7 +1000,7 @@ msgstr "Záznam pro '%s' již existuje"
 
 #: scripts/repo-add.sh.in:258
 msgid "A newer version for '%s' is already present in database"
-msgstr ""
+msgstr "Novější verze balíčku '%s' již v databázi existuje"
 
 #: scripts/repo-add.sh.in:278
 msgid "Invalid package signature file '%s'."
@@ -1130,7 +1040,7 @@ msgstr "Soubor repozitáře '%s' není vhodná databáze pacman."
 
 #: scripts/repo-add.sh.in:427
 msgid "Extracting %s to a temporary location..."
-msgstr ""
+msgstr "Rozbalování balíčku %s na dočasné místo…"
 
 #: scripts/repo-add.sh.in:435
 msgid "Repository file '%s' was not found."
@@ -1206,7 +1116,7 @@ msgstr "Vytvořen podpisový soubor %s."
 
 #: scripts/libmakepkg/integrity/generate_signature.sh.in:43
 msgid "Failed to sign package file %s."
-msgstr ""
+msgstr "Podepsání souboru balíčku %s se nezdařilo."
 
 #: scripts/libmakepkg/integrity/generate_signature.sh.in:58
 msgid "Signing package(s)..."
@@ -1311,6 +1221,10 @@ msgstr "PODPIS NENALEZEN"
 msgid "SOURCE FILE NOT FOUND"
 msgstr "ZDROJOVÝ SOUBOR NENALEZEN"
 
+#: scripts/libmakepkg/integrity/verify_signature.sh.in:203
+msgid "_"
+msgstr ""
+
 #: scripts/libmakepkg/lint_config/paths.sh.in:39
 #: scripts/libmakepkg/lint_pkgbuild/arch.sh.in:47
 #: scripts/libmakepkg/lint_pkgbuild/pkgname.sh.in:53
@@ -1334,6 +1248,7 @@ msgstr "%s nemá být proměnná"
 #: scripts/libmakepkg/lint_config/variable.sh.in:66
 msgid "PACKAGER should have the format 'Example Name <email@address.invalid>'"
 msgstr ""
+"Parametr PACKAGER by měl být ve formátu 'Jméno Příjmení <emailova@adresa.cz>'"
 
 #: scripts/libmakepkg/lint_package.sh.in:41
 msgid "Checking for packaging issues..."
@@ -1357,7 +1272,7 @@ msgstr "%s soubor není v balíčku: %s"
 
 #: scripts/libmakepkg/lint_pkgbuild/arch.sh.in:40
 msgid "Can not use '%s' architecture with other architectures"
-msgstr ""
+msgstr "Architekturu '%s' není možné použít s jinými architekturami"
 
 #: scripts/libmakepkg/lint_pkgbuild/arch.sh.in:54
 #: scripts/libmakepkg/lint_pkgbuild/arch.sh.in:62
@@ -1378,7 +1293,7 @@ msgstr "seznam %s obsahuje neznámou volbu '%s'"
 
 #: scripts/libmakepkg/lint_pkgbuild/package_function.sh.in:38
 msgid "Conflicting %s and %s functions in %s"
-msgstr ""
+msgstr "Konfliktní funkce %s a %s v %s"
 
 #: scripts/libmakepkg/lint_pkgbuild/package_function.sh.in:41
 msgid "Missing %s function in %s"
@@ -1386,7 +1301,7 @@ msgstr "Chybí %s funkce v %s"
 
 #: scripts/libmakepkg/lint_pkgbuild/package_function.sh.in:46
 msgid "Extra %s function for split package '%s'"
-msgstr ""
+msgstr "Nadbytečná funkce %s pro rozdělený balíček '%s'"
 
 #: scripts/libmakepkg/lint_pkgbuild/package_function.sh.in:51
 msgid "Missing %s function for split package '%s'"
@@ -1414,11 +1329,11 @@ msgstr "%s nemůže začínat tečkou. "
 #: scripts/libmakepkg/lint_pkgbuild/pkgname.sh.in:49
 #: scripts/libmakepkg/lint_pkgbuild/pkgver.sh.in:46
 msgid "%s may only contain ascii characters."
-msgstr ""
+msgstr "%s může obsahovat pouze ASCII znaky."
 
 #: scripts/libmakepkg/lint_pkgbuild/pkgrel.sh.in:40
 msgid "%s must be of the form 'integer[.integer]', not %s."
-msgstr ""
+msgstr "%s musí být ve formátu 'celé číslo[.celé číslo]', nikoliv %s."
 
 #: scripts/libmakepkg/lint_pkgbuild/pkgver.sh.in:41
 msgid ""
@@ -1625,3 +1540,81 @@ msgstr "Nemáte práva zápisu u adresáře %s (%s)."
 #: scripts/libmakepkg/util/util.sh.in:109
 msgid "Failed to source %s"
 msgstr "Nelze najít %s"
+
+#, perl-format
+#~ msgid "can't create '%s': %s"
+#~ msgstr "nelze vytvořit '%s': %s"
+
+#~ msgid "invalid key/value pair\n"
+#~ msgstr "neplatný klíč/párová hodnota\n"
+
+#~ msgid "invalid template line: can't find template name\n"
+#~ msgstr "neplatná řádka šablony: nelze nalézt jméno šablony\n"
+
+#, perl-format
+#~ msgid "invalid chars used in name '%s'. allowed: [:alnum:]+_.@-\n"
+#~ msgstr "neplatné znanyk ve jméně '%s'. povolené: [:alnum:]+_.@-\n"
+
+#, perl-format
+#~ msgid "Couldn't detect version for template '%s'\n"
+#~ msgstr "Nelze detekovat verzi pro šablonu '%s'\n"
+
+#, perl-format
+#~ msgid "Failed to find template file matching '%s'\n"
+#~ msgstr "Selhalo vyhledání souboru šablony odpovídající '%s'\n"
+
+#, perl-format
+#~ msgid "failed to open '%s': %s\n"
+#~ msgstr "selhalo otevření '%s': %s\n"
+
+#, perl-format
+#~ msgid "Unknown template marker '%s'\n"
+#~ msgstr "Neznámý značkovač šablon '%s'\n"
+
+#~ msgid "makepkg-template [options]\n"
+#~ msgstr "makepkg-template [volby]\n"
+
+#~ msgid "Options:\n"
+#~ msgstr "Volby:\n"
+
+#, perl-format
+#~ msgid "  --input, -p <file>    Build script to read (default: %s)\n"
+#~ msgstr "  --input, -p <file>    Sestavit skript pro čtení (výchozí: %s)\n"
+
+#~ msgid "  --output, -o <file>   file to output to (default: input file)\n"
+#~ msgstr ""
+#~ "  --output, -o <file>   soubor pro výstup na (výchozí: vstupní soubor)\n"
+
+#~ msgid "  --newest, -n          update templates to newest version\n"
+#~ msgstr "  --newest, -n          aktualizovat šablony na nejnovější verzi\n"
+
+#~ msgid ""
+#~ "                        (default: use version specified in the template "
+#~ "markers)\n"
+#~ msgstr ""
+#~ "                        (výchozí: použít verzi uvedenou ve značkovači "
+#~ "šablon)\n"
+
+#~ msgid "  --template-dir <dir>  directory to search for templates\n"
+#~ msgstr "  --template-dir <dir>  adresář pro vyhledávání šablon\n"
+
+#, perl-format
+#~ msgid "                        (default: %s)\n"
+#~ msgstr "                        (výchozí: %s)\n"
+
+#~ msgid "  --help, -h            This help message\n"
+#~ msgstr "  --help, -h            Tato nápověda\n"
+
+#~ msgid "  --version             Version information\n"
+#~ msgstr "  --version             Verze programu\n"
+
+#~ msgid ""
+#~ "Copyright (c) 2013-2018 Pacman Development Team <pacman-dev@archlinux."
+#~ "org>.\n"
+#~ "This is free software; see the source for copying conditions.\n"
+#~ "There is NO WARRANTY, to the extent permitted by law.\n"
+#~ msgstr ""
+#~ "Copyright (c) 2013-2018 Pacman Development Team <pacman-dev@archlinux."
+#~ "org>.\n"
+#~ "Toto je svobodný software; vizte zdrojový kód pro podmínky kopírování.\n"
+#~ "Nejsou poskytovány žádné záruky, v rozsahu povoleném zákonem.\n"

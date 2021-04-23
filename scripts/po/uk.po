@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Arch Linux Pacman package manager\n"
 "Report-Msgid-Bugs-To: http://bugs.archlinux.org/index.php?project=3\n"
-"POT-Creation-Date: 2020-06-19 09:48+1000\n"
+"POT-Creation-Date: 2021-04-23 10:22+1000\n"
 "PO-Revision-Date: 2019-10-13 23:51+0000\n"
 "Last-Translator: Allan McRae <allan@archlinux.org>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/toofishes/archlinux-"
@@ -516,104 +516,6 @@ msgstr "Тека пакунку готова."
 #: scripts/makepkg.sh.in:1470
 msgid "Finished making: %s"
 msgstr "Закінчено створення: %s"
-
-#: scripts/makepkg-template.pl.in:55
-#, perl-format
-msgid "can't create '%s': %s"
-msgstr "неможливо створити '%s': %s"
-
-#: scripts/makepkg-template.pl.in:73
-msgid "invalid key/value pair\n"
-msgstr "неправильна пара ключ/значення\n"
-
-#: scripts/makepkg-template.pl.in:82
-msgid "invalid template line: can't find template name\n"
-msgstr "неправильне лінійка шаблону: неможливо знайти назву шаблону\n"
-
-#: scripts/makepkg-template.pl.in:87
-#, perl-format
-msgid "invalid chars used in name '%s'. allowed: [:alnum:]+_.@-\n"
-msgstr ""
-"в назві використано неправильні символи '%s'. дозволено: [:alnum:]+_.@-\n"
-
-#: scripts/makepkg-template.pl.in:114
-#, perl-format
-msgid "Couldn't detect version for template '%s'\n"
-msgstr "Неможливо визначити версію для шаблону '%s'\n"
-
-#: scripts/makepkg-template.pl.in:125
-#, perl-format
-msgid "Failed to find template file matching '%s'\n"
-msgstr "Не вдалося знайти файл шаблону, що збігається з '%s'\n"
-
-#: scripts/makepkg-template.pl.in:136
-#, perl-format
-msgid "failed to open '%s': %s\n"
-msgstr "помилка відкривання '%s': %s\n"
-
-#: scripts/makepkg-template.pl.in:153
-#, perl-format
-msgid "Unknown template marker '%s'\n"
-msgstr "Невідомий маркер шаблону '%s'\n"
-
-#: scripts/makepkg-template.pl.in:175
-msgid "makepkg-template [options]\n"
-msgstr "makepkg-template [параметри]\n"
-
-#: scripts/makepkg-template.pl.in:177
-msgid "Options:\n"
-msgstr "Параметри:\n"
-
-#: scripts/makepkg-template.pl.in:178
-#, perl-format
-msgid "  --input, -p <file>    Build script to read (default: %s)\n"
-msgstr "  --input, -p <file>    Скрипт збирання для читання (типово: %s)\n"
-
-#: scripts/makepkg-template.pl.in:179
-msgid "  --output, -o <file>   file to output to (default: input file)\n"
-msgstr "  --output, -o <файл>   файл для виводу (типово: вхідний файл)\n"
-
-#: scripts/makepkg-template.pl.in:180
-msgid "  --newest, -n          update templates to newest version\n"
-msgstr "  --newest, -n          оновлення шаблонів до новіших версій\n"
-
-#: scripts/makepkg-template.pl.in:181
-msgid ""
-"                        (default: use version specified in the template "
-"markers)\n"
-msgstr ""
-"                        (типово: використання версії, вказаній в маркерах "
-"шаблону)\n"
-
-#: scripts/makepkg-template.pl.in:182
-msgid "  --template-dir <dir>  directory to search for templates\n"
-msgstr "  --template-dir <тека>  тека для пошуку шаблонів\n"
-
-#: scripts/makepkg-template.pl.in:183
-#, perl-format
-msgid "                        (default: %s)\n"
-msgstr "                        (типово: %s)\n"
-
-#: scripts/makepkg-template.pl.in:184
-msgid "  --help, -h            This help message\n"
-msgstr "  --help, -h            Це повідомлення-допомога\n"
-
-#: scripts/makepkg-template.pl.in:185
-msgid "  --version             Version information\n"
-msgstr "  -V, --version             Версія програми\n"
-
-#: scripts/makepkg-template.pl.in:194
-#, fuzzy
-msgid ""
-"Copyright (c) 2013-2020 Pacman Development Team <pacman-dev@archlinux.org>.\n"
-"This is free software; see the source for copying conditions.\n"
-"There is NO WARRANTY, to the extent permitted by law.\n"
-msgstr ""
-"Всі права застережено (c) 2013-2018 Групою Розробників Pacman <pacman-"
-"dev@archlinux.org>.\n"
-"Це є вільне програмне забезпечення; перегляньте джерельний код щодо умов "
-"копіювання.\n"
-"Не існує ЖОДНИХ ГАРАНТІЙ в межах, дозволених законом.\n"
 
 #: scripts/pacman-db-upgrade.sh.in:40
 msgid "Upgrade the local pacman database to a newer format"
@@ -1324,6 +1226,10 @@ msgstr "ПІДПИС НЕ ЗНАЙДЕНО"
 msgid "SOURCE FILE NOT FOUND"
 msgstr "ДЖЕРЕЛЬНИЙ ФАЙЛ НЕ ЗНАЙДЕНО"
 
+#: scripts/libmakepkg/integrity/verify_signature.sh.in:203
+msgid "_"
+msgstr ""
+
 #: scripts/libmakepkg/lint_config/paths.sh.in:39
 #: scripts/libmakepkg/lint_pkgbuild/arch.sh.in:47
 #: scripts/libmakepkg/lint_pkgbuild/pkgname.sh.in:53
@@ -1636,3 +1542,82 @@ msgstr "У Вас немає дозволу на запис до теки $%s (%
 #: scripts/libmakepkg/util/util.sh.in:109
 msgid "Failed to source %s"
 msgstr "Не вдалося розпакувати %s"
+
+#, perl-format
+#~ msgid "can't create '%s': %s"
+#~ msgstr "неможливо створити '%s': %s"
+
+#~ msgid "invalid key/value pair\n"
+#~ msgstr "неправильна пара ключ/значення\n"
+
+#~ msgid "invalid template line: can't find template name\n"
+#~ msgstr "неправильне лінійка шаблону: неможливо знайти назву шаблону\n"
+
+#, perl-format
+#~ msgid "invalid chars used in name '%s'. allowed: [:alnum:]+_.@-\n"
+#~ msgstr ""
+#~ "в назві використано неправильні символи '%s'. дозволено: [:alnum:]+_.@-\n"
+
+#, perl-format
+#~ msgid "Couldn't detect version for template '%s'\n"
+#~ msgstr "Неможливо визначити версію для шаблону '%s'\n"
+
+#, perl-format
+#~ msgid "Failed to find template file matching '%s'\n"
+#~ msgstr "Не вдалося знайти файл шаблону, що збігається з '%s'\n"
+
+#, perl-format
+#~ msgid "failed to open '%s': %s\n"
+#~ msgstr "помилка відкривання '%s': %s\n"
+
+#, perl-format
+#~ msgid "Unknown template marker '%s'\n"
+#~ msgstr "Невідомий маркер шаблону '%s'\n"
+
+#~ msgid "makepkg-template [options]\n"
+#~ msgstr "makepkg-template [параметри]\n"
+
+#~ msgid "Options:\n"
+#~ msgstr "Параметри:\n"
+
+#, perl-format
+#~ msgid "  --input, -p <file>    Build script to read (default: %s)\n"
+#~ msgstr "  --input, -p <file>    Скрипт збирання для читання (типово: %s)\n"
+
+#~ msgid "  --output, -o <file>   file to output to (default: input file)\n"
+#~ msgstr "  --output, -o <файл>   файл для виводу (типово: вхідний файл)\n"
+
+#~ msgid "  --newest, -n          update templates to newest version\n"
+#~ msgstr "  --newest, -n          оновлення шаблонів до новіших версій\n"
+
+#~ msgid ""
+#~ "                        (default: use version specified in the template "
+#~ "markers)\n"
+#~ msgstr ""
+#~ "                        (типово: використання версії, вказаній в маркерах "
+#~ "шаблону)\n"
+
+#~ msgid "  --template-dir <dir>  directory to search for templates\n"
+#~ msgstr "  --template-dir <тека>  тека для пошуку шаблонів\n"
+
+#, perl-format
+#~ msgid "                        (default: %s)\n"
+#~ msgstr "                        (типово: %s)\n"
+
+#~ msgid "  --help, -h            This help message\n"
+#~ msgstr "  --help, -h            Це повідомлення-допомога\n"
+
+#~ msgid "  --version             Version information\n"
+#~ msgstr "  -V, --version             Версія програми\n"
+
+#~ msgid ""
+#~ "Copyright (c) 2013-2018 Pacman Development Team <pacman-dev@archlinux."
+#~ "org>.\n"
+#~ "This is free software; see the source for copying conditions.\n"
+#~ "There is NO WARRANTY, to the extent permitted by law.\n"
+#~ msgstr ""
+#~ "Всі права застережено (c) 2013-2018 Групою Розробників Pacman <pacman-"
+#~ "dev@archlinux.org>.\n"
+#~ "Це є вільне програмне забезпечення; перегляньте джерельний код щодо умов "
+#~ "копіювання.\n"
+#~ "Не існує ЖОДНИХ ГАРАНТІЙ в межах, дозволених законом.\n"

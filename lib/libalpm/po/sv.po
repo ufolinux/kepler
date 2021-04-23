@@ -5,7 +5,7 @@
 # Translators:
 # , 2011
 # 0x9fff00 ​, 2019
-# 0x9fff00 ​, 2019
+# 0x9fff00, 2019
 # Daniel Sandman <revoltism@gmail.com>, 2013,2015
 # Johan R. <jreinhed@protonmail.com>, 2019
 # Kim Svensson <ks@linux.com>, 2015
@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Arch Linux Pacman package manager\n"
 "Report-Msgid-Bugs-To: http://bugs.archlinux.org/index.php?project=3\n"
-"POT-Creation-Date: 2020-06-19 09:48+1000\n"
-"PO-Revision-Date: 2020-03-21 15:23+0000\n"
+"POT-Creation-Date: 2021-04-23 10:22+1000\n"
+"PO-Revision-Date: 2020-10-09 08:25+0000\n"
 "Last-Translator: Luna Jernberg <bittin@cafe8bitar.se>\n"
 "Language-Team: Swedish (http://www.transifex.com/toofishes/archlinux-pacman/"
 "language/sv/)\n"
@@ -670,69 +670,69 @@ msgstr "kunde inte ta bort låsningsfil %s\n"
 #: lib/libalpm/hook.c:95
 #, c-format
 msgid "Missing trigger targets in hook: %s\n"
-msgstr ""
+msgstr "Saknar trigger mål i krok: %s\n"
 
 #: lib/libalpm/hook.c:101
 #, c-format
 msgid "Missing trigger type in hook: %s\n"
-msgstr ""
+msgstr "Saknar trigger typ i krok: %s\n"
 
 #: lib/libalpm/hook.c:107
 #, c-format
 msgid "Missing trigger operation in hook: %s\n"
-msgstr ""
+msgstr "Saknar trigger operation i krok: %s\n"
 
 #: lib/libalpm/hook.c:134
 #, c-format
 msgid "Missing Exec option in hook: %s\n"
-msgstr ""
+msgstr "Saknar Exec alternativ i krok: %s\n"
 
 #: lib/libalpm/hook.c:140
 #, c-format
 msgid "Missing When option in hook: %s\n"
-msgstr ""
+msgstr "Saknar När alternativet i krok: %s\n"
 
 #: lib/libalpm/hook.c:143
 #, c-format
 msgid "AbortOnFail set for PostTransaction hook: %s\n"
-msgstr ""
+msgstr "AbortOnFail inställt för PostTransaction-krok: %s\n"
 
 #: lib/libalpm/hook.c:160
 #, c-format
 msgid "error while reading hook %s: %s\n"
-msgstr ""
+msgstr "fel vid läsning av krok %s:%s\n"
 
 #: lib/libalpm/hook.c:162 lib/libalpm/hook.c:206 lib/libalpm/hook.c:248
 #, c-format
 msgid "hook %s line %d: invalid option %s\n"
-msgstr ""
+msgstr "krok %s rad %d: ogiltigt alternativ%s\n"
 
 #: lib/libalpm/hook.c:172
 #, c-format
 msgid "hook %s line %d: invalid section %s\n"
-msgstr ""
+msgstr "krok %srad %d: ogiltig sektion %s\n"
 
 #: lib/libalpm/hook.c:184 lib/libalpm/hook.c:199 lib/libalpm/hook.c:218
 #: lib/libalpm/hook.c:241
 #, c-format
 msgid "hook %s line %d: invalid value %s\n"
-msgstr ""
+msgstr "krok %s rad %d: ogiltigt värde %s\n"
 
 #: lib/libalpm/hook.c:188 lib/libalpm/hook.c:211 lib/libalpm/hook.c:222
 #: lib/libalpm/hook.c:236
 #, c-format
 msgid "hook %s line %d: overwriting previous definition of %s\n"
-msgstr ""
+msgstr "krok %s rad %d: skriv över tidigare definition av%s\n"
 
 #: lib/libalpm/hook.c:243
 #, c-format
 msgid "hook %s line %d: unable to set option (%s)\n"
-msgstr ""
+msgstr "krok %s rad %d: kunde inte ställa in alternativ (%s)\n"
 
 #: lib/libalpm/hook.c:513
 #, c-format
 msgid "unable to run hook %s: %s\n"
-msgstr ""
+msgstr "kunde inte köra krok %s:%s\n"
 
 #: lib/libalpm/hook.c:547 lib/libalpm/hook.c:559 lib/libalpm/remove.c:386
 #, c-format
@@ -781,7 +781,7 @@ msgstr "kan inte ta bort '%s': %s\n"
 #: lib/libalpm/remove.c:411 lib/libalpm/remove.c:420
 #, c-format
 msgid "could not backup %s due to PATH_MAX overflow\n"
-msgstr ""
+msgstr "kunde inte säkerhetskopiera %s på grund av PATH_MAX överflöd\n"
 
 #: lib/libalpm/remove.c:562
 #, c-format
@@ -801,7 +801,7 @@ msgstr "kunde inte ta bort '%s' från cachen\n"
 #: lib/libalpm/signing.c:171
 #, c-format
 msgid "Public keyring not found; have you run '%s'?\n"
-msgstr ""
+msgstr "Publik nyckelring hittades inte; har du kört '%s'?\n"
 
 #: lib/libalpm/signing.c:207 lib/libalpm/signing.c:784
 #, c-format
@@ -811,7 +811,7 @@ msgstr "GPGME-fel: %s\n"
 #: lib/libalpm/signing.c:284
 #, c-format
 msgid "looking up key %s using WKD\n"
-msgstr ""
+msgstr "letar upp nyckeln %s med WKD\n"
 
 #: lib/libalpm/signing.c:293
 #, c-format
@@ -821,7 +821,7 @@ msgstr "gpg fel: %s\n"
 #: lib/libalpm/signing.c:441 lib/libalpm/signing.c:515
 #, c-format
 msgid "keyring is not writable\n"
-msgstr ""
+msgstr "nyckelring är inte skrivbar\n"
 
 #: lib/libalpm/signing.c:539
 #, c-format
@@ -836,7 +836,7 @@ msgstr "nyckel \"%s\" kunde ej importeras\n"
 #: lib/libalpm/signing.c:548
 #, c-format
 msgid "key \"%s\" could not be looked up remotely\n"
-msgstr ""
+msgstr "nyckel \"%s\" kunde inte slås upp på distans\n"
 
 #: lib/libalpm/signing.c:943 lib/libalpm/sync.c:1040
 #, c-format
@@ -846,17 +846,17 @@ msgstr "%s: saknar nödvändig signatur\n"
 #: lib/libalpm/signing.c:958
 #, c-format
 msgid "%s: signature from \"%s\" is marginal trust\n"
-msgstr ""
+msgstr "%s:signatur från \"%s\" har marginellt förtroende\n"
 
 #: lib/libalpm/signing.c:966
 #, c-format
 msgid "%s: signature from \"%s\" is unknown trust\n"
-msgstr ""
+msgstr "%s: signatur från \"%s\" har okänt förtroende\n"
 
 #: lib/libalpm/signing.c:973
 #, c-format
 msgid "%s: signature from \"%s\" should never be trusted\n"
-msgstr ""
+msgstr "%s: signatur från \"%s\" ska aldrig litas på\n"
 
 #: lib/libalpm/signing.c:985
 #, c-format
@@ -871,7 +871,7 @@ msgstr "%s: nyckel \"%s\" är inaktiverad\n"
 #: lib/libalpm/signing.c:998
 #, c-format
 msgid "%s: signature from \"%s\" is expired\n"
-msgstr ""
+msgstr "%s: signatur från \"%s\" har upphört\n"
 
 #: lib/libalpm/signing.c:1002
 #, c-format

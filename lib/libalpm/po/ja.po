@@ -3,15 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
-# ABE Satoru <s@polamjag.info>, 2015
+# Satoru Abe <s@polamjag.info>, 2015
 # kusakata, 2017
-# ABE Satoru <s@polamjag.info>, 2015
+# Satoru Abe <s@polamjag.info>, 2015
 # kusakata, 2017-2019
 msgid ""
 msgstr ""
 "Project-Id-Version: Arch Linux Pacman package manager\n"
 "Report-Msgid-Bugs-To: http://bugs.archlinux.org/index.php?project=3\n"
-"POT-Creation-Date: 2020-06-19 09:48+1000\n"
+"POT-Creation-Date: 2021-04-23 10:22+1000\n"
 "PO-Revision-Date: 2019-10-07 22:59+0000\n"
 "Last-Translator: kusakata\n"
 "Language-Team: Japanese (http://www.transifex.com/toofishes/archlinux-pacman/"

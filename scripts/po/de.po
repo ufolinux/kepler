@@ -40,8 +40,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Arch Linux Pacman package manager\n"
 "Report-Msgid-Bugs-To: http://bugs.archlinux.org/index.php?project=3\n"
-"POT-Creation-Date: 2020-06-19 09:48+1000\n"
-"PO-Revision-Date: 2020-04-16 14:28+0000\n"
+"POT-Creation-Date: 2021-04-23 10:22+1000\n"
+"PO-Revision-Date: 2020-11-06 17:29+0000\n"
 "Last-Translator: Roman Volak <romanvolak@web.de>\n"
 "Language-Team: German (http://www.transifex.com/toofishes/archlinux-pacman/"
 "language/de/)\n"
@@ -559,102 +559,6 @@ msgstr "Paketverzeichnis ist bereit."
 #: scripts/makepkg.sh.in:1470
 msgid "Finished making: %s"
 msgstr "Beendete Erstellung: %s"
-
-#: scripts/makepkg-template.pl.in:55
-#, perl-format
-msgid "can't create '%s': %s"
-msgstr "Kann '%s' nicht erstellen: %s"
-
-#: scripts/makepkg-template.pl.in:73
-msgid "invalid key/value pair\n"
-msgstr "ungültiges Schlüssel/Wert-Paar\n"
-
-#: scripts/makepkg-template.pl.in:82
-msgid "invalid template line: can't find template name\n"
-msgstr "Ungültige Zeile in Vorlage: Kann Vorlagenname nicht finden\n"
-
-#: scripts/makepkg-template.pl.in:87
-#, perl-format
-msgid "invalid chars used in name '%s'. allowed: [:alnum:]+_.@-\n"
-msgstr "Ungültige Zeichen im Namen '%s'. Zulässig: [:alnum:]+_.@-\n"
-
-#: scripts/makepkg-template.pl.in:114
-#, perl-format
-msgid "Couldn't detect version for template '%s'\n"
-msgstr "Konnte Version für für Vorlage '%s' nicht ermitteln\n"
-
-#: scripts/makepkg-template.pl.in:125
-#, perl-format
-msgid "Failed to find template file matching '%s'\n"
-msgstr "Konnte keine '%s' entsprechende Vorlage finden\n"
-
-#: scripts/makepkg-template.pl.in:136
-#, perl-format
-msgid "failed to open '%s': %s\n"
-msgstr "konnte '%s' nicht öffnen: %s\n"
-
-#: scripts/makepkg-template.pl.in:153
-#, perl-format
-msgid "Unknown template marker '%s'\n"
-msgstr "Unbekannte Vorlagenmarkierung '%s'\n"
-
-#: scripts/makepkg-template.pl.in:175
-msgid "makepkg-template [options]\n"
-msgstr "makepkg-Vorlage [Optionen]\n"
-
-#: scripts/makepkg-template.pl.in:177
-msgid "Options:\n"
-msgstr "Optionen:\n"
-
-#: scripts/makepkg-template.pl.in:178
-#, perl-format
-msgid "  --input, -p <file>    Build script to read (default: %s)\n"
-msgstr "  --input, -p <Datei>    Zu lesendes Buildskript (Standard: %s)\n"
-
-#: scripts/makepkg-template.pl.in:179
-msgid "  --output, -o <file>   file to output to (default: input file)\n"
-msgstr "  --output, -o <Datei>   Ausgabedatei (Standard: Eingabedatei)\n"
-
-#: scripts/makepkg-template.pl.in:180
-msgid "  --newest, -n          update templates to newest version\n"
-msgstr "  --newest, -n          Vorlagen auf neueste Version aktualisieren\n"
-
-#: scripts/makepkg-template.pl.in:181
-msgid ""
-"                        (default: use version specified in the template "
-"markers)\n"
-msgstr ""
-"                        (Standard: verwende die in der Vorlagenmarkierung "
-"spezifizierte Version)\n"
-
-#: scripts/makepkg-template.pl.in:182
-msgid "  --template-dir <dir>  directory to search for templates\n"
-msgstr ""
-"  --template-dir <Verz>  Verzeichnis, das nach Vorlagen durchsucht wird\n"
-
-#: scripts/makepkg-template.pl.in:183
-#, perl-format
-msgid "                        (default: %s)\n"
-msgstr "                        (Standard: %s)\n"
-
-#: scripts/makepkg-template.pl.in:184
-msgid "  --help, -h            This help message\n"
-msgstr "  --help, -h            Zeige diese Hilfe\n"
-
-#: scripts/makepkg-template.pl.in:185
-msgid "  --version             Version information\n"
-msgstr "  --version             Versionshinweise\n"
-
-#: scripts/makepkg-template.pl.in:194
-#, fuzzy
-msgid ""
-"Copyright (c) 2013-2020 Pacman Development Team <pacman-dev@archlinux.org>.\n"
-"This is free software; see the source for copying conditions.\n"
-"There is NO WARRANTY, to the extent permitted by law.\n"
-msgstr ""
-"Copyright (c) 2013-2018 Pacman Development Team <pacman-dev@archlinux.org>.\n"
-"Dies ist freie Software; siehe den Quellcode für Urheberrechtsbestimmungen.\n"
-"Es besteht KEINE GARANTIE, soweit es die gültige Rechtsgebung zulässt.\n"
 
 #: scripts/pacman-db-upgrade.sh.in:40
 msgid "Upgrade the local pacman database to a newer format"
@@ -1410,6 +1314,10 @@ msgstr "SIGNATUR NICHT GEFUNDEN"
 msgid "SOURCE FILE NOT FOUND"
 msgstr "QUELL-DATEI NICHT GEFUNDEN"
 
+#: scripts/libmakepkg/integrity/verify_signature.sh.in:203
+msgid "_"
+msgstr ""
+
 #: scripts/libmakepkg/lint_config/paths.sh.in:39
 #: scripts/libmakepkg/lint_pkgbuild/arch.sh.in:47
 #: scripts/libmakepkg/lint_pkgbuild/pkgname.sh.in:53
@@ -1433,6 +1341,7 @@ msgstr "%s sollte kein Array sein"
 #: scripts/libmakepkg/lint_config/variable.sh.in:66
 msgid "PACKAGER should have the format 'Example Name <email@address.invalid>'"
 msgstr ""
+"Der PACKAGER sollte im Format 'Beispiel Mustermann <email@adresse.ungültig>'"
 
 #: scripts/libmakepkg/lint_package.sh.in:41
 msgid "Checking for packaging issues..."
@@ -1444,7 +1353,7 @@ msgstr "Paket enthält einen Verweis auf %s"
 
 #: scripts/libmakepkg/lint_package/dotfiles.sh.in:34
 msgid "Dotfile found in package root '%s'"
-msgstr ""
+msgstr ".-Datei in Paket-Wurzelverzeichnis '%s' gefunden"
 
 #: scripts/libmakepkg/lint_package/file_names.sh.in:36
 msgid "Package contains paths with newlines"
@@ -1456,7 +1365,7 @@ msgstr "Eingetragene %s Datei nicht im Paket : %s"
 
 #: scripts/libmakepkg/lint_pkgbuild/arch.sh.in:40
 msgid "Can not use '%s' architecture with other architectures"
-msgstr ""
+msgstr "Darf '%s' Architektur nicht mit anderer mischen"
 
 #: scripts/libmakepkg/lint_pkgbuild/arch.sh.in:54
 #: scripts/libmakepkg/lint_pkgbuild/arch.sh.in:62
@@ -1477,7 +1386,7 @@ msgstr "Array %s enthält eine unbekannte Option '%s'"
 
 #: scripts/libmakepkg/lint_pkgbuild/package_function.sh.in:38
 msgid "Conflicting %s and %s functions in %s"
-msgstr ""
+msgstr "Konflikt von %s und %s in Funktion %s"
 
 #: scripts/libmakepkg/lint_pkgbuild/package_function.sh.in:41
 msgid "Missing %s function in %s"
@@ -1485,7 +1394,7 @@ msgstr "Funktion %s fehlt in %s"
 
 #: scripts/libmakepkg/lint_pkgbuild/package_function.sh.in:46
 msgid "Extra %s function for split package '%s'"
-msgstr ""
+msgstr "Extra %s Funktion zur Paketteilung '%s'"
 
 #: scripts/libmakepkg/lint_pkgbuild/package_function.sh.in:51
 msgid "Missing %s function for split package '%s'"
@@ -1517,12 +1426,14 @@ msgstr "%s darf nur ASCII-Zeichen enthalten."
 
 #: scripts/libmakepkg/lint_pkgbuild/pkgrel.sh.in:40
 msgid "%s must be of the form 'integer[.integer]', not %s."
-msgstr ""
+msgstr "%s muss sein wie 'integer[.integer]', und nicht %s."
 
 #: scripts/libmakepkg/lint_pkgbuild/pkgver.sh.in:41
 msgid ""
 "%s is not allowed to contain colons, forward slashes, hyphens or whitespace."
 msgstr ""
+"%s darf nicht  Doppelpunkte, Schrägstriche, Bindestriche oder Leerzeichen "
+"enthalten."
 
 #: scripts/libmakepkg/lint_pkgbuild/provides.sh.in:46
 msgid "%s array cannot contain comparison (< or >) operators."
@@ -1632,7 +1543,7 @@ msgstr "Fehler während der Aktualisierung des %s %s Repos"
 
 #: scripts/libmakepkg/source/git.sh.in:121
 msgid "Failure while checking out version %s, the git tag has been forged"
-msgstr ""
+msgstr "Fehler bei Versionsprüfung %s, der Git-Tag wurde verfälscht"
 
 #: scripts/libmakepkg/source/local.sh.in:39
 msgid "%s was not found in the build directory and is not a URL."
@@ -1722,3 +1633,83 @@ msgstr "Sie haben keine Schreib-Berechtigung für das Verzeichnis  $%s (%s)."
 #: scripts/libmakepkg/util/util.sh.in:109
 msgid "Failed to source %s"
 msgstr "Konnte die Quelle von %s nicht bestimmen"
+
+#, perl-format
+#~ msgid "can't create '%s': %s"
+#~ msgstr "Kann '%s' nicht erstellen: %s"
+
+#~ msgid "invalid key/value pair\n"
+#~ msgstr "ungültiges Schlüssel/Wert-Paar\n"
+
+#~ msgid "invalid template line: can't find template name\n"
+#~ msgstr "Ungültige Zeile in Vorlage: Kann Vorlagenname nicht finden\n"
+
+#, perl-format
+#~ msgid "invalid chars used in name '%s'. allowed: [:alnum:]+_.@-\n"
+#~ msgstr "Ungültige Zeichen im Namen '%s'. Zulässig: [:alnum:]+_.@-\n"
+
+#, perl-format
+#~ msgid "Couldn't detect version for template '%s'\n"
+#~ msgstr "Konnte Version für für Vorlage '%s' nicht ermitteln\n"
+
+#, perl-format
+#~ msgid "Failed to find template file matching '%s'\n"
+#~ msgstr "Konnte keine '%s' entsprechende Vorlage finden\n"
+
+#, perl-format
+#~ msgid "failed to open '%s': %s\n"
+#~ msgstr "konnte '%s' nicht öffnen: %s\n"
+
+#, perl-format
+#~ msgid "Unknown template marker '%s'\n"
+#~ msgstr "Unbekannte Vorlagenmarkierung '%s'\n"
+
+#~ msgid "makepkg-template [options]\n"
+#~ msgstr "makepkg-Vorlage [Optionen]\n"
+
+#~ msgid "Options:\n"
+#~ msgstr "Optionen:\n"
+
+#, perl-format
+#~ msgid "  --input, -p <file>    Build script to read (default: %s)\n"
+#~ msgstr "  --input, -p <Datei>    Zu lesendes Buildskript (Standard: %s)\n"
+
+#~ msgid "  --output, -o <file>   file to output to (default: input file)\n"
+#~ msgstr "  --output, -o <Datei>   Ausgabedatei (Standard: Eingabedatei)\n"
+
+#~ msgid "  --newest, -n          update templates to newest version\n"
+#~ msgstr ""
+#~ "  --newest, -n          Vorlagen auf neueste Version aktualisieren\n"
+
+#~ msgid ""
+#~ "                        (default: use version specified in the template "
+#~ "markers)\n"
+#~ msgstr ""
+#~ "                        (Standard: verwende die in der Vorlagenmarkierung "
+#~ "spezifizierte Version)\n"
+
+#~ msgid "  --template-dir <dir>  directory to search for templates\n"
+#~ msgstr ""
+#~ "  --template-dir <Verz>  Verzeichnis, das nach Vorlagen durchsucht wird\n"
+
+#, perl-format
+#~ msgid "                        (default: %s)\n"
+#~ msgstr "                        (Standard: %s)\n"
+
+#~ msgid "  --help, -h            This help message\n"
+#~ msgstr "  --help, -h            Zeige diese Hilfe\n"
+
+#~ msgid "  --version             Version information\n"
+#~ msgstr "  --version             Versionshinweise\n"
+
+#~ msgid ""
+#~ "Copyright (c) 2013-2018 Pacman Development Team <pacman-dev@archlinux."
+#~ "org>.\n"
+#~ "This is free software; see the source for copying conditions.\n"
+#~ "There is NO WARRANTY, to the extent permitted by law.\n"
+#~ msgstr ""
+#~ "Copyright (c) 2013-2018 Pacman Development Team <pacman-dev@archlinux."
+#~ "org>.\n"
+#~ "Dies ist freie Software; siehe den Quellcode für "
+#~ "Urheberrechtsbestimmungen.\n"
+#~ "Es besteht KEINE GARANTIE, soweit es die gültige Rechtsgebung zulässt.\n"

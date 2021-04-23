@@ -3,8 +3,8 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
-# Alexander F Rødseth <rodseth@gmail.com>, 2014-2020
-# Alexander F Rødseth <rodseth@gmail.com>, 2011-2014
+# Alexander F. Rødseth <rodseth@gmail.com>, 2014-2021
+# Alexander F. Rødseth <rodseth@gmail.com>, 2011-2014
 # Harald H. <haarektrans@gmail.com>, 2015
 # Harald H. <haarektrans@gmail.com>, 2015
 # Jon Gjengset <jon@thesquareplanet.com>, 2011,2013-2015,2017
@@ -13,9 +13,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Arch Linux Pacman package manager\n"
 "Report-Msgid-Bugs-To: http://bugs.archlinux.org/index.php?project=3\n"
-"POT-Creation-Date: 2020-06-19 09:48+1000\n"
-"PO-Revision-Date: 2020-04-30 08:18+0000\n"
-"Last-Translator: Alexander F Rødseth <rodseth@gmail.com>\n"
+"POT-Creation-Date: 2021-04-23 10:22+1000\n"
+"PO-Revision-Date: 2021-03-25 20:39+0000\n"
+"Last-Translator: Alexander F. Rødseth <rodseth@gmail.com>\n"
 "Language-Team: Norwegian Bokmål (http://www.transifex.com/toofishes/"
 "archlinux-pacman/language/nb/)\n"
 "Language: nb\n"
@@ -27,7 +27,7 @@ msgstr ""
 #: src/pacman/callback.c:182
 #, c-format
 msgid "Running pre-transaction hooks...\n"
-msgstr "Utfører innledende kommandoer...\n"
+msgstr "Innledningsvise kommandoer...\n"
 
 #: src/pacman/callback.c:184
 #, c-format
@@ -107,7 +107,7 @@ msgstr "laster pakkefiler...\n"
 #: src/pacman/callback.c:274
 #, c-format
 msgid "Retrieving packages...\n"
-msgstr "Henter frem pakker...\n"
+msgstr "Laster ned pakker...\n"
 
 #: src/pacman/callback.c:278
 #, c-format
@@ -212,7 +212,7 @@ msgstr "nedgraderer"
 #: src/pacman/callback.c:532
 #, c-format
 msgid "reinstalling"
-msgstr "ominstallerer"
+msgstr "installerer på nytt:"
 
 #: src/pacman/callback.c:535
 #, c-format
@@ -242,7 +242,7 @@ msgstr "kontrollerer nøkler i nøkkelringen"
 #: src/pacman/callback.c:550
 #, c-format
 msgid "loading package files"
-msgstr "henter pakkefiler"
+msgstr "laster pakkefiler"
 
 #: src/pacman/callback.c:667
 #, c-format
@@ -764,8 +764,7 @@ msgid ""
 "use '%s {-h --help}' with an operation for available options\n"
 msgstr ""
 "\n"
-"prøv '%s {-h --help}' sammen med en handling, for å se videre "
-"valgmuligheter\n"
+"bruk '%s {-h --help}' sammen med en handling for å se flere valg\n"
 
 #: src/pacman/pacman.c:125
 #, c-format
@@ -1177,8 +1176,7 @@ msgid ""
 "                       use relaxed timeouts for download\n"
 msgstr ""
 "      --disable-download-timeout\n"
-"                       gi nedlastningsprosessen et avslappet forhold til "
-"frister og tidsbruk\n"
+"                       ingen tidsfrist for nedlastninger\n"
 
 #: src/pacman/pacman.c:245
 #, c-format
@@ -1352,12 +1350,12 @@ msgstr "kunne ikke fjerne %s: %s\n"
 #: src/pacman/sync.c:63
 #, c-format
 msgid "could not access database directory\n"
-msgstr "fikk ikke tilgang til database-mappen\n"
+msgstr "fikk ikke tilgang til databasemappen\n"
 
 #: src/pacman/sync.c:137
 #, c-format
 msgid "Database directory: %s\n"
-msgstr "Database-mappe: %s\n"
+msgstr "Databasemappe: %s\n"
 
 #: src/pacman/sync.c:138
 #, c-format
@@ -1387,7 +1385,7 @@ msgstr "  Alle pakker i sync-databasen\n"
 #: src/pacman/sync.c:182
 #, c-format
 msgid "Cache directory: %s\n"
-msgstr "Mellomlagrings-mappe: %s\n"
+msgstr "Mellomlagringsmappe: %s\n"
 
 #: src/pacman/sync.c:185
 #, c-format
@@ -1412,7 +1410,7 @@ msgstr "fjerner alle filer fra mellomlageret...\n"
 #: src/pacman/sync.c:201
 #, c-format
 msgid "could not access cache directory %s\n"
-msgstr "kunne ikke lese mellomlagrings-mappen %s\n"
+msgstr "kunne ikke lese mellomlagringsmappen %s\n"
 
 #: src/pacman/sync.c:422
 #, c-format
@@ -1669,7 +1667,7 @@ msgstr "Pakker"
 #: src/pacman/util.c:942
 #, c-format
 msgid "Total Download Size:"
-msgstr "Total nedlastingsstørrelse: "
+msgstr "Total nedlastingsstørrelse:   "
 
 #: src/pacman/util.c:946
 #, c-format

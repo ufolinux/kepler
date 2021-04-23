@@ -5,7 +5,7 @@
 # Translators:
 # archetyp <archetyp@linuxmail.org>, 2013
 # archetyp <archetyp@linuxmail.org>, 2013-2015
-# Dušan Kazik <prescott66@gmail.com>, 2016
+# Dušan Kazik <prescott66@gmail.com>, 2016,2020
 # 3ff9a567ff32d540038a6a558650f376_643ea9b <38630839a6ec6b692ff2ca08fafb2585_10562>, 2011
 # 3ff9a567ff32d540038a6a558650f376_643ea9b <38630839a6ec6b692ff2ca08fafb2585_10562>, 2011
 # Jose Riha <jose1711@gmail.com>, 2011
@@ -15,9 +15,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Arch Linux Pacman package manager\n"
 "Report-Msgid-Bugs-To: http://bugs.archlinux.org/index.php?project=3\n"
-"POT-Creation-Date: 2020-06-19 09:48+1000\n"
-"PO-Revision-Date: 2019-10-07 08:12+0000\n"
-"Last-Translator: Allan McRae <allan@archlinux.org>\n"
+"POT-Creation-Date: 2021-04-23 10:22+1000\n"
+"PO-Revision-Date: 2020-11-29 12:54+0000\n"
+"Last-Translator: Dušan Kazik <prescott66@gmail.com>\n"
 "Language-Team: Slovak (http://www.transifex.com/toofishes/archlinux-pacman/"
 "language/sk/)\n"
 "Language: sk\n"
@@ -30,7 +30,7 @@ msgstr ""
 #: lib/libalpm/add.c:91 lib/libalpm/sync.c:290
 #, c-format
 msgid "%s-%s is up to date -- skipping\n"
-msgstr "%s-%s je aktuálny -- preskakujem\n"
+msgstr "%s-%s je aktuálny -- vynecháva sa\n"
 
 #: lib/libalpm/add.c:95
 #, c-format
@@ -40,7 +40,7 @@ msgstr "%s-%s je aktuálny -- preinštalovávam\n"
 #: lib/libalpm/add.c:100
 #, c-format
 msgid "downgrading package %s (%s => %s)\n"
-msgstr "downgradujem balíček %s (%s => %s)\n"
+msgstr "prechádza sa na staršiu verziu balíka %s (%s => %s)\n"
 
 #: lib/libalpm/add.c:129
 #, c-format
@@ -66,8 +66,7 @@ msgstr "nie je možné premenovať %s na %s (%s)\n"
 #, c-format
 msgid "file not found in file list for package %s. skipping extraction of %s\n"
 msgstr ""
-"súbor nebol nájdený v zozname súborov balíčka %s. preskakujem rozbaľovanie "
-"%s\n"
+"súbor sa nenašiel v zozname súborov balíka %s. vynecháva sa rozbaľovanie %s\n"
 
 #: lib/libalpm/add.c:219
 #, c-format
@@ -146,7 +145,7 @@ msgstr "chyba pri čítaní súboru %s: %s\n"
 #: lib/libalpm/be_local.c:364
 #, c-format
 msgid "removing invalid database: %s\n"
-msgstr "odstraňujem neplatnú databázu: %s\n"
+msgstr "odstraňuje sa neplatná databáza: %s\n"
 
 #: lib/libalpm/be_local.c:415 lib/libalpm/be_local.c:905
 #, c-format
@@ -240,7 +239,7 @@ msgstr "požadovaný kľúč nebol nájdený v kľúčenke\n"
 #: lib/libalpm/be_sync.c:61
 #, c-format
 msgid "removing invalid file: %s\n"
-msgstr "odstraňujem neplatný súbor: %s\n"
+msgstr "odstraňuje sa neplatný súbor: %s\n"
 
 #: lib/libalpm/be_sync.c:515
 #, c-format
@@ -290,7 +289,7 @@ msgstr "%s bude nainštalovaný pred %s, na ktorom závisí\n"
 #: lib/libalpm/deps.c:681 lib/libalpm/deps.c:712
 #, c-format
 msgid "ignoring package %s-%s\n"
-msgstr "ignorujem balíček %s-%s\n"
+msgstr "ignoruje sa balík %s-%s\n"
 
 #: lib/libalpm/deps.c:869
 #, c-format

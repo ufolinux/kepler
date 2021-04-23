@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Arch Linux Pacman package manager\n"
 "Report-Msgid-Bugs-To: http://bugs.archlinux.org/index.php?project=3\n"
-"POT-Creation-Date: 2020-06-19 09:48+1000\n"
+"POT-Creation-Date: 2021-04-23 10:22+1000\n"
 "PO-Revision-Date: 2019-10-13 23:51+0000\n"
 "Last-Translator: Allan McRae <allan@archlinux.org>\n"
 "Language-Team: Breton (http://www.transifex.com/toofishes/archlinux-pacman/"
@@ -509,97 +509,6 @@ msgstr "Prest eo ar pakad kavlec'hioù."
 #: scripts/makepkg.sh.in:1470
 msgid "Finished making: %s"
 msgstr "Echuet eo savadur %s"
-
-#: scripts/makepkg-template.pl.in:55
-#, perl-format
-msgid "can't create '%s': %s"
-msgstr "n'haller ket krouiñ '%s' : %s"
-
-#: scripts/makepkg-template.pl.in:73
-msgid "invalid key/value pair\n"
-msgstr "Koublad alc'hwez/talvoud direizh\n"
-
-#: scripts/makepkg-template.pl.in:82
-msgid "invalid template line: can't find template name\n"
-msgstr "linenn patrom direizh : n'haller ket kavout anv ar patrom\n"
-
-#: scripts/makepkg-template.pl.in:87
-#, perl-format
-msgid "invalid chars used in name '%s'. allowed: [:alnum:]+_.@-\n"
-msgstr ""
-"arouezennoù direizh a zo implijet en anv '%s'. aotreet : [:alnum:]+_.@-\n"
-
-#: scripts/makepkg-template.pl.in:114
-#, perl-format
-msgid "Couldn't detect version for template '%s'\n"
-msgstr "N'haller ket dinoiñ an handelv evit ar patrom '%s'\n"
-
-#: scripts/makepkg-template.pl.in:125
-#, perl-format
-msgid "Failed to find template file matching '%s'\n"
-msgstr "C'hwitadenn evit kavout ar restr patrom o kenglotañ gant  '%s'\n"
-
-#: scripts/makepkg-template.pl.in:136
-#, perl-format
-msgid "failed to open '%s': %s\n"
-msgstr "c'hwitadenn war digoradur '%s' : %s\n"
-
-#: scripts/makepkg-template.pl.in:153
-#, perl-format
-msgid "Unknown template marker '%s'\n"
-msgstr "Merker patrom dianav '%s'\n"
-
-#: scripts/makepkg-template.pl.in:175
-msgid "makepkg-template [options]\n"
-msgstr "makepkg-template [dibarzhioù]\n"
-
-#: scripts/makepkg-template.pl.in:177
-msgid "Options:\n"
-msgstr "Dibarzhioù :\n"
-
-#: scripts/makepkg-template.pl.in:178
-#, perl-format
-msgid "  --input, -p <file>    Build script to read (default: %s)\n"
-msgstr "  --input, -p <restr> Kempunañ ar skript da lenn (dre siouer : %s)\n"
-
-#: scripts/makepkg-template.pl.in:179
-msgid "  --output, -o <file>   file to output to (default: input file)\n"
-msgstr ""
-"--output, -o <restr> restr evit an ec'hankad (dre ziouer : restr enankad)\n"
-
-#: scripts/makepkg-template.pl.in:180
-msgid "  --newest, -n          update templates to newest version\n"
-msgstr "--newest, -n hizivaat ar patrom d'an handelv diwezhañ\n"
-
-#: scripts/makepkg-template.pl.in:181
-msgid ""
-"                        (default: use version specified in the template "
-"markers)\n"
-msgstr "(dre ziouer : ober gant an handelv erspizet e merkerioù ar patrom)\n"
-
-#: scripts/makepkg-template.pl.in:182
-msgid "  --template-dir <dir>  directory to search for templates\n"
-msgstr "--template-dir <kavlec'h> kavlec'h evit klask patromoù\n"
-
-#: scripts/makepkg-template.pl.in:183
-#, perl-format
-msgid "                        (default: %s)\n"
-msgstr "(dre ziouer : %s)\n"
-
-#: scripts/makepkg-template.pl.in:184
-msgid "  --help, -h            This help message\n"
-msgstr "--help, -h Ar gemennadenn skoazell-mañ\n"
-
-#: scripts/makepkg-template.pl.in:185
-msgid "  --version             Version information\n"
-msgstr "--version Titouroù handelv\n"
-
-#: scripts/makepkg-template.pl.in:194
-msgid ""
-"Copyright (c) 2013-2020 Pacman Development Team <pacman-dev@archlinux.org>.\n"
-"This is free software; see the source for copying conditions.\n"
-"There is NO WARRANTY, to the extent permitted by law.\n"
-msgstr ""
 
 #: scripts/pacman-db-upgrade.sh.in:40
 msgid "Upgrade the local pacman database to a newer format"
@@ -1310,6 +1219,10 @@ msgstr "N'EO KET BET KAVET AR SINADUR"
 msgid "SOURCE FILE NOT FOUND"
 msgstr "N'EO KET BET KAVET AR RESTR TARZH"
 
+#: scripts/libmakepkg/integrity/verify_signature.sh.in:203
+msgid "_"
+msgstr ""
+
 #: scripts/libmakepkg/lint_config/paths.sh.in:39
 #: scripts/libmakepkg/lint_pkgbuild/arch.sh.in:47
 #: scripts/libmakepkg/lint_pkgbuild/pkgname.sh.in:53
@@ -1623,3 +1536,72 @@ msgstr ""
 #: scripts/libmakepkg/util/util.sh.in:109
 msgid "Failed to source %s"
 msgstr "C'hwitadenn war mammenniñ %s"
+
+#, perl-format
+#~ msgid "can't create '%s': %s"
+#~ msgstr "n'haller ket krouiñ '%s' : %s"
+
+#~ msgid "invalid key/value pair\n"
+#~ msgstr "Koublad alc'hwez/talvoud direizh\n"
+
+#~ msgid "invalid template line: can't find template name\n"
+#~ msgstr "linenn patrom direizh : n'haller ket kavout anv ar patrom\n"
+
+#, perl-format
+#~ msgid "invalid chars used in name '%s'. allowed: [:alnum:]+_.@-\n"
+#~ msgstr ""
+#~ "arouezennoù direizh a zo implijet en anv '%s'. aotreet : [:alnum:]+_.@-\n"
+
+#, perl-format
+#~ msgid "Couldn't detect version for template '%s'\n"
+#~ msgstr "N'haller ket dinoiñ an handelv evit ar patrom '%s'\n"
+
+#, perl-format
+#~ msgid "Failed to find template file matching '%s'\n"
+#~ msgstr "C'hwitadenn evit kavout ar restr patrom o kenglotañ gant  '%s'\n"
+
+#, perl-format
+#~ msgid "failed to open '%s': %s\n"
+#~ msgstr "c'hwitadenn war digoradur '%s' : %s\n"
+
+#, perl-format
+#~ msgid "Unknown template marker '%s'\n"
+#~ msgstr "Merker patrom dianav '%s'\n"
+
+#~ msgid "makepkg-template [options]\n"
+#~ msgstr "makepkg-template [dibarzhioù]\n"
+
+#~ msgid "Options:\n"
+#~ msgstr "Dibarzhioù :\n"
+
+#, perl-format
+#~ msgid "  --input, -p <file>    Build script to read (default: %s)\n"
+#~ msgstr ""
+#~ "  --input, -p <restr> Kempunañ ar skript da lenn (dre siouer : %s)\n"
+
+#~ msgid "  --output, -o <file>   file to output to (default: input file)\n"
+#~ msgstr ""
+#~ "--output, -o <restr> restr evit an ec'hankad (dre ziouer : restr "
+#~ "enankad)\n"
+
+#~ msgid "  --newest, -n          update templates to newest version\n"
+#~ msgstr "--newest, -n hizivaat ar patrom d'an handelv diwezhañ\n"
+
+#~ msgid ""
+#~ "                        (default: use version specified in the template "
+#~ "markers)\n"
+#~ msgstr ""
+#~ "(dre ziouer : ober gant an handelv erspizet e merkerioù ar patrom)\n"
+
+#~ msgid "  --template-dir <dir>  directory to search for templates\n"
+#~ msgstr "--template-dir <kavlec'h> kavlec'h evit klask patromoù\n"
+
+#, perl-format
+#~ msgid "                        (default: %s)\n"
+#~ msgstr "(dre ziouer : %s)\n"
+
+#~ msgid "  --help, -h            This help message\n"
+#~ msgstr "--help, -h Ar gemennadenn skoazell-mañ\n"
+
+#~ msgid "  --version             Version information\n"
+#~ msgstr "--version Titouroù handelv\n"

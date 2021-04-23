@@ -8,7 +8,7 @@
 # Antoine Lubineau <antoine@lubignon.info>, 2012
 # Antoine Lubineau <antoine@lubignon.info>, 2012-2013,2015,2017
 # Cedric Girard <girard.cedric@gmail.com>, 2014
-# Charles Monzat <c.monzat@laposte.net>, 2018-2019
+# Charles Monzat <c.monzat@laposte.net>, 2018-2020
 # Charles Monzat <c.monzat@laposte.net>, 2015-2016,2018
 # Charles Monzat <c.monzat@laposte.net>, 2018
 # Charles Monzat <c.monzat@laposte.net>, 2018
@@ -16,6 +16,7 @@
 # Élie Bouttier <elie.bouttier@free.fr>, 2013
 # Élie Bouttier <elie.bouttier@free.fr>, 2013
 # Erwan Amans <erwan.amans@gmail.com>, 2019
+# Iago Bonnici <iago.bonnici@cleb.io>, 2020
 # jiehong <ma.jiehong@gmail.com>, 2011-2012
 # ef7dab0d6077eb6318482e1ba81363ed, 2014
 # shining <chantry.xavier@gmail.com>, 2011
@@ -25,9 +26,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Arch Linux Pacman package manager\n"
 "Report-Msgid-Bugs-To: http://bugs.archlinux.org/index.php?project=3\n"
-"POT-Creation-Date: 2020-06-19 09:48+1000\n"
-"PO-Revision-Date: 2019-12-24 12:38+0000\n"
-"Last-Translator: Erwan Amans <erwan.amans@gmail.com>\n"
+"POT-Creation-Date: 2021-04-23 10:22+1000\n"
+"PO-Revision-Date: 2020-09-11 07:40+0000\n"
+"Last-Translator: Iago Bonnici <iago.bonnici@cleb.io>\n"
 "Language-Team: French (http://www.transifex.com/toofishes/archlinux-pacman/"
 "language/fr/)\n"
 "Language: fr\n"
@@ -1838,7 +1839,7 @@ msgstr "avertissement : "
 #: src/pacman/pacman-conf.c:41
 #, c-format
 msgid "pacman-conf - query pacman's configuration file\n"
-msgstr ""
+msgstr "pacman-conf - affiche le fichier de configuration de pacman\n"
 
 #: src/pacman/pacman-conf.c:42
 #, c-format
@@ -1849,6 +1850,8 @@ msgstr "utilisation :  pacman-conf [options] [<directive>…]\n"
 #, c-format
 msgid "        pacman-conf (--repo-list|--help|--version)\n"
 msgstr ""
+"pacman-conf (--repo-list|--help|--version)\n"
+"\n"
 
 #: src/pacman/pacman-conf.c:44
 #, c-format
@@ -1858,27 +1861,27 @@ msgstr "options :\n"
 #: src/pacman/pacman-conf.c:45
 #, c-format
 msgid "  -c, --config=<path>  set an alternate configuration file\n"
-msgstr ""
+msgstr " -c, --config=<path>  utilise un fichier de configuration alternatif\n"
 
 #: src/pacman/pacman-conf.c:46
 #, c-format
 msgid "  -R, --rootdir=<path> set an alternate installation root\n"
-msgstr ""
+msgstr " -R, --rootdir=<path>  définit une racine d’installation alternative\n"
 
 #: src/pacman/pacman-conf.c:47
 #, c-format
 msgid "  -r, --repo=<remote>  query options for a specific repo\n"
-msgstr ""
+msgstr " -r, --repo=<remote>  affiche les options pour un dépôt spécifique\n"
 
 #: src/pacman/pacman-conf.c:48
 #, c-format
 msgid "  -v, --verbose        always show directive names\n"
-msgstr ""
+msgstr " -v, --verbose toujours afficher le nom des commandes\n"
 
 #: src/pacman/pacman-conf.c:49
 #, c-format
 msgid "  -l, --repo-list      list configured repositories\n"
-msgstr ""
+msgstr " -l, --repo-list      liste les dépôts configurés\n"
 
 #: src/pacman/pacman-conf.c:50
 #, c-format
@@ -1894,11 +1897,12 @@ msgstr "  -V, --version        affiche les information de version\n"
 #, c-format
 msgid "error setting rootdir '%s': out of memory\n"
 msgstr ""
+"erreur à l'initialisation du répertoire racine '%s': mémoire insuffisante\n"
 
 #: src/pacman/pacman-conf.c:110
 #, c-format
 msgid "error parsing '%s'\n"
-msgstr ""
+msgstr "erreur de syntaxe dans '%s'\n"
 
 #: src/pacman/pacman-conf.c:290
 #, c-format
@@ -1908,12 +1912,12 @@ msgstr "erreur : le dépôt « %s » n’est pas configuré\n"
 #: src/pacman/pacman-conf.c:307 src/pacman/pacman-conf.c:385
 #, c-format
 msgid "warning: '%s' directives cannot be queried\n"
-msgstr ""
+msgstr "attention: les commandes '%s'  ne peuvent pas être exécutées\n"
 
 #: src/pacman/pacman-conf.c:310 src/pacman/pacman-conf.c:388
 #, c-format
 msgid "warning: unknown directive '%s'\n"
-msgstr ""
+msgstr "attention: commande inconnue '%s'\n"
 
 #: src/pacman/pacman-conf.c:425
 #, c-format
@@ -1967,4 +1971,4 @@ msgstr "Le paquet est valide.\n"
 #: src/util/testpkg.c:98
 #, c-format
 msgid "error releasing alpm\n"
-msgstr ""
+msgstr "erreur lors de la publication de alpm\n"

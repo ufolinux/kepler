@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Arch Linux Pacman package manager\n"
 "Report-Msgid-Bugs-To: http://bugs.archlinux.org/index.php?project=3\n"
-"POT-Creation-Date: 2020-06-19 09:48+1000\n"
+"POT-Creation-Date: 2021-04-23 10:22+1000\n"
 "PO-Revision-Date: 2019-10-13 23:51+0000\n"
 "Last-Translator: Allan McRae <allan@archlinux.org>\n"
 "Language-Team: Basque (Spain) (http://www.transifex.com/toofishes/archlinux-"
@@ -511,102 +511,6 @@ msgstr "Pakete direktorioa prest dago."
 #: scripts/makepkg.sh.in:1470
 msgid "Finished making: %s"
 msgstr "Egiten bukatua: %s"
-
-#: scripts/makepkg-template.pl.in:55
-#, perl-format
-msgid "can't create '%s': %s"
-msgstr "ezin izan da '%s' sortu: %s"
-
-#: scripts/makepkg-template.pl.in:73
-msgid "invalid key/value pair\n"
-msgstr "baliogabeko gako/balio bikotea\n"
-
-#: scripts/makepkg-template.pl.in:82
-msgid "invalid template line: can't find template name\n"
-msgstr ""
-"baliogabeko txantiloi lerroa: ezin izan da txantiloiaren izena aurkitu\n"
-
-#: scripts/makepkg-template.pl.in:87
-#, perl-format
-msgid "invalid chars used in name '%s'. allowed: [:alnum:]+_.@-\n"
-msgstr "baliogabeko karaktereak izenean '%s'. baimenduta: [:alnum:]+_.@-\n"
-
-#: scripts/makepkg-template.pl.in:114
-#, perl-format
-msgid "Couldn't detect version for template '%s'\n"
-msgstr "Ezin izan da txantiloiaren bertsioa antzeman: '%s'\n"
-
-#: scripts/makepkg-template.pl.in:125
-#, perl-format
-msgid "Failed to find template file matching '%s'\n"
-msgstr "Ezin izan da aurkitu '%s' bilaketarekin bat datorren txantiloirik\n"
-
-#: scripts/makepkg-template.pl.in:136
-#, perl-format
-msgid "failed to open '%s': %s\n"
-msgstr "ezin izan da '%s' ireki: %s\n"
-
-#: scripts/makepkg-template.pl.in:153
-#, perl-format
-msgid "Unknown template marker '%s'\n"
-msgstr "Txantiloi markagailu ezezaguna '%s'\n"
-
-#: scripts/makepkg-template.pl.in:175
-msgid "makepkg-template [options]\n"
-msgstr "makepkg-template [aukerak]\n"
-
-#: scripts/makepkg-template.pl.in:177
-msgid "Options:\n"
-msgstr "Aukerak:\n"
-
-#: scripts/makepkg-template.pl.in:178
-#, perl-format
-msgid "  --input, -p <file>    Build script to read (default: %s)\n"
-msgstr ""
-"  --input, -p <fitxategia>    Irakurri behar den eraiketa script-a "
-"(lehenetsita: %s)\n"
-
-#: scripts/makepkg-template.pl.in:179
-msgid "  --output, -o <file>   file to output to (default: input file)\n"
-msgstr ""
-"  --output, -o <fitxategia>   irteera fitxategia (lehenetsita: sarrera "
-"fitxategia)\n"
-
-#: scripts/makepkg-template.pl.in:180
-msgid "  --newest, -n          update templates to newest version\n"
-msgstr ""
-"  --newest, -n          eguneratu txantiloiak bertsio berrienera\n"
-"\n"
-
-#: scripts/makepkg-template.pl.in:181
-msgid ""
-"                        (default: use version specified in the template "
-"markers)\n"
-msgstr "(lehenetsita: erabili txantiloi markagailuetan zehaztutako bertsioa)\n"
-
-#: scripts/makepkg-template.pl.in:182
-msgid "  --template-dir <dir>  directory to search for templates\n"
-msgstr "  --template-dir <dir>  txantiloiak bilatzeko direktorioa\n"
-
-#: scripts/makepkg-template.pl.in:183
-#, perl-format
-msgid "                        (default: %s)\n"
-msgstr "(lehenetsia: %s)\n"
-
-#: scripts/makepkg-template.pl.in:184
-msgid "  --help, -h            This help message\n"
-msgstr "--help, -h Laguntza testu hau\n"
-
-#: scripts/makepkg-template.pl.in:185
-msgid "  --version             Version information\n"
-msgstr "--version Bertsio informazioa\n"
-
-#: scripts/makepkg-template.pl.in:194
-msgid ""
-"Copyright (c) 2013-2020 Pacman Development Team <pacman-dev@archlinux.org>.\n"
-"This is free software; see the source for copying conditions.\n"
-"There is NO WARRANTY, to the extent permitted by law.\n"
-msgstr ""
 
 #: scripts/pacman-db-upgrade.sh.in:40
 msgid "Upgrade the local pacman database to a newer format"
@@ -1335,6 +1239,10 @@ msgstr "EZ DA SINADURA AURKITU"
 msgid "SOURCE FILE NOT FOUND"
 msgstr "EZ DA ITURBURU-FITXATEGIA AURKITU"
 
+#: scripts/libmakepkg/integrity/verify_signature.sh.in:203
+msgid "_"
+msgstr ""
+
 #: scripts/libmakepkg/lint_config/paths.sh.in:39
 #: scripts/libmakepkg/lint_pkgbuild/arch.sh.in:47
 #: scripts/libmakepkg/lint_pkgbuild/pkgname.sh.in:53
@@ -1647,3 +1555,75 @@ msgstr ""
 #: scripts/libmakepkg/util/util.sh.in:109
 msgid "Failed to source %s"
 msgstr "Huts egin du %s iturbururatzean"
+
+#, perl-format
+#~ msgid "can't create '%s': %s"
+#~ msgstr "ezin izan da '%s' sortu: %s"
+
+#~ msgid "invalid key/value pair\n"
+#~ msgstr "baliogabeko gako/balio bikotea\n"
+
+#~ msgid "invalid template line: can't find template name\n"
+#~ msgstr ""
+#~ "baliogabeko txantiloi lerroa: ezin izan da txantiloiaren izena aurkitu\n"
+
+#, perl-format
+#~ msgid "invalid chars used in name '%s'. allowed: [:alnum:]+_.@-\n"
+#~ msgstr "baliogabeko karaktereak izenean '%s'. baimenduta: [:alnum:]+_.@-\n"
+
+#, perl-format
+#~ msgid "Couldn't detect version for template '%s'\n"
+#~ msgstr "Ezin izan da txantiloiaren bertsioa antzeman: '%s'\n"
+
+#, perl-format
+#~ msgid "Failed to find template file matching '%s'\n"
+#~ msgstr "Ezin izan da aurkitu '%s' bilaketarekin bat datorren txantiloirik\n"
+
+#, perl-format
+#~ msgid "failed to open '%s': %s\n"
+#~ msgstr "ezin izan da '%s' ireki: %s\n"
+
+#, perl-format
+#~ msgid "Unknown template marker '%s'\n"
+#~ msgstr "Txantiloi markagailu ezezaguna '%s'\n"
+
+#~ msgid "makepkg-template [options]\n"
+#~ msgstr "makepkg-template [aukerak]\n"
+
+#~ msgid "Options:\n"
+#~ msgstr "Aukerak:\n"
+
+#, perl-format
+#~ msgid "  --input, -p <file>    Build script to read (default: %s)\n"
+#~ msgstr ""
+#~ "  --input, -p <fitxategia>    Irakurri behar den eraiketa script-a "
+#~ "(lehenetsita: %s)\n"
+
+#~ msgid "  --output, -o <file>   file to output to (default: input file)\n"
+#~ msgstr ""
+#~ "  --output, -o <fitxategia>   irteera fitxategia (lehenetsita: sarrera "
+#~ "fitxategia)\n"
+
+#~ msgid "  --newest, -n          update templates to newest version\n"
+#~ msgstr ""
+#~ "  --newest, -n          eguneratu txantiloiak bertsio berrienera\n"
+#~ "\n"
+
+#~ msgid ""
+#~ "                        (default: use version specified in the template "
+#~ "markers)\n"
+#~ msgstr ""
+#~ "(lehenetsita: erabili txantiloi markagailuetan zehaztutako bertsioa)\n"
+
+#~ msgid "  --template-dir <dir>  directory to search for templates\n"
+#~ msgstr "  --template-dir <dir>  txantiloiak bilatzeko direktorioa\n"
+
+#, perl-format
+#~ msgid "                        (default: %s)\n"
+#~ msgstr "(lehenetsia: %s)\n"
+
+#~ msgid "  --help, -h            This help message\n"
+#~ msgstr "--help, -h Laguntza testu hau\n"
+
+#~ msgid "  --version             Version information\n"
+#~ msgstr "--version Bertsio informazioa\n"

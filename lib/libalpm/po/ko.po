@@ -4,7 +4,7 @@
 #
 # Translators:
 # 배태길 <esrevinu@gmail.com>, 2017-2019
-# 김지현 <potatogim@potatogim.net>, 2014,2018
+# Ji-Hyeon Gim <potatogim@potatogim.net>, 2014,2018
 # Thomas Sungjin Kang <potopro@gmail.com>, 2012-2013
 # Thomas Sungjin Kang <potopro@gmail.com>, 2013
 # Thomas Sungjin Kang <potopro@gmail.com>, 2013
@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Arch Linux Pacman package manager\n"
 "Report-Msgid-Bugs-To: http://bugs.archlinux.org/index.php?project=3\n"
-"POT-Creation-Date: 2020-06-19 09:48+1000\n"
+"POT-Creation-Date: 2021-04-23 10:22+1000\n"
 "PO-Revision-Date: 2019-10-08 20:07+0000\n"
 "Last-Translator: 배태길 <esrevinu@gmail.com>\n"
 "Language-Team: Korean (http://www.transifex.com/toofishes/archlinux-pacman/"

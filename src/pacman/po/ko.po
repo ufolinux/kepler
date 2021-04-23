@@ -6,7 +6,7 @@
 # Alan Lee <bkrhlim@aol.com>, 2013
 # Seong-ho Cho <darkcircle.0426@gmail.com>, 2013
 # 배태길 <esrevinu@gmail.com>, 2014,2016-2019
-# 김지현 <potatogim@potatogim.net>, 2014,2018
+# Ji-Hyeon Gim <potatogim@potatogim.net>, 2014,2018
 # Alan Lee <bkrhlim@aol.com>, 2013
 # Seong-ho Cho <darkcircle.0426@gmail.com>, 2013
 # Thomas Sungjin Kang <potopro@gmail.com>, 2012-2013
@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Arch Linux Pacman package manager\n"
 "Report-Msgid-Bugs-To: http://bugs.archlinux.org/index.php?project=3\n"
-"POT-Creation-Date: 2020-06-19 09:48+1000\n"
+"POT-Creation-Date: 2021-04-23 10:22+1000\n"
 "PO-Revision-Date: 2019-12-13 04:33+0000\n"
 "Last-Translator: 배태길 <esrevinu@gmail.com>\n"
 "Language-Team: Korean (http://www.transifex.com/toofishes/archlinux-pacman/"

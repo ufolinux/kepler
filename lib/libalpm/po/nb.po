@@ -3,8 +3,8 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
-# Alexander F Rødseth <rodseth@gmail.com>, 2011,2013,2016-2019
-# Alexander F Rødseth <rodseth@gmail.com>, 2011,2013
+# Alexander F. Rødseth <rodseth@gmail.com>, 2011,2013,2016-2019,2021
+# Alexander F. Rødseth <rodseth@gmail.com>, 2011,2013
 # Eyolf Østrem <eyolf@oestrem.com>, 2014
 # Jon Gjengset <jon@thesquareplanet.com>, 2011,2013,2015,2017
 # Thor K. H. <nitrolinken@gmail.com>, 2019
@@ -12,9 +12,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Arch Linux Pacman package manager\n"
 "Report-Msgid-Bugs-To: http://bugs.archlinux.org/index.php?project=3\n"
-"POT-Creation-Date: 2020-06-19 09:48+1000\n"
-"PO-Revision-Date: 2019-10-07 10:29+0000\n"
-"Last-Translator: Alexander F Rødseth <rodseth@gmail.com>\n"
+"POT-Creation-Date: 2021-04-23 10:22+1000\n"
+"PO-Revision-Date: 2021-03-24 21:50+0000\n"
+"Last-Translator: Alexander F. Rødseth <rodseth@gmail.com>\n"
 "Language-Team: Norwegian Bokmål (http://www.transifex.com/toofishes/"
 "archlinux-pacman/language/nb/)\n"
 "Language: nb\n"
@@ -130,7 +130,7 @@ msgstr "kunne ikke oppdatere databaseoppføring %s-%s\n"
 #: lib/libalpm/add.c:615
 #, c-format
 msgid "could not add entry '%s' in cache\n"
-msgstr "kunne ikke legge til oppføringen '%s' i mellomlageret\n"
+msgstr "kunne ikke legge '%s' til mellomlageret\n"
 
 #: lib/libalpm/be_local.c:267
 #, c-format
@@ -359,12 +359,12 @@ msgstr "url '%s' er ugyldig\n"
 #: lib/libalpm/dload.c:470 lib/libalpm/dload.c:491 lib/libalpm/dload.c:502
 #, c-format
 msgid "failed retrieving file '%s' from %s : %s\n"
-msgstr "kunne ikke hente filen '%s' fra %s : %s\n"
+msgstr "kunne ikke laste ned '%s' fra %s : %s\n"
 
 #: lib/libalpm/dload.c:483
 #, c-format
 msgid "failed retrieving file '%s' from %s : expected download size exceeded\n"
-msgstr "kunne ikke hente filen '%s' fra %s : filen er større enn forventet\n"
+msgstr "kunne ikke laste ned '%s' fra %s : filen er større enn forventet\n"
 
 #: lib/libalpm/dload.c:538
 #, c-format

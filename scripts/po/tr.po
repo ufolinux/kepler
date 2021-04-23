@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Arch Linux Pacman package manager\n"
 "Report-Msgid-Bugs-To: http://bugs.archlinux.org/index.php?project=3\n"
-"POT-Creation-Date: 2020-06-19 09:48+1000\n"
+"POT-Creation-Date: 2021-04-23 10:22+1000\n"
 "PO-Revision-Date: 2019-10-20 12:52+0000\n"
 "Last-Translator: Betül Ünlü\n"
 "Language-Team: Turkish (http://www.transifex.com/toofishes/archlinux-pacman/"
@@ -522,103 +522,6 @@ msgstr "Paket dizini hazır."
 #: scripts/makepkg.sh.in:1470
 msgid "Finished making: %s"
 msgstr "%s paketinin derlenmesi tamamlandı"
-
-#: scripts/makepkg-template.pl.in:55
-#, perl-format
-msgid "can't create '%s': %s"
-msgstr "'%s' oluşturulamıyor: %s"
-
-#: scripts/makepkg-template.pl.in:73
-msgid "invalid key/value pair\n"
-msgstr "geçersiz anahtar/değer çifti\n"
-
-#: scripts/makepkg-template.pl.in:82
-msgid "invalid template line: can't find template name\n"
-msgstr "geçersiz şablon satırı: şablon adı bulunamıyor\n"
-
-#: scripts/makepkg-template.pl.in:87
-#, perl-format
-msgid "invalid chars used in name '%s'. allowed: [:alnum:]+_.@-\n"
-msgstr ""
-"'%s' adında geçersiz karakterler kullanılmış. İzin verilenler:  [:alnum:]+_."
-"@-\n"
-
-#: scripts/makepkg-template.pl.in:114
-#, perl-format
-msgid "Couldn't detect version for template '%s'\n"
-msgstr "\"%s\" şablonunun sürümü tespit edilemedi\n"
-
-#: scripts/makepkg-template.pl.in:125
-#, perl-format
-msgid "Failed to find template file matching '%s'\n"
-msgstr "\"%s\"'e uyan şablon dosyası bulunamadı\n"
-
-#: scripts/makepkg-template.pl.in:136
-#, perl-format
-msgid "failed to open '%s': %s\n"
-msgstr "\"%s\" açılamadı: %s\n"
-
-#: scripts/makepkg-template.pl.in:153
-#, perl-format
-msgid "Unknown template marker '%s'\n"
-msgstr "'%s' bilinmeyen bir şablon işaretçisi\n"
-
-#: scripts/makepkg-template.pl.in:175
-msgid "makepkg-template [options]\n"
-msgstr "makepkg-template [seçenekler]\n"
-
-#: scripts/makepkg-template.pl.in:177
-msgid "Options:\n"
-msgstr "Seçenekler:\n"
-
-#: scripts/makepkg-template.pl.in:178
-#, perl-format
-msgid "  --input, -p <file>    Build script to read (default: %s)\n"
-msgstr "  --input, -p <file>   Okunacak derleme betiği (öntanımlı: %s)\n"
-
-#: scripts/makepkg-template.pl.in:179
-msgid "  --output, -o <file>   file to output to (default: input file)\n"
-msgstr ""
-"  --output, -o <dosya>   çıktı olarak verilecek dosya (öntanımlı: girdi "
-"dosyası)\n"
-
-#: scripts/makepkg-template.pl.in:180
-msgid "  --newest, -n          update templates to newest version\n"
-msgstr "  --newest, -n          şablonları en yeni sürüme güncelle\n"
-
-#: scripts/makepkg-template.pl.in:181
-msgid ""
-"                        (default: use version specified in the template "
-"markers)\n"
-msgstr "(öntanımlı: şablon işaretçilerinde belirtilen sürümü kullan)\n"
-
-#: scripts/makepkg-template.pl.in:182
-msgid "  --template-dir <dir>  directory to search for templates\n"
-msgstr "  --template-dir <dizin>  şablonlar için arama yapılacak dizin\n"
-
-#: scripts/makepkg-template.pl.in:183
-#, perl-format
-msgid "                        (default: %s)\n"
-msgstr "                        (öntanımlı: %s)\n"
-
-#: scripts/makepkg-template.pl.in:184
-msgid "  --help, -h            This help message\n"
-msgstr "  --help, -h            Bu yardım iletisi\n"
-
-#: scripts/makepkg-template.pl.in:185
-msgid "  --version             Version information\n"
-msgstr "  --version             Sürüm bilgisi\n"
-
-#: scripts/makepkg-template.pl.in:194
-#, fuzzy
-msgid ""
-"Copyright (c) 2013-2020 Pacman Development Team <pacman-dev@archlinux.org>.\n"
-"This is free software; see the source for copying conditions.\n"
-"There is NO WARRANTY, to the extent permitted by law.\n"
-msgstr ""
-"Copyright (c) 2013-2018 Pacman Geliştirme Ekibi <pacman-dev@archlinux.org>.\n"
-"Bu bir özgür yazılımdır; kopyalama koşulları için kaynak koda bakın.\n"
-"Yasaların izin verdiği ölçüde HİÇBİR GARANTİSİ YOKTUR.\n"
 
 #: scripts/pacman-db-upgrade.sh.in:40
 msgid "Upgrade the local pacman database to a newer format"
@@ -1336,6 +1239,10 @@ msgstr "İMZA BULUNAMADI"
 msgid "SOURCE FILE NOT FOUND"
 msgstr "KAYNAK DOSYA BULUNAMADI"
 
+#: scripts/libmakepkg/integrity/verify_signature.sh.in:203
+msgid "_"
+msgstr ""
+
 #: scripts/libmakepkg/lint_config/paths.sh.in:39
 #: scripts/libmakepkg/lint_pkgbuild/arch.sh.in:47
 #: scripts/libmakepkg/lint_pkgbuild/pkgname.sh.in:53
@@ -1651,3 +1558,82 @@ msgstr "$%s dizinine yazma yetkiniz yok (%s)."
 #: scripts/libmakepkg/util/util.sh.in:109
 msgid "Failed to source %s"
 msgstr "%s kaynak alınamadı"
+
+#, perl-format
+#~ msgid "can't create '%s': %s"
+#~ msgstr "'%s' oluşturulamıyor: %s"
+
+#~ msgid "invalid key/value pair\n"
+#~ msgstr "geçersiz anahtar/değer çifti\n"
+
+#~ msgid "invalid template line: can't find template name\n"
+#~ msgstr "geçersiz şablon satırı: şablon adı bulunamıyor\n"
+
+#, perl-format
+#~ msgid "invalid chars used in name '%s'. allowed: [:alnum:]+_.@-\n"
+#~ msgstr ""
+#~ "'%s' adında geçersiz karakterler kullanılmış. İzin verilenler:  [:"
+#~ "alnum:]+_.@-\n"
+
+#, perl-format
+#~ msgid "Couldn't detect version for template '%s'\n"
+#~ msgstr "\"%s\" şablonunun sürümü tespit edilemedi\n"
+
+#, perl-format
+#~ msgid "Failed to find template file matching '%s'\n"
+#~ msgstr "\"%s\"'e uyan şablon dosyası bulunamadı\n"
+
+#, perl-format
+#~ msgid "failed to open '%s': %s\n"
+#~ msgstr "\"%s\" açılamadı: %s\n"
+
+#, perl-format
+#~ msgid "Unknown template marker '%s'\n"
+#~ msgstr "'%s' bilinmeyen bir şablon işaretçisi\n"
+
+#~ msgid "makepkg-template [options]\n"
+#~ msgstr "makepkg-template [seçenekler]\n"
+
+#~ msgid "Options:\n"
+#~ msgstr "Seçenekler:\n"
+
+#, perl-format
+#~ msgid "  --input, -p <file>    Build script to read (default: %s)\n"
+#~ msgstr "  --input, -p <file>   Okunacak derleme betiği (öntanımlı: %s)\n"
+
+#~ msgid "  --output, -o <file>   file to output to (default: input file)\n"
+#~ msgstr ""
+#~ "  --output, -o <dosya>   çıktı olarak verilecek dosya (öntanımlı: girdi "
+#~ "dosyası)\n"
+
+#~ msgid "  --newest, -n          update templates to newest version\n"
+#~ msgstr "  --newest, -n          şablonları en yeni sürüme güncelle\n"
+
+#~ msgid ""
+#~ "                        (default: use version specified in the template "
+#~ "markers)\n"
+#~ msgstr "(öntanımlı: şablon işaretçilerinde belirtilen sürümü kullan)\n"
+
+#~ msgid "  --template-dir <dir>  directory to search for templates\n"
+#~ msgstr "  --template-dir <dizin>  şablonlar için arama yapılacak dizin\n"
+
+#, perl-format
+#~ msgid "                        (default: %s)\n"
+#~ msgstr "                        (öntanımlı: %s)\n"
+
+#~ msgid "  --help, -h            This help message\n"
+#~ msgstr "  --help, -h            Bu yardım iletisi\n"
+
+#~ msgid "  --version             Version information\n"
+#~ msgstr "  --version             Sürüm bilgisi\n"
+
+#~ msgid ""
+#~ "Copyright (c) 2013-2018 Pacman Development Team <pacman-dev@archlinux."
+#~ "org>.\n"
+#~ "This is free software; see the source for copying conditions.\n"
+#~ "There is NO WARRANTY, to the extent permitted by law.\n"
+#~ msgstr ""
+#~ "Copyright (c) 2013-2018 Pacman Geliştirme Ekibi <pacman-dev@archlinux."
+#~ "org>.\n"
+#~ "Bu bir özgür yazılımdır; kopyalama koşulları için kaynak koda bakın.\n"
+#~ "Yasaların izin verdiği ölçüde HİÇBİR GARANTİSİ YOKTUR.\n"

@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Arch Linux Pacman package manager\n"
 "Report-Msgid-Bugs-To: http://bugs.archlinux.org/index.php?project=3\n"
-"POT-Creation-Date: 2020-06-19 09:48+1000\n"
+"POT-Creation-Date: 2021-04-23 10:22+1000\n"
 "PO-Revision-Date: 2019-10-13 23:51+0000\n"
 "Last-Translator: Allan McRae <allan@archlinux.org>\n"
 "Language-Team: Romanian (http://www.transifex.com/toofishes/archlinux-pacman/"
@@ -528,101 +528,6 @@ msgstr "Directorul de pachete este gata."
 #: scripts/makepkg.sh.in:1470
 msgid "Finished making: %s"
 msgstr "S-a terminat de făcut: %s"
-
-#: scripts/makepkg-template.pl.in:55
-#, perl-format
-msgid "can't create '%s': %s"
-msgstr "nu se poate crea '%s': %s"
-
-#: scripts/makepkg-template.pl.in:73
-msgid "invalid key/value pair\n"
-msgstr "pereche cheie/valoare nevalidă\n"
-
-#: scripts/makepkg-template.pl.in:82
-msgid "invalid template line: can't find template name\n"
-msgstr "linie șablon nevalidă: nu se poate găsi numele șablonului\n"
-
-#: scripts/makepkg-template.pl.in:87
-#, perl-format
-msgid "invalid chars used in name '%s'. allowed: [:alnum:]+_.@-\n"
-msgstr "caractere nevalide folosite în numele '%s'. permise: [:alnum:]+_.@-\n"
-
-#: scripts/makepkg-template.pl.in:114
-#, perl-format
-msgid "Couldn't detect version for template '%s'\n"
-msgstr "Nu s-a putut detecta versiunea pentru șablonul '%s'\n"
-
-#: scripts/makepkg-template.pl.in:125
-#, perl-format
-msgid "Failed to find template file matching '%s'\n"
-msgstr "Eșec la găsirea fișierului șablon care se potrivește cu '%s'\n"
-
-#: scripts/makepkg-template.pl.in:136
-#, perl-format
-msgid "failed to open '%s': %s\n"
-msgstr "eșec la deschiderea '%s': %s\n"
-
-#: scripts/makepkg-template.pl.in:153
-#, perl-format
-msgid "Unknown template marker '%s'\n"
-msgstr "Marcaj de șablon necunoscut '%s'\n"
-
-#: scripts/makepkg-template.pl.in:175
-msgid "makepkg-template [options]\n"
-msgstr "makepkg-template [opțiuni]\n"
-
-#: scripts/makepkg-template.pl.in:177
-msgid "Options:\n"
-msgstr "Opțiuni:\n"
-
-#: scripts/makepkg-template.pl.in:178
-#, perl-format
-msgid "  --input, -p <file>    Build script to read (default: %s)\n"
-msgstr ""
-"  --input, -p <fișier>    script de construire de citit (implicit: %s)\n"
-
-#: scripts/makepkg-template.pl.in:179
-msgid "  --output, -o <file>   file to output to (default: input file)\n"
-msgstr ""
-"  --output, -o <fișier>   fișier de scriere rezultate (implicit: fișier "
-"intrare)\n"
-
-#: scripts/makepkg-template.pl.in:180
-msgid "  --newest, -n          update templates to newest version\n"
-msgstr ""
-"  --newest, -n            actualizează șabloanele la cea mai nouă versiune\n"
-
-#: scripts/makepkg-template.pl.in:181
-msgid ""
-"                        (default: use version specified in the template "
-"markers)\n"
-msgstr ""
-"                          (implicit: se folosește versiunea specificată în "
-"marcajele de șablon)\n"
-
-#: scripts/makepkg-template.pl.in:182
-msgid "  --template-dir <dir>  directory to search for templates\n"
-msgstr "  --template-dir <dir>    directorul în care se caută șabloane\n"
-
-#: scripts/makepkg-template.pl.in:183
-#, perl-format
-msgid "                        (default: %s)\n"
-msgstr "                          (implicit: %s)\n"
-
-#: scripts/makepkg-template.pl.in:184
-msgid "  --help, -h            This help message\n"
-msgstr "  --help, -h              Acest mesaj de ajutor\n"
-
-#: scripts/makepkg-template.pl.in:185
-msgid "  --version             Version information\n"
-msgstr "  --version               Informații despre versiune\n"
-
-#: scripts/makepkg-template.pl.in:194
-msgid ""
-"Copyright (c) 2013-2020 Pacman Development Team <pacman-dev@archlinux.org>.\n"
-"This is free software; see the source for copying conditions.\n"
-"There is NO WARRANTY, to the extent permitted by law.\n"
-msgstr ""
 
 #: scripts/pacman-db-upgrade.sh.in:40
 msgid "Upgrade the local pacman database to a newer format"
@@ -1351,6 +1256,10 @@ msgstr "SEMNĂTURA NU A FOST GĂSITĂ"
 msgid "SOURCE FILE NOT FOUND"
 msgstr "FIȘIERUL SURSĂ NU A FOST GĂSIT"
 
+#: scripts/libmakepkg/integrity/verify_signature.sh.in:203
+msgid "_"
+msgstr ""
+
 #: scripts/libmakepkg/lint_config/paths.sh.in:39
 #: scripts/libmakepkg/lint_pkgbuild/arch.sh.in:47
 #: scripts/libmakepkg/lint_pkgbuild/pkgname.sh.in:53
@@ -1664,3 +1573,75 @@ msgstr ""
 #: scripts/libmakepkg/util/util.sh.in:109
 msgid "Failed to source %s"
 msgstr "Eșec la includerea %s"
+
+#, perl-format
+#~ msgid "can't create '%s': %s"
+#~ msgstr "nu se poate crea '%s': %s"
+
+#~ msgid "invalid key/value pair\n"
+#~ msgstr "pereche cheie/valoare nevalidă\n"
+
+#~ msgid "invalid template line: can't find template name\n"
+#~ msgstr "linie șablon nevalidă: nu se poate găsi numele șablonului\n"
+
+#, perl-format
+#~ msgid "invalid chars used in name '%s'. allowed: [:alnum:]+_.@-\n"
+#~ msgstr ""
+#~ "caractere nevalide folosite în numele '%s'. permise: [:alnum:]+_.@-\n"
+
+#, perl-format
+#~ msgid "Couldn't detect version for template '%s'\n"
+#~ msgstr "Nu s-a putut detecta versiunea pentru șablonul '%s'\n"
+
+#, perl-format
+#~ msgid "Failed to find template file matching '%s'\n"
+#~ msgstr "Eșec la găsirea fișierului șablon care se potrivește cu '%s'\n"
+
+#, perl-format
+#~ msgid "failed to open '%s': %s\n"
+#~ msgstr "eșec la deschiderea '%s': %s\n"
+
+#, perl-format
+#~ msgid "Unknown template marker '%s'\n"
+#~ msgstr "Marcaj de șablon necunoscut '%s'\n"
+
+#~ msgid "makepkg-template [options]\n"
+#~ msgstr "makepkg-template [opțiuni]\n"
+
+#~ msgid "Options:\n"
+#~ msgstr "Opțiuni:\n"
+
+#, perl-format
+#~ msgid "  --input, -p <file>    Build script to read (default: %s)\n"
+#~ msgstr ""
+#~ "  --input, -p <fișier>    script de construire de citit (implicit: %s)\n"
+
+#~ msgid "  --output, -o <file>   file to output to (default: input file)\n"
+#~ msgstr ""
+#~ "  --output, -o <fișier>   fișier de scriere rezultate (implicit: fișier "
+#~ "intrare)\n"
+
+#~ msgid "  --newest, -n          update templates to newest version\n"
+#~ msgstr ""
+#~ "  --newest, -n            actualizează șabloanele la cea mai nouă "
+#~ "versiune\n"
+
+#~ msgid ""
+#~ "                        (default: use version specified in the template "
+#~ "markers)\n"
+#~ msgstr ""
+#~ "                          (implicit: se folosește versiunea specificată "
+#~ "în marcajele de șablon)\n"
+
+#~ msgid "  --template-dir <dir>  directory to search for templates\n"
+#~ msgstr "  --template-dir <dir>    directorul în care se caută șabloane\n"
+
+#, perl-format
+#~ msgid "                        (default: %s)\n"
+#~ msgstr "                          (implicit: %s)\n"
+
+#~ msgid "  --help, -h            This help message\n"
+#~ msgstr "  --help, -h              Acest mesaj de ajutor\n"
+
+#~ msgid "  --version             Version information\n"
+#~ msgstr "  --version               Informații despre versiune\n"

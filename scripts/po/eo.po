@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Arch Linux Pacman package manager\n"
 "Report-Msgid-Bugs-To: http://bugs.archlinux.org/index.php?project=3\n"
-"POT-Creation-Date: 2020-06-19 09:48+1000\n"
+"POT-Creation-Date: 2021-04-23 10:22+1000\n"
 "PO-Revision-Date: 2020-02-10 18:24+0000\n"
 "Last-Translator: Kinsey Favre <kinseytamsin@tutanota.com>\n"
 "Language-Team: Esperanto (http://www.transifex.com/toofishes/archlinux-"
@@ -505,97 +505,6 @@ msgstr "La pakaĵa dosierujo estas preta."
 #: scripts/makepkg.sh.in:1470
 msgid "Finished making: %s"
 msgstr "Finis faradon de %s"
-
-#: scripts/makepkg-template.pl.in:55
-#, perl-format
-msgid "can't create '%s': %s"
-msgstr "ne eblas krei '%s': %s"
-
-#: scripts/makepkg-template.pl.in:73
-msgid "invalid key/value pair\n"
-msgstr "nevalida ŝlosilo/valora duo\n"
-
-#: scripts/makepkg-template.pl.in:82
-msgid "invalid template line: can't find template name\n"
-msgstr "nevalida ŝablona linio: ne eblas trovi ŝablonan nomon\n"
-
-#: scripts/makepkg-template.pl.in:87
-#, perl-format
-msgid "invalid chars used in name '%s'. allowed: [:alnum:]+_.@-\n"
-msgstr "nevalidaj signoj uzataj en nomo '%s'. permesataj: [:alnum:]+_.@-\n"
-
-#: scripts/makepkg-template.pl.in:114
-#, perl-format
-msgid "Couldn't detect version for template '%s'\n"
-msgstr "Ne eblis detekti version de la ŝablono '%s'\n"
-
-#: scripts/makepkg-template.pl.in:125
-#, perl-format
-msgid "Failed to find template file matching '%s'\n"
-msgstr "Malsukcesis trovi ŝablonan dosieron kongruante al '%s'\n"
-
-#: scripts/makepkg-template.pl.in:136
-#, perl-format
-msgid "failed to open '%s': %s\n"
-msgstr "malsukcesis malfermi '%s': %s\n"
-
-#: scripts/makepkg-template.pl.in:153
-#, perl-format
-msgid "Unknown template marker '%s'\n"
-msgstr "Nekonata ŝablona markilo '%s'\n"
-
-#: scripts/makepkg-template.pl.in:175
-msgid "makepkg-template [options]\n"
-msgstr "makepkg-template [opcioj]\n"
-
-#: scripts/makepkg-template.pl.in:177
-msgid "Options:\n"
-msgstr "Opcioj:\n"
-
-#: scripts/makepkg-template.pl.in:178
-#, perl-format
-msgid "  --input, -p <file>    Build script to read (default: %s)\n"
-msgstr ""
-"  --input, -p <file>    Elekti la konstruadskripton por legi (defaŭlta: %s)\n"
-
-#: scripts/makepkg-template.pl.in:179
-msgid "  --output, -o <file>   file to output to (default: input file)\n"
-msgstr ""
-"  --output, -o <file>   eligi dosieron al (defaŭlte: la eniga dosiero)\n"
-
-#: scripts/makepkg-template.pl.in:180
-msgid "  --newest, -n          update templates to newest version\n"
-msgstr "  --newest, -n          ĝisdatigi ŝablonojn al la plej nova versio\n"
-
-#: scripts/makepkg-template.pl.in:181
-msgid ""
-"                        (default: use version specified in the template "
-"markers)\n"
-msgstr "(defaŭlte: uzi version difinita en la ŝablonaj markiloj)\n"
-
-#: scripts/makepkg-template.pl.in:182
-msgid "  --template-dir <dir>  directory to search for templates\n"
-msgstr "  --template-dir <dir>  dosierujo por ŝerci ŝablonojn\n"
-
-#: scripts/makepkg-template.pl.in:183
-#, perl-format
-msgid "                        (default: %s)\n"
-msgstr "                        (defaŭlte: %s)\n"
-
-#: scripts/makepkg-template.pl.in:184
-msgid "  --help, -h            This help message\n"
-msgstr "  --help, -h            Ĉi tiu helpmesaĝo\n"
-
-#: scripts/makepkg-template.pl.in:185
-msgid "  --version             Version information\n"
-msgstr "  --version             Versia informo\n"
-
-#: scripts/makepkg-template.pl.in:194
-msgid ""
-"Copyright (c) 2013-2020 Pacman Development Team <pacman-dev@archlinux.org>.\n"
-"This is free software; see the source for copying conditions.\n"
-"There is NO WARRANTY, to the extent permitted by law.\n"
-msgstr ""
 
 #: scripts/pacman-db-upgrade.sh.in:40
 msgid "Upgrade the local pacman database to a newer format"
@@ -1316,6 +1225,10 @@ msgstr "SUBSKRIBO NE TROVITA"
 msgid "SOURCE FILE NOT FOUND"
 msgstr "FONTA DOSIERO NE TROVITA"
 
+#: scripts/libmakepkg/integrity/verify_signature.sh.in:203
+msgid "_"
+msgstr ""
+
 #: scripts/libmakepkg/lint_config/paths.sh.in:39
 #: scripts/libmakepkg/lint_pkgbuild/arch.sh.in:47
 #: scripts/libmakepkg/lint_pkgbuild/pkgname.sh.in:53
@@ -1628,3 +1541,71 @@ msgstr ""
 #: scripts/libmakepkg/util/util.sh.in:109
 msgid "Failed to source %s"
 msgstr "Malsukcesis fonti %s"
+
+#, perl-format
+#~ msgid "can't create '%s': %s"
+#~ msgstr "ne eblas krei '%s': %s"
+
+#~ msgid "invalid key/value pair\n"
+#~ msgstr "nevalida ŝlosilo/valora duo\n"
+
+#~ msgid "invalid template line: can't find template name\n"
+#~ msgstr "nevalida ŝablona linio: ne eblas trovi ŝablonan nomon\n"
+
+#, perl-format
+#~ msgid "invalid chars used in name '%s'. allowed: [:alnum:]+_.@-\n"
+#~ msgstr "nevalidaj signoj uzataj en nomo '%s'. permesataj: [:alnum:]+_.@-\n"
+
+#, perl-format
+#~ msgid "Couldn't detect version for template '%s'\n"
+#~ msgstr "Ne eblis detekti version de la ŝablono '%s'\n"
+
+#, perl-format
+#~ msgid "Failed to find template file matching '%s'\n"
+#~ msgstr "Malsukcesis trovi ŝablonan dosieron kongruante al '%s'\n"
+
+#, perl-format
+#~ msgid "failed to open '%s': %s\n"
+#~ msgstr "malsukcesis malfermi '%s': %s\n"
+
+#, perl-format
+#~ msgid "Unknown template marker '%s'\n"
+#~ msgstr "Nekonata ŝablona markilo '%s'\n"
+
+#~ msgid "makepkg-template [options]\n"
+#~ msgstr "makepkg-template [opcioj]\n"
+
+#~ msgid "Options:\n"
+#~ msgstr "Opcioj:\n"
+
+#, perl-format
+#~ msgid "  --input, -p <file>    Build script to read (default: %s)\n"
+#~ msgstr ""
+#~ "  --input, -p <file>    Elekti la konstruadskripton por legi (defaŭlta: "
+#~ "%s)\n"
+
+#~ msgid "  --output, -o <file>   file to output to (default: input file)\n"
+#~ msgstr ""
+#~ "  --output, -o <file>   eligi dosieron al (defaŭlte: la eniga dosiero)\n"
+
+#~ msgid "  --newest, -n          update templates to newest version\n"
+#~ msgstr ""
+#~ "  --newest, -n          ĝisdatigi ŝablonojn al la plej nova versio\n"
+
+#~ msgid ""
+#~ "                        (default: use version specified in the template "
+#~ "markers)\n"
+#~ msgstr "(defaŭlte: uzi version difinita en la ŝablonaj markiloj)\n"
+
+#~ msgid "  --template-dir <dir>  directory to search for templates\n"
+#~ msgstr "  --template-dir <dir>  dosierujo por ŝerci ŝablonojn\n"
+
+#, perl-format
+#~ msgid "                        (default: %s)\n"
+#~ msgstr "                        (defaŭlte: %s)\n"
+
+#~ msgid "  --help, -h            This help message\n"
+#~ msgstr "  --help, -h            Ĉi tiu helpmesaĝo\n"
+
+#~ msgid "  --version             Version information\n"
+#~ msgstr "  --version             Versia informo\n"

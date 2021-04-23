@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Arch Linux Pacman package manager\n"
 "Report-Msgid-Bugs-To: http://bugs.archlinux.org/index.php?project=3\n"
-"POT-Creation-Date: 2020-06-19 09:48+1000\n"
+"POT-Creation-Date: 2021-04-23 10:22+1000\n"
 "PO-Revision-Date: 2019-12-22 04:21+0000\n"
 "Last-Translator: byStarTW (pan93412) <pan93412@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/toofishes/"
@@ -502,99 +502,6 @@ msgstr "軟體包目錄準備就緒。"
 #: scripts/makepkg.sh.in:1470
 msgid "Finished making: %s"
 msgstr "製作完成：%s"
-
-#: scripts/makepkg-template.pl.in:55
-#, perl-format
-msgid "can't create '%s': %s"
-msgstr "無法建立「%s」：%s"
-
-#: scripts/makepkg-template.pl.in:73
-msgid "invalid key/value pair\n"
-msgstr "無效的鍵/值配對\n"
-
-#: scripts/makepkg-template.pl.in:82
-msgid "invalid template line: can't find template name\n"
-msgstr "無效的模板列：找不到模板名稱\n"
-
-#: scripts/makepkg-template.pl.in:87
-#, perl-format
-msgid "invalid chars used in name '%s'. allowed: [:alnum:]+_.@-\n"
-msgstr "名稱「%s」中有使用無效字元。允許字元為：[:alnum:]+_.@-\n"
-
-#: scripts/makepkg-template.pl.in:114
-#, perl-format
-msgid "Couldn't detect version for template '%s'\n"
-msgstr "無法偵測到「%s」模板的版本\n"
-
-#: scripts/makepkg-template.pl.in:125
-#, perl-format
-msgid "Failed to find template file matching '%s'\n"
-msgstr "找不到符合「%s」的模板檔案\n"
-
-#: scripts/makepkg-template.pl.in:136
-#, perl-format
-msgid "failed to open '%s': %s\n"
-msgstr "「%s」開啟失敗：%s\n"
-
-#: scripts/makepkg-template.pl.in:153
-#, perl-format
-msgid "Unknown template marker '%s'\n"
-msgstr "未知的模板標記「%s」\n"
-
-#: scripts/makepkg-template.pl.in:175
-msgid "makepkg-template [options]\n"
-msgstr "makepkg-template [選項]\n"
-
-#: scripts/makepkg-template.pl.in:177
-msgid "Options:\n"
-msgstr "選項：\n"
-
-#: scripts/makepkg-template.pl.in:178
-#, perl-format
-msgid "  --input, -p <file>    Build script to read (default: %s)\n"
-msgstr "  --input, -p <file>    要讀取的建置用指令稿 (預設：%s)\n"
-
-#: scripts/makepkg-template.pl.in:179
-msgid "  --output, -o <file>   file to output to (default: input file)\n"
-msgstr "  --output, -o <file>   要輸出的目標檔案 (預設：輸入檔)\n"
-
-#: scripts/makepkg-template.pl.in:180
-msgid "  --newest, -n          update templates to newest version\n"
-msgstr "  --newest, -n          將模板更新至最新版\n"
-
-#: scripts/makepkg-template.pl.in:181
-msgid ""
-"                        (default: use version specified in the template "
-"markers)\n"
-msgstr "                        (預設：使用模板標記中指定的版本)\n"
-
-#: scripts/makepkg-template.pl.in:182
-msgid "  --template-dir <dir>  directory to search for templates\n"
-msgstr "  --template-dir <dir>  搜尋模板目錄\n"
-
-#: scripts/makepkg-template.pl.in:183
-#, perl-format
-msgid "                        (default: %s)\n"
-msgstr "                        (預設：%s)\n"
-
-#: scripts/makepkg-template.pl.in:184
-msgid "  --help, -h            This help message\n"
-msgstr "  --help, -h            本說明訊息\n"
-
-#: scripts/makepkg-template.pl.in:185
-msgid "  --version             Version information\n"
-msgstr "  --version             版本資訊\n"
-
-#: scripts/makepkg-template.pl.in:194
-#, fuzzy
-msgid ""
-"Copyright (c) 2013-2020 Pacman Development Team <pacman-dev@archlinux.org>.\n"
-"This is free software; see the source for copying conditions.\n"
-"There is NO WARRANTY, to the extent permitted by law.\n"
-msgstr ""
-"著作權所有 (c) 2013-2018 Pacman 開發團隊 <pacman-dev@archlinux.org>。\n"
-"這是自由軟體；請見原始碼瞭解授權條款。\n"
-"於法律許可範圍之內「不予任何保證」。\n"
 
 #: scripts/pacman-db-upgrade.sh.in:40
 msgid "Upgrade the local pacman database to a newer format"
@@ -1288,6 +1195,10 @@ msgstr "找不到簽章"
 msgid "SOURCE FILE NOT FOUND"
 msgstr "找不到來源檔"
 
+#: scripts/libmakepkg/integrity/verify_signature.sh.in:203
+msgid "_"
+msgstr ""
+
 #: scripts/libmakepkg/lint_config/paths.sh.in:39
 #: scripts/libmakepkg/lint_pkgbuild/arch.sh.in:47
 #: scripts/libmakepkg/lint_pkgbuild/pkgname.sh.in:53
@@ -1600,3 +1511,77 @@ msgstr "您沒有 $%s(%s) 目錄的寫入權限。"
 #: scripts/libmakepkg/util/util.sh.in:109
 msgid "Failed to source %s"
 msgstr "%s 來源失敗"
+
+#, perl-format
+#~ msgid "can't create '%s': %s"
+#~ msgstr "無法建立「%s」：%s"
+
+#~ msgid "invalid key/value pair\n"
+#~ msgstr "無效的鍵/值配對\n"
+
+#~ msgid "invalid template line: can't find template name\n"
+#~ msgstr "無效的模板列：找不到模板名稱\n"
+
+#, perl-format
+#~ msgid "invalid chars used in name '%s'. allowed: [:alnum:]+_.@-\n"
+#~ msgstr "名稱「%s」中有使用無效字元。允許字元為：[:alnum:]+_.@-\n"
+
+#, perl-format
+#~ msgid "Couldn't detect version for template '%s'\n"
+#~ msgstr "無法偵測到「%s」模板的版本\n"
+
+#, perl-format
+#~ msgid "Failed to find template file matching '%s'\n"
+#~ msgstr "找不到符合「%s」的模板檔案\n"
+
+#, perl-format
+#~ msgid "failed to open '%s': %s\n"
+#~ msgstr "「%s」開啟失敗：%s\n"
+
+#, perl-format
+#~ msgid "Unknown template marker '%s'\n"
+#~ msgstr "未知的模板標記「%s」\n"
+
+#~ msgid "makepkg-template [options]\n"
+#~ msgstr "makepkg-template [選項]\n"
+
+#~ msgid "Options:\n"
+#~ msgstr "選項：\n"
+
+#, perl-format
+#~ msgid "  --input, -p <file>    Build script to read (default: %s)\n"
+#~ msgstr "  --input, -p <file>    要讀取的建置用指令稿 (預設：%s)\n"
+
+#~ msgid "  --output, -o <file>   file to output to (default: input file)\n"
+#~ msgstr "  --output, -o <file>   要輸出的目標檔案 (預設：輸入檔)\n"
+
+#~ msgid "  --newest, -n          update templates to newest version\n"
+#~ msgstr "  --newest, -n          將模板更新至最新版\n"
+
+#~ msgid ""
+#~ "                        (default: use version specified in the template "
+#~ "markers)\n"
+#~ msgstr "                        (預設：使用模板標記中指定的版本)\n"
+
+#~ msgid "  --template-dir <dir>  directory to search for templates\n"
+#~ msgstr "  --template-dir <dir>  搜尋模板目錄\n"
+
+#, perl-format
+#~ msgid "                        (default: %s)\n"
+#~ msgstr "                        (預設：%s)\n"
+
+#~ msgid "  --help, -h            This help message\n"
+#~ msgstr "  --help, -h            本說明訊息\n"
+
+#~ msgid "  --version             Version information\n"
+#~ msgstr "  --version             版本資訊\n"
+
+#~ msgid ""
+#~ "Copyright (c) 2013-2018 Pacman Development Team <pacman-dev@archlinux."
+#~ "org>.\n"
+#~ "This is free software; see the source for copying conditions.\n"
+#~ "There is NO WARRANTY, to the extent permitted by law.\n"
+#~ msgstr ""
+#~ "著作權所有 (c) 2013-2018 Pacman 開發團隊 <pacman-dev@archlinux.org>。\n"
+#~ "這是自由軟體；請見原始碼瞭解授權條款。\n"
+#~ "於法律許可範圍之內「不予任何保證」。\n"

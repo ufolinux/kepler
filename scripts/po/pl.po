@@ -32,7 +32,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Arch Linux Pacman package manager\n"
 "Report-Msgid-Bugs-To: http://bugs.archlinux.org/index.php?project=3\n"
-"POT-Creation-Date: 2020-06-19 09:48+1000\n"
+"POT-Creation-Date: 2021-04-23 10:22+1000\n"
 "PO-Revision-Date: 2020-01-08 13:05+0000\n"
 "Last-Translator: Artur Juraszek <artur@juraszek.xyz>\n"
 "Language-Team: Polish (http://www.transifex.com/toofishes/archlinux-pacman/"
@@ -530,101 +530,6 @@ msgstr "Katalog pakietu jest gotowy."
 #: scripts/makepkg.sh.in:1470
 msgid "Finished making: %s"
 msgstr "Ukończono tworzenie: %s"
-
-#: scripts/makepkg-template.pl.in:55
-#, perl-format
-msgid "can't create '%s': %s"
-msgstr "nie można stworzyć '%s': %s"
-
-#: scripts/makepkg-template.pl.in:73
-msgid "invalid key/value pair\n"
-msgstr "nieprawidłowa para kluczy / wartości\n"
-
-#: scripts/makepkg-template.pl.in:82
-msgid "invalid template line: can't find template name\n"
-msgstr "nieważna linia szablonu: nie można znaleźć nazwy szablonu\n"
-
-#: scripts/makepkg-template.pl.in:87
-#, perl-format
-msgid "invalid chars used in name '%s'. allowed: [:alnum:]+_.@-\n"
-msgstr "nieprawidłowe znaki użyte w nazwie '%s'. dozwolone: [:alnum:]+_.@-\n"
-
-#: scripts/makepkg-template.pl.in:114
-#, perl-format
-msgid "Couldn't detect version for template '%s'\n"
-msgstr "Nie udało się wykryć wersji dla szablonu '%s'\n"
-
-#: scripts/makepkg-template.pl.in:125
-#, perl-format
-msgid "Failed to find template file matching '%s'\n"
-msgstr "Nie udało się znaleźć wersji dla szablonu '%s'\n"
-
-#: scripts/makepkg-template.pl.in:136
-#, perl-format
-msgid "failed to open '%s': %s\n"
-msgstr "Nie udało się otworzyć '%s': %s\n"
-
-#: scripts/makepkg-template.pl.in:153
-#, perl-format
-msgid "Unknown template marker '%s'\n"
-msgstr "Nieznany znacznik szablonu '%s'\n"
-
-#: scripts/makepkg-template.pl.in:175
-msgid "makepkg-template [options]\n"
-msgstr "szablon makepkg [opcje]\n"
-
-#: scripts/makepkg-template.pl.in:177
-msgid "Options:\n"
-msgstr "Opcje:\n"
-
-#: scripts/makepkg-template.pl.in:178
-#, perl-format
-msgid "  --input, -p <file>    Build script to read (default: %s)\n"
-msgstr "--input, -p <plik> Skrypt budowania do odczytu (domyślny: %s)\n"
-
-#: scripts/makepkg-template.pl.in:179
-msgid "  --output, -o <file>   file to output to (default: input file)\n"
-msgstr "--output, -o <plik> plik wyjściowy do (domyślny: plik wejściowy)\n"
-
-#: scripts/makepkg-template.pl.in:180
-msgid "  --newest, -n          update templates to newest version\n"
-msgstr "--newest, -n aktualizacja szablonów do najnowszej wersji\n"
-
-#: scripts/makepkg-template.pl.in:181
-msgid ""
-"                        (default: use version specified in the template "
-"markers)\n"
-msgstr "(domyślnie: używa wersji określonej w znacznikach szablonu)\n"
-
-#: scripts/makepkg-template.pl.in:182
-msgid "  --template-dir <dir>  directory to search for templates\n"
-msgstr "--template-dir <katalog> katalog do szukania szablonów\n"
-
-#: scripts/makepkg-template.pl.in:183
-#, perl-format
-msgid "                        (default: %s)\n"
-msgstr "(domyślny: %s)\n"
-
-#: scripts/makepkg-template.pl.in:184
-msgid "  --help, -h            This help message\n"
-msgstr "--help, -h Ta wiadomość pomocy\n"
-
-#: scripts/makepkg-template.pl.in:185
-msgid "  --version             Version information\n"
-msgstr "--version Informacja o wersji\n"
-
-#: scripts/makepkg-template.pl.in:194
-#, fuzzy
-msgid ""
-"Copyright (c) 2013-2020 Pacman Development Team <pacman-dev@archlinux.org>.\n"
-"This is free software; see the source for copying conditions.\n"
-"There is NO WARRANTY, to the extent permitted by law.\n"
-msgstr ""
-"Prawa autorskie (c) 2013-2018 Zespół programistów Pacman <pacman-"
-"dev@archlinux.org>.\n"
-"Niniejszy program jest wolnym oprogramowaniem; sprawdź w źródłach warunki "
-"rozpowszechniania.\n"
-"W zakresie dozwolonym przez prawo, program NIE JEST OBJĘTY GWARANCJĄ.\n"
 
 #: scripts/pacman-db-upgrade.sh.in:40
 msgid "Upgrade the local pacman database to a newer format"
@@ -1340,6 +1245,10 @@ msgstr "NIE ZNALEZIONO PODPISU"
 msgid "SOURCE FILE NOT FOUND"
 msgstr "NIE ZNALEZIONO PLIKU ŹRÓDŁOWEGO"
 
+#: scripts/libmakepkg/integrity/verify_signature.sh.in:203
+msgid "_"
+msgstr ""
+
 #: scripts/libmakepkg/lint_config/paths.sh.in:39
 #: scripts/libmakepkg/lint_pkgbuild/arch.sh.in:47
 #: scripts/libmakepkg/lint_pkgbuild/pkgname.sh.in:53
@@ -1654,3 +1563,80 @@ msgstr "Nie posiadasz uprawnień do zapisu w katalogu $%s (%s)."
 #: scripts/libmakepkg/util/util.sh.in:109
 msgid "Failed to source %s"
 msgstr "Nie udało się ustalić źródła %s"
+
+#, perl-format
+#~ msgid "can't create '%s': %s"
+#~ msgstr "nie można stworzyć '%s': %s"
+
+#~ msgid "invalid key/value pair\n"
+#~ msgstr "nieprawidłowa para kluczy / wartości\n"
+
+#~ msgid "invalid template line: can't find template name\n"
+#~ msgstr "nieważna linia szablonu: nie można znaleźć nazwy szablonu\n"
+
+#, perl-format
+#~ msgid "invalid chars used in name '%s'. allowed: [:alnum:]+_.@-\n"
+#~ msgstr ""
+#~ "nieprawidłowe znaki użyte w nazwie '%s'. dozwolone: [:alnum:]+_.@-\n"
+
+#, perl-format
+#~ msgid "Couldn't detect version for template '%s'\n"
+#~ msgstr "Nie udało się wykryć wersji dla szablonu '%s'\n"
+
+#, perl-format
+#~ msgid "Failed to find template file matching '%s'\n"
+#~ msgstr "Nie udało się znaleźć wersji dla szablonu '%s'\n"
+
+#, perl-format
+#~ msgid "failed to open '%s': %s\n"
+#~ msgstr "Nie udało się otworzyć '%s': %s\n"
+
+#, perl-format
+#~ msgid "Unknown template marker '%s'\n"
+#~ msgstr "Nieznany znacznik szablonu '%s'\n"
+
+#~ msgid "makepkg-template [options]\n"
+#~ msgstr "szablon makepkg [opcje]\n"
+
+#~ msgid "Options:\n"
+#~ msgstr "Opcje:\n"
+
+#, perl-format
+#~ msgid "  --input, -p <file>    Build script to read (default: %s)\n"
+#~ msgstr "--input, -p <plik> Skrypt budowania do odczytu (domyślny: %s)\n"
+
+#~ msgid "  --output, -o <file>   file to output to (default: input file)\n"
+#~ msgstr "--output, -o <plik> plik wyjściowy do (domyślny: plik wejściowy)\n"
+
+#~ msgid "  --newest, -n          update templates to newest version\n"
+#~ msgstr "--newest, -n aktualizacja szablonów do najnowszej wersji\n"
+
+#~ msgid ""
+#~ "                        (default: use version specified in the template "
+#~ "markers)\n"
+#~ msgstr "(domyślnie: używa wersji określonej w znacznikach szablonu)\n"
+
+#~ msgid "  --template-dir <dir>  directory to search for templates\n"
+#~ msgstr "--template-dir <katalog> katalog do szukania szablonów\n"
+
+#, perl-format
+#~ msgid "                        (default: %s)\n"
+#~ msgstr "(domyślny: %s)\n"
+
+#~ msgid "  --help, -h            This help message\n"
+#~ msgstr "--help, -h Ta wiadomość pomocy\n"
+
+#~ msgid "  --version             Version information\n"
+#~ msgstr "--version Informacja o wersji\n"
+
+#~ msgid ""
+#~ "Copyright (c) 2013-2018 Pacman Development Team <pacman-dev@archlinux."
+#~ "org>.\n"
+#~ "This is free software; see the source for copying conditions.\n"
+#~ "There is NO WARRANTY, to the extent permitted by law.\n"
+#~ msgstr ""
+#~ "Prawa autorskie (c) 2013-2018 Zespół programistów Pacman <pacman-"
+#~ "dev@archlinux.org>.\n"
+#~ "Niniejszy program jest wolnym oprogramowaniem; sprawdź w źródłach warunki "
+#~ "rozpowszechniania.\n"
+#~ "W zakresie dozwolonym przez prawo, program NIE JEST OBJĘTY GWARANCJĄ.\n"

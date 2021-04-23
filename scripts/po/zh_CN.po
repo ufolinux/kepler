@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Arch Linux Pacman package manager\n"
 "Report-Msgid-Bugs-To: http://bugs.archlinux.org/index.php?project=3\n"
-"POT-Creation-Date: 2020-06-19 09:48+1000\n"
+"POT-Creation-Date: 2021-04-23 10:22+1000\n"
 "PO-Revision-Date: 2020-06-03 08:27+0000\n"
 "Last-Translator: Jiachen YANG <farseerfc@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/toofishes/archlinux-"
@@ -507,99 +507,6 @@ msgstr "软件包目录已准备好。"
 #: scripts/makepkg.sh.in:1470
 msgid "Finished making: %s"
 msgstr "完成创建：%s"
-
-#: scripts/makepkg-template.pl.in:55
-#, perl-format
-msgid "can't create '%s': %s"
-msgstr "无法创建 '%s'：%s"
-
-#: scripts/makepkg-template.pl.in:73
-msgid "invalid key/value pair\n"
-msgstr "无效的键值对\n"
-
-#: scripts/makepkg-template.pl.in:82
-msgid "invalid template line: can't find template name\n"
-msgstr "无效的模板行： 找不到模板名\n"
-
-#: scripts/makepkg-template.pl.in:87
-#, perl-format
-msgid "invalid chars used in name '%s'. allowed: [:alnum:]+_.@-\n"
-msgstr "名字 '%s' 中使用了无效的字符。有效字符： [:alnum:]+_.@-\n"
-
-#: scripts/makepkg-template.pl.in:114
-#, perl-format
-msgid "Couldn't detect version for template '%s'\n"
-msgstr "无法检测模板 '%s' 的版本\n"
-
-#: scripts/makepkg-template.pl.in:125
-#, perl-format
-msgid "Failed to find template file matching '%s'\n"
-msgstr "查找匹配 '%s' 的模板文件失败\n"
-
-#: scripts/makepkg-template.pl.in:136
-#, perl-format
-msgid "failed to open '%s': %s\n"
-msgstr "打开 '%s': %s 失败\n"
-
-#: scripts/makepkg-template.pl.in:153
-#, perl-format
-msgid "Unknown template marker '%s'\n"
-msgstr "不明模板标识 '%s'\n"
-
-#: scripts/makepkg-template.pl.in:175
-msgid "makepkg-template [options]\n"
-msgstr "makepkg-template [选项]\n"
-
-#: scripts/makepkg-template.pl.in:177
-msgid "Options:\n"
-msgstr "选项：\n"
-
-#: scripts/makepkg-template.pl.in:178
-#, perl-format
-msgid "  --input, -p <file>    Build script to read (default: %s)\n"
-msgstr "--input, -p <file> 创建脚本以读取 (默认：%s)\n"
-
-#: scripts/makepkg-template.pl.in:179
-msgid "  --output, -o <file>   file to output to (default: input file)\n"
-msgstr "--output, -o <file> 输出到某文件 (默认：input file)\n"
-
-#: scripts/makepkg-template.pl.in:180
-msgid "  --newest, -n          update templates to newest version\n"
-msgstr "--newest, -n 更新模板到最新版本\n"
-
-#: scripts/makepkg-template.pl.in:181
-msgid ""
-"                        (default: use version specified in the template "
-"markers)\n"
-msgstr "（默认：使用模板标识中指定的版本）\n"
-
-#: scripts/makepkg-template.pl.in:182
-msgid "  --template-dir <dir>  directory to search for templates\n"
-msgstr "--template-dir <目录> 在指定目录中搜索模板\n"
-
-#: scripts/makepkg-template.pl.in:183
-#, perl-format
-msgid "                        (default: %s)\n"
-msgstr "(默认：%s)\n"
-
-#: scripts/makepkg-template.pl.in:184
-msgid "  --help, -h            This help message\n"
-msgstr "-h, --help 显示帮助信息\n"
-
-#: scripts/makepkg-template.pl.in:185
-msgid "  --version             Version information\n"
-msgstr "--version 显示版本信息\n"
-
-#: scripts/makepkg-template.pl.in:194
-#, fuzzy
-msgid ""
-"Copyright (c) 2013-2020 Pacman Development Team <pacman-dev@archlinux.org>.\n"
-"This is free software; see the source for copying conditions.\n"
-"There is NO WARRANTY, to the extent permitted by law.\n"
-msgstr ""
-"Copyright (c) 2013-2018 Pacman 开发小组 <pacman-dev@archlinux.org>.\n"
-"这是自由软件; 请查看源码以获得版权条款。\n"
-"在法律允许的范围内没有担保。\n"
 
 #: scripts/pacman-db-upgrade.sh.in:40
 msgid "Upgrade the local pacman database to a newer format"
@@ -1290,6 +1197,10 @@ msgstr "未找到签名"
 msgid "SOURCE FILE NOT FOUND"
 msgstr "未找到源文件"
 
+#: scripts/libmakepkg/integrity/verify_signature.sh.in:203
+msgid "_"
+msgstr ""
+
 #: scripts/libmakepkg/lint_config/paths.sh.in:39
 #: scripts/libmakepkg/lint_pkgbuild/arch.sh.in:47
 #: scripts/libmakepkg/lint_pkgbuild/pkgname.sh.in:53
@@ -1602,3 +1513,77 @@ msgstr "你没有目录 $%s 的写权限 (%s)."
 #: scripts/libmakepkg/util/util.sh.in:109
 msgid "Failed to source %s"
 msgstr "载入 %s 失败"
+
+#, perl-format
+#~ msgid "can't create '%s': %s"
+#~ msgstr "无法创建 '%s'：%s"
+
+#~ msgid "invalid key/value pair\n"
+#~ msgstr "无效的键值对\n"
+
+#~ msgid "invalid template line: can't find template name\n"
+#~ msgstr "无效的模板行： 找不到模板名\n"
+
+#, perl-format
+#~ msgid "invalid chars used in name '%s'. allowed: [:alnum:]+_.@-\n"
+#~ msgstr "名字 '%s' 中使用了无效的字符。有效字符： [:alnum:]+_.@-\n"
+
+#, perl-format
+#~ msgid "Couldn't detect version for template '%s'\n"
+#~ msgstr "无法检测模板 '%s' 的版本\n"
+
+#, perl-format
+#~ msgid "Failed to find template file matching '%s'\n"
+#~ msgstr "查找匹配 '%s' 的模板文件失败\n"
+
+#, perl-format
+#~ msgid "failed to open '%s': %s\n"
+#~ msgstr "打开 '%s': %s 失败\n"
+
+#, perl-format
+#~ msgid "Unknown template marker '%s'\n"
+#~ msgstr "不明模板标识 '%s'\n"
+
+#~ msgid "makepkg-template [options]\n"
+#~ msgstr "makepkg-template [选项]\n"
+
+#~ msgid "Options:\n"
+#~ msgstr "选项：\n"
+
+#, perl-format
+#~ msgid "  --input, -p <file>    Build script to read (default: %s)\n"
+#~ msgstr "--input, -p <file> 创建脚本以读取 (默认：%s)\n"
+
+#~ msgid "  --output, -o <file>   file to output to (default: input file)\n"
+#~ msgstr "--output, -o <file> 输出到某文件 (默认：input file)\n"
+
+#~ msgid "  --newest, -n          update templates to newest version\n"
+#~ msgstr "--newest, -n 更新模板到最新版本\n"
+
+#~ msgid ""
+#~ "                        (default: use version specified in the template "
+#~ "markers)\n"
+#~ msgstr "（默认：使用模板标识中指定的版本）\n"
+
+#~ msgid "  --template-dir <dir>  directory to search for templates\n"
+#~ msgstr "--template-dir <目录> 在指定目录中搜索模板\n"
+
+#, perl-format
+#~ msgid "                        (default: %s)\n"
+#~ msgstr "(默认：%s)\n"
+
+#~ msgid "  --help, -h            This help message\n"
+#~ msgstr "-h, --help 显示帮助信息\n"
+
+#~ msgid "  --version             Version information\n"
+#~ msgstr "--version 显示版本信息\n"
+
+#~ msgid ""
+#~ "Copyright (c) 2013-2018 Pacman Development Team <pacman-dev@archlinux."
+#~ "org>.\n"
+#~ "This is free software; see the source for copying conditions.\n"
+#~ "There is NO WARRANTY, to the extent permitted by law.\n"
+#~ msgstr ""
+#~ "Copyright (c) 2013-2018 Pacman 开发小组 <pacman-dev@archlinux.org>.\n"
+#~ "这是自由软件; 请查看源码以获得版权条款。\n"
+#~ "在法律允许的范围内没有担保。\n"

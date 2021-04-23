@@ -10,22 +10,22 @@
 # Jan-Jaap Korpershoek <jjkorpershoek96@gmail.com>, 2015
 # Joel Christ <jjlchrist@gmail.com>, 2015
 # Peter van den Hurk, 2014
-# Peter van den Hurk, 2014-2016
+# a91dc94891efad958223abaf78f68e63_4458573, 2014-2016
 # Ray Drossaert <info@linuxmusicproduction.com>, 2014
 # Ronald Uit <ronald645@gmail.com>, 2015
 # Ruben Van Boxem <vanboxem.ruben@gmail.com>, 2015,2018-2019
 # 56d5d7c9ccc04394ef84fc87640272f6, 2014
 # 56d5d7c9ccc04394ef84fc87640272f6, 2014
-# W J <transifex@woutje.be>, 2018
+# W J <transifex@woutje.be>, 2018,2020
 # zenlord <zenlord@gmail.com>, 2015,2018-2019
 # zenlord <zenlord@gmail.com>, 2015,2018
 msgid ""
 msgstr ""
 "Project-Id-Version: Arch Linux Pacman package manager\n"
 "Report-Msgid-Bugs-To: http://bugs.archlinux.org/index.php?project=3\n"
-"POT-Creation-Date: 2020-06-19 09:48+1000\n"
-"PO-Revision-Date: 2019-10-13 23:51+0000\n"
-"Last-Translator: Allan McRae <allan@archlinux.org>\n"
+"POT-Creation-Date: 2021-04-23 10:22+1000\n"
+"PO-Revision-Date: 2020-09-16 12:10+0000\n"
+"Last-Translator: W J <transifex@woutje.be>\n"
 "Language-Team: Dutch (http://www.transifex.com/toofishes/archlinux-pacman/"
 "language/nl/)\n"
 "Language: nl\n"
@@ -528,100 +528,6 @@ msgstr "Pakketten map is klaar."
 msgid "Finished making: %s"
 msgstr "Klaar met het maken van: %s"
 
-#: scripts/makepkg-template.pl.in:55
-#, perl-format
-msgid "can't create '%s': %s"
-msgstr "kan '%s' niet aanmaken: %s"
-
-#: scripts/makepkg-template.pl.in:73
-msgid "invalid key/value pair\n"
-msgstr "Ongeldig sleutel/waarde-paar\n"
-
-#: scripts/makepkg-template.pl.in:82
-msgid "invalid template line: can't find template name\n"
-msgstr "Verkeerde sjabloonregel: kan sjabloonnaam niet vinden\n"
-
-#: scripts/makepkg-template.pl.in:87
-#, perl-format
-msgid "invalid chars used in name '%s'. allowed: [:alnum:]+_.@-\n"
-msgstr "Verkeerde tekens gebruik in naam '%s'. toegestaan: [:alnum:]+_.@-\n"
-
-#: scripts/makepkg-template.pl.in:114
-#, perl-format
-msgid "Couldn't detect version for template '%s'\n"
-msgstr "Kon versie van sjabloon '%s' niet detecteren\n"
-
-#: scripts/makepkg-template.pl.in:125
-#, perl-format
-msgid "Failed to find template file matching '%s'\n"
-msgstr "Kon sjabloon overeenstemmd met '%s' niet vinden\n"
-
-#: scripts/makepkg-template.pl.in:136
-#, perl-format
-msgid "failed to open '%s': %s\n"
-msgstr "openen van '%s': %s mislukt\n"
-
-#: scripts/makepkg-template.pl.in:153
-#, perl-format
-msgid "Unknown template marker '%s'\n"
-msgstr "Onbekende sjabloonmarker '%s'\n"
-
-#: scripts/makepkg-template.pl.in:175
-msgid "makepkg-template [options]\n"
-msgstr "makepkg-template [opties]\n"
-
-#: scripts/makepkg-template.pl.in:177
-msgid "Options:\n"
-msgstr "Opties:\n"
-
-#: scripts/makepkg-template.pl.in:178
-#, perl-format
-msgid "  --input, -p <file>    Build script to read (default: %s)\n"
-msgstr "--input, p <bestand> Creëer script om te lezen (standaard: %s)\n"
-
-#: scripts/makepkg-template.pl.in:179
-msgid "  --output, -o <file>   file to output to (default: input file)\n"
-msgstr "--output, -o <bestand> uitvoerbestand (standaard: invoerbestand)\n"
-
-#: scripts/makepkg-template.pl.in:180
-msgid "  --newest, -n          update templates to newest version\n"
-msgstr "--newest, -n sjablonen naar nieuwste versie bijwerken\n"
-
-#: scripts/makepkg-template.pl.in:181
-msgid ""
-"                        (default: use version specified in the template "
-"markers)\n"
-msgstr "(standaard: gebruik versie gespecificeerd in sjabloonmarkers)\n"
-
-#: scripts/makepkg-template.pl.in:182
-msgid "  --template-dir <dir>  directory to search for templates\n"
-msgstr "--template-dir <map> map waarin sjablonen gezocht worden\n"
-
-#: scripts/makepkg-template.pl.in:183
-#, perl-format
-msgid "                        (default: %s)\n"
-msgstr "(standaard: %s)\n"
-
-#: scripts/makepkg-template.pl.in:184
-msgid "  --help, -h            This help message\n"
-msgstr "--help, -h Dit help bericht\n"
-
-#: scripts/makepkg-template.pl.in:185
-msgid "  --version             Version information\n"
-msgstr "--version Versieinformatie\n"
-
-#: scripts/makepkg-template.pl.in:194
-#, fuzzy
-msgid ""
-"Copyright (c) 2013-2020 Pacman Development Team <pacman-dev@archlinux.org>.\n"
-"This is free software; see the source for copying conditions.\n"
-"There is NO WARRANTY, to the extent permitted by law.\n"
-msgstr ""
-"Copyright (c) 2013-2018 Pacman Ontwikkelaarsteam <pacman-dev@archlinux."
-"org>.\n"
-"Dit is vrije software; zie de broncode voor reproductievoorwaarden.\n"
-"Er is GEEN GARANTIE, tot zover toegestaan door de wet.\n"
-
 #: scripts/pacman-db-upgrade.sh.in:40
 msgid "Upgrade the local pacman database to a newer format"
 msgstr "Upgrade de lokale pacman database naar een nieuwer formaat"
@@ -916,7 +822,7 @@ msgstr "%s kon niet lokaal ondertekend worden."
 
 #: scripts/pacman-key.sh.in:482
 msgid "Remote key not fetched correctly from WKD or keyserver."
-msgstr ""
+msgstr "Sleutel niet correct opgehaald van WKD of keyserver."
 
 #: scripts/pacman-key.sh.in:487
 msgid "Remote key not fetched correctly from keyserver."
@@ -1336,6 +1242,10 @@ msgstr "PGP HANDTEKENING NIET GEVONDEN"
 msgid "SOURCE FILE NOT FOUND"
 msgstr "BRONBESTAND NIET GEVONDEN"
 
+#: scripts/libmakepkg/integrity/verify_signature.sh.in:203
+msgid "_"
+msgstr ""
+
 #: scripts/libmakepkg/lint_config/paths.sh.in:39
 #: scripts/libmakepkg/lint_pkgbuild/arch.sh.in:47
 #: scripts/libmakepkg/lint_pkgbuild/pkgname.sh.in:53
@@ -1652,3 +1562,78 @@ msgstr "Geen toestemming om naar de map $%s te schrijven (%s)."
 #: scripts/libmakepkg/util/util.sh.in:109
 msgid "Failed to source %s"
 msgstr "Fout met inlezen van %s"
+
+#, perl-format
+#~ msgid "can't create '%s': %s"
+#~ msgstr "kan '%s' niet aanmaken: %s"
+
+#~ msgid "invalid key/value pair\n"
+#~ msgstr "Ongeldig sleutel/waarde-paar\n"
+
+#~ msgid "invalid template line: can't find template name\n"
+#~ msgstr "Verkeerde sjabloonregel: kan sjabloonnaam niet vinden\n"
+
+#, perl-format
+#~ msgid "invalid chars used in name '%s'. allowed: [:alnum:]+_.@-\n"
+#~ msgstr "Verkeerde tekens gebruik in naam '%s'. toegestaan: [:alnum:]+_.@-\n"
+
+#, perl-format
+#~ msgid "Couldn't detect version for template '%s'\n"
+#~ msgstr "Kon versie van sjabloon '%s' niet detecteren\n"
+
+#, perl-format
+#~ msgid "Failed to find template file matching '%s'\n"
+#~ msgstr "Kon sjabloon overeenstemmd met '%s' niet vinden\n"
+
+#, perl-format
+#~ msgid "failed to open '%s': %s\n"
+#~ msgstr "openen van '%s': %s mislukt\n"
+
+#, perl-format
+#~ msgid "Unknown template marker '%s'\n"
+#~ msgstr "Onbekende sjabloonmarker '%s'\n"
+
+#~ msgid "makepkg-template [options]\n"
+#~ msgstr "makepkg-template [opties]\n"
+
+#~ msgid "Options:\n"
+#~ msgstr "Opties:\n"
+
+#, perl-format
+#~ msgid "  --input, -p <file>    Build script to read (default: %s)\n"
+#~ msgstr "--input, p <bestand> Creëer script om te lezen (standaard: %s)\n"
+
+#~ msgid "  --output, -o <file>   file to output to (default: input file)\n"
+#~ msgstr "--output, -o <bestand> uitvoerbestand (standaard: invoerbestand)\n"
+
+#~ msgid "  --newest, -n          update templates to newest version\n"
+#~ msgstr "--newest, -n sjablonen naar nieuwste versie bijwerken\n"
+
+#~ msgid ""
+#~ "                        (default: use version specified in the template "
+#~ "markers)\n"
+#~ msgstr "(standaard: gebruik versie gespecificeerd in sjabloonmarkers)\n"
+
+#~ msgid "  --template-dir <dir>  directory to search for templates\n"
+#~ msgstr "--template-dir <map> map waarin sjablonen gezocht worden\n"
+
+#, perl-format
+#~ msgid "                        (default: %s)\n"
+#~ msgstr "(standaard: %s)\n"
+
+#~ msgid "  --help, -h            This help message\n"
+#~ msgstr "--help, -h Dit help bericht\n"
+
+#~ msgid "  --version             Version information\n"
+#~ msgstr "--version Versieinformatie\n"
+
+#~ msgid ""
+#~ "Copyright (c) 2013-2018 Pacman Development Team <pacman-dev@archlinux."
+#~ "org>.\n"
+#~ "This is free software; see the source for copying conditions.\n"
+#~ "There is NO WARRANTY, to the extent permitted by law.\n"
+#~ msgstr ""
+#~ "Copyright (c) 2013-2018 Pacman Ontwikkelaarsteam <pacman-dev@archlinux."
+#~ "org>.\n"
+#~ "Dit is vrije software; zie de broncode voor reproductievoorwaarden.\n"
+#~ "Er is GEEN GARANTIE, tot zover toegestaan door de wet.\n"

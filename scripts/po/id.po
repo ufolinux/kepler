@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Arch Linux Pacman package manager\n"
 "Report-Msgid-Bugs-To: http://bugs.archlinux.org/index.php?project=3\n"
-"POT-Creation-Date: 2020-06-19 09:48+1000\n"
+"POT-Creation-Date: 2021-04-23 10:22+1000\n"
 "PO-Revision-Date: 2019-10-13 23:51+0000\n"
 "Last-Translator: Allan McRae <allan@archlinux.org>\n"
 "Language-Team: Indonesian (http://www.transifex.com/toofishes/archlinux-"
@@ -514,97 +514,6 @@ msgstr "Direktori paket siap."
 #: scripts/makepkg.sh.in:1470
 msgid "Finished making: %s"
 msgstr "Selesai membuat: %s"
-
-#: scripts/makepkg-template.pl.in:55
-#, perl-format
-msgid "can't create '%s': %s"
-msgstr "tidak dapat membuat '%s': %s"
-
-#: scripts/makepkg-template.pl.in:73
-msgid "invalid key/value pair\n"
-msgstr "key / pasangan tak valid\n"
-
-#: scripts/makepkg-template.pl.in:82
-msgid "invalid template line: can't find template name\n"
-msgstr "baris pola tidak valid: tidak dapat mencari nama pola\n"
-
-#: scripts/makepkg-template.pl.in:87
-#, perl-format
-msgid "invalid chars used in name '%s'. allowed: [:alnum:]+_.@-\n"
-msgstr ""
-"karakter tak valid digunakan pada nama '%s'. yang diperbolehkan: [:alnum:]+_."
-"@\n"
-
-#: scripts/makepkg-template.pl.in:114
-#, perl-format
-msgid "Couldn't detect version for template '%s'\n"
-msgstr "Tidak dapat mendeteksi versi untuk templat '%s'\n"
-
-#: scripts/makepkg-template.pl.in:125
-#, perl-format
-msgid "Failed to find template file matching '%s'\n"
-msgstr "Gagal mencari templat berkas yang sesuai dengan '%s'\n"
-
-#: scripts/makepkg-template.pl.in:136
-#, perl-format
-msgid "failed to open '%s': %s\n"
-msgstr "gagal membuka '%s': %s\n"
-
-#: scripts/makepkg-template.pl.in:153
-#, perl-format
-msgid "Unknown template marker '%s'\n"
-msgstr "Penanda pola tak dikenal '%s'\n"
-
-#: scripts/makepkg-template.pl.in:175
-msgid "makepkg-template [options]\n"
-msgstr "makepkg-template [opsi]\n"
-
-#: scripts/makepkg-template.pl.in:177
-msgid "Options:\n"
-msgstr "Opsi:\n"
-
-#: scripts/makepkg-template.pl.in:178
-#, perl-format
-msgid "  --input, -p <file>    Build script to read (default: %s)\n"
-msgstr "--input, -p <file> Buat skrip untuk membaca (bawaan: %s)\n"
-
-#: scripts/makepkg-template.pl.in:179
-msgid "  --output, -o <file>   file to output to (default: input file)\n"
-msgstr "--output, -o <file> berkas keluaran ke (bawaan: berkas masukan)\n"
-
-#: scripts/makepkg-template.pl.in:180
-msgid "  --newest, -n          update templates to newest version\n"
-msgstr "--newest, -n mutakhirkan pola ke versi terbaru\n"
-
-#: scripts/makepkg-template.pl.in:181
-msgid ""
-"                        (default: use version specified in the template "
-"markers)\n"
-msgstr "(bawaan: gunakan versi yang ditentukan pada penanda pola)\n"
-
-#: scripts/makepkg-template.pl.in:182
-msgid "  --template-dir <dir>  directory to search for templates\n"
-msgstr "--template-dir <dir> direktori pencarian pola\n"
-
-#: scripts/makepkg-template.pl.in:183
-#, perl-format
-msgid "                        (default: %s)\n"
-msgstr "(bawaan: %s)\n"
-
-#: scripts/makepkg-template.pl.in:184
-msgid "  --help, -h            This help message\n"
-msgstr "--help, -h Pesan bantuan ini\n"
-
-#: scripts/makepkg-template.pl.in:185
-msgid "  --version             Version information\n"
-msgstr "--version Informasi versi\n"
-
-#: scripts/makepkg-template.pl.in:194
-msgid ""
-"Copyright (c) 2013-2020 Pacman Development Team <pacman-dev@archlinux.org>.\n"
-"This is free software; see the source for copying conditions.\n"
-"There is NO WARRANTY, to the extent permitted by law.\n"
-msgstr ""
 
 #: scripts/pacman-db-upgrade.sh.in:40
 msgid "Upgrade the local pacman database to a newer format"
@@ -1304,6 +1213,10 @@ msgstr "SIGNATURE TIDAK DIKETEMUKAN"
 msgid "SOURCE FILE NOT FOUND"
 msgstr "BERKAS SUMBER TIDAK DIKETEMUKAN"
 
+#: scripts/libmakepkg/integrity/verify_signature.sh.in:203
+msgid "_"
+msgstr ""
+
 #: scripts/libmakepkg/lint_config/paths.sh.in:39
 #: scripts/libmakepkg/lint_pkgbuild/arch.sh.in:47
 #: scripts/libmakepkg/lint_pkgbuild/pkgname.sh.in:53
@@ -1616,3 +1529,69 @@ msgstr ""
 #: scripts/libmakepkg/util/util.sh.in:109
 msgid "Failed to source %s"
 msgstr "Gagal untuk sumber %s"
+
+#, perl-format
+#~ msgid "can't create '%s': %s"
+#~ msgstr "tidak dapat membuat '%s': %s"
+
+#~ msgid "invalid key/value pair\n"
+#~ msgstr "key / pasangan tak valid\n"
+
+#~ msgid "invalid template line: can't find template name\n"
+#~ msgstr "baris pola tidak valid: tidak dapat mencari nama pola\n"
+
+#, perl-format
+#~ msgid "invalid chars used in name '%s'. allowed: [:alnum:]+_.@-\n"
+#~ msgstr ""
+#~ "karakter tak valid digunakan pada nama '%s'. yang diperbolehkan: [:"
+#~ "alnum:]+_.@\n"
+
+#, perl-format
+#~ msgid "Couldn't detect version for template '%s'\n"
+#~ msgstr "Tidak dapat mendeteksi versi untuk templat '%s'\n"
+
+#, perl-format
+#~ msgid "Failed to find template file matching '%s'\n"
+#~ msgstr "Gagal mencari templat berkas yang sesuai dengan '%s'\n"
+
+#, perl-format
+#~ msgid "failed to open '%s': %s\n"
+#~ msgstr "gagal membuka '%s': %s\n"
+
+#, perl-format
+#~ msgid "Unknown template marker '%s'\n"
+#~ msgstr "Penanda pola tak dikenal '%s'\n"
+
+#~ msgid "makepkg-template [options]\n"
+#~ msgstr "makepkg-template [opsi]\n"
+
+#~ msgid "Options:\n"
+#~ msgstr "Opsi:\n"
+
+#, perl-format
+#~ msgid "  --input, -p <file>    Build script to read (default: %s)\n"
+#~ msgstr "--input, -p <file> Buat skrip untuk membaca (bawaan: %s)\n"
+
+#~ msgid "  --output, -o <file>   file to output to (default: input file)\n"
+#~ msgstr "--output, -o <file> berkas keluaran ke (bawaan: berkas masukan)\n"
+
+#~ msgid "  --newest, -n          update templates to newest version\n"
+#~ msgstr "--newest, -n mutakhirkan pola ke versi terbaru\n"
+
+#~ msgid ""
+#~ "                        (default: use version specified in the template "
+#~ "markers)\n"
+#~ msgstr "(bawaan: gunakan versi yang ditentukan pada penanda pola)\n"
+
+#~ msgid "  --template-dir <dir>  directory to search for templates\n"
+#~ msgstr "--template-dir <dir> direktori pencarian pola\n"
+
+#, perl-format
+#~ msgid "                        (default: %s)\n"
+#~ msgstr "(bawaan: %s)\n"
+
+#~ msgid "  --help, -h            This help message\n"
+#~ msgstr "--help, -h Pesan bantuan ini\n"
+
+#~ msgid "  --version             Version information\n"
+#~ msgstr "--version Informasi versi\n"

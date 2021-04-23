@@ -15,6 +15,7 @@
 # Dan McGee <dpmcgee@gmail.com>, 2011
 # Élie Bouttier <elie.bouttier@free.fr>, 2013
 # Élie Bouttier <elie.bouttier@free.fr>, 2013
+# Iago Bonnici <iago.bonnici@cleb.io>, 2020
 # Jean Fontaine <balayop@yahoo.fr>, 2014
 # jiehong <ma.jiehong@gmail.com>, 2011-2012
 # ef7dab0d6077eb6318482e1ba81363ed, 2014
@@ -24,9 +25,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Arch Linux Pacman package manager\n"
 "Report-Msgid-Bugs-To: http://bugs.archlinux.org/index.php?project=3\n"
-"POT-Creation-Date: 2020-06-19 09:48+1000\n"
-"PO-Revision-Date: 2019-10-14 08:03+0000\n"
-"Last-Translator: Charles Monzat <c.monzat@laposte.net>\n"
+"POT-Creation-Date: 2021-04-23 10:22+1000\n"
+"PO-Revision-Date: 2020-09-11 07:46+0000\n"
+"Last-Translator: Iago Bonnici <iago.bonnici@cleb.io>\n"
 "Language-Team: French (http://www.transifex.com/toofishes/archlinux-pacman/"
 "language/fr/)\n"
 "Language: fr\n"
@@ -543,104 +544,6 @@ msgstr "Le répertoire des paquets est prêt."
 #: scripts/makepkg.sh.in:1470
 msgid "Finished making: %s"
 msgstr "Création terminée : %s"
-
-#: scripts/makepkg-template.pl.in:55
-#, perl-format
-msgid "can't create '%s': %s"
-msgstr "impossible de créer « %s » : %s"
-
-#: scripts/makepkg-template.pl.in:73
-msgid "invalid key/value pair\n"
-msgstr "paire clé / valeur non valide\n"
-
-#: scripts/makepkg-template.pl.in:82
-msgid "invalid template line: can't find template name\n"
-msgstr "ligne de modèle non valide : impossible de trouver le nom du modèle\n"
-
-#: scripts/makepkg-template.pl.in:87
-#, perl-format
-msgid "invalid chars used in name '%s'. allowed: [:alnum:]+_.@-\n"
-msgstr ""
-"caractères non valides utilisés dans le nom « %s ». Autorisés : [:alnum:]+_."
-"@-\n"
-
-#: scripts/makepkg-template.pl.in:114
-#, perl-format
-msgid "Couldn't detect version for template '%s'\n"
-msgstr "Impossible de détecter la version pour le modèle « %s »\n"
-
-#: scripts/makepkg-template.pl.in:125
-#, perl-format
-msgid "Failed to find template file matching '%s'\n"
-msgstr "Impossible de trouver le fichier modèle correspondant « %s »\n"
-
-#: scripts/makepkg-template.pl.in:136
-#, perl-format
-msgid "failed to open '%s': %s\n"
-msgstr "impossible d’ouvrir « %s » : %s\n"
-
-#: scripts/makepkg-template.pl.in:153
-#, perl-format
-msgid "Unknown template marker '%s'\n"
-msgstr "La balise du modèle « %s » est inconnue\n"
-
-#: scripts/makepkg-template.pl.in:175
-msgid "makepkg-template [options]\n"
-msgstr "makepkg-template [options]\n"
-
-#: scripts/makepkg-template.pl.in:177
-msgid "Options:\n"
-msgstr "Options :\n"
-
-#: scripts/makepkg-template.pl.in:178
-#, perl-format
-msgid "  --input, -p <file>    Build script to read (default: %s)\n"
-msgstr "--input, -p <file> Script de construction (par défaut %s)\n"
-
-#: scripts/makepkg-template.pl.in:179
-msgid "  --output, -o <file>   file to output to (default: input file)\n"
-msgstr ""
-"--output, -o <file> Fichier de sortie (par défaut : fichier d’entrée)\n"
-
-#: scripts/makepkg-template.pl.in:180
-msgid "  --newest, -n          update templates to newest version\n"
-msgstr "--newest, -n Met à jour les modèles à leur dernière version\n"
-
-#: scripts/makepkg-template.pl.in:181
-msgid ""
-"                        (default: use version specified in the template "
-"markers)\n"
-msgstr "(par défaut : utilise la version définie dans les balises de modèle)\n"
-
-#: scripts/makepkg-template.pl.in:182
-msgid "  --template-dir <dir>  directory to search for templates\n"
-msgstr "--template-dir <dir> Répertoire dans lequel rechercher des modèles\n"
-
-#: scripts/makepkg-template.pl.in:183
-#, perl-format
-msgid "                        (default: %s)\n"
-msgstr "( valeur par défaut : %s)\n"
-
-#: scripts/makepkg-template.pl.in:184
-msgid "  --help, -h            This help message\n"
-msgstr "-h, --help Afficher ce message d’aide\n"
-
-#: scripts/makepkg-template.pl.in:185
-msgid "  --version             Version information\n"
-msgstr "--version Informations de version\n"
-
-#: scripts/makepkg-template.pl.in:194
-#, fuzzy
-msgid ""
-"Copyright (c) 2013-2020 Pacman Development Team <pacman-dev@archlinux.org>.\n"
-"This is free software; see the source for copying conditions.\n"
-"There is NO WARRANTY, to the extent permitted by law.\n"
-msgstr ""
-"Copyright (c) 2013-2018 L’équipe de développement de Pacman <pacman-"
-"dev@archlinux.org>.\n"
-"Ce programme est un logiciel libre ; lisez la licence à propos des "
-"conditions de redistribution. Il n’y a AUCUNE GARANTIE, dans la limite "
-"permise par la loi.\n"
 
 #: scripts/pacman-db-upgrade.sh.in:40
 msgid "Upgrade the local pacman database to a newer format"
@@ -1388,7 +1291,7 @@ msgstr ""
 
 #: scripts/libmakepkg/integrity/verify_signature.sh.in:115
 msgid "Please make sure you really trust them."
-msgstr "Veuillez vous assurer que vous leurs faites confiance."
+msgstr "Veuillez vous assurer que vous leur faites confiance."
 
 #: scripts/libmakepkg/integrity/verify_signature.sh.in:131
 #: scripts/libmakepkg/integrity/verify_signature.sh.in:193
@@ -1398,6 +1301,10 @@ msgstr "SIGNATURE INTROUVABLE"
 #: scripts/libmakepkg/integrity/verify_signature.sh.in:144
 msgid "SOURCE FILE NOT FOUND"
 msgstr "FICHIER SOURCE INTROUVABLE"
+
+#: scripts/libmakepkg/integrity/verify_signature.sh.in:203
+msgid "_"
+msgstr ""
 
 #: scripts/libmakepkg/lint_config/paths.sh.in:39
 #: scripts/libmakepkg/lint_pkgbuild/arch.sh.in:47
@@ -1422,6 +1329,7 @@ msgstr "%s ne devrait pas être un tableau"
 #: scripts/libmakepkg/lint_config/variable.sh.in:66
 msgid "PACKAGER should have the format 'Example Name <email@address.invalid>'"
 msgstr ""
+"PACKAGER doit respecter le format 'Nom Exemple <courrier@addresse.invalide>'"
 
 #: scripts/libmakepkg/lint_package.sh.in:41
 msgid "Checking for packaging issues..."
@@ -1507,7 +1415,7 @@ msgstr "%s ne peut contenir que des caractères ascii."
 
 #: scripts/libmakepkg/lint_pkgbuild/pkgrel.sh.in:40
 msgid "%s must be of the form 'integer[.integer]', not %s."
-msgstr ""
+msgstr "%s doit respecter le format 'entier[.entier]', et non pas %s."
 
 #: scripts/libmakepkg/lint_pkgbuild/pkgver.sh.in:41
 msgid ""
@@ -1719,3 +1627,85 @@ msgstr "Vous n’avez pas la permission en écriture sur le dossier $%s (%s)."
 #: scripts/libmakepkg/util/util.sh.in:109
 msgid "Failed to source %s"
 msgstr "Erreur en essayant de sourcer %s"
+
+#, perl-format
+#~ msgid "can't create '%s': %s"
+#~ msgstr "impossible de créer « %s » : %s"
+
+#~ msgid "invalid key/value pair\n"
+#~ msgstr "paire clé / valeur non valide\n"
+
+#~ msgid "invalid template line: can't find template name\n"
+#~ msgstr ""
+#~ "ligne de modèle non valide : impossible de trouver le nom du modèle\n"
+
+#, perl-format
+#~ msgid "invalid chars used in name '%s'. allowed: [:alnum:]+_.@-\n"
+#~ msgstr ""
+#~ "caractères non valides utilisés dans le nom « %s ». Autorisés : [:"
+#~ "alnum:]+_.@-\n"
+
+#, perl-format
+#~ msgid "Couldn't detect version for template '%s'\n"
+#~ msgstr "Impossible de détecter la version pour le modèle « %s »\n"
+
+#, perl-format
+#~ msgid "Failed to find template file matching '%s'\n"
+#~ msgstr "Impossible de trouver le fichier modèle correspondant « %s »\n"
+
+#, perl-format
+#~ msgid "failed to open '%s': %s\n"
+#~ msgstr "impossible d’ouvrir « %s » : %s\n"
+
+#, perl-format
+#~ msgid "Unknown template marker '%s'\n"
+#~ msgstr "La balise du modèle « %s » est inconnue\n"
+
+#~ msgid "makepkg-template [options]\n"
+#~ msgstr "makepkg-template [options]\n"
+
+#~ msgid "Options:\n"
+#~ msgstr "Options :\n"
+
+#, perl-format
+#~ msgid "  --input, -p <file>    Build script to read (default: %s)\n"
+#~ msgstr "--input, -p <file> Script de construction (par défaut %s)\n"
+
+#~ msgid "  --output, -o <file>   file to output to (default: input file)\n"
+#~ msgstr ""
+#~ "--output, -o <file> Fichier de sortie (par défaut : fichier d’entrée)\n"
+
+#~ msgid "  --newest, -n          update templates to newest version\n"
+#~ msgstr "--newest, -n Met à jour les modèles à leur dernière version\n"
+
+#~ msgid ""
+#~ "                        (default: use version specified in the template "
+#~ "markers)\n"
+#~ msgstr ""
+#~ "(par défaut : utilise la version définie dans les balises de modèle)\n"
+
+#~ msgid "  --template-dir <dir>  directory to search for templates\n"
+#~ msgstr ""
+#~ "--template-dir <dir> Répertoire dans lequel rechercher des modèles\n"
+
+#, perl-format
+#~ msgid "                        (default: %s)\n"
+#~ msgstr "( valeur par défaut : %s)\n"
+
+#~ msgid "  --help, -h            This help message\n"
+#~ msgstr "-h, --help Afficher ce message d’aide\n"
+
+#~ msgid "  --version             Version information\n"
+#~ msgstr "--version Informations de version\n"
+
+#~ msgid ""
+#~ "Copyright (c) 2013-2018 Pacman Development Team <pacman-dev@archlinux."
+#~ "org>.\n"
+#~ "This is free software; see the source for copying conditions.\n"
+#~ "There is NO WARRANTY, to the extent permitted by law.\n"
+#~ msgstr ""
+#~ "Copyright (c) 2013-2018 L’équipe de développement de Pacman <pacman-"
+#~ "dev@archlinux.org>.\n"
+#~ "Ce programme est un logiciel libre ; lisez la licence à propos des "
+#~ "conditions de redistribution. Il n’y a AUCUNE GARANTIE, dans la limite "
+#~ "permise par la loi.\n"

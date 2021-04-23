@@ -12,6 +12,7 @@
 # Jaroslav Lichtblau <jlichtblau@seznam.cz>, 2014
 # LiberteCzech <liberte.czech@gmail.com>, 2018
 # LiberteCzech <liberte.czech@gmail.com>, 2018
+# Lukáš Kucharczyk <lukas@kucharczyk.xyz>, 2020
 # Marek Otahal <markotahalREMOVETHIS@gmail.com>, 2011
 # mmm <markotahal@gmail.com>, 2013
 # mmm <markotahal@gmail.com>, 2011
@@ -22,9 +23,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Arch Linux Pacman package manager\n"
 "Report-Msgid-Bugs-To: http://bugs.archlinux.org/index.php?project=3\n"
-"POT-Creation-Date: 2020-06-19 09:48+1000\n"
-"PO-Revision-Date: 2019-10-13 23:47+0000\n"
-"Last-Translator: Allan McRae <allan@archlinux.org>\n"
+"POT-Creation-Date: 2021-04-23 10:22+1000\n"
+"PO-Revision-Date: 2020-06-26 09:36+0000\n"
+"Last-Translator: Lukáš Kucharczyk <lukas@kucharczyk.xyz>\n"
 "Language-Team: Czech (http://www.transifex.com/toofishes/archlinux-pacman/"
 "language/cs/)\n"
 "Language: cs\n"
@@ -37,12 +38,12 @@ msgstr ""
 #: src/pacman/callback.c:182
 #, c-format
 msgid "Running pre-transaction hooks...\n"
-msgstr "Probíhá předtransakční hook...\n"
+msgstr "Spouští se volání před transakcemi...\n"
 
 #: src/pacman/callback.c:184
 #, c-format
 msgid "Running post-transaction hooks...\n"
-msgstr "Probíhá potransakční hook...\n"
+msgstr "Spouští se volání po transakcích...\n"
 
 #: src/pacman/callback.c:197
 #, c-format
@@ -208,12 +209,12 @@ msgstr ""
 #: src/pacman/callback.c:461
 #, c-format
 msgid "Import PGP key %s?"
-msgstr ""
+msgstr "Importovat PGP klíč %s?"
 
 #: src/pacman/callback.c:464
 #, c-format
 msgid "Import PGP key %s, \"%s\"?"
-msgstr ""
+msgstr "Importovat PGP klíč %s, \"%s\"?"
 
 #: src/pacman/callback.c:523
 #, c-format
@@ -573,7 +574,7 @@ msgstr "Velikost po kompresi"
 #: src/pacman/package.c:103
 #, c-format
 msgid "Conflicts With"
-msgstr "Konfliktní s"
+msgstr "Vylučuje se s"
 
 #: src/pacman/package.c:104
 #, c-format
@@ -608,12 +609,12 @@ msgstr "Důvod instalace"
 #: src/pacman/package.c:110
 #, c-format
 msgid "Install Script"
-msgstr "Instal. skript"
+msgstr "Instalační skript"
 
 #: src/pacman/package.c:111
 #, c-format
 msgid "Installed Size"
-msgstr "Velikost inst."
+msgstr "Velikost instalace"
 
 #: src/pacman/package.c:112
 #, c-format
@@ -633,7 +634,7 @@ msgstr "Jméno"
 #: src/pacman/package.c:115
 #, c-format
 msgid "Optional Deps"
-msgstr "Volitelné záv."
+msgstr "Volitelné závislosti"
 
 #: src/pacman/package.c:116
 #, c-format
@@ -663,7 +664,7 @@ msgstr "Repozitář"
 #: src/pacman/package.c:121
 #, c-format
 msgid "Required By"
-msgstr "Požadovaný"
+msgstr "Požadovaný balíčky"
 
 #: src/pacman/package.c:122 src/pacman/package.c:242
 #, c-format
@@ -683,7 +684,7 @@ msgstr "URL"
 #: src/pacman/package.c:125
 #, c-format
 msgid "Validated By"
-msgstr "Ověřeno"
+msgstr "Způsob ověření"
 
 #: src/pacman/package.c:126
 #, c-format
@@ -1346,7 +1347,7 @@ msgstr "selhala příprava transakce (%s)\n"
 #: src/pacman/remove.c:119 src/pacman/sync.c:737
 #, c-format
 msgid "removing %s breaks dependency '%s' required by %s\n"
-msgstr "odstranění %s poruší závislost '%s' vyžadovanou balíčkem %s\n"
+msgstr "odstraněním %s by se porušila závislost '%s' vyžadovaná balíčkem %s\n"
 
 #: src/pacman/remove.c:138
 #, c-format
@@ -1804,131 +1805,134 @@ msgstr "varování: "
 #: src/pacman/pacman-conf.c:41
 #, c-format
 msgid "pacman-conf - query pacman's configuration file\n"
-msgstr ""
+msgstr "pacman-conf - zjišťování informací z konfiguračního souboru pacman\n"
 
 #: src/pacman/pacman-conf.c:42
 #, c-format
 msgid "usage:  pacman-conf [options] [<directive>...]\n"
-msgstr ""
+msgstr "použití: pacman-conf [parametry] [<directive>…]\n"
 
 #: src/pacman/pacman-conf.c:43
 #, c-format
 msgid "        pacman-conf (--repo-list|--help|--version)\n"
-msgstr ""
+msgstr "        pacman-conf (--repo-list|--help|--version)\n"
 
 #: src/pacman/pacman-conf.c:44
 #, c-format
 msgid "options:\n"
-msgstr ""
+msgstr "parametry:\n"
 
 #: src/pacman/pacman-conf.c:45
 #, c-format
 msgid "  -c, --config=<path>  set an alternate configuration file\n"
 msgstr ""
+"  -c, --config=<path>  nastavit cestu k alternativnímu konfiguračnímu "
+"souboru\n"
 
 #: src/pacman/pacman-conf.c:46
 #, c-format
 msgid "  -R, --rootdir=<path> set an alternate installation root\n"
 msgstr ""
+"  -R, --rootdir=<path> nastavit alternativní kořenový adresář instalace\n"
 
 #: src/pacman/pacman-conf.c:47
 #, c-format
 msgid "  -r, --repo=<remote>  query options for a specific repo\n"
-msgstr ""
+msgstr "  -r, --repo=<remote>  omezit dotaz na konkrétní repozitář\n"
 
 #: src/pacman/pacman-conf.c:48
 #, c-format
 msgid "  -v, --verbose        always show directive names\n"
-msgstr ""
+msgstr "  -v, --verbose        vždy zobrazit názvy direktiv\n"
 
 #: src/pacman/pacman-conf.c:49
 #, c-format
 msgid "  -l, --repo-list      list configured repositories\n"
-msgstr ""
+msgstr "  -l, --repo-list      zobrazit seznam konfigurovaných repozitářů\n"
 
 #: src/pacman/pacman-conf.c:50
 #, c-format
 msgid "  -h, --help           display this help information\n"
-msgstr ""
+msgstr "  -h, --help           zobrazit tuto nápovědu\n"
 
 #: src/pacman/pacman-conf.c:51
 #, c-format
 msgid "  -V, --version        display version information\n"
-msgstr ""
+msgstr "  -V, --version        zobrazit informace o verzi\n"
 
 #: src/pacman/pacman-conf.c:80
 #, c-format
 msgid "error setting rootdir '%s': out of memory\n"
-msgstr ""
+msgstr "chyba při nastavení kořenového adresáře '%s': nedostatek paměti\n"
 
 #: src/pacman/pacman-conf.c:110
 #, c-format
 msgid "error parsing '%s'\n"
-msgstr ""
+msgstr "chyba při rozboru '%s'\n"
 
 #: src/pacman/pacman-conf.c:290
 #, c-format
 msgid "error: repo '%s' not configured\n"
-msgstr ""
+msgstr "chyba: repozitář '%s' není nakonfigurován\n"
 
 #: src/pacman/pacman-conf.c:307 src/pacman/pacman-conf.c:385
 #, c-format
 msgid "warning: '%s' directives cannot be queried\n"
-msgstr ""
+msgstr "upozornění: nebylo možné analyzovat direktivy '%s' \n"
 
 #: src/pacman/pacman-conf.c:310 src/pacman/pacman-conf.c:388
 #, c-format
 msgid "warning: unknown directive '%s'\n"
-msgstr ""
+msgstr "upozornění: neznámá direktiva '%s'\n"
 
 #: src/pacman/pacman-conf.c:425
 #, c-format
 msgid "error: directives may not be specified with %s\n"
-msgstr ""
+msgstr "chyba: direktivy nelze použít zároveň s parametrem %s\n"
 
 #: src/util/testpkg.c:55
 #, c-format
 msgid ""
 "Test a pacman package for validity.\n"
 "\n"
-msgstr ""
+msgstr "Otestuje platnost balíčku pacman.\n"
 
 #: src/util/testpkg.c:56
 #, c-format
 msgid "Usage: testpkg <package file>\n"
-msgstr ""
+msgstr "Použití: testpkg <package file>\n"
 
 #: src/util/testpkg.c:62
 #, c-format
 msgid "cannot initialize alpm: %s\n"
-msgstr ""
+msgstr "inicializace alpm se nezdařila: %s\n"
 
 #: src/util/testpkg.c:77
 #, c-format
 msgid "Cannot find the given file.\n"
-msgstr ""
+msgstr "Daný soubor nebyl nalezen.\n"
 
 #: src/util/testpkg.c:80
 #, c-format
 msgid "Cannot open the given file.\n"
-msgstr ""
+msgstr "Daný soubor nebylo možné otevřít.\n"
 
 #: src/util/testpkg.c:84
 #, c-format
 msgid "Package is invalid.\n"
-msgstr ""
+msgstr "Balíček není platný.\n"
 
 #: src/util/testpkg.c:87
 #, c-format
 msgid "libalpm error: %s\n"
-msgstr ""
+msgstr "chyba knihovny libalpm: %s\n"
 
 #: src/util/testpkg.c:93
 #, c-format
 msgid "Package is valid.\n"
-msgstr ""
+msgstr "Balíček je platný.\n"
 
 #: src/util/testpkg.c:98
 #, c-format
 msgid "error releasing alpm\n"
-msgstr ""
+msgstr "uvolnění knihovny alpm se nezdařila\n"

@@ -24,13 +24,11 @@
 # 张海, 2015,2018
 # 张海, 2015,2018
 # 甘 露 <rhythm.gan@gmail.com>, 2011-2012
-# 甘 露 <rhythm.gan@gmail.com>, 2011
-# 甘 露 <rhythm.gan@gmail.com>, 2011
 msgid ""
 msgstr ""
 "Project-Id-Version: Arch Linux Pacman package manager\n"
 "Report-Msgid-Bugs-To: http://bugs.archlinux.org/index.php?project=3\n"
-"POT-Creation-Date: 2020-06-19 09:48+1000\n"
+"POT-Creation-Date: 2021-04-23 10:22+1000\n"
 "PO-Revision-Date: 2020-06-03 06:35+0000\n"
 "Last-Translator: Jiachen YANG <farseerfc@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/toofishes/archlinux-"

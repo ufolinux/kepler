@@ -5,6 +5,7 @@
 # Translators:
 # Dejan Rožič <drozic1989@gmail.com>, 2014
 # ansich <mojmejlzaforume@gmail.com>, 2014
+# Arnold Marko <arnold.marko@gmail.com>, 2020
 # Dejan Rožič <drozic1989@gmail.com>, 2014,2019
 # Dejan Rožič <drozic1989@gmail.com>, 2014
 # ansich <mojmejlzaforume@gmail.com>, 2014
@@ -16,9 +17,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Arch Linux Pacman package manager\n"
 "Report-Msgid-Bugs-To: http://bugs.archlinux.org/index.php?project=3\n"
-"POT-Creation-Date: 2020-06-19 09:48+1000\n"
-"PO-Revision-Date: 2019-10-14 06:03+0000\n"
-"Last-Translator: Dejan Rožič <drozic1989@gmail.com>\n"
+"POT-Creation-Date: 2021-04-23 10:22+1000\n"
+"PO-Revision-Date: 2020-10-18 23:05+0000\n"
+"Last-Translator: Arnold Marko <arnold.marko@gmail.com>\n"
 "Language-Team: Slovenian (http://www.transifex.com/toofishes/archlinux-"
 "pacman/language/sl/)\n"
 "Language: sl\n"
@@ -187,10 +188,10 @@ msgstr[3] "Ali želite pri tej nadgradnji zgornje pakete izpustiti?"
 #, c-format
 msgid "There is %zu provider available for %s\n"
 msgid_plural "There are %zu providers available for %s:\n"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "Za %s je na voljo %zu ponudnik\n"
+msgstr[1] "Za %s sta a voljo %zu ponudnika:\n"
+msgstr[2] "Za %s so na voljo %zu ponundiki:\n"
+msgstr[3] "Za %s je na voljo %zu ponudnikov :\n"
 
 #: src/pacman/callback.c:450
 #, c-format
@@ -321,10 +322,10 @@ msgstr "pot je predolga: %s%s\n"
 #, c-format
 msgid "%s: %jd total file, "
 msgid_plural "%s: %jd total files, "
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "%s: skupno %jd datoteka"
+msgstr[1] "%s: skupno %jd datoteki"
+msgstr[2] "%s: skupno %jd datoteke"
+msgstr[3] "%s: skupno %jd datotek"
 
 #: src/pacman/check.c:244
 #, c-format
@@ -347,7 +348,7 @@ msgstr "%s: ni mtree datoteke\n"
 #: src/pacman/check.c:312
 #, c-format
 msgid "path too long: %slocal/%s-%s/%s\n"
-msgstr ""
+msgstr "predolga pot: %slocal/%s-%s/%s\n"
 
 #: src/pacman/check.c:339
 #, c-format
@@ -446,7 +447,7 @@ msgstr ""
 #: src/pacman/conf.c:772
 #, c-format
 msgid "try running pacman-db-upgrade\n"
-msgstr ""
+msgstr "poskusite zagnati pacman-db-upgrade\n"
 
 #: src/pacman/conf.c:790
 #, c-format

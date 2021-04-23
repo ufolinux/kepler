@@ -4,22 +4,23 @@
 #
 # Translators:
 # 0x9fff00 ​, 2019
-# 0x9fff00 ​, 2019
+# 0x9fff00, 2019
+# Allan McRae <allan@archlinux.org>, 2021
 # Daniel Sandman <revoltism@gmail.com>, 2013,2015
 # Johan R. <jreinhed@protonmail.com>, 2019
 # Kim Svensson <ks6g10@soton.ac.uk>, 2011-2012
 # Kim Svensson <ks@linux.com>, 2015
-# Ludvig Holtze <ludvig.holtze@protonmail.com>, 2018
-# Ludvig Holtze <ludvig.holtze@protonmail.com>, 2018
+# 5295d3138ea8e00b2d2de31bd11919f3_81fe320 <1c0cea16b463ff899b2572870c868ca5_659576>, 2018
+# 5295d3138ea8e00b2d2de31bd11919f3_81fe320 <1c0cea16b463ff899b2572870c868ca5_659576>, 2018
 # Luna Jernberg <bittin@cafe8bitar.se>, 2020
 #   <pojk3n@gmail.com>, 2011
 msgid ""
 msgstr ""
 "Project-Id-Version: Arch Linux Pacman package manager\n"
 "Report-Msgid-Bugs-To: http://bugs.archlinux.org/index.php?project=3\n"
-"POT-Creation-Date: 2020-06-19 09:48+1000\n"
-"PO-Revision-Date: 2020-03-21 15:22+0000\n"
-"Last-Translator: Luna Jernberg <bittin@cafe8bitar.se>\n"
+"POT-Creation-Date: 2021-04-23 10:22+1000\n"
+"PO-Revision-Date: 2021-04-19 07:46+0000\n"
+"Last-Translator: Allan McRae <allan@archlinux.org>\n"
 "Language-Team: Swedish (http://www.transifex.com/toofishes/archlinux-pacman/"
 "language/sv/)\n"
 "Language: sv\n"
@@ -752,7 +753,7 @@ msgstr "paket"
 #: src/pacman/pacman.c:103
 #, c-format
 msgid "usage"
-msgstr "Syntax"
+msgstr "användning"
 
 #: src/pacman/pacman.c:104
 #, c-format
@@ -1002,7 +1003,7 @@ msgstr ""
 #: src/pacman/pacman.c:174
 #, c-format
 msgid "  -q, --quiet          suppress output of success messages\n"
-msgstr ""
+msgstr "  -q, --quiet         tysta utdata från lyckade meddelanden\n"
 
 #: src/pacman/pacman.c:181
 #, c-format
@@ -1025,6 +1026,8 @@ msgid ""
 "                       overwrite conflicting files (can be used more than "
 "once)\n"
 msgstr ""
+" --overwrite <path>\n"
+"skriv över motstridiga filer (kan användas mer än en gång)\n"
 
 #: src/pacman/pacman.c:192
 #, c-format
@@ -1137,7 +1140,7 @@ msgstr "      --arch <arch>  ange en alternativ arkitektur\n"
 #: src/pacman/pacman.c:215
 #, c-format
 msgid "      --sysroot        operate on a mounted guest system (root-only)\n"
-msgstr ""
+msgstr " --sysroot operera på ett monterat gäst system (root-endast)\n"
 
 #: src/pacman/pacman.c:216
 #, c-format
@@ -1190,6 +1193,8 @@ msgid ""
 "      --disable-download-timeout\n"
 "                       use relaxed timeouts for download\n"
 msgstr ""
+"      --disable-download-timeout\n"
+"                       använd avslappnade timeouts för nedladdning\n"
 
 #: src/pacman/pacman.c:245
 #, c-format
@@ -1203,7 +1208,7 @@ msgstr ""
 #: src/pacman/pacman.c:278
 #, c-format
 msgid "HTTP_USER_AGENT truncated\n"
-msgstr ""
+msgstr "HTTP_USER_AGENT avkortats\n"
 
 #: src/pacman/pacman.c:310
 #, c-format
@@ -1283,7 +1288,7 @@ msgstr "Ingen fil har angetts för --owns\n"
 #: src/pacman/query.c:170
 #, c-format
 msgid "empty string passed to file owner query\n"
-msgstr ""
+msgstr "tom sträng skickad till filägarens begäran\n"
 
 #: src/pacman/query.c:197 src/pacman/query.c:219
 #, c-format
@@ -1328,7 +1333,7 @@ msgstr "Kunde inte förbereda transaktionen (%s)\n"
 #: src/pacman/remove.c:119 src/pacman/sync.c:737
 #, c-format
 msgid "removing %s breaks dependency '%s' required by %s\n"
-msgstr "Att ta bort %sförstör beroendet '%s' som krävs av%s\n"
+msgstr "Att ta bort %s förstör beroendet '%s' som krävs av%s\n"
 
 #: src/pacman/remove.c:138
 #, c-format
@@ -1439,8 +1444,8 @@ msgstr "Kunde inte hitta centralkatalogen \"%s\".\n"
 #, c-format
 msgid "There is %d member in group %s%s%s:\n"
 msgid_plural "There are %d members in group %s%s%s:\n"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Det finns %d medlem i grupp %s%s%s:\n"
+msgstr[1] "Det finns %d medlemmar i grupp %s%s%s:\n"
 
 #: src/pacman/sync.c:620
 #, c-format
@@ -1784,17 +1789,17 @@ msgstr "VARNING: "
 #: src/pacman/pacman-conf.c:41
 #, c-format
 msgid "pacman-conf - query pacman's configuration file\n"
-msgstr ""
+msgstr "pacman-conf - visa pacmans konfigurationsfil\n"
 
 #: src/pacman/pacman-conf.c:42
 #, c-format
 msgid "usage:  pacman-conf [options] [<directive>...]\n"
-msgstr ""
+msgstr "användning: pacman-conf [alternativ] [<directive>...]\n"
 
 #: src/pacman/pacman-conf.c:43
 #, c-format
 msgid "        pacman-conf (--repo-list|--help|--version)\n"
-msgstr ""
+msgstr "        pacman-conf (--repo-list|--help|--version)\n"
 
 #: src/pacman/pacman-conf.c:44
 #, c-format
@@ -1804,42 +1809,44 @@ msgstr "alternativ:\n"
 #: src/pacman/pacman-conf.c:45
 #, c-format
 msgid "  -c, --config=<path>  set an alternate configuration file\n"
-msgstr ""
+msgstr "-c, --config <path>  ange en alternativ konfigurationsfil\n"
 
 #: src/pacman/pacman-conf.c:46
 #, c-format
 msgid "  -R, --rootdir=<path> set an alternate installation root\n"
-msgstr ""
+msgstr "  -r, --rootdir <path>ange en alternativ installations root\n"
 
 #: src/pacman/pacman-conf.c:47
 #, c-format
 msgid "  -r, --repo=<remote>  query options for a specific repo\n"
 msgstr ""
+"  -r, --repo=<remote> begär alternativ för en specifik centralkatalog\n"
 
 #: src/pacman/pacman-conf.c:48
 #, c-format
 msgid "  -v, --verbose        always show directive names\n"
-msgstr ""
+msgstr "-v, --verbose visar alltid direktivnamn\n"
 
 #: src/pacman/pacman-conf.c:49
 #, c-format
 msgid "  -l, --repo-list      list configured repositories\n"
 msgstr ""
+"  -l, --repo-list     Visa en lista över konfigurerade centralkataloger\n"
 
 #: src/pacman/pacman-conf.c:50
 #, c-format
 msgid "  -h, --help           display this help information\n"
-msgstr ""
+msgstr "-h, --help visa det här hjälpmeddelandet\n"
 
 #: src/pacman/pacman-conf.c:51
 #, c-format
 msgid "  -V, --version        display version information\n"
-msgstr ""
+msgstr "-V, --version visa versionsinformation\n"
 
 #: src/pacman/pacman-conf.c:80
 #, c-format
 msgid "error setting rootdir '%s': out of memory\n"
-msgstr ""
+msgstr "fel vid användning av rootkatalog '%s': slut på minne\n"
 
 #: src/pacman/pacman-conf.c:110
 #, c-format
@@ -1849,12 +1856,12 @@ msgstr "fel parsning '%s'\n"
 #: src/pacman/pacman-conf.c:290
 #, c-format
 msgid "error: repo '%s' not configured\n"
-msgstr ""
+msgstr "fel: förråd '%s'  har inte konfigurerats\n"
 
 #: src/pacman/pacman-conf.c:307 src/pacman/pacman-conf.c:385
 #, c-format
 msgid "warning: '%s' directives cannot be queried\n"
-msgstr ""
+msgstr "varning: '%s' kan inte göra förfrågningar mot direktiv\n"
 
 #: src/pacman/pacman-conf.c:310 src/pacman/pacman-conf.c:388
 #, c-format
@@ -1864,7 +1871,7 @@ msgstr "varning: ogiltigt direktiv '%s'\n"
 #: src/pacman/pacman-conf.c:425
 #, c-format
 msgid "error: directives may not be specified with %s\n"
-msgstr ""
+msgstr "fel: direktiv kan inte speciferas med %s\n"
 
 #: src/util/testpkg.c:55
 #, c-format
@@ -1872,11 +1879,13 @@ msgid ""
 "Test a pacman package for validity.\n"
 "\n"
 msgstr ""
+"Testa ett pacman paket för validitet.\n"
+"\n"
 
 #: src/util/testpkg.c:56
 #, c-format
 msgid "Usage: testpkg <package file>\n"
-msgstr "Syntax: testpkg <package file>\n"
+msgstr "Användning: testpkg <package file>\n"
 
 #: src/util/testpkg.c:62
 #, c-format
@@ -1911,4 +1920,4 @@ msgstr "Paketet är giltigt.\n"
 #: src/util/testpkg.c:98
 #, c-format
 msgid "error releasing alpm\n"
-msgstr ""
+msgstr "fel vid släpp av alpm\n"

@@ -6,13 +6,14 @@
 # kusakata, 2015
 # kusakata, 2015
 # kusakata, 2015-2019
+# Takuro Onoue <kusanaginoturugi@gmail.com>, 2021
 msgid ""
 msgstr ""
 "Project-Id-Version: Arch Linux Pacman package manager\n"
 "Report-Msgid-Bugs-To: http://bugs.archlinux.org/index.php?project=3\n"
-"POT-Creation-Date: 2020-06-19 09:48+1000\n"
-"PO-Revision-Date: 2019-10-14 00:11+0000\n"
-"Last-Translator: kusakata\n"
+"POT-Creation-Date: 2021-04-23 10:22+1000\n"
+"PO-Revision-Date: 2021-01-07 08:18+0000\n"
+"Last-Translator: Takuro Onoue <kusanaginoturugi@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/toofishes/archlinux-pacman/"
 "language/ja/)\n"
 "Language: ja\n"
@@ -23,7 +24,7 @@ msgstr ""
 
 #: scripts/makepkg.sh.in:140
 msgid "Cleaning up..."
-msgstr "Cleaning up..."
+msgstr "清掃..."
 
 #: scripts/makepkg.sh.in:184
 msgid "Entering %s environment..."
@@ -517,102 +518,6 @@ msgstr "パッケージディレクトリの準備ができました。"
 msgid "Finished making: %s"
 msgstr "作成完了: %s"
 
-#: scripts/makepkg-template.pl.in:55
-#, perl-format
-msgid "can't create '%s': %s"
-msgstr "'%s' を作成できません: %s"
-
-#: scripts/makepkg-template.pl.in:73
-msgid "invalid key/value pair\n"
-msgstr "無効な key/value ペア\n"
-
-#: scripts/makepkg-template.pl.in:82
-msgid "invalid template line: can't find template name\n"
-msgstr "無効な template 行: テンプレートの名前が見つかりません\n"
-
-#: scripts/makepkg-template.pl.in:87
-#, perl-format
-msgid "invalid chars used in name '%s'. allowed: [:alnum:]+_.@-\n"
-msgstr ""
-"名前 '%s' に不正な文字が使用されています。使用可能文字: [:alnum:]+_.@-\n"
-
-#: scripts/makepkg-template.pl.in:114
-#, perl-format
-msgid "Couldn't detect version for template '%s'\n"
-msgstr "テンプレート '%s' のバージョンが検出できませんでした\n"
-
-#: scripts/makepkg-template.pl.in:125
-#, perl-format
-msgid "Failed to find template file matching '%s'\n"
-msgstr "'%s' に一致するテンプレートファイルが見つけられませんでした\n"
-
-#: scripts/makepkg-template.pl.in:136
-#, perl-format
-msgid "failed to open '%s': %s\n"
-msgstr "'%s' を開けませんでした: %s\n"
-
-#: scripts/makepkg-template.pl.in:153
-#, perl-format
-msgid "Unknown template marker '%s'\n"
-msgstr "未知のテンプレートメーカー '%s'\n"
-
-#: scripts/makepkg-template.pl.in:175
-msgid "makepkg-template [options]\n"
-msgstr "makepkg-template [オプション]\n"
-
-#: scripts/makepkg-template.pl.in:177
-msgid "Options:\n"
-msgstr "オプション:\n"
-
-#: scripts/makepkg-template.pl.in:178
-#, perl-format
-msgid "  --input, -p <file>    Build script to read (default: %s)\n"
-msgstr "  --input, -p <file>    読み込むビルドスクリプト (デフォルト: %s)\n"
-
-#: scripts/makepkg-template.pl.in:179
-msgid "  --output, -o <file>   file to output to (default: input file)\n"
-msgstr "  --output, -o <file>   出力先のファイル (デフォルト: 入力ファイル)\n"
-
-#: scripts/makepkg-template.pl.in:180
-msgid "  --newest, -n          update templates to newest version\n"
-msgstr "  --newest, -n          テンプレートを最新のバージョンに更新\n"
-
-#: scripts/makepkg-template.pl.in:181
-msgid ""
-"                        (default: use version specified in the template "
-"markers)\n"
-msgstr ""
-"                        (デフォルト: テンプレートメーカーで指定されたバージョ"
-"ンを使用)\n"
-
-#: scripts/makepkg-template.pl.in:182
-msgid "  --template-dir <dir>  directory to search for templates\n"
-msgstr "  --template-dir <dir>  テンプレートを検索するディレクトリ\n"
-
-#: scripts/makepkg-template.pl.in:183
-#, perl-format
-msgid "                        (default: %s)\n"
-msgstr "                        (デフォルト: %s)\n"
-
-#: scripts/makepkg-template.pl.in:184
-msgid "  --help, -h            This help message\n"
-msgstr "  --help, -h            このヘルプメッセージ\n"
-
-#: scripts/makepkg-template.pl.in:185
-msgid "  --version             Version information\n"
-msgstr "  --version             バージョン情報\n"
-
-#: scripts/makepkg-template.pl.in:194
-#, fuzzy
-msgid ""
-"Copyright (c) 2013-2020 Pacman Development Team <pacman-dev@archlinux.org>.\n"
-"This is free software; see the source for copying conditions.\n"
-"There is NO WARRANTY, to the extent permitted by law.\n"
-msgstr ""
-"Copyright (c) 2013-2018 Pacman Development Team <pacman-dev@archlinux.org>.\n"
-"This is free software; see the source for copying conditions.\n"
-"There is NO WARRANTY, to the extent permitted by law.\n"
-
 #: scripts/pacman-db-upgrade.sh.in:40
 msgid "Upgrade the local pacman database to a newer format"
 msgstr "ローカルの pacman データベースを新しいフォーマットにアップグレード"
@@ -688,7 +593,7 @@ msgstr "使用方法: %s [オプション] オペレーション [対象]"
 
 #: scripts/pacman-key.sh.in:60
 msgid "Manage pacman's list of trusted keys"
-msgstr "信用されたキーの pacman のリストの管理"
+msgstr "信頼されたキーの pacman のリストの管理"
 
 #: scripts/pacman-key.sh.in:62
 msgid "Operations:"
@@ -724,7 +629,7 @@ msgstr "  -r, --recv-keys           指定された keyid を取得"
 
 #: scripts/pacman-key.sh.in:69
 msgid "  -u, --updatedb            Update the trustdb of pacman"
-msgstr "  -u, --updatedb            pacman の信用データベースを更新"
+msgstr "  -u, --updatedb            pacman の信頼データベースを更新"
 
 #: scripts/pacman-key.sh.in:70
 msgid ""
@@ -929,11 +834,11 @@ msgstr "%s によって確認された署名を検証できませんでした。
 
 #: scripts/pacman-key.sh.in:526
 msgid "Updating trust database..."
-msgstr "信用データベースを更新..."
+msgstr "信頼データベースを更新..."
 
 #: scripts/pacman-key.sh.in:528
 msgid "Trust database could not be updated."
-msgstr "信用データベースを更新できませんでした。"
+msgstr "信頼データベースを更新できませんでした。"
 
 #: scripts/pacman-key.sh.in:595
 msgid "Cannot find the %s binary required for all %s operations."
@@ -1231,7 +1136,7 @@ msgstr "スキップ"
 
 #: scripts/libmakepkg/integrity/verify_checksum.sh.in:82
 msgid "NOT FOUND"
-msgstr "NOT FOUND"
+msgstr "見つかりません"
 
 #: scripts/libmakepkg/integrity/verify_checksum.sh.in:89
 #: scripts/libmakepkg/integrity/verify_signature.sh.in:90
@@ -1314,11 +1219,15 @@ msgstr "本当にそれらを信頼できるか確認してください。"
 #: scripts/libmakepkg/integrity/verify_signature.sh.in:131
 #: scripts/libmakepkg/integrity/verify_signature.sh.in:193
 msgid "SIGNATURE NOT FOUND"
-msgstr "SIGNATURE NOT FOUND"
+msgstr "署名が見つかりません"
 
 #: scripts/libmakepkg/integrity/verify_signature.sh.in:144
 msgid "SOURCE FILE NOT FOUND"
-msgstr "SOURCE FILE NOT FOUND"
+msgstr "ソースファイルが見つかりません"
+
+#: scripts/libmakepkg/integrity/verify_signature.sh.in:203
+msgid "_"
+msgstr ""
 
 #: scripts/libmakepkg/lint_config/paths.sh.in:39
 #: scripts/libmakepkg/lint_pkgbuild/arch.sh.in:47
@@ -1635,3 +1544,82 @@ msgstr "$%s ディレクトリに書き込みを行う権限がありません (
 #: scripts/libmakepkg/util/util.sh.in:109
 msgid "Failed to source %s"
 msgstr "source に失敗 %s"
+
+#, perl-format
+#~ msgid "can't create '%s': %s"
+#~ msgstr "'%s' を作成できません: %s"
+
+#~ msgid "invalid key/value pair\n"
+#~ msgstr "無効な key/value ペア\n"
+
+#~ msgid "invalid template line: can't find template name\n"
+#~ msgstr "無効な template 行: テンプレートの名前が見つかりません\n"
+
+#, perl-format
+#~ msgid "invalid chars used in name '%s'. allowed: [:alnum:]+_.@-\n"
+#~ msgstr ""
+#~ "名前 '%s' に不正な文字が使用されています。使用可能文字: [:alnum:]+_.@-\n"
+
+#, perl-format
+#~ msgid "Couldn't detect version for template '%s'\n"
+#~ msgstr "テンプレート '%s' のバージョンが検出できませんでした\n"
+
+#, perl-format
+#~ msgid "Failed to find template file matching '%s'\n"
+#~ msgstr "'%s' に一致するテンプレートファイルが見つけられませんでした\n"
+
+#, perl-format
+#~ msgid "failed to open '%s': %s\n"
+#~ msgstr "'%s' を開けませんでした: %s\n"
+
+#, perl-format
+#~ msgid "Unknown template marker '%s'\n"
+#~ msgstr "未知のテンプレートメーカー '%s'\n"
+
+#~ msgid "makepkg-template [options]\n"
+#~ msgstr "makepkg-template [オプション]\n"
+
+#~ msgid "Options:\n"
+#~ msgstr "オプション:\n"
+
+#, perl-format
+#~ msgid "  --input, -p <file>    Build script to read (default: %s)\n"
+#~ msgstr "  --input, -p <file>    読み込むビルドスクリプト (デフォルト: %s)\n"
+
+#~ msgid "  --output, -o <file>   file to output to (default: input file)\n"
+#~ msgstr ""
+#~ "  --output, -o <file>   出力先のファイル (デフォルト: 入力ファイル)\n"
+
+#~ msgid "  --newest, -n          update templates to newest version\n"
+#~ msgstr "  --newest, -n          テンプレートを最新のバージョンに更新\n"
+
+#~ msgid ""
+#~ "                        (default: use version specified in the template "
+#~ "markers)\n"
+#~ msgstr ""
+#~ "                        (デフォルト: テンプレートメーカーで指定されたバー"
+#~ "ジョンを使用)\n"
+
+#~ msgid "  --template-dir <dir>  directory to search for templates\n"
+#~ msgstr "  --template-dir <dir>  テンプレートを検索するディレクトリ\n"
+
+#, perl-format
+#~ msgid "                        (default: %s)\n"
+#~ msgstr "                        (デフォルト: %s)\n"
+
+#~ msgid "  --help, -h            This help message\n"
+#~ msgstr "  --help, -h            このヘルプメッセージ\n"
+
+#~ msgid "  --version             Version information\n"
+#~ msgstr "  --version             バージョン情報\n"
+
+#~ msgid ""
+#~ "Copyright (c) 2013-2018 Pacman Development Team <pacman-dev@archlinux."
+#~ "org>.\n"
+#~ "This is free software; see the source for copying conditions.\n"
+#~ "There is NO WARRANTY, to the extent permitted by law.\n"
+#~ msgstr ""
+#~ "Copyright (c) 2013-2018 Pacman Development Team <pacman-dev@archlinux."
+#~ "org>.\n"
+#~ "This is free software; see the source for copying conditions.\n"
+#~ "There is NO WARRANTY, to the extent permitted by law.\n"
