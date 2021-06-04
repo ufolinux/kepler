@@ -99,6 +99,7 @@ static alpm_list_t *_pkg_get_replaces(alpm_pkg_t *pkg)   { return pkg->replaces;
 static alpm_filelist_t *_pkg_get_files(alpm_pkg_t *pkg)  { return &(pkg->files); }
 static alpm_list_t *_pkg_get_backup(alpm_pkg_t *pkg)     { return pkg->backup; }
 
+
 static void *_pkg_changelog_open(alpm_pkg_t UNUSED *pkg)
 {
 	return NULL;

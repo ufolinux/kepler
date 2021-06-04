@@ -145,3 +145,17 @@ void _alpm_filelist_sort(alpm_filelist_t *filelist)
 		}
 	}
 }
+
+void _alpm_filelist_truncate(alpm_filelist_t *files)
+{
+	for(size_t i = 0; i < files->count; i++) {
+		FREE(files->files[i].name);
+	}
+	files->count = 0;
+}
+
+void SYMEXPORT alpm_filelist_free(alpm_filelist_t *files)
+{
+	_alpm_filelist_truncate(files);
+	free(files->files);
+}

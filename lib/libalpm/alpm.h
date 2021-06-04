@@ -101,6 +101,11 @@ typedef struct _alpm_handle_t alpm_handle_t;
 typedef struct _alpm_db_t alpm_db_t;
 
 
+/** A Database file iterator
+ * @ingroup libalpm_databases
+ */
+typedef struct __alpm_db_files_t alpm_db_files_t;
+
 /** A package.
  *
  * A package can be loaded from disk via \link alpm_pkg_load \endlink or retrieved from a database.
@@ -157,6 +162,9 @@ typedef struct _alpm_backup_t {
  * @return a pointer to the matching file or NULL if not found
  */
 alpm_file_t *alpm_filelist_contains(alpm_filelist_t *filelist, const char *path);
+
+/** Frees a file list */
+void  alpm_filelist_free(alpm_filelist_t *files);
 
 /* End of libalpm_files */
 /** @} */
@@ -1444,6 +1452,42 @@ int alpm_db_get_usage(alpm_db_t *db, int *usage);
 /* End of usage accessors */
 /** @} */
 
+/** @name File iterators
+ * @{
+ */
+
+/** Opens a handle to the db files iterator.
+ * @param db the db files to iterate over
+ * @return handle to the iterator
+ */
+alpm_db_files_t *alpm_db_files_open(alpm_db_t *db);
+
+/** Goes to the next package.
+ * @param files handle to the file iterator
+ * @param pkgname stores the pkgname of the current package
+ * @return 0 on success, 1 if end of iterator, -1 on error
+ */
+int alpm_db_files_next(alpm_db_files_t *files, char** pkgname);
+
+/** Loads the files for a package into a file list.
+ *
+ * This extends the file list as needed, reusing the memory alloced.
+ * You can reuse the same file list for calls to this function but
+ * the list should be freed with \link alpm_filelist_free alpm_filelist_free \endlink
+ * after use.
+ * @param files handle to the file iterator
+ * @param filelist the filelist to load files into
+ * @return 0 on success, -1 on error
+ */
+int alpm_db_files_load(alpm_db_files_t *files, alpm_filelist_t *filelist);
+
+/** Close the db file iterator
+ * @param files handle to the file iterator
+ */
+void alpm_db_files_close(alpm_db_files_t *files);
+
+/* End of file iterators */
+/** @} */
 
 /* End of libalpm_databases */
 /** @} */
@@ -2677,7 +2721,6 @@ int alpm_pkg_mtree_close(const alpm_pkg_t *pkg, struct archive *archive);
 
 /* End of mtree accessors */
 /** @} */
-
 
 /* End of libalpm_packages */
 /** @} */

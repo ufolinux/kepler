@@ -40,9 +40,8 @@ static void print_line_machinereadable(alpm_db_t *db, alpm_pkg_t *pkg, char *fil
 	fputs("\n", stdout);
 }
 
-static void dump_pkg_machinereadable(alpm_db_t *db, alpm_pkg_t *pkg)
+static void dump_pkg_machinereadable(alpm_db_t *db, alpm_pkg_t *pkg, alpm_filelist_t *pkgfiles)
 {
-	alpm_filelist_t *pkgfiles = alpm_pkg_get_files(pkg);
 	for(size_t filenum = 0; filenum < pkgfiles->count; filenum++) {
 		const alpm_file_t *file = pkgfiles->files + filenum;
 		print_line_machinereadable(db, pkg, file->name);
@@ -108,7 +107,9 @@ static void filetarget_free(struct filetarget *ftarg) {
 
 static int files_search(alpm_list_t *syncs, alpm_list_t *targets, int regex) {
 	int ret = 0;
-	alpm_list_t *t, *filetargs = NULL;
+	alpm_list_t *t, *s,  *filetargs = NULL;
+	alpm_filelist_t filelist = {0};
+	char *pkgname = NULL;
 
 	for(t = targets; t; t = alpm_list_next(t)) {
 		char *targ = t->data;
@@ -144,43 +145,58 @@ static int files_search(alpm_list_t *syncs, alpm_list_t *targets, int regex) {
 		goto cleanup;
 	}
 
-	for(t = filetargs; t; t = alpm_list_next(t)) {
-		struct filetarget *ftarg = t->data;
-		char *targ = ftarg->targ;
-		regex_t *reg = &ftarg->reg;
-		int exact_file = ftarg->exact_file;
-		alpm_list_t *s;
-		int found = 0;
+	for(s = syncs; s; s = alpm_list_next(s)) {
+		alpm_db_t *repo = s->data;
+		int m;
 
-		for(s = syncs; s; s = alpm_list_next(s)) {
-			alpm_list_t *p;
-			alpm_db_t *repo = s->data;
-			alpm_list_t *packages = alpm_db_get_pkgcache(repo);
-			int m;
+		alpm_db_files_t *files = alpm_db_files_open(repo);
 
-			for(p = packages; p; p = alpm_list_next(p)) {
-				alpm_pkg_t *pkg = p->data;
-				alpm_filelist_t *files = alpm_pkg_get_files(pkg);
+		if(!files) {
+			continue;
+		}
+
+		while(1) {
+			int ok = alpm_db_files_next(files, &pkgname);
+			if(ok == 1) {
+				break;
+			}
+			if(ok != 0) {
+				continue;
+			}
+
+			if(alpm_db_files_load(files, &filelist) != 0) {
+				ret = 1;
+				continue;
+			}
+
+			alpm_pkg_t *pkg = alpm_db_get_pkg(repo, pkgname);
+
+			for(t = filetargs; t; t = alpm_list_next(t)) {
+				struct filetarget *ftarg = t->data;
+				char *targ = ftarg->targ;
+				regex_t *reg = &ftarg->reg;
+				int exact_file = ftarg->exact_file;
+				int found = 0;
 				alpm_list_t *match = NULL;
 
 				if(exact_file) {
-					if (regex) {
-						for(size_t f = 0; f < files->count; f++) {
-							char *c = files->files[f].name;
+					if(regex) {
+						for(size_t f = 0; f < filelist.count; f++) {
+							char *c = filelist.files[f].name;
 							if(regexec(reg, c, 0, 0, 0) == 0) {
-								match = alpm_list_add(match, files->files[f].name);
+								match = alpm_list_add(match, filelist.files[f].name);
 								found = 1;
 							}
 						}
 					} else {
-						if(alpm_filelist_contains(files, targ)) {
+						if(alpm_filelist_contains(&filelist, targ)) {
 							match = alpm_list_add(match, targ);
 							found = 1;
 						}
 					}
 				} else {
-					for(size_t f = 0; f < files->count; f++) {
-						char *c = strrchr(files->files[f].name, '/');
+					for(size_t f = 0; f < filelist.count; f++) {
+						char *c = strrchr(filelist.files[f].name, '/');
 						if(c && *(c + 1)) {
 							if(regex) {
 								m = regexec(reg, (c + 1), 0, 0, 0);
@@ -188,7 +204,7 @@ static int files_search(alpm_list_t *syncs, alpm_list_t *targets, int regex) {
 								m = strcmp(c + 1, targ);
 							}
 							if(m == 0) {
-								match = alpm_list_add(match, files->files[f].name);
+								match = alpm_list_add(match, filelist.files[f].name);
 								found = 1;
 							}
 						}
@@ -199,28 +215,33 @@ static int files_search(alpm_list_t *syncs, alpm_list_t *targets, int regex) {
 					print_match(match, repo, pkg, exact_file);
 					alpm_list_free(match);
 				}
+
+				if(!found) {
+					ret = 1;
+				}
 			}
 		}
 
-		if(!found) {
-			ret = 1;
-		}
+		alpm_db_files_close(files);
 	}
 
 cleanup:
 	alpm_list_free_inner(filetargs, (alpm_list_fn_free) filetarget_free);
 	alpm_list_free(filetargs);
+	alpm_filelist_free(&filelist);
+
+	if(pkgname) {
+		free(pkgname);
+	}
 
 	return ret;
 }
 
-static void dump_file_list(alpm_pkg_t *pkg) {
+static void dump_file_list(alpm_pkg_t *pkg, alpm_filelist_t *pkgfiles) {
 	const char *pkgname;
-	alpm_filelist_t *pkgfiles;
 	size_t i;
 
 	pkgname = alpm_pkg_get_name(pkg);
-	pkgfiles = alpm_pkg_get_files(pkg);
 
 	for(i = 0; i < pkgfiles->count; i++) {
 		const alpm_file_t *file = pkgfiles->files + i;
@@ -239,72 +260,96 @@ static void dump_file_list(alpm_pkg_t *pkg) {
 static int files_list(alpm_list_t *syncs, alpm_list_t *targets) {
 	alpm_list_t *i, *j;
 	int ret = 0;
+	size_t found = 0;
+	alpm_filelist_t filelist = {0};
+	char *pkgname = NULL;
 
-	if(targets != NULL) {
-		for(i = targets; i; i = alpm_list_next(i)) {
-			int found = 0;
-			char *targ = i->data;
-			char *repo = NULL;
-			char *c = strchr(targ, '/');
+	for(j = syncs; j; j = alpm_list_next(j)) {
+		alpm_db_t *db = j->data;
+		alpm_db_files_t *files = alpm_db_files_open(db);
 
-			if(c) {
-				if(! *(c + 1)) {
-					pm_printf(ALPM_LOG_ERROR,
-						_("invalid package: '%s'\n"), targ);
-					ret += 1;
+		if(!files) {
+			continue;
+		}
+
+		while(1) {
+			int ok = alpm_db_files_next(files, &pkgname);
+			if(ok == 1) {
+				break;
+			}
+			if(ok != 0) {
+				continue;
+			}
+
+			if(targets != NULL) {
+				int match = 0;
+				for(i = targets; i; i = alpm_list_next(i)) {
+					char *targ =  i->data;
+					char *c = strchr(targ, '/');
+					char *repo = NULL;
+
+					if(c) {
+						if(! *(c + 1)) {
+							pm_printf(ALPM_LOG_ERROR,
+								_("invalid package: '%s'\n"), targ);
+							ret = 1;
+							continue;
+						}
+
+						repo = strndup(targ, c - targ);
+						targ = c + 1;
+					}
+
+					if(repo) {
+						if(strcmp(alpm_db_get_name(db), repo) != 0) {
+							free(repo);
+							continue;
+						}
+						free(repo);
+					}
+
+					if(strcmp(pkgname, targ) == 0) {
+						match = 1;
+						found++;
+						break;
+					}
+				}
+
+				if(!match) {
 					continue;
 				}
-
-				repo = strndup(targ, c - targ);
-				targ = c + 1;
 			}
 
-			for(j = syncs; j; j = alpm_list_next(j)) {
-				alpm_pkg_t *pkg;
-				alpm_db_t *db = j->data;
 
-				if(repo) {
-					if(strcmp(alpm_db_get_name(db), repo) != 0) {
-						continue;
-					}
-				}
+			if(alpm_db_files_load(files, &filelist) != 0) {
+				ret = 1;
+				continue;
+			}
 
-				if((pkg = alpm_db_get_pkg(db, targ)) != NULL) {
-					found = 1;
-					if(config->op_f_machinereadable) {
-						dump_pkg_machinereadable(db, pkg);
-					} else {
-						dump_file_list(pkg);
-					}
-					break;
-				}
+			alpm_pkg_t *pkg = alpm_db_get_pkg(db, pkgname);
+
+			if(config->op_f_machinereadable) {
+				dump_pkg_machinereadable(db, pkg, &filelist);
+			} else {
+				dump_file_list(pkg, &filelist);
 			}
-			if(!found) {
-				targ = i->data;
-				pm_printf(ALPM_LOG_ERROR,
-						_("package '%s' was not found\n"), targ);
-				ret += 1;
-			}
-			free(repo);
+			break;
 		}
-	} else {
-		for(i = syncs; i; i = alpm_list_next(i)) {
-		alpm_db_t *db = i->data;
+		alpm_db_files_close(files);
+	}
 
-			for(j = alpm_db_get_pkgcache(db); j; j = alpm_list_next(j)) {
-				alpm_pkg_t *pkg = j->data;
-				if(config->op_f_machinereadable) {
-					dump_pkg_machinereadable(db, pkg);
-				} else {
-					dump_file_list(pkg);
-				}
-			}
-		}
+	alpm_filelist_free(&filelist);
+
+	if(found != alpm_list_count(targets)) {
+		ret = 1;
+	}
+
+	if(pkgname) {
+		free(pkgname);
 	}
 
 	return ret;
 }
-
 
 int pacman_files(alpm_list_t *targets)
 {

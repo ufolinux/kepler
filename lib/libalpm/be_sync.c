@@ -566,8 +566,7 @@ static int sync_db_read(alpm_db_t *db, struct archive *archive,
 		return 0;
 	}
 
-	if(strcmp(filename, "desc") == 0 || strcmp(filename, "depends") == 0
-			|| strcmp(filename, "files") == 0) {
+	if(strcmp(filename, "desc") == 0 || strcmp(filename, "depends") == 0) {
 		int ret;
 		while((ret = _alpm_archive_fgets(archive, &buf)) == ARCHIVE_OK) {
 			char *line = buf.line;
@@ -636,36 +635,6 @@ static int sync_db_read(alpm_db_t *db, struct archive *archive,
 				READ_AND_SPLITDEP(pkg->conflicts);
 			} else if(strcmp(line, "%PROVIDES%") == 0) {
 				READ_AND_SPLITDEP(pkg->provides);
-			} else if(strcmp(line, "%FILES%") == 0) {
-				/* TODO: this could lazy load if there is future demand */
-				size_t files_count = 0, files_size = 0;
-				alpm_file_t *files = NULL;
-
-				while(1) {
-					if(_alpm_archive_fgets(archive, &buf) != ARCHIVE_OK) {
-						goto error;
-					}
-					line = buf.line;
-					if(_alpm_strip_newline(line, buf.real_line_size) == 0) {
-						break;
-					}
-
-					if(!_alpm_greedy_grow((void **)&files, &files_size,
-								(files_count ? (files_count + 1) * sizeof(alpm_file_t) : 8 * sizeof(alpm_file_t)))) {
-						goto error;
-					}
-					STRDUP(files[files_count].name, line, goto error);
-					files_count++;
-				}
-				/* attempt to hand back any memory we don't need */
-				if(files_count > 0) {
-					REALLOC(files, sizeof(alpm_file_t) * files_count, (void)0);
-				} else {
-					FREE(files);
-				}
-				pkg->files.count = files_count;
-				pkg->files.files = files;
-				_alpm_filelist_sort(&pkg->files);
 			}
 		}
 		if(ret != ARCHIVE_EOF) {
@@ -715,4 +684,153 @@ alpm_db_t *_alpm_db_register_sync(alpm_handle_t *handle, const char *treename,
 
 	handle->dbs_sync = alpm_list_add(handle->dbs_sync, db);
 	return db;
+}
+
+static int load_files(struct archive *archive, alpm_filelist_t *filelist)
+{
+	struct archive_read_buffer buf = {0};
+
+	/* 512K for a line length seems reasonable */
+	buf.max_line_size = 512 * 1024;
+
+	_alpm_filelist_truncate(filelist);
+
+	int ret;
+	while((ret = _alpm_archive_fgets(archive, &buf)) == ARCHIVE_OK) {
+		char *line = buf.line;
+		if(_alpm_strip_newline(line, buf.real_line_size) == 0) {
+			/* length of stripped line was zero */
+			continue;
+		}
+
+		if(strcmp(line, "%FILES%") == 0) {
+			size_t files_size = 0;
+
+			while(1) {
+				if(_alpm_archive_fgets(archive, &buf) != ARCHIVE_OK) {
+					goto error;
+				}
+				line = buf.line;
+				if(_alpm_strip_newline(line, buf.real_line_size) == 0) {
+					break;
+				}
+
+				if(!_alpm_greedy_grow((void **)&filelist->files, &files_size,
+							(filelist->count ? (filelist->count + 1) * sizeof(alpm_file_t) : 8 * sizeof(alpm_file_t)))) {
+					goto error;
+				}
+				STRDUP(filelist->files[filelist->count].name, line, goto error);
+				filelist->count++;
+			}
+			_alpm_filelist_sort(filelist);
+		}
+	}
+	if(ret != ARCHIVE_EOF) {
+		goto error;
+	}
+
+	return 0;
+
+error:
+	return -1;
+}
+
+alpm_db_files_t SYMEXPORT *alpm_db_files_open(alpm_db_t *db)
+{
+	const char *dbpath;
+	int fd;
+	struct stat buf;
+	struct archive *archive;
+	alpm_db_files_t *files = NULL;
+
+	ASSERT(db != NULL, return NULL);
+
+	dbpath = _alpm_db_path(db);
+	if(!dbpath) {
+		/* pm_errno set in _alpm_db_path() */
+		return NULL;
+	}
+
+	if(db->status & DB_STATUS_INVALID || db->status & DB_STATUS_MISSING) {
+		return NULL;
+	}
+
+	fd = _alpm_open_archive(db->handle, dbpath, &buf,
+			&archive, ALPM_ERR_DB_OPEN);
+	if(fd < 0) {
+		db->status &= ~DB_STATUS_VALID;
+		db->status |= DB_STATUS_INVALID;
+		_alpm_archive_read_free(archive);
+		return NULL;
+	}
+
+	MALLOC(files, sizeof(alpm_db_files_t), RET_ERR(db->handle, ALPM_ERR_MEMORY, NULL));
+	files->archive = archive;
+	files->fd = fd;
+	files->db = db;
+	return files;
+}
+
+int SYMEXPORT alpm_db_files_next(alpm_db_files_t *files, char** pkgname)
+{
+	struct archive_entry *entry;
+	const char *entryname;
+	int archive_ret;
+	char *filename;
+
+	ASSERT(files != NULL, return -1);
+	ASSERT(pkgname != NULL, return -1);
+
+	while((archive_ret = archive_read_next_header(files->archive, &entry)) == ARCHIVE_OK) {
+		mode_t mode = archive_entry_mode(entry);
+		if(!S_ISDIR(mode)) {
+			entryname = archive_entry_pathname(entry);
+			if(entryname == NULL) {
+				_alpm_log(files->db->handle, ALPM_LOG_DEBUG,
+						"invalid archive entry provided to alpm_db_files_next, skipping\n");
+				return -1;
+			}
+
+			if(_alpm_splitname(entryname, pkgname, NULL, NULL) != 0) {
+				_alpm_log(files->db->handle, ALPM_LOG_ERROR,
+						_("invalid name for database entry '%s'\n"), entryname);
+				return -1;
+			}
+
+			filename = strrchr(entryname, '/');
+			filename++;
+
+			/* we only want to read the file list */
+			if(filename && strcmp(filename, "files") == 0) {
+				return 0;
+			}
+		}
+	}
+	if(archive_ret != ARCHIVE_EOF) {
+		return -1;
+	}
+	return 1;
+}
+
+int SYMEXPORT alpm_db_files_load(alpm_db_files_t *files, alpm_filelist_t *filelist)
+{
+	ASSERT(files != NULL, return -1);
+	ASSERT(filelist != NULL, return -1);
+
+	_alpm_filelist_truncate(filelist);
+	if(load_files(files->archive, filelist) != 0) {
+		_alpm_log(files->db->handle, ALPM_LOG_ERROR,
+			_("could not parse package description file '%s' from db '%s'\n"),
+			"files", files->db->treename);
+		return -1;
+	}
+	return 0;
+}
+
+void SYMEXPORT alpm_db_files_close(alpm_db_files_t *files)
+{
+	ASSERT(files != NULL, return);
+	_alpm_archive_read_free(files->archive);
+	close(files->fd);
+	free(files);
 }

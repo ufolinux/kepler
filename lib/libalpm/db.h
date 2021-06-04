@@ -61,6 +61,13 @@ struct db_operations {
 	void (*unregister) (alpm_db_t *);
 };
 
+/* Database files iterator */
+struct __alpm_db_files_t {
+	struct archive *archive;
+	int fd;
+	alpm_db_t *db;
+};
+
 /* Database */
 struct _alpm_db_t {
 	alpm_handle_t *handle;
