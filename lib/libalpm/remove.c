@@ -575,7 +575,9 @@ static int should_skip_file(alpm_handle_t *handle,
 {
 	return _alpm_fnmatch_patterns(handle->noupgrade, path) == 0
 		|| alpm_list_find_str(handle->trans->skip_remove, path)
-		|| (newpkg && _alpm_needbackup(path, newpkg)
+		|| (!(handle->trans->flags & ALPM_TRANS_FLAG_NOKEEP)
+				&& newpkg
+				&& _alpm_needbackup(path, newpkg)
 				&& alpm_filelist_contains(alpm_pkg_get_files(newpkg), path));
 }
 
