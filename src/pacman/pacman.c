@@ -164,6 +164,7 @@ static void usage(int op, const char * const myname)
 			addlist(_("  -y, --refresh        download fresh package databases from the server\n"
 			          "                       (-yy to force a refresh even if up to date)\n"));
 			addlist(_("      --needed         do not reinstall up to date packages\n"));
+			addlist(_("      --nokeep         overwrite backup files when installing packages\n"));
 		} else if(op == PM_OP_DATABASE) {
 			printf("%s:  %s {-D --database} <%s> <%s>\n", str_usg, myname, str_opt, str_pkg);
 			printf("%s:\n", str_opt);
@@ -731,6 +732,9 @@ static int parsearg_upgrade(int opt)
 		case OP_NEEDED:
 			config->flags |= ALPM_TRANS_FLAG_NEEDED;
 			break;
+		case OP_NOKEEP:
+			config->flags |= ALPM_TRANS_FLAG_NOKEEP;
+			break;
 		case OP_IGNORE:
 			parsearg_util_addlist(&(config->ignorepkg));
 			break;
@@ -941,6 +945,7 @@ static int parseargs(int argc, char *argv[])
 		{"logfile",    required_argument, 0, OP_LOGFILE},
 		{"ignoregroup", required_argument, 0, OP_IGNOREGROUP},
 		{"needed",     no_argument,       0, OP_NEEDED},
+		{"nokeep",     no_argument,       0, OP_NOKEEP},
 		{"asexplicit",     no_argument,   0, OP_ASEXPLICIT},
 		{"arch",       required_argument, 0, OP_ARCH},
 		{"print-format", required_argument, 0, OP_PRINTFORMAT},

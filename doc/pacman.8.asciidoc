@@ -269,6 +269,9 @@ Upgrade Options (apply to '-S' and '-U')[[UO]]
 *\--needed*::
 	Do not reinstall the targets that are already up-to-date.
 
+*\--nokeep*::
+	Overwrite backup files when installing packages.
+
 *\--overwrite* <glob>::
 	Bypass file conflict checks and overwrite conflicting files. If the
 	package that is about to be installed contains files that are already
