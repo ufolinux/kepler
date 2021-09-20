@@ -123,7 +123,6 @@ static void usage(int op, const char * const myname)
 			printf("%s:  %s {-R --remove} [%s] <%s>\n", str_usg, myname, str_opt, str_pkg);
 			printf("%s:\n", str_opt);
 			addlist(_("  -c, --cascade        remove packages and all packages that depend on them\n"));
-			addlist(_("  -n, --nosave         remove configuration files\n"));
 			addlist(_("  -s, --recursive      remove unnecessary dependencies\n"
 			          "                       (-ss includes explicitly installed dependencies)\n"));
 			addlist(_("  -u, --unneeded       remove unneeded packages\n"));
@@ -200,6 +199,7 @@ static void usage(int op, const char * const myname)
 				__attribute__((fallthrough));
 			case PM_OP_REMOVE:
 				addlist(_("  -d, --nodeps         skip dependency version checks (-dd to skip all checks)\n"));
+				addlist(_("  -n, --nosave         remove configuration files\n"));
 				addlist(_("      --assume-installed <package=version>\n"
 				          "                       add a virtual package to satisfy dependencies\n"));
 				addlist(_("      --dbonly         only modify database entries, not package files\n"));
@@ -632,6 +632,11 @@ static int parsearg_trans(int opt)
 				config->flags |= ALPM_TRANS_FLAG_NODEPVERSION;
 			}
 			break;
+		case OP_NOSAVE:
+		case 'n':
+			config->flags |= ALPM_TRANS_FLAG_NOSAVE;
+			break;
+
 		case OP_DBONLY:
 			config->flags |= ALPM_TRANS_FLAG_DBONLY;
 			config->flags |= ALPM_TRANS_FLAG_NOSCRIPTLET;
@@ -680,10 +685,6 @@ static int parsearg_remove(int opt)
 		case OP_CASCADE:
 		case 'c':
 			config->flags |= ALPM_TRANS_FLAG_CASCADE;
-			break;
-		case OP_NOSAVE:
-		case 'n':
-			config->flags |= ALPM_TRANS_FLAG_NOSAVE;
 			break;
 		case OP_RECURSIVE:
 		case 's':
