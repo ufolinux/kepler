@@ -2429,6 +2429,12 @@ const char *alpm_pkg_get_desc(alpm_pkg_t *pkg);
  */
 const char *alpm_pkg_get_url(alpm_pkg_t *pkg);
 
+/** Returns the package note.
+ * @param pkg a pointer to package
+ * @return a reference to an internal string
+ */
+char *alpm_pkg_get_note(alpm_pkg_t *pkg);
+
 /** Returns the build timestamp of the package.
  * @param pkg a pointer to package
  * @return the timestamp of the build time
@@ -2607,6 +2613,15 @@ off_t alpm_pkg_download_size(alpm_pkg_t *newpkg);
  */
 int alpm_pkg_set_reason(alpm_pkg_t *pkg, alpm_pkgreason_t reason);
 
+/** Set install note for a package in the local database.
+ * The provided package object must be from the local database or this method
+ * will fail. The write to the local database is performed immediately.
+ * @param pkg the package to edit
+ * @param note the new install note, null to remove a note
+ * @return 0 on success, -1 on error (pm_errno is set accordingly)
+ */
+int alpm_pkg_set_note(alpm_pkg_t *pkg, char *note);
+
 
 /* End of libalpm_pkg_t accessors */
 /** @} */
@@ -2755,6 +2770,16 @@ alpm_list_t *alpm_trans_get_add(alpm_handle_t *handle);
  * @return a list of alpm_pkg_t structures
  */
 alpm_list_t *alpm_trans_get_remove(alpm_handle_t *handle);
+
+/** Sets the install note for a transaction
+ *
+ * All target packages will gain the note, dependencies will not.
+ *
+ * @param handle the context handle
+ * @note the the note, may not contain new lines
+ * @return 0 on success, -1 on error (pm_errno is set accordingly)
+ */
+int alpm_trans_set_note(alpm_handle_t *handle, char *note);
 
 /** Initialize the transaction.
  * @param handle the context handle

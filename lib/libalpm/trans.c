@@ -298,6 +298,7 @@ void _alpm_trans_free(alpm_trans_t *trans)
 	alpm_list_free(trans->add);
 	alpm_list_free_inner(trans->remove, (alpm_list_fn_free)_alpm_pkg_free);
 	alpm_list_free(trans->remove);
+	FREE(trans->note);
 
 	FREELIST(trans->skip_remove);
 
@@ -450,3 +451,19 @@ alpm_list_t SYMEXPORT *alpm_trans_get_remove(alpm_handle_t *handle)
 
 	return handle->trans->remove;
 }
+
+int SYMEXPORT alpm_trans_set_note(alpm_handle_t *handle, char *note) {
+	CHECK_HANDLE(handle, return -1);
+	ASSERT(handle->trans != NULL, RET_ERR(handle, ALPM_ERR_TRANS_NULL, -1));
+	ASSERT(handle->trans->state == STATE_INITIALIZED, RET_ERR(handle, ALPM_ERR_TRANS_NOT_INITIALIZED, -1));
+
+	if(handle->trans->note) {
+		ASSERT(!strchr(handle->trans->note, '\n'), RET_ERR(handle, ALPM_ERR_WRONG_ARGS, -1));
+		free(handle->trans->note);
+		handle->trans->note = NULL;
+	}
+
+	STRDUP(handle->trans->note, note, RET_ERR(handle, ALPM_ERR_MEMORY, -1));
+	return 0;
+}
+

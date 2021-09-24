@@ -431,8 +431,22 @@ static int commit_single_pkg(alpm_handle_t *handle, alpm_pkg_t *newpkg,
 
 	ASSERT(trans != NULL, return -1);
 
+
+	if(_alpm_db_get_pkgfromcache(db, newpkg->name)) {
+			oldpkg = newpkg->oldpkg;
+	}
+
+	/* set note on package only if it was explicitly added to transaction */
+	if(trans->note && newpkg->reason == ALPM_PKG_REASON_EXPLICIT) {
+		STRDUP(newpkg->note, trans->note,
+				RET_ERR(handle, ALPM_ERR_MEMORY, -1));
+	} else if(oldpkg && oldpkg->note) {
+		STRDUP(newpkg->note,oldpkg->note,
+				RET_ERR(handle, ALPM_ERR_MEMORY, -1));
+	}
+
+	if(oldpkg) {
 	/* see if this is an upgrade. if so, remove the old package first */
-	if(_alpm_db_get_pkgfromcache(db, newpkg->name) && (oldpkg = newpkg->oldpkg)) {
 		int cmp = _alpm_pkg_compare_versions(newpkg, oldpkg);
 		if(cmp < 0) {
 			log_msg = "downgrading";
