@@ -256,6 +256,12 @@ Upgrade Options (apply to '-S' and '-U')[[UO]]
 	as explicitly installed so it will not be removed by the '\--recursive'
 	remove operation.
 
+*\--note*::
+	Add an install note to packages. This will only apply to targets explicitly
+	listed and not their dependencies. The note can be used to keep track of why
+	a package was installed or any other info of note. The note can later be
+	edited or removed with '\--D \--note' or '\--D \--rmnote' respectively.
+
 *\--ignore* <package>::
 	Directs pacman to ignore upgrades of package even if there is one
 	available. Multiple packages can be specified by separating them
@@ -467,6 +473,13 @@ Database Options (apply to '-D')[[QO]]
 	reason to be explicitly installed. This is useful if you want to keep a
 	package installed even when it was initially installed as a dependency
 	of another package.
+
+*\--note*::
+	Add or edit a package's install note. The note can be used to keep track of why
+	a package was installed or any other info of note.
+
+*\--rmnote*::
+	Remove a package's install note.
 
 *-k, \--check*::
 	Check the local package database is internally consistent. This will

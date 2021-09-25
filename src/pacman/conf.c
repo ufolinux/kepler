@@ -155,6 +155,7 @@ int config_free(config_t *oldconfig)
 	free(oldconfig->dbpath);
 	free(oldconfig->logfile);
 	free(oldconfig->gpgdir);
+	free(oldconfig->note);
 	FREELIST(oldconfig->hookdirs);
 	FREELIST(oldconfig->cachedirs);
 	free(oldconfig->xfercommand);

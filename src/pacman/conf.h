@@ -99,6 +99,8 @@ typedef struct __config_t {
 	unsigned int ask;
 	/* Bitfield of alpm_transflag_t */
 	int flags;
+	char *note;
+	int rmnote;
 	/* Bitfields of alpm_siglevel_t */
 	int siglevel;
 	int localfilesiglevel;
@@ -170,6 +172,8 @@ enum {
 	OP_IGNOREGROUP,
 	OP_NEEDED,
 	OP_ASEXPLICIT,
+	OP_NOTE,
+	OP_RMNOTE,
 	OP_ARCH,
 	OP_PRINTFORMAT,
 	OP_GPGDIR,

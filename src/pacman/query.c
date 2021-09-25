@@ -329,8 +329,14 @@ static int display(alpm_pkg_t *pkg)
 			&& !config->op_q_changelog && !config->op_q_check) {
 		if(!config->quiet) {
 			const colstr_t *colstr = &config->colstr;
+			char *note = alpm_pkg_get_note(pkg);
+
 			printf("%s%s %s%s%s", colstr->title, alpm_pkg_get_name(pkg),
 					colstr->version, alpm_pkg_get_version(pkg), colstr->nocolor);
+
+			if(note) {
+				printf(" (%s)", note);
+			}
 
 			if(config->op_q_upgrade) {
 				int usage;
