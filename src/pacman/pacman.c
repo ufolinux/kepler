@@ -150,6 +150,7 @@ static void usage(int op, const char * const myname)
 			addlist(_("  -t, --unrequired     list packages not (optionally) required by any\n"
 			          "                       package (-tt to ignore optdepends) [filter]\n"));
 			addlist(_("  -u, --upgrades       list outdated packages [filter]\n"));
+			addlist(_("  -w, --backup         list modified backup files of a package (-xx for all backup files)\n"));
 		} else if(op == PM_OP_SYNC) {
 			printf("%s:  %s {-S --sync} [%s] [%s]\n", str_usg, myname, str_opt, str_pkg);
 			printf("%s:\n", str_opt);
@@ -516,6 +517,10 @@ static int parsearg_query(int opt)
 		case 'c':
 			config->op_q_changelog = 1;
 			break;
+		case OP_BACKUP:
+		case 'w':
+			(config->op_q_backup)++;
+			break;
 		case OP_DEPS:
 		case 'd':
 			config->op_q_deps = 1;
@@ -583,6 +588,7 @@ static void checkargs_query_display_opts(const char *opname) {
 	invalid_opt(config->op_q_check, opname, "--check");
 	invalid_opt(config->op_q_info, opname, "--info");
 	invalid_opt(config->op_q_list, opname, "--list");
+	invalid_opt(config->op_q_backup, opname, "--backup");
 }
 
 static void checkargs_query_filter_opts(const char *opname) {
@@ -896,6 +902,7 @@ static int parseargs(int argc, char *argv[])
 		{"dbpath",     required_argument, 0, OP_DBPATH},
 		{"cascade",    no_argument,       0, OP_CASCADE},
 		{"changelog",  no_argument,       0, OP_CHANGELOG},
+		{"backup",     no_argument,       0, OP_BACKUP},
 		{"clean",      no_argument,       0, OP_CLEAN},
 		{"nodeps",     no_argument,       0, OP_NODEPS},
 		{"deps",       no_argument,       0, OP_DEPS},

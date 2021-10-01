@@ -83,6 +83,7 @@ typedef struct __config_t {
 	unsigned short op_q_upgrade;
 	unsigned short op_q_check;
 	unsigned short op_q_locality;
+	unsigned short op_q_backup;
 
 	unsigned short op_s_clean;
 	unsigned short op_s_downloadonly;
@@ -180,6 +181,7 @@ enum {
 	OP_DBPATH,
 	OP_CASCADE,
 	OP_CHANGELOG,
+	OP_BACKUP,
 	OP_CLEAN,
 	OP_NODEPS,
 	OP_DEPS,

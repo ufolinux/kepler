@@ -348,7 +348,7 @@ void dump_pkg_full(alpm_pkg_t *pkg, int extra)
 
 	/* Print additional package info if info flag passed more than once */
 	if(from == ALPM_PKG_FROM_LOCALDB && extra) {
-		dump_pkg_backups(pkg);
+		dump_backup_status(pkg);
 	}
 
 	/* final newline to separate packages */
@@ -357,6 +357,34 @@ void dump_pkg_full(alpm_pkg_t *pkg, int extra)
 	FREELIST(requiredby);
 	FREELIST(optionalfor);
 	alpm_list_free(validation);
+}
+
+static int get_backup_file_changed(const char *root,
+		const alpm_backup_t *backup)
+{
+	char path[PATH_MAX];
+	int ret = 0;
+
+	snprintf(path, PATH_MAX, "%s%s", root, backup->name);
+
+	/* if we find the file, calculate checksums, otherwise it is missing */
+	if(access(path, R_OK) == 0) {
+		char *md5sum = alpm_compute_md5sum(path);
+
+		if(md5sum == NULL) {
+			pm_printf(ALPM_LOG_ERROR,
+					_("could not calculate checksums for %s\n"), path);
+			return 0;
+		}
+
+		/* if checksums don't match, file has been modified */
+		ret = strcmp(md5sum, backup->hash) != 0;
+		free(md5sum);
+	} else if(errno != ENOENT) {
+			pm_printf(ALPM_LOG_ERROR,
+					_("could not read %s: %s\n"), path, strerror(errno));
+	}
+	return ret;
 }
 
 static const char *get_backup_file_status(const char *root,
@@ -401,7 +429,7 @@ static const char *get_backup_file_status(const char *root,
 
 /* Display list of backup files and their modification states
  */
-void dump_pkg_backups(alpm_pkg_t *pkg)
+void dump_backup_status(alpm_pkg_t *pkg)
 {
 	alpm_list_t *i;
 	const char *root = alpm_option_get_root(config->handle);
@@ -445,6 +473,32 @@ void dump_pkg_files(alpm_pkg_t *pkg, int quiet)
 			printf("%s%s%s ", config->colstr.title, pkgname, config->colstr.nocolor);
 		}
 		printf("%s%s\n", root, file->name);
+	}
+
+	fflush(stdout);
+}
+
+void dump_pkg_backups(alpm_pkg_t *pkg, int quiet, int all)
+{
+	const char *pkgname, *root;
+	alpm_list_t *backups;
+	alpm_list_t *i;
+
+	pkgname = alpm_pkg_get_name(pkg);
+	backups = alpm_pkg_get_backup(pkg);
+	root = alpm_option_get_root(config->handle);
+
+	for(i = backups; i; i = i->next) {
+		alpm_backup_t *backup = i->data;
+
+		if(!all && backup->hash && !get_backup_file_changed(root, backup)) {
+			continue;
+		}
+
+		if(!quiet) {
+			printf("%s%s%s ", config->colstr.title, pkgname, config->colstr.nocolor);
+		}
+		printf("%s%s\n", root, backup->name);
 	}
 
 	fflush(stdout);

@@ -364,6 +364,9 @@ Query Options (apply to '-Q')[[QO]]
 	replacements are not checked here. This option works best if the sync
 	database is refreshed using '-Sy'.
 
+*-w, \--backup*::
+	List all modified backup files owened by a given package. Multiple packages can
+	be specified on the command line. Pass twice to print all backup files.
 
 Remove Options (apply to '-R')[[RO]]
 ------------------------------------
