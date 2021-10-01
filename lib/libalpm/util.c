@@ -1342,11 +1342,11 @@ int _alpm_access(alpm_handle_t *handle, const char *dir, const char *file, int a
 		CALLOC(check_path, len, sizeof(char), RET_ERR(handle, ALPM_ERR_MEMORY, -1));
 		snprintf(check_path, len, "%s%s", dir, file);
 
-		ret = access(check_path, amode);
+		ret = faccessat(AT_FDCWD, check_path, amode, AT_SYMLINK_NOFOLLOW);
 		free(check_path);
 	} else {
 		dir = "";
-		ret = access(file, amode);
+		ret = faccessat(AT_FDCWD, file, amode, AT_SYMLINK_NOFOLLOW);
 	}
 
 	if(ret != 0) {
