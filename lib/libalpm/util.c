@@ -815,6 +815,37 @@ int _alpm_str_cmp(const void *s1, const void *s2)
 	return strcmp(s1, s2);
 }
 
+char *_alpm_cache_find_pkg(alpm_pkg_t *pkg, int sig) {
+	alpm_handle_t *handle = pkg->handle;
+	struct stat buf;
+	alpm_list_t *servers = pkg->origin_data.db->servers;
+	char *retpath;
+	char filepath[PATH_MAX];
+
+	for(alpm_list_t *j = servers; j; j = j->next) {
+		char *server = j->data;
+
+		if(strncmp("file://", server, strlen("file://")) == 0) {
+			int len = strlen(server) - strlen("file://") + 1 + strlen(pkg->filename) + 1;
+
+			if(sig) {
+				len += strlen(".sig");
+				snprintf(filepath, len, "%s/%s", server + strlen("file://"), pkg->filename);
+			} else {
+				snprintf(filepath, len, "%s/%s.sig", server + strlen("file://"), pkg->filename);
+			}
+
+			if(stat(filepath, &buf) == 0 && S_ISREG(buf.st_mode)) {
+				STRDUP(retpath, filepath, RET_ERR(handle, ALPM_ERR_MEMORY, NULL));
+				_alpm_log(handle, ALPM_LOG_DEBUG, "found pkg in repo cache: %s\n", retpath);
+				return retpath;
+			}
+		}
+	}
+
+	return _alpm_filecache_find(handle, pkg->filename);
+}
+
 /** Find a filename in a registered alpm cachedir.
  * @param handle the context handle
  * @param filename name of file to find
@@ -846,10 +877,10 @@ char *_alpm_filecache_find(alpm_handle_t *handle, const char *filename)
  * @param filename name of file to find
  * @return 0 if the filename was not found, 1 otherwise
  */
-int _alpm_filecache_exists(alpm_handle_t *handle, const char *filename)
+int _alpm_cache_pkg_exists(alpm_pkg_t *pkg, int sig)
 {
 	int res;
-	char *fpath = _alpm_filecache_find(handle, filename);
+	char *fpath = _alpm_cache_find_pkg(pkg, sig);
 	res = (fpath != NULL);
 	FREE(fpath);
 	return res;

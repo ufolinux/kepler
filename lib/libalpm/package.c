@@ -57,7 +57,7 @@ int SYMEXPORT alpm_pkg_checkmd5sum(alpm_pkg_t *pkg)
 	ASSERT(pkg->origin == ALPM_PKG_FROM_SYNCDB,
 			RET_ERR(pkg->handle, ALPM_ERR_WRONG_ARGS, -1));
 
-	fpath = _alpm_filecache_find(pkg->handle, pkg->filename);
+	fpath = _alpm_cache_find_pkg(pkg, 0);
 
 	retval = _alpm_test_checksum(fpath, pkg->md5sum, ALPM_PKG_VALIDATION_MD5SUM);
 
@@ -283,7 +283,7 @@ int SYMEXPORT alpm_pkg_get_sig(alpm_pkg_t *pkg, unsigned char **sig, size_t *sig
 		alpm_errno_t err;
 		int ret = -1;
 
-		pkgpath = _alpm_filecache_find(pkg->handle, pkg->filename);
+		pkgpath = _alpm_cache_find_pkg(pkg, 0);
 		if(!pkgpath) {
 			GOTO_ERR(pkg->handle, ALPM_ERR_PKG_NOT_FOUND, cleanup);
 		}

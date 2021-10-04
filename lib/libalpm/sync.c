@@ -323,7 +323,7 @@ static int compute_download_size(alpm_pkg_t *newpkg)
 
 	ASSERT(newpkg->filename != NULL, RET_ERR(handle, ALPM_ERR_PKG_INVALID_NAME, -1));
 	fname = newpkg->filename;
-	fpath = _alpm_filecache_find(handle, fname);
+	fpath = _alpm_cache_find_pkg(newpkg, 0);
 
 	/* downloaded file exists, so there's nothing to grab */
 	if(fpath) {
@@ -333,7 +333,7 @@ static int compute_download_size(alpm_pkg_t *newpkg)
 
 	CALLOC(fnamepart, strlen(fname) + 6, sizeof(char), return -1);
 	sprintf(fnamepart, "%s.part", fname);
-	fpath = _alpm_filecache_find(handle, fnamepart);
+	fpath = _alpm_cache_find_pkg(newpkg, 1);
 	if(fpath) {
 		struct stat st;
 		if(stat(fpath, &st) == 0) {
@@ -737,21 +737,13 @@ static int find_dl_candidates(alpm_handle_t *handle, alpm_list_t **files)
 
 			ASSERT(spkg->filename != NULL, RET_ERR(handle, ALPM_ERR_PKG_INVALID_NAME, -1));
 
-			need_download = spkg->download_size != 0 || !_alpm_filecache_exists(handle, spkg->filename);
+			need_download = spkg->download_size != 0 || !_alpm_cache_pkg_exists(spkg, 0);
 			/* even if the package file in the cache we need to check for
 			 * accompanion *.sig file as well.
 			 * If *.sig is not cached then force download the package + its signature file.
 			 */
 			if(!need_download && (siglevel & ALPM_SIG_PACKAGE)) {
-				char *sig_filename = NULL;
-				int len = strlen(spkg->filename) + 5;
-
-				MALLOC(sig_filename, len, RET_ERR(handle, ALPM_ERR_MEMORY, -1));
-				snprintf(sig_filename, len, "%s.sig", spkg->filename);
-
-				need_download = !_alpm_filecache_exists(handle, sig_filename);
-
-				FREE(sig_filename);
+				need_download = !_alpm_cache_pkg_exists(spkg, 1);
 			}
 
 			if(need_download) {
@@ -990,7 +982,7 @@ static int check_validity(alpm_handle_t *handle,
 		}
 
 		current_bytes += v.pkg->size;
-		v.path = _alpm_filecache_find(handle, v.pkg->filename);
+		v.path = _alpm_cache_find_pkg(v.pkg, 0);
 		v.siglevel = alpm_db_get_siglevel(alpm_pkg_get_db(v.pkg));
 
 		if(_alpm_pkg_validate_internal(handle, v.path, v.pkg,
@@ -1080,7 +1072,8 @@ static int load_packages(alpm_handle_t *handle, alpm_list_t **data,
 		}
 
 		current_bytes += spkg->size;
-		filepath = _alpm_filecache_find(handle, spkg->filename);
+
+		filepath = _alpm_cache_find_pkg(spkg, 0);
 
 		/* load the package file and replace pkgcache entry with it in the target list */
 		/* TODO: alpm_pkg_get_db() will not work on this target anymore */
