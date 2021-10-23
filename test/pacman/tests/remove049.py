@@ -10,7 +10,7 @@ lp3 = pmpkg("pkg3")
 lp3.depends = [ "pkg1" ]
 self.addpkg2db("local", lp3)
 
-self.args = "-Ru pkg1 pkg2"
+self.args = "-R --unneeded pkg1 pkg2"
 
 self.addrule("PACMAN_RETCODE=0")
 self.addrule("PKG_EXIST=pkg1")

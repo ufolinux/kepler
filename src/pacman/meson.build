@@ -10,6 +10,7 @@ pacman_sources = files('''
   remove.c
   sighandler.h sighandler.c
   sync.c
+  trans.c
   callback.h callback.c
   upgrade.c
   util.h util.c
