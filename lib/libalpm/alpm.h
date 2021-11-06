@@ -2747,7 +2747,8 @@ int alpm_pkg_mtree_close(const alpm_pkg_t *pkg, struct archive *archive);
 typedef enum _alpm_transflag_t {
 	/** Ignore dependency checks. */
 	ALPM_TRANS_FLAG_NODEPS = 1,
-	/* (1 << 1) flag can go here */
+	/** Don't keep backup files when installing packages. */
+	ALPM_TRANS_FLAG_NOKEEP = (1 << 1),
 	/** Delete files even if they are tagged as backup. */
 	ALPM_TRANS_FLAG_NOSAVE = (1 << 2),
 	/** Ignore version numbers when checking dependencies. */

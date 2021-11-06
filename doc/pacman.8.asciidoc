@@ -210,6 +210,11 @@ Transaction Options (apply to '-S', '-R' and '-U')
 	dependencies are installed and there are no package conflicts in the
 	system. Specify this option twice to skip all dependency checks.
 
+*-n, \--nosave*::
+	Instructs pacman to ignore file backup designations. Normally, when a
+	file is removed from the system, the database is checked to see if the
+	file should be renamed with a '.pacsave' extension.
+
 *\--assume-installed* <package=version>::
 	Add a virtual package "package" with version "version" to the transaction
 	to satisfy dependencies. This allows to disable specific dependency checks
@@ -268,6 +273,9 @@ Upgrade Options (apply to '-S' and '-U')[[UO]]
 
 *\--needed*::
 	Do not reinstall the targets that are already up-to-date.
+
+*\--nokeep*::
+	Overwrite backup files when installing packages.
 
 *\--overwrite* <glob>::
 	Bypass file conflict checks and overwrite conflicting files. If the
@@ -371,11 +379,6 @@ Remove Options (apply to '-R')[[RO]]
 	Remove all target packages, as well as all packages that depend on one
 	or more target packages. This operation is recursive and must be used
 	with care, since it can remove many potentially needed packages.
-
-*-n, \--nosave*::
-	Instructs pacman to ignore file backup designations. Normally, when a
-	file is removed from the system, the database is checked to see if the
-	file should be renamed with a '.pacsave' extension.
 
 *-s, \--recursive*::
 	Remove each target specified including all of their dependencies, provided
