@@ -47,7 +47,7 @@
 #include "sighandler.h"
 
 /* list of targets specified on command line */
-static alpm_list_t *pm_targets;
+static targets_t pm_targets;
 
 /* Used to sort the options in --help */
 static int options_cmp(const void *p1, const void *p2)
@@ -104,7 +104,7 @@ static void usage(int op, const char * const myname)
 	char const *const str_opr  = _("operation");
 
 	/* please limit your strings to 80 characters in width */
-	if(op == PM_OP_MAIN) {
+	if(!op) {
 		printf("%s:  %s <%s> [...]\n", str_usg, myname, str_opr);
 		printf(_("operations:\n"));
 		printf("    %s {-h --help}\n", myname);
@@ -124,11 +124,10 @@ static void usage(int op, const char * const myname)
 			printf("%s:\n", str_opt);
 			addlist(_("  -c, --cascade        remove packages and all packages that depend on them\n"));
 			addlist(_("  -s, --recursive      remove unnecessary dependencies\n"
-			          "                       (-ss includes explicitly installed dependencies)\n"));
-			addlist(_("  -u, --unneeded       remove unneeded packages\n"));
+				  "                       (-ss includes explicitly installed dependencies)\n"));
+			addlist(_("      --unneeded       remove unneeded packages\n"));
 		} else if(op == PM_OP_UPGRADE) {
 			printf("%s:  %s {-U --upgrade} [%s] <%s>\n", str_usg, myname, str_opt, str_file);
-			addlist(_("      --needed         do not reinstall up to date packages\n"));
 			printf("%s:\n", str_opt);
 		} else if(op == PM_OP_QUERY) {
 			printf("%s:  %s {-Q --query} [%s] [%s]\n", str_usg, myname, str_opt, str_pkg);
@@ -163,8 +162,6 @@ static void usage(int op, const char * const myname)
 			addlist(_("  -u, --sysupgrade     upgrade installed packages (-uu enables downgrades)\n"));
 			addlist(_("  -y, --refresh        download fresh package databases from the server\n"
 			          "                       (-yy to force a refresh even if up to date)\n"));
-			addlist(_("      --needed         do not reinstall up to date packages\n"));
-			addlist(_("      --nokeep         overwrite backup files when installing packages\n"));
 		} else if(op == PM_OP_DATABASE) {
 			printf("%s:  %s {-D --database} <%s> <%s>\n", str_usg, myname, str_opt, str_pkg);
 			printf("%s:\n", str_opt);
@@ -188,31 +185,29 @@ static void usage(int op, const char * const myname)
 			addlist(_("      --machinereadable\n"
 			          "                       produce machine-readable output\n"));
 		}
-		switch(op) {
-			case PM_OP_SYNC:
-			case PM_OP_UPGRADE:
-				addlist(_("  -w, --downloadonly   download packages but do not install/upgrade anything\n"));
-				addlist(_("      --overwrite <glob>\n"
-				          "                       overwrite conflicting files (can be used more than once)\n"));
-				addlist(_("      --asdeps         install packages as non-explicitly installed\n"));
-				addlist(_("      --asexplicit     install packages as explicitly installed\n"));
-				addlist(_("      --note <note>    add an install note to packages\n"));
-				addlist(_("      --ignore <pkg>   ignore a package upgrade (can be used more than once)\n"));
-				addlist(_("      --ignoregroup <grp>\n"
-				          "                       ignore a group upgrade (can be used more than once)\n"));
-				__attribute__((fallthrough));
-			case PM_OP_REMOVE:
-				addlist(_("  -d, --nodeps         skip dependency version checks (-dd to skip all checks)\n"));
-				addlist(_("  -n, --nosave         remove configuration files\n"));
-				addlist(_("      --assume-installed <package=version>\n"
-				          "                       add a virtual package to satisfy dependencies\n"));
-				addlist(_("      --dbonly         only modify database entries, not package files\n"));
-				addlist(_("      --noprogressbar  do not show a progress bar when downloading files\n"));
-				addlist(_("      --noscriptlet    do not execute the install scriptlet if one exists\n"));
-				addlist(_("  -p, --print          print the targets instead of performing the operation\n"));
-				addlist(_("      --print-format <string>\n"
-				          "                       specify how the targets should be printed\n"));
-				break;
+		if(op & (PM_OP_UPGRADE | PM_OP_SYNC)) {
+			addlist(_("      --needed         do not reinstall up to date packages\n"));
+			addlist(_("      --nokeep         overwrite backup files when installing packages\n"));
+			addlist(_("  -w, --downloadonly   download packages but do not install/upgrade anything\n"));
+			addlist(_("      --overwrite <glob>\n"
+				  "                       overwrite conflicting files (can be used more than once)\n"));
+			addlist(_("      --asdeps         install packages as non-explicitly installed\n"));
+			addlist(_("      --asexplicit     install packages as explicitly installed\n"));
+			addlist(_("      --note <note>    add an install note to packages\n"));
+			addlist(_("      --ignore <pkg>   ignore a package upgrade (can be used more than once)\n"));
+			addlist(_("      --ignoregroup <grp>\n"
+				  "                       ignore a group upgrade (can be used more than once)\n"));
+		}
+		if(op & PM_OP_TRANS) {
+			addlist(_("  -d, --nodeps         skip dependency version checks (-dd to skip all checks)\n"));
+			addlist(_("      --assume-installed <package=version>\n"
+				  "                       add a virtual package to satisfy dependencies\n"));
+			addlist(_("      --dbonly         only modify database entries, not package files\n"));
+			addlist(_("      --noprogressbar  do not show a progress bar when downloading files\n"));
+			addlist(_("      --noscriptlet    do not execute the install scriptlet if one exists\n"));
+			addlist(_("  -p, --print          print the targets instead of performing the operation\n"));
+			addlist(_("      --print-format <string>\n"
+				  "                       specify how the targets should be printed\n"));
 		}
 
 		addlist(_("  -b, --dbpath <path>  set an alternate database location\n"));
@@ -306,7 +301,7 @@ static void cleanup(int ret)
 	}
 
 	/* free memory */
-	FREELIST(pm_targets);
+	targets_free(&pm_targets);
 	console_cursor_show();
 	exit(ret);
 }
@@ -332,6 +327,24 @@ static int parsearg_util_addlist(alpm_list_t **list)
 	return 0;
 }
 
+static void set_op(int opt)
+{
+	int trans = (config->op & PM_OP_TRANS) != 0;
+	int setting_trans = (opt & PM_OP_TRANS) != 0;
+
+	/* we allow -SS so allow -QQ for sake of consistency */
+	if(config->op == opt) {
+		return;
+	}
+
+	if(!config->op || (trans && setting_trans)) {
+		config->op |= opt;
+		config->curr_op = opt;
+	} else {
+		config->op |= PM_OP_INVALID;
+	}
+}
+
 /** Helper function for parsing operation from command-line arguments.
  * @param opt Keycode returned by getopt_long
  * @param dryrun If nonzero, application state is NOT changed
@@ -343,25 +356,25 @@ static int parsearg_op(int opt, int dryrun)
 		/* operations */
 		case 'D':
 			if(dryrun) break;
-			config->op = (config->op != PM_OP_MAIN ? 0 : PM_OP_DATABASE); break;
+			set_op(PM_OP_DATABASE); break;
 		case 'F':
 			if(dryrun) break;
-			config->op = (config->op != PM_OP_MAIN ? 0 : PM_OP_FILES); break;
+			set_op(PM_OP_FILES); break;
 		case 'Q':
 			if(dryrun) break;
-			config->op = (config->op != PM_OP_MAIN ? 0 : PM_OP_QUERY); break;
+			set_op(PM_OP_QUERY); break;
 		case 'R':
 			if(dryrun) break;
-			config->op = (config->op != PM_OP_MAIN ? 0 : PM_OP_REMOVE); break;
+			set_op(PM_OP_REMOVE); break;
 		case 'S':
 			if(dryrun) break;
-			config->op = (config->op != PM_OP_MAIN ? 0 : PM_OP_SYNC); break;
+			set_op(PM_OP_SYNC); break;
 		case 'T':
 			if(dryrun) break;
-			config->op = (config->op != PM_OP_MAIN ? 0 : PM_OP_DEPTEST); break;
+			set_op(PM_OP_DEPTEST); break;
 		case 'U':
 			if(dryrun) break;
-			config->op = (config->op != PM_OP_MAIN ? 0 : PM_OP_UPGRADE); break;
+			set_op(PM_OP_UPGRADE); break;
 		case 'V':
 			if(dryrun) break;
 			config->version = 1; break;
@@ -373,6 +386,7 @@ static int parsearg_op(int opt, int dryrun)
 	}
 	return 0;
 }
+
 
 /** Helper functions for parsing command-line arguments.
  * @param opt Keycode returned by getopt_long
@@ -639,71 +653,16 @@ static void checkargs_query(void)
 			"--native", "--foreign");
 }
 
-/* options common to -S -R -U */
-static int parsearg_trans(int opt)
-{
-	switch(opt) {
-		case OP_NODEPS:
-		case 'd':
-			if(config->flags & ALPM_TRANS_FLAG_NODEPVERSION) {
-				config->flags |= ALPM_TRANS_FLAG_NODEPS;
-			} else {
-				config->flags |= ALPM_TRANS_FLAG_NODEPVERSION;
-			}
-			break;
-		case OP_NOSAVE:
-		case 'n':
-			config->flags |= ALPM_TRANS_FLAG_NOSAVE;
-			break;
-
-		case OP_DBONLY:
-			config->flags |= ALPM_TRANS_FLAG_DBONLY;
-			config->flags |= ALPM_TRANS_FLAG_NOSCRIPTLET;
-			config->flags |= ALPM_TRANS_FLAG_NOHOOKS;
-			break;
-		case OP_NOPROGRESSBAR:
-			config->noprogressbar = 1;
-			break;
-		case OP_NOSCRIPTLET:
-			config->flags |= ALPM_TRANS_FLAG_NOSCRIPTLET;
-			break;
-		case OP_PRINT:
-		case 'p':
-			config->print = 1;
-			break;
-		case OP_PRINTFORMAT:
-			config->print = 1;
-			free(config->print_format);
-			config->print_format = strdup(optarg);
-			break;
-		case OP_ASSUMEINSTALLED:
-			parsearg_util_addlist(&(config->assumeinstalled));
-			break;
-		default:
-			return 1;
-	}
-	return 0;
-}
-
-static void checkargs_trans(void)
-{
-	if(config->print) {
-		invalid_opt(config->flags & ALPM_TRANS_FLAG_DBONLY,
-				"--print", "--dbonly");
-		invalid_opt(config->flags & ALPM_TRANS_FLAG_NOSCRIPTLET,
-				"--print", "--noscriptlet");
-	}
-}
-
 static int parsearg_remove(int opt)
 {
-	if(parsearg_trans(opt) == 0) {
-		return 0;
-	}
 	switch(opt) {
 		case OP_CASCADE:
 		case 'c':
 			config->flags |= ALPM_TRANS_FLAG_CASCADE;
+			break;
+		case OP_NOSAVE:
+		case 'n':
+			config->flags |= ALPM_TRANS_FLAG_NOSAVE;
 			break;
 		case OP_RECURSIVE:
 		case 's':
@@ -714,7 +673,6 @@ static int parsearg_remove(int opt)
 			}
 			break;
 		case OP_UNNEEDED:
-		case 'u':
 			config->flags |= ALPM_TRANS_FLAG_UNNEEDED;
 			break;
 		default:
@@ -725,7 +683,6 @@ static int parsearg_remove(int opt)
 
 static void checkargs_remove(void)
 {
-	checkargs_trans();
 	if(config->flags & ALPM_TRANS_FLAG_NOSAVE) {
 		invalid_opt(config->print, "--nosave", "--print");
 		invalid_opt(config->flags & ALPM_TRANS_FLAG_DBONLY,
@@ -736,9 +693,6 @@ static void checkargs_remove(void)
 /* options common to -S -U */
 static int parsearg_upgrade(int opt)
 {
-	if(parsearg_trans(opt) == 0) {
-		return 0;
-	}
 	switch(opt) {
 		case OP_OVERWRITE_FILES:
 			parsearg_util_addlist(&(config->overwrite_files));
@@ -769,6 +723,7 @@ static int parsearg_upgrade(int opt)
 			config->op_s_downloadonly = 1;
 			config->flags |= ALPM_TRANS_FLAG_DOWNLOADONLY;
 			config->flags |= ALPM_TRANS_FLAG_NOCONFLICTS;
+			config->flags |= ALPM_TRANS_FLAG_NOLOCK;
 			break;
 		default: return 1;
 	}
@@ -777,7 +732,6 @@ static int parsearg_upgrade(int opt)
 
 static void checkargs_upgrade(void)
 {
-	checkargs_trans();
 	invalid_opt(config->flags & ALPM_TRANS_FLAG_ALLDEPS
 			&& config->flags & ALPM_TRANS_FLAG_ALLEXPLICIT,
 			"--asdeps", "--asexplicit");
@@ -785,9 +739,6 @@ static void checkargs_upgrade(void)
 
 static int parsearg_files(int opt)
 {
-	if(parsearg_trans(opt) == 0) {
-		return 0;
-	}
 	switch(opt) {
 		case OP_LIST:
 		case 'l':
@@ -824,6 +775,26 @@ static void checkargs_files(void)
 static int parsearg_sync(int opt)
 {
 	if(parsearg_upgrade(opt) == 0) {
+		return 0;
+	}
+	switch(opt) {
+		case OP_SYSUPGRADE:
+		case 'u':
+			(config->op_s_upgrade)++;
+			break;
+		case OP_REFRESH:
+		case 'y':
+			(config->op_s_sync)++;
+			break;
+		default:
+			return 1;
+	}
+	return 0;
+}
+
+static int parsearg_sync_only(int opt)
+{
+	if(parsearg_sync(opt) == 0) {
 		return 0;
 	}
 	switch(opt) {
@@ -867,7 +838,12 @@ static int parsearg_sync(int opt)
 
 static void checkargs_sync(void)
 {
-	checkargs_upgrade();
+	/* no conflicts currently */
+}
+
+static void checkargs_sync_only(void)
+{
+	checkargs_sync();
 	if(config->op_s_clean) {
 		invalid_opt(config->group, "--clean", "--groups");
 		invalid_opt(config->op_s_info, "--clean", "--info");
@@ -897,6 +873,89 @@ static void checkargs_sync(void)
 	}
 }
 
+/* options common to -S -R -U */
+static int parsearg_trans(int opt)
+{
+	if(config->op & (PM_OP_SYNC | PM_OP_UPGRADE) && parsearg_upgrade(opt) == 0) {
+		return 0;
+	}
+	if(config->op & PM_OP_SYNC && parsearg_sync(opt) == 0) {
+		return 0;
+	}
+	if(config->op & PM_OP_REMOVE && parsearg_remove(opt) == 0) {
+		return 0;
+	}
+	switch(opt) {
+		case OP_NODEPS:
+		case 'd':
+			if(config->flags & ALPM_TRANS_FLAG_NODEPVERSION) {
+				config->flags |= ALPM_TRANS_FLAG_NODEPS;
+			} else {
+				config->flags |= ALPM_TRANS_FLAG_NODEPVERSION;
+			}
+			break;
+		case OP_DBONLY:
+			config->flags |= ALPM_TRANS_FLAG_DBONLY;
+			config->flags |= ALPM_TRANS_FLAG_NOSCRIPTLET;
+			config->flags |= ALPM_TRANS_FLAG_NOHOOKS;
+			break;
+		case OP_NOPROGRESSBAR:
+			config->noprogressbar = 1;
+			break;
+		case OP_NOSCRIPTLET:
+			config->flags |= ALPM_TRANS_FLAG_NOSCRIPTLET;
+			break;
+		case OP_PRINT:
+		case 'p':
+			config->print = 1;
+			break;
+		case OP_PRINTFORMAT:
+			config->print = 1;
+			free(config->print_format);
+			config->print_format = strdup(optarg);
+			break;
+		case OP_ASSUMEINSTALLED:
+			parsearg_util_addlist(&(config->assumeinstalled));
+			break;
+		default:
+			return 1;
+	}
+	return 0;
+}
+
+static void checkargs_trans(void)
+{
+	if(config->op & (PM_OP_SYNC | PM_OP_UPGRADE)) {
+		checkargs_upgrade();
+	}
+	if(config->op & PM_OP_SYNC) {
+		checkargs_sync();
+	}
+	if(config->op & PM_OP_REMOVE) {
+		checkargs_remove();
+	}
+
+	if(config->print) {
+		invalid_opt(config->flags & ALPM_TRANS_FLAG_DBONLY,
+				"--print", "--dbonly");
+		invalid_opt(config->flags & ALPM_TRANS_FLAG_NOSCRIPTLET,
+				"--print", "--noscriptlet");
+	}
+}
+
+static void add_target(char *targ)
+{
+	if(config->curr_op & PM_OP_SYNC) {
+		pm_targets.sync = alpm_list_add(pm_targets.sync, targ);
+	} else if(config->curr_op & PM_OP_REMOVE) {
+		pm_targets.remove = alpm_list_add(pm_targets.remove, targ);
+	} else if(config->curr_op & PM_OP_UPGRADE) {
+		pm_targets.upgrade = alpm_list_add(pm_targets.upgrade, targ);
+	} else {
+		pm_targets.targets = alpm_list_add(pm_targets.targets, targ);
+	}
+}
+
 /** Parse command-line arguments for each operation.
  * @param argc argc
  * @param argv argv
@@ -907,7 +966,7 @@ static int parseargs(int argc, char *argv[])
 	int opt;
 	int option_index = 0;
 	int result;
-	const char *optstring = "DFQRSTUVb:cdefghiklmnopqr:stuvwxy";
+	const char *optstring = "-DFQRSTUVb:cdefghiklmnopqr:stuvwxy";
 	static const struct option opts[] =
 	{
 		{"database",   no_argument,       0, 'D'},
@@ -986,6 +1045,11 @@ static int parseargs(int argc, char *argv[])
 	while((opt = getopt_long(argc, argv, optstring, opts, &option_index)) != -1) {
 		if(opt == 0) {
 			continue;
+		} else if(opt == 1) {
+			char *targ = strdup(optarg);
+			/* add the target to our target array */
+			add_target(targ);
+			continue;
 		} else if(opt == '?') {
 			/* unknown option, getopt printed an error */
 			return 1;
@@ -993,8 +1057,8 @@ static int parseargs(int argc, char *argv[])
 		parsearg_op(opt, 0);
 	}
 
-	if(config->op == 0) {
-		pm_printf(ALPM_LOG_ERROR, _("only one operation may be used at a time\n"));
+	if(config->op & PM_OP_INVALID) {
+		pm_printf(ALPM_LOG_ERROR, _("these operations can not be used together\n"));
 		return 1;
 	}
 	if(config->help) {
@@ -1009,7 +1073,7 @@ static int parseargs(int argc, char *argv[])
 	/* parse all other options */
 	optind = 1;
 	while((opt = getopt_long(argc, argv, optstring, opts, &option_index)) != -1) {
-		if(opt == 0) {
+		if(opt == 0 || opt == 1) {
 			continue;
 		} else if(opt == '?') {
 			/* this should have failed during first pass already */
@@ -1026,14 +1090,9 @@ static int parseargs(int argc, char *argv[])
 			case PM_OP_QUERY:
 				result = parsearg_query(opt);
 				break;
-			case PM_OP_REMOVE:
-				result = parsearg_remove(opt);
-				break;
 			case PM_OP_SYNC:
-				result = parsearg_sync(opt);
-				break;
-			case PM_OP_UPGRADE:
-				result = parsearg_upgrade(opt);
+				/* handle -Si -Sg etc if -S is the only trans op */
+				result = parsearg_sync_only(opt);
 				break;
 			case PM_OP_FILES:
 				result = parsearg_files(opt);
@@ -1042,6 +1101,13 @@ static int parseargs(int argc, char *argv[])
 			default:
 				result = 1;
 				break;
+		}
+		if(result == 0) {
+			continue;
+		}
+
+		if(config->op & PM_OP_TRANS) {
+			result = parsearg_trans(opt);
 		}
 		if(result == 0) {
 			continue;
@@ -1063,7 +1129,7 @@ static int parseargs(int argc, char *argv[])
 
 	while(optind < argc) {
 		/* add the target to our target array */
-		pm_targets = alpm_list_add(pm_targets, strdup(argv[optind]));
+		add_target(strdup(argv[optind]));
 		optind++;
 	}
 
@@ -1075,7 +1141,7 @@ static int parseargs(int argc, char *argv[])
 			/* no conflicting options */
 			break;
 		case PM_OP_SYNC:
-			checkargs_sync();
+			checkargs_sync_only();
 			break;
 		case PM_OP_QUERY:
 			checkargs_query();
@@ -1092,9 +1158,82 @@ static int parseargs(int argc, char *argv[])
 		default:
 			break;
 	}
+	if(config->op & PM_OP_TRANS) {
+		checkargs_trans();
+	}
 
 	return 0;
 }
+
+static void parse_stdin(alpm_list_t **targets)
+{
+	if(!isatty(fileno(stdin))) {
+		int target_found = 0;
+		char *vdata, *line = NULL;
+		size_t line_size = 0;
+		ssize_t nread;
+
+		/* remove the '-' from the list */
+		*targets = alpm_list_remove_str(*targets, "-", &vdata);
+		free(vdata);
+
+		while((nread = getline(&line, &line_size, stdin)) != -1) {
+			if(line[nread - 1] == '\n') {
+				/* remove trailing newline */
+				line[nread - 1] = '\0';
+			}
+			if(line[0] == '\0') {
+				/* skip empty lines */
+				continue;
+			}
+			if(!alpm_list_append_strdup(targets, line)) {
+				break;
+			}
+			target_found = 1;
+		}
+		free(line);
+
+		if(ferror(stdin)) {
+			pm_printf(ALPM_LOG_ERROR,
+					_("failed to read arguments from stdin: (%s)\n"), strerror(errno));
+			cleanup(EXIT_FAILURE);
+		}
+
+		if(!freopen(ctermid(NULL), "r", stdin)) {
+			pm_printf(ALPM_LOG_ERROR, _("failed to reopen stdin for reading: (%s)\n"),
+					strerror(errno));
+		}
+
+		if(!target_found) {
+			pm_printf(ALPM_LOG_ERROR, _("argument '-' specified with empty stdin\n"));
+			cleanup(1);
+		}
+	} else {
+		/* do not read stdin from terminal */
+		pm_printf(ALPM_LOG_ERROR, _("argument '-' specified without input on stdin\n"));
+		cleanup(1);
+	}
+}
+
+
+static void parse_stdins(void)
+{
+	alpm_list_t **lists[4] = {&pm_targets.targets, &pm_targets.sync, &pm_targets.upgrade, &pm_targets.remove};
+	int replaced = 0;
+
+	for(int i = 0; i < 4; i++) {
+		alpm_list_t **list = lists[i];
+		if(alpm_list_find_str(*list, "-")) {
+			if(replaced) {
+				pm_printf(ALPM_LOG_ERROR, _("argument '-' can not be specified multiple times\n"));
+				cleanup(1);
+			}
+			parse_stdin(list);
+			replaced++;
+		}
+	}
+}
+
 
 /** Print command line to logfile.
  * @param argc
@@ -1169,54 +1308,7 @@ int main(int argc, char *argv[])
 	}
 
 	/* we support reading targets from stdin if a cmdline parameter is '-' */
-	if(alpm_list_find_str(pm_targets, "-")) {
-		if(!isatty(fileno(stdin))) {
-			int target_found = 0;
-			char *vdata, *line = NULL;
-			size_t line_size = 0;
-			ssize_t nread;
-
-			/* remove the '-' from the list */
-			pm_targets = alpm_list_remove_str(pm_targets, "-", &vdata);
-			free(vdata);
-
-			while((nread = getline(&line, &line_size, stdin)) != -1) {
-				if(line[nread - 1] == '\n') {
-					/* remove trailing newline */
-					line[nread - 1] = '\0';
-				}
-				if(line[0] == '\0') {
-					/* skip empty lines */
-					continue;
-				}
-				if(!alpm_list_append_strdup(&pm_targets, line)) {
-					break;
-				}
-				target_found = 1;
-			}
-			free(line);
-
-			if(ferror(stdin)) {
-				pm_printf(ALPM_LOG_ERROR,
-						_("failed to read arguments from stdin: (%s)\n"), strerror(errno));
-				cleanup(EXIT_FAILURE);
-			}
-
-			if(!freopen(ctermid(NULL), "r", stdin)) {
-				pm_printf(ALPM_LOG_ERROR, _("failed to reopen stdin for reading: (%s)\n"),
-						strerror(errno));
-			}
-
-			if(!target_found) {
-				pm_printf(ALPM_LOG_ERROR, _("argument '-' specified with empty stdin\n"));
-				cleanup(1);
-			}
-		} else {
-			/* do not read stdin from terminal */
-			pm_printf(ALPM_LOG_ERROR, _("argument '-' specified without input on stdin\n"));
-			cleanup(1);
-		}
-	}
+	parse_stdins();
 
 	if(config->sysroot && (chroot(config->sysroot) != 0 || chdir("/") != 0)) {
 		pm_printf(ALPM_LOG_ERROR,
@@ -1264,7 +1356,10 @@ int main(int argc, char *argv[])
 		printf("Lock File : %s\n", alpm_option_get_lockfile(config->handle));
 		printf("Log File  : %s\n", alpm_option_get_logfile(config->handle));
 		printf("GPG Dir   : %s\n", alpm_option_get_gpgdir(config->handle));
-		list_display("Targets   :", pm_targets, 0);
+		list_display("Targets   :", pm_targets.targets, 0);
+		list_display("Sync      :", pm_targets.sync, 0);
+		list_display("Upgrade   :", pm_targets.upgrade, 0);
+		list_display("Remove    :", pm_targets.remove, 0);
 	}
 
 	/* Log command line */
@@ -1273,31 +1368,26 @@ int main(int argc, char *argv[])
 	}
 
 	/* start the requested operation */
-	switch(config->op) {
-		case PM_OP_DATABASE:
-			ret = pacman_database(pm_targets);
-			break;
-		case PM_OP_REMOVE:
-			ret = pacman_remove(pm_targets);
-			break;
-		case PM_OP_UPGRADE:
-			ret = pacman_upgrade(pm_targets);
-			break;
-		case PM_OP_QUERY:
-			ret = pacman_query(pm_targets);
-			break;
-		case PM_OP_SYNC:
-			ret = pacman_sync(pm_targets);
-			break;
-		case PM_OP_DEPTEST:
-			ret = pacman_deptest(pm_targets);
-			break;
-		case PM_OP_FILES:
-			ret = pacman_files(pm_targets);
-			break;
-		default:
-			pm_printf(ALPM_LOG_ERROR, _("no operation specified (use -h for help)\n"));
-			ret = EXIT_FAILURE;
+	if(config->op & PM_OP_TRANS) {
+		ret = do_transaction(&pm_targets);
+	} else {
+		switch(config->op) {
+			case PM_OP_DATABASE:
+				ret = pacman_database(pm_targets.targets);
+				break;
+			case PM_OP_QUERY:
+				ret = pacman_query(pm_targets.targets);
+				break;
+			case PM_OP_DEPTEST:
+				ret = pacman_deptest(pm_targets.targets);
+				break;
+			case PM_OP_FILES:
+				ret = pacman_files(pm_targets.targets);
+				break;
+			default:
+				pm_printf(ALPM_LOG_ERROR, _("no operation specified (use -h for help)\n"));
+				ret = EXIT_FAILURE;
+		}
 	}
 
 	cleanup(ret);
