@@ -405,6 +405,7 @@ int _alpm_db_search(alpm_db_t *db, const alpm_list_t *needles,
 			const char *matched = NULL;
 			const char *name = pkg->name;
 			const char *desc = alpm_pkg_get_desc(pkg);
+			const char *note = alpm_pkg_get_note(pkg);
 
 			/* check name as regex AND as plain text */
 			if(name && (regexec(&reg, name, 0, 0, 0) == 0 || strstr(name, targ))) {
@@ -414,6 +415,11 @@ int _alpm_db_search(alpm_db_t *db, const alpm_list_t *needles,
 			else if(desc && regexec(&reg, desc, 0, 0, 0) == 0) {
 				matched = desc;
 			}
+			/* check note */
+			else if(note && regexec(&reg, note, 0, 0, 0) == 0) {
+				matched = note;
+			}
+
 			/* TODO: should we be doing this, and should we print something
 			 * differently when we do match it since it isn't currently printed? */
 			if(!matched) {

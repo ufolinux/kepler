@@ -70,6 +70,7 @@ enum {
 	T_URL,
 	T_VALIDATED_BY,
 	T_VERSION,
+	T_NOTE,
 	/* the following is a sentinel and should remain in last position */
 	_T_MAX
 };
@@ -124,6 +125,7 @@ static void make_aligned_titles(void)
 	buf[T_URL] = _("URL");
 	buf[T_VALIDATED_BY] = _("Validated By");
 	buf[T_VERSION] = _("Version");
+	buf[T_NOTE] = _("Note");
 
 	for(i = 0; i < ARRAYSIZE(wbuf); i++) {
 		wlen[i] = mbstowcs(wbuf[i], buf[i], strlen(buf[i]) + 1);
@@ -301,6 +303,7 @@ void dump_pkg_full(alpm_pkg_t *pkg, int extra)
 	if(from == ALPM_PKG_FROM_LOCALDB) {
 		string_display(titles[T_INSTALL_DATE], idatestr, cols);
 		string_display(titles[T_INSTALL_REASON], reason, cols);
+		string_display(titles[T_NOTE], alpm_pkg_get_note(pkg), cols);
 	}
 	if(from == ALPM_PKG_FROM_FILE || from == ALPM_PKG_FROM_LOCALDB) {
 		string_display(titles[T_INSTALL_SCRIPT],

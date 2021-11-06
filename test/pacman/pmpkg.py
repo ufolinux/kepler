@@ -34,6 +34,7 @@ class pmpkg(object):
         self.desc = ""
         self.groups = []
         self.url = ""
+        self.note = ""
         self.license = []
         self.arch = ""
         self.builddate = ""
@@ -71,6 +72,7 @@ class pmpkg(object):
         s.append("url: %s" % self.url)
         s.append("files: %s" % " ".join(self.files))
         s.append("reason: %d" % self.reason)
+        s.append("note: %s" % self.note)
         return "\n".join(s)
 
     def fullname(self):

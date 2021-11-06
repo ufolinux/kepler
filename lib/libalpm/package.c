@@ -78,6 +78,7 @@ int SYMEXPORT alpm_pkg_checkmd5sum(alpm_pkg_t *pkg)
 static const char *_pkg_get_base(alpm_pkg_t *pkg)        { return pkg->base; }
 static const char *_pkg_get_desc(alpm_pkg_t *pkg)        { return pkg->desc; }
 static const char *_pkg_get_url(alpm_pkg_t *pkg)         { return pkg->url; }
+static char *_pkg_get_note(alpm_pkg_t *pkg)        { return pkg->note; }
 static alpm_time_t _pkg_get_builddate(alpm_pkg_t *pkg)   { return pkg->builddate; }
 static alpm_time_t _pkg_get_installdate(alpm_pkg_t *pkg) { return pkg->installdate; }
 static const char *_pkg_get_packager(alpm_pkg_t *pkg)    { return pkg->packager; }
@@ -143,6 +144,7 @@ const struct pkg_operations default_pkg_ops = {
 	.get_base        = _pkg_get_base,
 	.get_desc        = _pkg_get_desc,
 	.get_url         = _pkg_get_url,
+	.get_note        = _pkg_get_note,
 	.get_builddate   = _pkg_get_builddate,
 	.get_installdate = _pkg_get_installdate,
 	.get_packager    = _pkg_get_packager,
@@ -225,6 +227,13 @@ const char SYMEXPORT *alpm_pkg_get_url(alpm_pkg_t *pkg)
 	ASSERT(pkg != NULL, return NULL);
 	pkg->handle->pm_errno = ALPM_ERR_OK;
 	return pkg->ops->get_url(pkg);
+}
+
+char SYMEXPORT *alpm_pkg_get_note(alpm_pkg_t *pkg)
+{
+	ASSERT(pkg != NULL, return NULL);
+	pkg->handle->pm_errno = ALPM_ERR_OK;
+	return pkg->ops->get_note(pkg);
 }
 
 alpm_time_t SYMEXPORT alpm_pkg_get_builddate(alpm_pkg_t *pkg)
@@ -611,6 +620,7 @@ int _alpm_pkg_dup(alpm_pkg_t *pkg, alpm_pkg_t **new_ptr)
 	STRDUP(newpkg->version, pkg->version, goto cleanup);
 	STRDUP(newpkg->desc, pkg->desc, goto cleanup);
 	STRDUP(newpkg->url, pkg->url, goto cleanup);
+	STRDUP(newpkg->note, pkg->note, goto cleanup);
 	newpkg->builddate = pkg->builddate;
 	newpkg->installdate = pkg->installdate;
 	STRDUP(newpkg->packager, pkg->packager, goto cleanup);
@@ -684,6 +694,7 @@ void _alpm_pkg_free(alpm_pkg_t *pkg)
 	FREE(pkg->version);
 	FREE(pkg->desc);
 	FREE(pkg->url);
+	FREE(pkg->note);
 	FREE(pkg->packager);
 	FREE(pkg->md5sum);
 	FREE(pkg->sha256sum);

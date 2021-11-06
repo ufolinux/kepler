@@ -121,6 +121,8 @@ class pmdb(object):
                 pkg.groups = _getsection(fd)
             elif line == "%URL%":
                 pkg.url = fd.readline().strip("\n")
+            elif line == "%NOTE%":
+                pkg.note = fd.readline().strip("\n")
             elif line == "%LICENSE%":
                 pkg.license = _getsection(fd)
             elif line == "%ARCH%":
@@ -208,6 +210,7 @@ class pmdb(object):
             make_section(data, "INSTALLDATE", pkg.installdate)
             make_section(data, "SIZE", pkg.size)
             make_section(data, "REASON", pkg.reason)
+            make_section(data, "NOTE", pkg.note)
         else:
             make_section(data, "FILENAME", pkg.filename())
             make_section(data, "REPLACES", pkg.replaces)

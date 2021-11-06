@@ -72,6 +72,15 @@ int trans_init(int flags, int check_valid)
 		trans_init_error();
 		return -1;
 	}
+
+	if(config->note) {
+		ret = alpm_trans_set_note(config->handle, config->note);
+		if(ret == -1) {
+			trans_init_error();
+			return -1;
+		}
+	}
+
 	return 0;
 }
 

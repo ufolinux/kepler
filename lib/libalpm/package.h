@@ -46,6 +46,7 @@ struct pkg_operations {
 	const char *(*get_base) (alpm_pkg_t *);
 	const char *(*get_desc) (alpm_pkg_t *);
 	const char *(*get_url) (alpm_pkg_t *);
+	char *(*get_note) (alpm_pkg_t *);
 	alpm_time_t (*get_builddate) (alpm_pkg_t *);
 	alpm_time_t (*get_installdate) (alpm_pkg_t *);
 	const char *(*get_packager) (alpm_pkg_t *);
@@ -93,6 +94,7 @@ struct _alpm_pkg_t {
 	char *version;
 	char *desc;
 	char *url;
+	char *note;
 	char *packager;
 	char *md5sum;
 	char *sha256sum;

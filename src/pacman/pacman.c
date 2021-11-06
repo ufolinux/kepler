@@ -169,6 +169,8 @@ static void usage(int op, const char * const myname)
 			printf("%s:\n", str_opt);
 			addlist(_("      --asdeps         mark packages as non-explicitly installed\n"));
 			addlist(_("      --asexplicit     mark packages as explicitly installed\n"));
+			addlist(_("      --note <note>    add or edit a packages install notes\n"));
+			addlist(_("      --rmnote         remove install note from packages\n"));
 			addlist(_("  -k, --check          test local database for validity (-kk for sync databases)\n"));
 			addlist(_("  -q, --quiet          suppress output of success messages\n"));
 		} else if(op == PM_OP_DEPTEST) {
@@ -193,6 +195,7 @@ static void usage(int op, const char * const myname)
 				          "                       overwrite conflicting files (can be used more than once)\n"));
 				addlist(_("      --asdeps         install packages as non-explicitly installed\n"));
 				addlist(_("      --asexplicit     install packages as explicitly installed\n"));
+				addlist(_("      --note <note>    add an install note to packages\n"));
 				addlist(_("      --ignore <pkg>   ignore a package upgrade (can be used more than once)\n"));
 				addlist(_("      --ignoregroup <grp>\n"
 				          "                       ignore a group upgrade (can be used more than once)\n"));
@@ -482,6 +485,12 @@ static int parsearg_database(int opt)
 		case OP_ASEXPLICIT:
 			config->flags |= ALPM_TRANS_FLAG_ALLEXPLICIT;
 			break;
+		case OP_NOTE:
+			config->note = strdup(optarg);
+			break;
+		case OP_RMNOTE:
+			config->rmnote = 1;
+			break;
 		case OP_CHECK:
 		case 'k':
 			(config->op_q_check)++;
@@ -502,7 +511,11 @@ static void checkargs_database(void)
 			&& config->flags & ALPM_TRANS_FLAG_ALLEXPLICIT,
 			"--asdeps", "--asexplicit");
 
+	invalid_opt(config->note && config->rmnote, "--note", "--rmnote");
+
 	if(config->op_q_check) {
+	invalid_opt(config->note != NULL, "--note", "--check");
+	invalid_opt(config->rmnote, "--rmnote", "--check");
 		invalid_opt(config->flags & ALPM_TRANS_FLAG_ALLDEPS,
 				"--asdeps", "--check");
 		invalid_opt(config->flags & ALPM_TRANS_FLAG_ALLEXPLICIT,
@@ -730,6 +743,9 @@ static int parsearg_upgrade(int opt)
 		case OP_ASEXPLICIT:
 			config->flags |= ALPM_TRANS_FLAG_ALLEXPLICIT;
 			break;
+		case OP_NOTE:
+			config->note = strdup(optarg);
+			break;
 		case OP_NEEDED:
 			config->flags |= ALPM_TRANS_FLAG_NEEDED;
 			break;
@@ -948,6 +964,8 @@ static int parseargs(int argc, char *argv[])
 		{"needed",     no_argument,       0, OP_NEEDED},
 		{"nokeep",     no_argument,       0, OP_NOKEEP},
 		{"asexplicit",     no_argument,   0, OP_ASEXPLICIT},
+		{"note",       required_argument, 0, OP_NOTE},
+		{"rmnote",     no_argument,       0, OP_RMNOTE},
 		{"arch",       required_argument, 0, OP_ARCH},
 		{"print-format", required_argument, 0, OP_PRINTFORMAT},
 		{"gpgdir",     required_argument, 0, OP_GPGDIR},

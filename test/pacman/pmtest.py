@@ -322,7 +322,7 @@ class pmtest(object):
                 self.result["success"] += 1
             else:
                 self.result["fail"] += 1
-            tap.ok(success, i)
+            tap.ok(success == 1, i)
 
     def configfile(self):
         return os.path.join(self.root, util.PACCONF)

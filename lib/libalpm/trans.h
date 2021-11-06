@@ -39,6 +39,7 @@ typedef enum _alpm_transstate_t {
 typedef struct _alpm_trans_t {
 	/* bitfield of alpm_transflag_t flags */
 	int flags;
+	char *note;
 	alpm_transstate_t state;
 	alpm_list_t *unresolvable;  /* list of (alpm_pkg_t *) */
 	alpm_list_t *add;           /* list of (alpm_pkg_t *) */

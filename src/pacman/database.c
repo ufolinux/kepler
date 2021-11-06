@@ -38,11 +38,12 @@
  *
  * @return 0 on success, 1 on failure
  */
-static int change_install_reason(alpm_list_t *targets)
+static int change_pkg(alpm_list_t *targets)
 {
 	alpm_list_t *i;
 	alpm_db_t *db_local;
 	int ret = 0;
+	int set_reason = 0;
 
 	alpm_pkgreason_t reason;
 
@@ -53,11 +54,10 @@ static int change_install_reason(alpm_list_t *targets)
 
 	if(config->flags & ALPM_TRANS_FLAG_ALLDEPS) { /* --asdeps */
 		reason = ALPM_PKG_REASON_DEPEND;
+		set_reason = 1;
 	} else if(config->flags & ALPM_TRANS_FLAG_ALLEXPLICIT) { /* --asexplicit */
 		reason = ALPM_PKG_REASON_EXPLICIT;
-	} else {
-		pm_printf(ALPM_LOG_ERROR, _("no install reason specified (use -h for help)\n"));
-		return 1;
+		set_reason = 1;
 	}
 
 	/* Lock database */
@@ -69,17 +69,44 @@ static int change_install_reason(alpm_list_t *targets)
 	for(i = targets; i; i = alpm_list_next(i)) {
 		char *pkgname = i->data;
 		alpm_pkg_t *pkg = alpm_db_get_pkg(db_local, pkgname);
-		if(!pkg || alpm_pkg_set_reason(pkg, reason)) {
-			pm_printf(ALPM_LOG_ERROR, _("could not set install reason for package %s (%s)\n"),
-							pkgname, alpm_strerror(alpm_errno(config->handle)));
+
+		if(!pkg) {
+			pm_printf(ALPM_LOG_ERROR, _("package '%s' was not found"), pkgname);
 			ret = 1;
-		} else {
-			if(!config->quiet) {
-				if(reason == ALPM_PKG_REASON_DEPEND) {
-					printf(_("%s: install reason has been set to 'installed as dependency'\n"), pkgname);
-				} else {
-					printf(_("%s: install reason has been set to 'explicitly installed'\n"), pkgname);
+			continue;
+		}
+
+		if(set_reason) {
+			if(alpm_pkg_set_reason(pkg, reason)) {
+				pm_printf(ALPM_LOG_ERROR, _("could not set install reason for package %s (%s)\n"),
+								pkgname, alpm_strerror(alpm_errno(config->handle)));
+				ret = 1;
+			} else {
+				if(!config->quiet) {
+					if(reason == ALPM_PKG_REASON_DEPEND) {
+						printf(_("%s: install reason has been set to 'installed as dependency'\n"), pkgname);
+					} else {
+						printf(_("%s: install reason has been set to 'explicitly installed'\n"), pkgname);
+					}
 				}
+			}
+		}
+
+		if(config->rmnote) {
+			if(alpm_pkg_set_note(pkg, NULL)) {
+				pm_printf(ALPM_LOG_ERROR, _("could not set install note for package %s (%s)\n"),
+								pkgname, alpm_strerror(alpm_errno(config->handle)));
+				ret = 1;
+			} else if(!config->quiet) {
+				printf(_("%s: note removed\n"), pkgname);
+			}
+		} else if(config->note) {
+			if(alpm_pkg_set_note(pkg, config->note)) {
+				pm_printf(ALPM_LOG_ERROR, _("could not set install note for package %s (%s)\n"),
+								pkgname, alpm_strerror(alpm_errno(config->handle)));
+				ret = 1;
+			} else if(!config->quiet) {
+				printf(_("%s: note set\n"), pkgname);
 			}
 		}
 	}
@@ -296,8 +323,9 @@ int pacman_database(alpm_list_t *targets)
 		}
 	}
 
-	if(config->flags & (ALPM_TRANS_FLAG_ALLDEPS | ALPM_TRANS_FLAG_ALLEXPLICIT)) {
-		ret = change_install_reason(targets);
+	if(config->note || config->rmnote ||
+			(config->flags & (ALPM_TRANS_FLAG_ALLDEPS | ALPM_TRANS_FLAG_ALLEXPLICIT))) {
+		ret = change_pkg(targets);
 	}
 
 	return ret;

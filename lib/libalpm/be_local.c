@@ -81,6 +81,12 @@ static const char *_cache_get_url(alpm_pkg_t *pkg)
 	return pkg->url;
 }
 
+static char *_cache_get_note(alpm_pkg_t *pkg)
+{
+	LAZY_LOAD(INFRQ_DESC);
+	return pkg->note;
+}
+
 static alpm_time_t _cache_get_builddate(alpm_pkg_t *pkg)
 {
 	LAZY_LOAD(INFRQ_DESC);
@@ -330,6 +336,7 @@ static const struct pkg_operations local_pkg_ops = {
 	.get_base = _cache_get_base,
 	.get_desc = _cache_get_desc,
 	.get_url = _cache_get_url,
+	.get_note = _cache_get_note,
 	.get_builddate = _cache_get_builddate,
 	.get_installdate = _cache_get_installdate,
 	.get_packager = _cache_get_packager,
@@ -752,6 +759,8 @@ static int local_db_read(alpm_pkg_t *info, int inforeq)
 				READ_AND_STORE_ALL(info->groups);
 			} else if(strcmp(line, "%URL%") == 0) {
 				READ_AND_STORE(info->url);
+			} else if(strcmp(line, "%NOTE%") == 0) {
+				READ_AND_STORE(info->note);
 			} else if(strcmp(line, "%LICENSE%") == 0) {
 				READ_AND_STORE_ALL(info->licenses);
 			} else if(strcmp(line, "%ARCH%") == 0) {
@@ -1040,6 +1049,11 @@ int _alpm_local_db_write(alpm_db_t *db, alpm_pkg_t *info, int inforeq)
 		write_deps(fp, "%CONFLICTS%", info->conflicts);
 		write_deps(fp, "%PROVIDES%", info->provides);
 
+		if(info->note) {
+			fprintf(fp, "%%NOTE%%\n"
+							"%s\n\n", info->note);
+		}
+
 		fclose(fp);
 		fp = NULL;
 	}
@@ -1150,6 +1164,31 @@ int SYMEXPORT alpm_pkg_set_reason(alpm_pkg_t *pkg, alpm_pkgreason_t reason)
 	}
 	/* set reason (in pkgcache) */
 	pkg->reason = reason;
+	/* write DESC */
+	if(_alpm_local_db_write(pkg->handle->db_local, pkg, INFRQ_DESC)) {
+		RET_ERR(pkg->handle, ALPM_ERR_DB_WRITE, -1);
+	}
+
+	return 0;
+}
+
+int SYMEXPORT alpm_pkg_set_note(alpm_pkg_t *pkg, char *note)
+{
+	ASSERT(pkg != NULL, return -1);
+	ASSERT(pkg->origin == ALPM_PKG_FROM_LOCALDB,
+			RET_ERR(pkg->handle, ALPM_ERR_WRONG_ARGS, -1));
+	ASSERT(pkg->origin_data.db == pkg->handle->db_local,
+			RET_ERR(pkg->handle, ALPM_ERR_WRONG_ARGS, -1));
+
+	_alpm_log(pkg->handle, ALPM_LOG_DEBUG,
+			"setting note for %s: %s\n", pkg->name, note);
+	LAZY_LOAD(INFRQ_DESC);
+	FREE(pkg->note);
+	if(note) {
+		ASSERT(!strchr(note, '\n'), RET_ERR(pkg->handle, ALPM_ERR_WRONG_ARGS, -1));
+		STRDUP(pkg->note, note,
+				RET_ERR(pkg->handle, ALPM_ERR_MEMORY, -1));
+	}
 	/* write DESC */
 	if(_alpm_local_db_write(pkg->handle->db_local, pkg, INFRQ_DESC)) {
 		RET_ERR(pkg->handle, ALPM_ERR_DB_WRITE, -1);
