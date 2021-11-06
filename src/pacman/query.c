@@ -315,6 +315,9 @@ static int display(alpm_pkg_t *pkg)
 	if(config->op_q_list) {
 		dump_pkg_files(pkg, config->quiet);
 	}
+	if(config->op_q_backup) {
+		dump_pkg_backups(pkg, config->quiet, config->op_q_backup != 1);
+	}
 	if(config->op_q_changelog) {
 		dump_pkg_changelog(pkg);
 	}
@@ -325,8 +328,8 @@ static int display(alpm_pkg_t *pkg)
 			ret = check_pkg_full(pkg);
 		}
 	}
-	if(!config->op_q_info && !config->op_q_list
-			&& !config->op_q_changelog && !config->op_q_check) {
+	if(!config->op_q_info && !config->op_q_list && !config->op_q_changelog
+			&& !config->op_q_check && !config->op_q_backup) {
 		if(!config->quiet) {
 			const colstr_t *colstr = &config->colstr;
 			char *note = alpm_pkg_get_note(pkg);
@@ -437,7 +440,7 @@ int pacman_query(alpm_list_t *targets)
 	db_local = alpm_get_localdb(config->handle);
 
 	/* operations on all packages in the local DB
-	 * valid: no-op (plain -Q), list, info, check
+	 * valid: no-op (plain -Q), list, info, check, backup
 	 * invalid: isfile, owns */
 	if(targets == NULL) {
 		if(config->op_q_isfile || config->op_q_owns) {

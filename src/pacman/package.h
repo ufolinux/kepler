@@ -24,7 +24,8 @@
 
 void dump_pkg_full(alpm_pkg_t *pkg, int extra);
 
-void dump_pkg_backups(alpm_pkg_t *pkg);
+void dump_backup_status(alpm_pkg_t *pkg);
+void dump_pkg_backups(alpm_pkg_t *pkg, int quiet, int all);
 void dump_pkg_files(alpm_pkg_t *pkg, int quiet);
 void dump_pkg_changelog(alpm_pkg_t *pkg);
 
