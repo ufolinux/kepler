@@ -191,6 +191,13 @@ const char SYMEXPORT *alpm_pkg_get_base(alpm_pkg_t *pkg)
 	return pkg->ops->get_base(pkg);
 }
 
+alpm_handle_t SYMEXPORT *alpm_pkg_get_handle(alpm_pkg_t *pkg)
+{
+	ASSERT(pkg != NULL, return NULL);
+	pkg->handle->pm_errno = ALPM_ERR_OK;
+	return pkg->handle;
+}
+
 const char SYMEXPORT *alpm_pkg_get_name(alpm_pkg_t *pkg)
 {
 	ASSERT(pkg != NULL, return NULL);
