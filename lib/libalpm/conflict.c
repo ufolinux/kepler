@@ -269,7 +269,6 @@ static alpm_list_t *add_fileconflict(alpm_handle_t *handle,
 	STRDUP(conflict->file, filestr, goto error);
 	if(!pkg2) {
 		conflict->type = ALPM_FILECONFLICT_FILESYSTEM;
-		STRDUP(conflict->ctarget, "", goto error);
 	} else if(pkg2->origin == ALPM_PKG_FROM_LOCALDB) {
 		conflict->type = ALPM_FILECONFLICT_FILESYSTEM;
 		STRDUP(conflict->ctarget, pkg2->name, goto error);

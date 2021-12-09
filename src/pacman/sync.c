@@ -840,7 +840,7 @@ int sync_prepare_execute(void)
 									conflict->file, conflict->target, conflict->ctarget);
 							break;
 						case ALPM_FILECONFLICT_FILESYSTEM:
-							if(conflict->ctarget[0]) {
+							if(conflict->ctarget) {
 								printf(_("%s: %s exists in filesystem (owned by %s)\n"),
 										conflict->target, conflict->file, conflict->ctarget);
 							} else {
