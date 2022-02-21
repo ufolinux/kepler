@@ -18,7 +18,6 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <fnmatch.h>
 #include <stdlib.h>
 #include <stdio.h>
 
@@ -29,11 +28,6 @@
 #include "pacman.h"
 #include "util.h"
 #include "conf.h"
-
-static int fnmatch_cmp(const void *pattern, const void *string)
-{
-	return fnmatch(pattern, string, 0);
-}
 
 static int remove_target(const char *target)
 {
@@ -69,25 +63,13 @@ static int remove_target(const char *target)
 	return 0;
 }
 
-/**
- * @brief Remove a specified list of packages.
- *
- * @param targets a list of packages (as strings) to remove from the system
- *
- * @return 0 on success, 1 on failure
- */
-int pacman_remove(alpm_list_t *targets)
+int load_remove(alpm_list_t *targets)
 {
 	int retval = 0;
-	alpm_list_t *i, *data = NULL;
+	alpm_list_t *i;
 
 	if(targets == NULL) {
 		pm_printf(ALPM_LOG_ERROR, _("no targets specified (use -h for help)\n"));
-		return 1;
-	}
-
-	/* Step 0: create a new transaction */
-	if(trans_init(config->flags, 0) == -1) {
 		return 1;
 	}
 
@@ -102,81 +84,6 @@ int pacman_remove(alpm_list_t *targets)
 		}
 	}
 
-	if(retval == 1) {
-		goto cleanup;
-	}
-
-	/* Step 2: prepare the transaction based on its type, targets and flags */
-	if(alpm_trans_prepare(config->handle, &data) == -1) {
-		alpm_errno_t err = alpm_errno(config->handle);
-		pm_printf(ALPM_LOG_ERROR, _("failed to prepare transaction (%s)\n"),
-		        alpm_strerror(err));
-		switch(err) {
-			case ALPM_ERR_UNSATISFIED_DEPS:
-				for(i = data; i; i = alpm_list_next(i)) {
-					alpm_depmissing_t *miss = i->data;
-					char *depstring = alpm_dep_compute_string(miss->depend);
-					colon_printf(_("removing %s breaks dependency '%s' required by %s\n"),
-							miss->causingpkg, depstring, miss->target);
-					free(depstring);
-					alpm_depmissing_free(miss);
-				}
-				break;
-			default:
-				break;
-		}
-		alpm_list_free(data);
-		retval = 1;
-		goto cleanup;
-	}
-
-	/* Search for holdpkg in target list */
-	int holdpkg = 0;
-	for(i = alpm_trans_get_remove(config->handle); i; i = alpm_list_next(i)) {
-		alpm_pkg_t *pkg = i->data;
-		if(alpm_list_find(config->holdpkg, alpm_pkg_get_name(pkg), fnmatch_cmp)) {
-			pm_printf(ALPM_LOG_WARNING, _("%s is designated as a HoldPkg.\n"),
-							alpm_pkg_get_name(pkg));
-			holdpkg = 1;
-		}
-	}
-	if(holdpkg && (noyes(_("HoldPkg was found in target list. Do you want to continue?")) == 0)) {
-		retval = 1;
-		goto cleanup;
-	}
-
-	/* Step 3: actually perform the removal */
-	alpm_list_t *pkglist = alpm_trans_get_remove(config->handle);
-	if(pkglist == NULL) {
-		printf(_(" there is nothing to do\n"));
-		goto cleanup; /* we are done */
-	}
-
-	if(config->print) {
-		print_packages(pkglist);
-		goto cleanup;
-	}
-
-	/* print targets and ask user confirmation */
-	display_targets();
-	printf("\n");
-	if(yesno(_("Do you want to remove these packages?")) == 0) {
-		retval = 1;
-		goto cleanup;
-	}
-
-	if(alpm_trans_commit(config->handle, &data) == -1) {
-		pm_printf(ALPM_LOG_ERROR, _("failed to commit transaction (%s)\n"),
-		        alpm_strerror(alpm_errno(config->handle)));
-		retval = 1;
-	}
-
-	FREELIST(data);
-
-	/* Step 4: release transaction resources */
-cleanup:
-	if(trans_release() == -1) {
-		retval = 1;
-	}
 	return retval;
 }
+

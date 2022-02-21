@@ -43,8 +43,17 @@ typedef struct __config_repo_t {
 	int siglevel_mask;
 } config_repo_t;
 
+
+typedef struct __targets_t {
+	alpm_list_t *targets;
+	alpm_list_t *sync;
+	alpm_list_t *upgrade;
+	alpm_list_t *remove;
+} targets_t;
+
 typedef struct __config_t {
 	unsigned short op;
+	unsigned short curr_op;
 	unsigned short quiet;
 	unsigned short verbose;
 	unsigned short version;
@@ -142,14 +151,15 @@ typedef struct __config_t {
 
 /* Operations */
 enum {
-	PM_OP_MAIN = 1,
-	PM_OP_REMOVE,
-	PM_OP_UPGRADE,
-	PM_OP_QUERY,
-	PM_OP_SYNC,
-	PM_OP_DEPTEST,
-	PM_OP_DATABASE,
-	PM_OP_FILES
+	PM_OP_INVALID = 1 << 0,
+	PM_OP_REMOVE = 1 << 1,
+	PM_OP_UPGRADE = 1 << 2,
+	PM_OP_QUERY = 1 << 3,
+	PM_OP_SYNC = 1 << 4,
+	PM_OP_DEPTEST = 1 << 5,
+	PM_OP_DATABASE = 1 << 6,
+	PM_OP_FILES = 1 << 7,
+	PM_OP_TRANS = PM_OP_SYNC | PM_OP_UPGRADE | PM_OP_REMOVE
 };
 
 /* Long Operations */
@@ -234,6 +244,9 @@ enum {
 
 /* global config variable */
 extern config_t *config;
+
+
+void targets_free(targets_t *targets);
 
 void enable_colors(int colors);
 config_t *config_new(void);

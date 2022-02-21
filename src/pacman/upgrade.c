@@ -65,7 +65,7 @@ static int load_packages(alpm_list_t *targets, int siglevel)
  *
  * @return 0 on success, 1 on failure
  */
-int pacman_upgrade(alpm_list_t *targets)
+int load_upgrade(alpm_list_t *targets)
 {
 	int retval = 0;
 	alpm_list_t *remote_targets = NULL, *fetched_files = NULL;
@@ -88,15 +88,6 @@ int pacman_upgrade(alpm_list_t *targets)
 
 	if(remote_targets) {
 		retval = alpm_fetch_pkgurl(config->handle, remote_targets, &fetched_files);
-		if(retval) {
-			goto fail_free;
-		}
-	}
-
-	/* Step 1: create a new transaction */
-	if(trans_init(config->flags, 1) == -1) {
-		retval = 1;
-		goto fail_free;
 	}
 
 	if(!config->print) {
@@ -105,23 +96,10 @@ int pacman_upgrade(alpm_list_t *targets)
 	retval |= load_packages(local_targets, alpm_option_get_local_file_siglevel(config->handle));
 	retval |= load_packages(fetched_files, alpm_option_get_remote_file_siglevel(config->handle));
 
-	if(retval) {
-		goto fail_release;
-	}
-
-	alpm_list_free(remote_targets);
-	alpm_list_free(local_targets);
-	FREELIST(fetched_files);
-
-	/* now that targets are resolved, we can hand it all off to the sync code */
-	return sync_prepare_execute();
-
-fail_release:
-	trans_release();
-fail_free:
 	alpm_list_free(remote_targets);
 	alpm_list_free(local_targets);
 	FREELIST(fetched_files);
 
 	return retval;
 }
+

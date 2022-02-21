@@ -22,6 +22,8 @@
 
 #include <alpm_list.h>
 
+#include "conf.h"
+
 #define PACMAN_CALLER_PREFIX "PACMAN"
 
 /* database.c */
@@ -32,12 +34,14 @@ int pacman_deptest(alpm_list_t *targets);
 int pacman_files(alpm_list_t *files);
 /* query.c */
 int pacman_query(alpm_list_t *targets);
-/* remove.c */
-int pacman_remove(alpm_list_t *targets);
 /* sync.c */
 int pacman_sync(alpm_list_t *targets);
-int sync_prepare_execute(void);
+/* remove.c */
+int load_remove(alpm_list_t *targets);
 /* upgrade.c */
-int pacman_upgrade(alpm_list_t *targets);
+int load_upgrade(alpm_list_t *targets);
+/* trans.c */
+int do_transaction(targets_t *targets);
+
 
 #endif /* PM_PACMAN_H */
