@@ -73,8 +73,8 @@ PREPAREFUNC=0
 REPKG=0
 REPRODUCIBLE=0
 RMDEPS=0
-SKIPCHECKSUMS=0
-SKIPPGPCHECK=0
+SKIPCHECKSUMS=1
+SKIPPGPCHECK=1
 SIGNPKG=''
 SPLITPKG=0
 SOURCEONLY=0
@@ -888,9 +888,9 @@ usage() {
 	printf -- "$(gettext "  --packagelist    Only list package filepaths that would be produced")\n"
 	printf -- "$(gettext "  --printsrcinfo   Print the generated SRCINFO and exit")\n"
 	printf -- "$(gettext "  --sign           Sign the resulting package with %s")\n" "gpg"
-	printf -- "$(gettext "  --skipchecksums  Do not verify checksums of the source files")\n"
-	printf -- "$(gettext "  --skipinteg      Do not perform any verification checks on source files")\n"
-	printf -- "$(gettext "  --skippgpcheck   Do not verify source files with PGP signatures")\n"
+	printf -- "$(gettext "  --withchecksums  Verify checksums of the source files")\n"
+	printf -- "$(gettext "  --withinteg      Perform any verification checks on source files")\n"
+	printf -- "$(gettext "  --withpgpcheck   Verify source files with PGP signatures")\n"
 	printf -- "$(gettext "  --verifysource   Download source files (if needed) and perform integrity checks")\n"
 	echo
 	printf -- "$(gettext "These options can be passed to %s:")\n" "kepler"
@@ -933,8 +933,8 @@ OPT_SHORT="AcCdefFghiLmop:rRsSV"
 OPT_LONG=('allsource' 'check' 'clean' 'cleanbuild' 'config:' 'force' 'geninteg'
           'help' 'holdver' 'ignorearch' 'install' 'key:' 'log' 'noarchive' 'nobuild'
           'nocolor' 'nocheck' 'nodeps' 'noextract' 'noprepare' 'nosign' 'packagelist'
-          'printsrcinfo' 'repackage' 'rmdeps' 'sign' 'skipchecksums' 'skipinteg'
-          'skippgpcheck' 'source' 'syncdeps' 'verifysource' 'version')
+          'printsrcinfo' 'repackage' 'rmdeps' 'sign' 'withchecksums' 'withinteg'
+          'withpgpcheck' 'source' 'syncdeps' 'verifysource' 'version')
 
 # Kepler Options
 OPT_LONG+=('asdeps' 'noconfirm' 'needed' 'noprogressbar')
@@ -982,9 +982,9 @@ while true; do
 		-r|--rmdeps)      RMDEPS=1 ;;
 		-R|--repackage)   REPKG=1 ;;
 		--sign)           SIGNPKG='y' ;;
-		--skipchecksums)  SKIPCHECKSUMS=1 ;;
-		--skipinteg)      SKIPCHECKSUMS=1; SKIPPGPCHECK=1 ;;
-		--skippgpcheck)   SKIPPGPCHECK=1;;
+		--withchecksums)  SKIPCHECKSUMS=0 ;;
+		--withinteg)      SKIPCHECKSUMS=0; SKIPPGPCHECK=0 ;;
+		--withpgpcheck)   SKIPPGPCHECK=0;;
 		-s|--syncdeps)    DEP_BIN=1 ;;
 		-S|--source)      BUILDPKG=0 SOURCEONLY=1 ;;
 		--verifysource)   BUILDPKG=0 VERIFYSOURCE=1 ;;
