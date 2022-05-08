@@ -156,5 +156,5 @@ SRCEXT='@SRCEXT@'
 # OTHER
 #########################################################################
 #
-#-- Command used to run pacman as root, instead of trying sudo and su
-PACMAN_AUTH=()
+#-- Command used to run kepler as root, instead of trying sudo and su
+KEPLER_AUTH=()

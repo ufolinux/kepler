@@ -3,7 +3,7 @@
 #   repo-add - add a package to a given repo database file
 #   repo-remove - remove a package entry from a given repo database file
 #
-#   Copyright (c) 2006-2022 Pacman Development Team <pacman-dev@lists.archlinux.org>
+#   Copyright (c) 2006-2022 Kepler Development Team <kepler-dev@lists.archlinux.org>
 #
 #   This program is free software; you can redistribute it and/or modify
 #   it under the terms of the GNU General Public License as published by
@@ -21,7 +21,7 @@
 shopt -s extglob
 
 # gettext initialization
-export TEXTDOMAIN='pacman-scripts'
+export TEXTDOMAIN='kepler-scripts'
 export TEXTDOMAINDIR='@localedir@'
 
 declare -r myver='@PACKAGE_VERSION@'
@@ -54,7 +54,7 @@ umask 0022
 # print usage instructions
 usage() {
 	cmd=${0##*/}
-	printf -- "%s (pacman) %s\n\n" "$cmd" "$myver"
+	printf -- "%s (kepler) %s\n\n" "$cmd" "$myver"
 	if [[ $cmd == "repo-add" ]] ; then
 		printf -- "$(gettext "Usage: repo-add [options] <path-to-db> <package> ...\n")"
 		printf -- "\n"
@@ -88,7 +88,7 @@ packages to remove can be specified on the command line.\n")"
 See %s(8) for more details and descriptions of the available options.\n")" $cmd
 	printf "\n"
 	if [[ $cmd == "repo-add" ]] ; then
-		printf -- "$(gettext "Example:  repo-add /path/to/repo.db.tar.gz pacman-3.0.0-1-i686.pkg.tar.gz\n")"
+		printf -- "$(gettext "Example:  repo-add /path/to/repo.db.tar.gz kepler-3.0.0-1-i686.pkg.tar.gz\n")"
 	elif [[ $cmd == "repo-remove" ]] ; then
 		printf -- "$(gettext "Example:  repo-remove /path/to/repo.db.tar.gz kernel26\n")"
 	fi
@@ -96,8 +96,8 @@ See %s(8) for more details and descriptions of the available options.\n")" $cmd
 
 version() {
 	cmd=${0##*/}
-	printf "%s (pacman) %s\n\n" "$cmd" "$myver"
-	printf -- "Copyright (c) 2006-2022 Pacman Development Team <pacman-dev@lists.archlinux.org>.\n"
+	printf "%s (kepler) %s\n\n" "$cmd" "$myver"
+	printf -- "Copyright (c) 2006-2022 Kepler Development Team <kepler-dev@lists.archlinux.org>.\n"
 	printf '\n'
 	printf -- "$(gettext "\
 This is free software; see the source for copying conditions.\n\
@@ -200,7 +200,7 @@ verify_repo_extension() {
 	exit 1
 }
 
-# write an entry to the pacman database
+# write an entry to the kepler database
 #   arg1 - path to package
 db_write_entry() {
 	# blank out all variables
@@ -412,7 +412,7 @@ prepare_repo_db() {
 			if ! bsdtar -tqf "$dbfile" '*/desc' >/dev/null 2>&1; then
 				# check empty case
 				if [[ -n $(bsdtar -tqf "$dbfile" '*' 2>/dev/null) ]]; then
-					error "$(gettext "Repository file '%s' is not a proper pacman database.")" "$dbfile"
+					error "$(gettext "Repository file '%s' is not a proper kepler database.")" "$dbfile"
 					exit 1
 				fi
 			fi

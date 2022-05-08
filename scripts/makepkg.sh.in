@@ -1,8 +1,8 @@
 #!/bin/bash
 #
-#   makepkg - make packages compatible for use with pacman
+#   makepkg - make packages compatible for use with kepler
 #
-#   Copyright (c) 2006-2022 Pacman Development Team <pacman-dev@lists.archlinux.org>
+#   Copyright (c) 2006-2022 Kepler Development Team <kepler-dev@lists.archlinux.org>
 #   Copyright (c) 2002-2006 by Judd Vinet <jvinet@zeroflux.org>
 #   Copyright (c) 2005 by Aurelien Foret <orelien@chez.com>
 #   Copyright (c) 2006 by Miklos Vajna <vmiklos@frugalware.org>
@@ -30,7 +30,7 @@
 #   gettext, gpg, grep, gzip, sed, tput (ncurses), xz
 
 # gettext initialization
-export TEXTDOMAIN='pacman-scripts'
+export TEXTDOMAIN='kepler-scripts'
 export TEXTDOMAINDIR='@localedir@'
 
 # file -i does not work on Mac OSX unless legacy mode is set
@@ -87,7 +87,7 @@ else
 fi
 export SOURCE_DATE_EPOCH
 
-PACMAN_OPTS=()
+KEPLER_OPTS=()
 
 shopt -s extglob
 
@@ -224,28 +224,28 @@ missing_source_file() {
 	exit $E_MISSING_FILE
 }
 
-run_pacman() {
+run_kepler() {
 	local cmd cmdescape
 	if [[ $1 = -@(T|Q)*([[:alpha:]]) ]]; then
-		cmd=("$PACMAN_PATH" "$@")
+		cmd=("$KEPLER_PATH" "$@")
 	else
-		cmd=("$PACMAN_PATH" "${PACMAN_OPTS[@]}" "$@")
+		cmd=("$KEPLER_PATH" "${KEPLER_OPTS[@]}" "$@")
 		cmdescape="$(printf '%q ' "${cmd[@]}")"
-		if (( ${#PACMAN_AUTH[@]} )); then
-			if in_array '%c' "${PACMAN_AUTH[@]}"; then
-				cmd=("${PACMAN_AUTH[@]/\%c/$cmdescape}")
+		if (( ${#KEPLER_AUTH[@]} )); then
+			if in_array '%c' "${KEPLER_AUTH[@]}"; then
+				cmd=("${KEPLER_AUTH[@]/\%c/$cmdescape}")
 			else
-				cmd=("${PACMAN_AUTH[@]}" "${cmd[@]}")
+				cmd=("${KEPLER_AUTH[@]}" "${cmd[@]}")
 			fi
 		elif type -p sudo >/dev/null; then
 			cmd=(sudo "${cmd[@]}")
 		else
 			cmd=(su root -c "$cmdescape")
 		fi
-		local lockfile="$(pacman-conf DBPath)/db.lck"
+		local lockfile="$(kepler-conf DBPath)/db.lck"
 		while [[ -f $lockfile ]]; do
 			local timer=0
-			msg "$(gettext "Pacman is currently in use, please wait...")"
+			msg "$(gettext "Kepler is currently in use, please wait...")"
 			while [[ -f $lockfile ]] && (( timer < 10 )); do
 				(( ++timer ))
 				sleep 3
@@ -260,13 +260,13 @@ check_deps() {
 
 	local ret=0
 	local pmout
-	pmout=$(run_pacman -T "$@")
+	pmout=$(run_kepler -T "$@")
 	ret=$?
 
 	if (( ret == 127 )); then #unresolved deps
 		printf "%s\n" "$pmout"
 	elif (( ret )); then
-		error "$(gettext "'%s' returned a fatal error (%i): %s")" "$PACMAN" "$ret" "$pmout"
+		error "$(gettext "'%s' returned a fatal error (%i): %s")" "$KEPLER" "$ret" "$pmout"
 		return "$ret"
 	fi
 }
@@ -284,11 +284,11 @@ handle_deps() {
 	fi
 
 	if (( DEP_BIN )); then
-		# install missing deps from binary packages (using pacman -S)
+		# install missing deps from binary packages (using kepler -S)
 		msg "$(gettext "Installing missing dependencies...")"
 
-		if ! run_pacman -S --asdeps "${deplist[@]}"; then
-			error "$(gettext "'%s' failed to install missing dependencies.")" "$PACMAN"
+		if ! run_kepler -S --asdeps "${deplist[@]}"; then
+			error "$(gettext "'%s' failed to install missing dependencies.")" "$KEPLER"
 			return $R_DEPS_MISSING
 		fi
 	fi
@@ -352,7 +352,7 @@ remove_deps() {
 
 	msg "Removing installed dependencies..."
 	# exit cleanly on failure to remove deps as package has been built successfully
-	if ! run_pacman -Rnu ${deplist[@]}; then
+	if ! run_kepler -Rnu ${deplist[@]}; then
 		warning "$(gettext "Failed to remove installed dependencies.")"
 		return $E_REMOVE_DEPS_FAILED
 	fi
@@ -540,7 +540,7 @@ write_buildinfo() {
 	write_kv_pair "buildenv" "${BUILDENV[@]}"
 	write_kv_pair "options" "${OPTIONS[@]}"
 
-	local pkginfos_parsed=($(LC_ALL=C run_pacman -Qi | awk -F': ' '\
+	local pkginfos_parsed=($(LC_ALL=C run_kepler -Qi | awk -F': ' '\
 		/^Name .*/ {printf "%s", $2} \
 		/^Version .*/ {printf "-%s", $2} \
 		/^Architecture .*/ {print "-"$2} \
@@ -734,9 +734,9 @@ install_package() {
 	RMDEPS=0
 
 	if (( ! SPLITPKG )); then
-		msg "$(gettext "Installing package %s with %s...")" "$pkgname" "$PACMAN -U"
+		msg "$(gettext "Installing package %s with %s...")" "$pkgname" "$KEPLER -U"
 	else
-		msg "$(gettext "Installing %s package group with %s...")" "$pkgbase" "$PACMAN -U"
+		msg "$(gettext "Installing %s package group with %s...")" "$pkgbase" "$KEPLER -U"
 	fi
 
 	local fullver pkgarch pkg pkglist
@@ -753,7 +753,7 @@ install_package() {
 		fi
 	done
 
-	if ! run_pacman -U "${pkglist[@]}"; then
+	if ! run_kepler -U "${pkglist[@]}"; then
 		warning "$(gettext "Failed to install built package(s).")"
 		return $E_INSTALL_FAILED
 	fi
@@ -851,9 +851,9 @@ run_split_packaging() {
 }
 
 usage() {
-	printf "makepkg (pacman) %s\n" "$makepkg_version"
+	printf "makepkg (kepler) %s\n" "$makepkg_version"
 	echo
-	printf -- "$(gettext "Make packages compatible for use with pacman")\n"
+	printf -- "$(gettext "Make packages compatible for use with kepler")\n"
 	echo
 	printf -- "$(gettext "Usage: %s [options]")\n" "$0"
 	echo
@@ -873,7 +873,7 @@ usage() {
 	printf -- "$(gettext "  -p <file>        Use an alternate build script (instead of '%s')")\n" "$BUILDSCRIPT"
 	printf -- "$(gettext "  -r, --rmdeps     Remove installed dependencies after a successful build")\n"
 	printf -- "$(gettext "  -R, --repackage  Repackage contents of the package without rebuilding")\n"
-	printf -- "$(gettext "  -s, --syncdeps   Install missing dependencies with %s")\n" "pacman"
+	printf -- "$(gettext "  -s, --syncdeps   Install missing dependencies with %s")\n" "kepler"
 	printf -- "$(gettext "  -S, --source     Generate a source-only tarball without downloaded sources")\n"
 	printf -- "$(gettext "  -V, --version    Show version information and exit")\n"
 	printf -- "$(gettext "  --allsource      Generate a source-only tarball including downloaded sources")\n"
@@ -893,7 +893,7 @@ usage() {
 	printf -- "$(gettext "  --skippgpcheck   Do not verify source files with PGP signatures")\n"
 	printf -- "$(gettext "  --verifysource   Download source files (if needed) and perform integrity checks")\n"
 	echo
-	printf -- "$(gettext "These options can be passed to %s:")\n" "pacman"
+	printf -- "$(gettext "These options can be passed to %s:")\n" "kepler"
 	echo
 	printf -- "$(gettext "  --asdeps         Install packages as non-explicitly installed")\n"
 	printf -- "$(gettext "  --needed         Do not reinstall the targets that are already up to date")\n"
@@ -905,8 +905,8 @@ usage() {
 }
 
 version() {
-	printf "makepkg (pacman) %s\n" "$makepkg_version"
-	printf -- "Copyright (c) 2006-2022 Pacman Development Team <pacman-dev@lists.archlinux.org>.\n"
+	printf "makepkg (kepler) %s\n" "$makepkg_version"
+	printf -- "Copyright (c) 2006-2022 Kepler Development Team <kepler-dev@lists.archlinux.org>.\n"
 	printf -- "Copyright (C) 2002-2006 Judd Vinet <jvinet@zeroflux.org>.\n"
 	printf '\n'
 	printf -- "$(gettext "\
@@ -936,7 +936,7 @@ OPT_LONG=('allsource' 'check' 'clean' 'cleanbuild' 'config:' 'force' 'geninteg'
           'printsrcinfo' 'repackage' 'rmdeps' 'sign' 'skipchecksums' 'skipinteg'
           'skippgpcheck' 'source' 'syncdeps' 'verifysource' 'version')
 
-# Pacman Options
+# Kepler Options
 OPT_LONG+=('asdeps' 'noconfirm' 'needed' 'noprogressbar')
 
 if ! parseopts "$OPT_SHORT" "${OPT_LONG[@]}" -- "$@"; then
@@ -947,11 +947,11 @@ unset OPT_SHORT OPT_LONG OPTRET
 
 while true; do
 	case "$1" in
-		# Pacman Options
+		# Kepler Options
 		--asdeps)         ASDEPS=1;;
 		--needed)         NEEDED=1;;
-		--noconfirm)      PACMAN_OPTS+=("--noconfirm") ;;
-		--noprogressbar)  PACMAN_OPTS+=("--noprogressbar") ;;
+		--noconfirm)      KEPLER_OPTS+=("--noconfirm") ;;
+		--noprogressbar)  KEPLER_OPTS+=("--noprogressbar") ;;
 
 		# Makepkg Options
 		--allsource)      BUILDPKG=0 SOURCEONLY=2 ;;
@@ -970,7 +970,7 @@ while true; do
 		-i|--install)     INSTALL=1 ;;
 		--key)            shift; GPGKEY=$1 ;;
 		-L|--log)         LOGGING=1 ;;
-		-m|--nocolor)     USE_COLOR='n'; PACMAN_OPTS+=("--color" "never") ;;
+		-m|--nocolor)     USE_COLOR='n'; KEPLER_OPTS+=("--color" "never") ;;
 		--noarchive)      NOARCHIVE=1 ;;
 		--nocheck)        RUN_CHECK='n' ;;
 		--noprepare)      RUN_PREPARE='n' ;;
@@ -1029,10 +1029,10 @@ done
 unset var
 PACKAGER=${PACKAGER:-"Unknown Packager"}
 
-# set pacman command if not already defined
-PACMAN=${PACMAN:-pacman}
+# set kepler command if not already defined
+KEPLER=${KEPLER:-kepler}
 # save full path to command as PATH may change when sourcing /etc/profile
-PACMAN_PATH=$(type -P $PACMAN)
+KEPLER_PATH=$(type -P $KEPLER)
 
 # check if messages are to be printed using color
 if [[ -t 2 && $USE_COLOR != "n" ]] && check_buildenv "color" "y"; then
@@ -1274,7 +1274,7 @@ if (( NODEPS || ( VERIFYSOURCE && !DEP_BIN ) )); then
 	fi
 else
 	if (( RMDEPS && ! INSTALL )); then
-		original_pkglist=($(run_pacman -Qq))    # required by remove_dep
+		original_pkglist=($(run_kepler -Qq))    # required by remove_dep
 	fi
 	deperr=0
 
@@ -1282,7 +1282,7 @@ else
 	resolve_deps ${depends[@]} || deperr=1
 
 	if (( RMDEPS && INSTALL )); then
-		original_pkglist=($(run_pacman -Qq))    # required by remove_dep
+		original_pkglist=($(run_kepler -Qq))    # required by remove_dep
 	fi
 
 	msg "$(gettext "Checking buildtime dependencies...")"
@@ -1293,7 +1293,7 @@ else
 	fi
 
 	if (( RMDEPS )); then
-		current_pkglist=($(run_pacman -Qq))    # required by remove_deps
+		current_pkglist=($(run_kepler -Qq))    # required by remove_deps
 	fi
 
 	if (( deperr )); then

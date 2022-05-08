@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR "Pacman Development Team <pacman-dev@archlinux.org>"
-# This file is distributed under the same license as the pacman-scripts package.
+# Copyright (C) YEAR "Kepler Development Team <kepler-dev@archlinux.org>"
+# This file is distributed under the same license as the kepler-scripts package.
 #
 # Translators:
 # Kinsey Favre <kinseytamsin@tutanota.com>, 2020
@@ -10,13 +10,13 @@
 # Sebastien Zurfluh <sebastien.zurfluh@gmail.com>, 2017-2018
 msgid ""
 msgstr ""
-"Project-Id-Version: Arch Linux Pacman package manager\n"
+"Project-Id-Version: Arch Linux Kepler package manager\n"
 "Report-Msgid-Bugs-To: http://bugs.archlinux.org/index.php?project=3\n"
 "POT-Creation-Date: 2021-09-04 16:15+1000\n"
 "PO-Revision-Date: 2021-04-23 00:41+0000\n"
 "Last-Translator: Allan McRae <allan@archlinux.org>\n"
 "Language-Team: Esperanto (http://www.transifex.com/toofishes/archlinux-"
-"pacman/language/eo/)\n"
+"kepler/language/eo/)\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -84,7 +84,7 @@ msgid "Aborting..."
 msgstr "Ĉesigante..."
 
 #: scripts/makepkg.sh.in:248
-msgid "Pacman is currently in use, please wait..."
+msgid "Kepler is currently in use, please wait..."
 msgstr ""
 
 #: scripts/makepkg.sh.in:269
@@ -219,14 +219,14 @@ msgstr ""
 "Parto de la pakaĵa grupo jam estis konstruita. (uzu %s por superskribi)"
 
 #: scripts/makepkg.sh.in:964
-msgid "Make packages compatible for use with pacman"
-msgstr "Igu pakaĵojn kongrua por uzi kun pacman"
+msgid "Make packages compatible for use with kepler"
+msgstr "Igu pakaĵojn kongrua por uzi kun kepler"
 
-#: scripts/makepkg.sh.in:966 scripts/pacman-db-upgrade.sh.in:41
+#: scripts/makepkg.sh.in:966 scripts/kepler-db-upgrade.sh.in:41
 msgid "Usage: %s [options]"
 msgstr "Uzado: %s [opcioj]"
 
-#: scripts/makepkg.sh.in:968 scripts/pacman-key.sh.in:82
+#: scripts/makepkg.sh.in:968 scripts/kepler-key.sh.in:82
 msgid "Options:"
 msgstr "Opcioj:"
 
@@ -407,8 +407,8 @@ msgstr ""
 msgid "If %s is not specified, %s will look for '%s'"
 msgstr "Se %s ne estos difinita, %s serĉos '%s'"
 
-#: scripts/makepkg.sh.in:1020 scripts/pacman-db-upgrade.sh.in:57
-#: scripts/pacman-key.sh.in:97 scripts/repo-add.sh.in:101
+#: scripts/makepkg.sh.in:1020 scripts/kepler-db-upgrade.sh.in:57
+#: scripts/kepler-key.sh.in:97 scripts/repo-add.sh.in:101
 msgid ""
 "This is free software; see the source for copying conditions.\\nThere is NO "
 "WARRANTY, to the extent permitted by law.\\n"
@@ -506,139 +506,139 @@ msgstr "La pakaĵa dosierujo estas preta."
 msgid "Finished making: %s"
 msgstr "Finis faradon de %s"
 
-#: scripts/pacman-db-upgrade.sh.in:39
-msgid "Upgrade the local pacman database to a newer format"
-msgstr "Ĝisdatigi la lokan pacman-datumbazon al nova aranĝo"
+#: scripts/kepler-db-upgrade.sh.in:39
+msgid "Upgrade the local kepler database to a newer format"
+msgstr "Ĝisdatigi la lokan kepler-datumbazon al nova aranĝo"
 
-#: scripts/pacman-db-upgrade.sh.in:43
+#: scripts/kepler-db-upgrade.sh.in:43
 msgid "options:"
 msgstr "opcioj:"
 
-#: scripts/pacman-db-upgrade.sh.in:44
+#: scripts/kepler-db-upgrade.sh.in:44
 msgid "  -d, --dbpath <path>  set an alternate database location"
 msgstr "  -d, --dbpath <path>  difini alternativan lokon por datumbazo"
 
-#: scripts/pacman-db-upgrade.sh.in:45
+#: scripts/kepler-db-upgrade.sh.in:45
 msgid "  -h, --help           show this help message and exit"
 msgstr "  -h, --help           montri ĉi tiun helpmesaĝon kaj eliri"
 
-#: scripts/pacman-db-upgrade.sh.in:46
+#: scripts/kepler-db-upgrade.sh.in:46
 msgid "  -r, --root <path>    set an alternate installation root"
 msgstr "  -r, --root <path>    elekti alian radikon por instalado"
 
-#: scripts/pacman-db-upgrade.sh.in:47
+#: scripts/kepler-db-upgrade.sh.in:47
 msgid "  -V, --version        show version information and exit"
 msgstr "  -V, --version             montri informon pri versio kaj eliri"
 
-#: scripts/pacman-db-upgrade.sh.in:48
+#: scripts/kepler-db-upgrade.sh.in:48
 msgid "  --config <path>      set an alternate configuration file"
 msgstr "      --config <path>  elekti alian agordan dosieron"
 
-#: scripts/pacman-db-upgrade.sh.in:49
+#: scripts/kepler-db-upgrade.sh.in:49
 msgid "  --nocolor            disable colorized output messages"
 msgstr "  --nocolor            malebligi kolorajn eligajn mesaĝojn"
 
-#: scripts/pacman-db-upgrade.sh.in:122 scripts/repo-add.sh.in:392
+#: scripts/kepler-db-upgrade.sh.in:122 scripts/repo-add.sh.in:392
 msgid "%s does not exist or is not a directory."
 msgstr "%s ne ekzistas aŭ ne estas dosierujo."
 
-#: scripts/pacman-db-upgrade.sh.in:126
-msgid "%s is not a pacman database directory."
-msgstr "%s ne estas datumbaza dosierujo de pacman."
+#: scripts/kepler-db-upgrade.sh.in:126
+msgid "%s is not a kepler database directory."
+msgstr "%s ne estas datumbaza dosierujo de kepler."
 
-#: scripts/pacman-db-upgrade.sh.in:130
+#: scripts/kepler-db-upgrade.sh.in:130
 msgid "You must have correct permissions to upgrade the database."
 msgstr "Vi bezonas havi la ĝustajn permesojn por ĝisdatigi la datumbazo."
 
-#: scripts/pacman-db-upgrade.sh.in:140
-msgid "Pacman lock file was found. Cannot run while pacman is running."
+#: scripts/kepler-db-upgrade.sh.in:140
+msgid "Kepler lock file was found. Cannot run while kepler is running."
 msgstr ""
-"Ŝlosdosiero de pacman estis trovita. Ne eblas daŭrigi kvankam pacman "
+"Ŝlosdosiero de kepler estis trovita. Ne eblas daŭrigi kvankam kepler "
 "funkcias."
 
-#: scripts/pacman-db-upgrade.sh.in:152
+#: scripts/kepler-db-upgrade.sh.in:152
 msgid "Pre-3.5 database format detected - upgrading..."
 msgstr "Datumbazo-formato pra-3.5 detektita - ĝisdatigante..."
 
-#: scripts/pacman-db-upgrade.sh.in:159
+#: scripts/kepler-db-upgrade.sh.in:159
 msgid "Done."
 msgstr "Farita."
 
-#: scripts/pacman-db-upgrade.sh.in:163
+#: scripts/kepler-db-upgrade.sh.in:163
 msgid "Pre-4.2 database format detected - upgrading..."
 msgstr "Datumbazo-formato pra-4.2 detektita - ĝisdatigante..."
 
-#: scripts/pacman-db-upgrade.sh.in:185
-msgid "symlink '%s' points outside pacman root, manual repair required"
+#: scripts/kepler-db-upgrade.sh.in:185
+msgid "symlink '%s' points outside kepler root, manual repair required"
 msgstr ""
-"la simbola ligilo '%s' indikas eksteren al pacman kun ĉefuzantaj rajtoj, "
+"la simbola ligilo '%s' indikas eksteren al kepler kun ĉefuzantaj rajtoj, "
 "mana riparo estas bezonata"
 
-#: scripts/pacman-key.sh.in:58
+#: scripts/kepler-key.sh.in:58
 msgid "Usage: %s [options] operation [targets]"
 msgstr "Uzado: %s [opcioj] ago [celojn]"
 
-#: scripts/pacman-key.sh.in:60
-msgid "Manage pacman's list of trusted keys"
-msgstr "Administri la liston de fidindaj ŝlosiloj de pacman"
+#: scripts/kepler-key.sh.in:60
+msgid "Manage kepler's list of trusted keys"
+msgstr "Administri la liston de fidindaj ŝlosiloj de kepler"
 
-#: scripts/pacman-key.sh.in:62
+#: scripts/kepler-key.sh.in:62
 msgid "Operations:"
 msgstr "Agoj:"
 
-#: scripts/pacman-key.sh.in:63
+#: scripts/kepler-key.sh.in:63
 msgid "  -a, --add                 Add the specified keys (empty for stdin)"
 msgstr ""
 "  -a, --add                 Aldoni la precizigitajn ŝlosilojn (malplena por "
 "stdin)"
 
-#: scripts/pacman-key.sh.in:64
+#: scripts/kepler-key.sh.in:64
 msgid "  -d, --delete              Remove the specified keyids"
 msgstr "  -d, --delete              Forviŝi precizigitajn keyid-dosierojn"
 
-#: scripts/pacman-key.sh.in:65
+#: scripts/kepler-key.sh.in:65
 msgid "  -e, --export              Export the specified or all keyids"
 msgstr ""
 "  -e, --export              Eksporti precizigitajn aŭ ĉiujn keyid-dosierojn"
 
-#: scripts/pacman-key.sh.in:66
+#: scripts/kepler-key.sh.in:66
 msgid ""
 "  -f, --finger              List fingerprint for specified or all keyids"
 msgstr ""
 "  -f, --finger              Listigi fingrospuron por precizigitaj aŭ ĉiuj "
 "keyid-dosieroj"
 
-#: scripts/pacman-key.sh.in:67
+#: scripts/kepler-key.sh.in:67
 msgid "  -l, --list-keys           List the specified or all keys"
 msgstr "  -l, --list-keys           Listigi la elektitajn aŭ ĉiujn ŝlosilojn"
 
-#: scripts/pacman-key.sh.in:68
+#: scripts/kepler-key.sh.in:68
 msgid "  -r, --recv-keys           Fetch the specified keyids"
 msgstr "  -r, --recv-keys           Venigi la precizigitajn keyid-dosierojn"
 
-#: scripts/pacman-key.sh.in:69
-msgid "  -u, --updatedb            Update the trustdb of pacman"
-msgstr "  -u, --updatedb            Ĝisdatigi la trustdb de pacman"
+#: scripts/kepler-key.sh.in:69
+msgid "  -u, --updatedb            Update the trustdb of kepler"
+msgstr "  -u, --updatedb            Ĝisdatigi la trustdb de kepler"
 
-#: scripts/pacman-key.sh.in:70
+#: scripts/kepler-key.sh.in:70
 msgid ""
 "  -v, --verify              Verify the file(s) specified by the signature(s)"
 msgstr ""
 "  -v, --verify              Konfirmi la precizigita(j)n dosiero(j)n per "
 "subskribo"
 
-#: scripts/pacman-key.sh.in:71
+#: scripts/kepler-key.sh.in:71
 msgid ""
 "  --edit-key                Present a menu for key management task on keyids"
 msgstr ""
 "  --edit-key                Montri menuon por tasko de ŝlosila administrado "
 "pri keyid"
 
-#: scripts/pacman-key.sh.in:72
+#: scripts/kepler-key.sh.in:72
 msgid "  --import                  Imports pubring.gpg from dir(s)"
 msgstr "  --import                  Importi pubring.gpg de dosierujo(j)"
 
-#: scripts/pacman-key.sh.in:73
+#: scripts/kepler-key.sh.in:73
 msgid ""
 "  --import-trustdb          Imports ownertrust values from trustdb.gpg in "
 "dir(s)"
@@ -646,20 +646,20 @@ msgstr ""
 "  --import-trustdb          Importi posedantajn fidajn valorojn de trustdb."
 "gpg en dosierujo(j)"
 
-#: scripts/pacman-key.sh.in:74
+#: scripts/kepler-key.sh.in:74
 msgid "  --init                    Ensure the keyring is properly initialized"
 msgstr ""
 "  --init                    Certigi ke la ŝlosilingo estu ĝuste ekigita"
 
-#: scripts/pacman-key.sh.in:75
+#: scripts/kepler-key.sh.in:75
 msgid "  --list-sigs               List keys and their signatures"
 msgstr "  --list-sigs               Listigi ŝlosilojn kaj iliajn subskribojn"
 
-#: scripts/pacman-key.sh.in:76
+#: scripts/kepler-key.sh.in:76
 msgid "  --lsign-key               Locally sign the specified keyid"
 msgstr "  --lsign-key               Loke subskribi la difinitan keyid"
 
-#: scripts/pacman-key.sh.in:77
+#: scripts/kepler-key.sh.in:77
 msgid ""
 "  --populate                Reload the default keys from the (given) keyrings"
 "\\n                            in '%s'"
@@ -667,18 +667,18 @@ msgstr ""
 "  --populate                Reŝarĝi la defaŭltajn ŝlosilojn de ĉi tiuj "
 "ŝlosilingoj\\n                            en '%s'"
 
-#: scripts/pacman-key.sh.in:79
+#: scripts/kepler-key.sh.in:79
 msgid ""
 "  --refresh-keys            Update specified or all keys from a keyserver"
 msgstr ""
 "  --refresh-keys            Ĝisdatigi specifajn aŭ ĉiujn ŝlosilojn de "
 "ŝlosilservilo"
 
-#: scripts/pacman-key.sh.in:80
+#: scripts/kepler-key.sh.in:80
 msgid "  --verbose                 Show extra information"
 msgstr ""
 
-#: scripts/pacman-key.sh.in:83
+#: scripts/kepler-key.sh.in:83
 msgid ""
 "  --config <file>           Use an alternate config file (instead of"
 "\\n                            '%s')"
@@ -686,7 +686,7 @@ msgstr ""
 "  --config <file>           Uzi alian agordan dosieron (anstataŭ"
 "\\n                            '%s')"
 
-#: scripts/pacman-key.sh.in:85
+#: scripts/kepler-key.sh.in:85
 msgid ""
 "  --gpgdir <dir>            Set an alternate directory for GnuPG (instead"
 "\\n                            of '%s')"
@@ -694,197 +694,197 @@ msgstr ""
 "  --gpgdir <dir>            Elekti alian dosierujon por GnuPG (anstataŭ"
 "\\n                            '%s')"
 
-#: scripts/pacman-key.sh.in:87
+#: scripts/kepler-key.sh.in:87
 msgid "  --keyserver <server-url>  Specify a keyserver to use if necessary"
 msgstr ""
 "  --keyserver <server-url>  Specifi ŝlosilservilon por uzi se postulata"
 
-#: scripts/pacman-key.sh.in:89
+#: scripts/kepler-key.sh.in:89
 msgid "  -h, --help                Show this help message and exit"
 msgstr "  -h, --help           Montri ĉi tiun helpmesaĝon kaj eliri"
 
-#: scripts/pacman-key.sh.in:90
+#: scripts/kepler-key.sh.in:90
 msgid "  -V, --version             Show program version"
 msgstr "  --V, --version             Montri programan version"
 
-#: scripts/pacman-key.sh.in:132
+#: scripts/kepler-key.sh.in:132
 msgid "Failed to lookup key by name:"
 msgstr "Malsukcesis trovi ŝlosilon pere de la nomo:"
 
-#: scripts/pacman-key.sh.in:140
+#: scripts/kepler-key.sh.in:140
 msgid "Key name is ambiguous:"
 msgstr "La jena ŝlosila nomo estas dusensa:"
 
-#: scripts/pacman-key.sh.in:148
-msgid "Generating pacman master key. This may take some time."
+#: scripts/kepler-key.sh.in:148
+msgid "Generating kepler master key. This may take some time."
 msgstr ""
 
-#: scripts/pacman-key.sh.in:185
+#: scripts/kepler-key.sh.in:185
 msgid "The key identified by %s could not be found locally."
 msgstr "La ŝlosilo identigita de %s ne estis trovita loke."
 
-#: scripts/pacman-key.sh.in:196 scripts/pacman-key.sh.in:208
+#: scripts/kepler-key.sh.in:196 scripts/kepler-key.sh.in:208
 #: scripts/libmakepkg/integrity/verify_signature.sh.in:204
 msgid "_"
 msgstr ""
 
-#: scripts/pacman-key.sh.in:208
+#: scripts/kepler-key.sh.in:208
 msgid "flags"
 msgstr ""
 
-#: scripts/pacman-key.sh.in:263
+#: scripts/kepler-key.sh.in:263
 msgid "You do not have sufficient permissions to read the %s keyring."
 msgstr "Vi ne havas sufiĉajn permesojn por legi la ŝlosilingo %s."
 
-#: scripts/pacman-key.sh.in:264 scripts/pacman-key.sh.in:271
+#: scripts/kepler-key.sh.in:264 scripts/kepler-key.sh.in:271
 msgid "Use '%s' to correct the keyring permissions."
 msgstr "Uzu '%s' por ĝustigi la permesojn de la ŝlosilingo."
 
-#: scripts/pacman-key.sh.in:270
+#: scripts/kepler-key.sh.in:270
 msgid "You do not have sufficient permissions to run this command."
 msgstr "Vi ne havas sufiĉajn permesojn por lanĉi ĉi tiun komandon."
 
-#: scripts/pacman-key.sh.in:278
+#: scripts/kepler-key.sh.in:278
 msgid "There is no secret key available to sign with."
 msgstr "Ne estas sekreta ŝlosilo disponebla por subkribi"
 
-#: scripts/pacman-key.sh.in:279
+#: scripts/kepler-key.sh.in:279
 msgid "Use '%s' to generate a default secret key."
 msgstr "Uzi '%s\" por generi defaŭltan sekretan ŝlosilon."
 
-#: scripts/pacman-key.sh.in:298
+#: scripts/kepler-key.sh.in:298
 msgid "No keyring files exist in %s."
 msgstr "Neniu ŝlosilinga dosiero ekzistas en %s."
 
-#: scripts/pacman-key.sh.in:305
+#: scripts/kepler-key.sh.in:305
 msgid "The keyring file %s does not exist."
 msgstr "La ŝlosilinga dosiero '%' ne ekzistas"
 
-#: scripts/pacman-key.sh.in:320
+#: scripts/kepler-key.sh.in:320
 msgid "Appending keys from %s.gpg..."
 msgstr "Postgluante ŝlosilojn de %s.gpg..."
 
-#: scripts/pacman-key.sh.in:360
+#: scripts/kepler-key.sh.in:360
 msgid "Locally signing trusted keys in keyring..."
 msgstr "Loke subskribante fidindajn ŝlosilojn en ŝlosilingo..."
 
-#: scripts/pacman-key.sh.in:362
+#: scripts/kepler-key.sh.in:362
 msgid "Importing owner trust values..."
 msgstr "Importante fidajn valorojn de posedanto..."
 
-#: scripts/pacman-key.sh.in:372
+#: scripts/kepler-key.sh.in:372
 msgid "Disabling revoked keys in keyring..."
 msgstr "Malebligante revokitajn ŝlosilojn en ŝlosilingo..."
 
-#: scripts/pacman-key.sh.in:375
+#: scripts/kepler-key.sh.in:375
 msgid "Disabling key %s..."
 msgstr "Malebligante ŝlosilon %s..."
 
-#: scripts/pacman-key.sh.in:381
+#: scripts/kepler-key.sh.in:381
 msgid "Disabled %s keys."
 msgstr ""
 
-#: scripts/pacman-key.sh.in:388
+#: scripts/kepler-key.sh.in:388
 msgid "A specified keyfile could not be added to the keyring."
 msgstr "Specifa ŝlosildosiero ne povis esti aldonita al la ŝlosilingo."
 
-#: scripts/pacman-key.sh.in:396
+#: scripts/kepler-key.sh.in:396
 msgid "A specified key could not be removed from the keyring."
 msgstr "Specifa ŝlosildosiero ne povis esti forviŝita el la ŝlosilingo."
 
-#: scripts/pacman-key.sh.in:406
+#: scripts/kepler-key.sh.in:406
 msgid "The key identified by %s could not be edited."
 msgstr "La ŝlosilo identigita de %s ne povis esti redaktita."
 
-#: scripts/pacman-key.sh.in:418
+#: scripts/kepler-key.sh.in:418
 msgid "A specified key could not be exported from the keyring."
 msgstr "Specifa ŝlosildosiero ne povis esti eksporti el la ŝlosilingo."
 
-#: scripts/pacman-key.sh.in:426
+#: scripts/kepler-key.sh.in:426
 msgid "The fingerprint of a specified key could not be determined."
 msgstr "La fingrospuro de specifa ŝlosilo ne povis esti difinita."
 
-#: scripts/pacman-key.sh.in:439 scripts/pacman-key.sh.in:458
+#: scripts/kepler-key.sh.in:439 scripts/kepler-key.sh.in:458
 msgid "%s could not be imported."
 msgstr "Ne eblis importi %s."
 
-#: scripts/pacman-key.sh.in:443 scripts/pacman-key.sh.in:462
+#: scripts/kepler-key.sh.in:443 scripts/kepler-key.sh.in:462
 msgid "File %s does not exist and could not be imported."
 msgstr "Dosiero %s ne ekzistas kaj ne eblis esti importita."
 
-#: scripts/pacman-key.sh.in:474
+#: scripts/kepler-key.sh.in:474
 msgid "A specified key could not be listed."
 msgstr "Specifa ŝlosilo ne povis esti listigita."
 
-#: scripts/pacman-key.sh.in:482
+#: scripts/kepler-key.sh.in:482
 msgid "A specified signature could not be listed."
 msgstr "Specifa subskribo ne povis esti listigita."
 
-#: scripts/pacman-key.sh.in:494
+#: scripts/kepler-key.sh.in:494
 msgid "Locally signing key %s..."
 msgstr "Loke subskribante la ŝlosilon %s..."
 
-#: scripts/pacman-key.sh.in:499
+#: scripts/kepler-key.sh.in:499
 msgid "%s could not be locally signed."
 msgstr "Ne eblis loke subskribi %s."
 
-#: scripts/pacman-key.sh.in:509
+#: scripts/kepler-key.sh.in:509
 msgid "Locally signed %s keys."
 msgstr ""
 
-#: scripts/pacman-key.sh.in:532
+#: scripts/kepler-key.sh.in:532
 msgid "Remote key not fetched correctly from WKD or keyserver."
 msgstr ""
 
-#: scripts/pacman-key.sh.in:537
+#: scripts/kepler-key.sh.in:537
 msgid "Remote key not fetched correctly from keyserver."
 msgstr "Fora ŝlosilo ne ĝuste alportita de la ŝlosilservilo."
 
-#: scripts/pacman-key.sh.in:569
+#: scripts/kepler-key.sh.in:569
 msgid "Could not update key: %s"
 msgstr ""
 
-#: scripts/pacman-key.sh.in:590 scripts/repo-add.sh.in:265
+#: scripts/kepler-key.sh.in:590 scripts/repo-add.sh.in:265
 msgid "Cannot use armored signatures for packages: %s"
 msgstr "Ne eblas uzi kirasitajn subskribojn por pakaĵoj: %s"
 
-#: scripts/pacman-key.sh.in:594
+#: scripts/kepler-key.sh.in:594
 msgid "The signature identified by %s could not be verified."
 msgstr "La subskribo identigita de %s ne povis esti konfirmita."
 
-#: scripts/pacman-key.sh.in:601
+#: scripts/kepler-key.sh.in:601
 msgid "Updating trust database..."
 msgstr "Ĝisdatigante fidan datumbazon..."
 
-#: scripts/pacman-key.sh.in:603
+#: scripts/kepler-key.sh.in:603
 msgid "Trust database could not be updated."
 msgstr "La fida datumbazo ne eblis esti ĝisdatigita."
 
-#: scripts/pacman-key.sh.in:671
+#: scripts/kepler-key.sh.in:671
 msgid "Cannot find the %s binary required for all %s operations."
 msgstr "Ne eblas trovi la duumon %s bezonata por ĉiuj agoj de %s."
 
-#: scripts/pacman-key.sh.in:676
+#: scripts/kepler-key.sh.in:676
 msgid "%s needs to be run as root for this operation."
 msgstr "%s bezonas esti funkciigata de ĉefuzanto pro tio."
 
-#: scripts/pacman-key.sh.in:682
+#: scripts/kepler-key.sh.in:682
 msgid "%s configuration file '%s' not found."
 msgstr "%s agorda dosiero '%s' ne estis trovita."
 
-#: scripts/pacman-key.sh.in:703
+#: scripts/kepler-key.sh.in:703
 msgid "no operation specified (use -h for help)"
 msgstr "neniu operacio difinita (uzu -h por helpo)"
 
-#: scripts/pacman-key.sh.in:708
+#: scripts/kepler-key.sh.in:708
 msgid "Multiple operations specified."
 msgstr "Multoblaj operacioj difinitaj."
 
-#: scripts/pacman-key.sh.in:709
+#: scripts/kepler-key.sh.in:709
 msgid "Please run %s with each operation separately."
 msgstr "Bonvole lanĉu %s kun ĉiu operacio aparte."
 
-#: scripts/pacman-key.sh.in:717
+#: scripts/kepler-key.sh.in:717
 msgid "No targets specified"
 msgstr "Neniu celo difinita"
 
@@ -974,9 +974,9 @@ msgstr ""
 
 #: scripts/repo-add.sh.in:90
 msgid ""
-"Example:  repo-add /path/to/repo.db.tar.gz pacman-3.0.0-1-i686.pkg.tar.gz\\n"
+"Example:  repo-add /path/to/repo.db.tar.gz kepler-3.0.0-1-i686.pkg.tar.gz\\n"
 msgstr ""
-"Ekzemple:  repo-add /path/to/repo.db.tar.gz pacman-3.0.0-1-i686.pkg.tar.gz\\n"
+"Ekzemple:  repo-add /path/to/repo.db.tar.gz kepler-3.0.0-1-i686.pkg.tar.gz\\n"
 
 #: scripts/repo-add.sh.in:92
 msgid "Example:  repo-remove /path/to/repo.db.tar.gz kernel26\\n"
@@ -1063,8 +1063,8 @@ msgid "Held by process %s"
 msgstr "Atendante la procezon %s"
 
 #: scripts/repo-add.sh.in:414
-msgid "Repository file '%s' is not a proper pacman database."
-msgstr "Deponeja dosiero '%s' ne estas ĝusta datumbazo de pacman"
+msgid "Repository file '%s' is not a proper kepler database."
+msgstr "Deponeja dosiero '%s' ne estas ĝusta datumbazo de kepler"
 
 #: scripts/repo-add.sh.in:419
 msgid "Extracting %s to a temporary location..."

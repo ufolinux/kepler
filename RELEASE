@@ -1,4 +1,4 @@
-The following checklist should be used for making a pacman release.
+The following checklist should be used for making a kepler release.
 
 - Ensure "ninja dist" succeeds
 - Call a freeze to development.
@@ -11,7 +11,7 @@ The following checklist should be used for making a pacman release.
 - Update doc/index.asciidoc
 - Create a signed git tag (git tag -s vX.Y.Z -m "commit message")
 - Create and sign release tarballs (generate with "ninja dist")
-- Update pacman website
+- Update kepler website
 
 Transifex updates are handled using the transifex client. The basic process is:
 - Pull updates from transifex ("tx pull -a -f --minimum-perc 75")

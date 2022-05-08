@@ -1,12 +1,12 @@
-#compdef pacman pacman.static=pacman pacman-conf pacman-key makepkg
+#compdef kepler kepler.static=kepler kepler-conf kepler-key makepkg
 
-# copy this file to /usr/share/zsh/site-functions/_pacman
+# copy this file to /usr/share/zsh/site-functions/_kepler
 
 typeset -A opt_args
 setopt extendedglob
 
-# options for passing to _arguments: main pacman commands
-_pacman_opts_commands=(
+# options for passing to _arguments: main kepler commands
+_kepler_opts_commands=(
 	{-D,--database}'[Modify database]'
 	{-F,--files}'[Query the files database]'
 	{-Q,--query}'[Query the package database]'
@@ -19,7 +19,7 @@ _pacman_opts_commands=(
 )
 
 # options for passing to _arguments: options common to all commands
-_pacman_opts_common=(
+_kepler_opts_common=(
 	'--arch[Set an alternate architecture]'
 	{-b,--dbpath}'[Alternate database location]:database_location:_files -/'
 	'--color[colorize the output]:color options:(always never auto)'
@@ -30,7 +30,7 @@ _pacman_opts_common=(
 	'--config[An alternate configuration file]:config file:_files'
 	'--confirm[Always ask for confirmation]'
 	'--debug[Display debug messages]'
-	'--gpgdir[Set an alternate directory for GnuPG (instead of @sysconfdir@/pacman.d/gnupg)]: :_files -/'
+	'--gpgdir[Set an alternate directory for GnuPG (instead of @sysconfdir@/kepler.d/gnupg)]: :_files -/'
 	'--hookdir[Set an alternate hook location]: :_files -/'
 	'--logfile[An alternate log file]:config file:_files'
 	'--noconfirm[Do not ask for confirmation]'
@@ -39,7 +39,7 @@ _pacman_opts_common=(
 )
 
 # options for passing to _arguments: options for --upgrade commands
-_pacman_opts_pkgfile=(
+_kepler_opts_pkgfile=(
 	'*-d[Skip dependency checks]'
 	'*--nodeps[Skip dependency checks]'
 	'*--assume-installed[Add virtual package to satisfy dependencies]'
@@ -48,14 +48,14 @@ _pacman_opts_pkgfile=(
 	'--asdeps[mark packages as non-explicitly installed]'
 	'--asexplicit[mark packages as explicitly installed]'
 	{-p,--print}'[Only print the targets instead of performing the operation]'
-	'*--ignore[Ignore a package upgrade]:package: _pacman_completions_all_packages'
-	'*--ignoregroup[Ignore a group upgrade]:package group:_pacman_completions_all_groups'
+	'*--ignore[Ignore a package upgrade]:package: _kepler_completions_all_packages'
+	'*--ignoregroup[Ignore a group upgrade]:package group:_kepler_completions_all_groups'
 	'--print-format[Specify how the targets should be printed]'
 	'*:package file:_files -g "*.pkg.tar*~*.sig(.,@)"'
 )
 
 # options for passing to _arguments: subactions for --query command
-_pacman_opts_query_actions=(
+_kepler_opts_query_actions=(
 	'(-Q --query)'{-Q,--query}
 	{-g,--groups}'[View all members of a package group]:*:package groups:->query_group'
 	{-o,--owns}'[Query the package that owns a file]:file:_files'
@@ -64,7 +64,7 @@ _pacman_opts_query_actions=(
 )
 
 # options for passing to _arguments: options for --query and subcommands
-_pacman_opts_query_modifiers=(
+_kepler_opts_query_modifiers=(
 	{-c,--changelog}'[List package changelog]'
 	{-d,--deps}'[List packages installed as dependencies]'
 	{-e,--explicit}'[List packages explicitly installed]'
@@ -79,7 +79,7 @@ _pacman_opts_query_modifiers=(
 )
 
 # options for passing to _arguments: options for --remove command
-_pacman_opts_remove=(
+_kepler_opts_remove=(
 	{-c,--cascade}'[Remove all dependent packages]'
 	{-d,--nodeps}'[Skip dependency checks]'
 	'*--assume-installed[Add virtual package to satisfy dependencies]'
@@ -89,17 +89,17 @@ _pacman_opts_remove=(
 	{-u,--unneeded}'[Remove unneeded packages]'
 	'--dbonly[Only remove database entry, do not remove files]'
 	'--print-format[Specify how the targets should be printed]'
-	'*:installed package:_pacman_completions_installed_packages'
+	'*:installed package:_kepler_completions_installed_packages'
 )
 
-_pacman_opts_database=(
+_kepler_opts_database=(
 	'--asdeps[mark packages as non-explicitly installed]'
 	'--asexplicit[mark packages as explicitly installed]'
-	'*:installed package:_pacman_completions_installed_packages'
+	'*:installed package:_kepler_completions_installed_packages'
 )
 
-_pacman_opts_files=(
-	{-l,--list}'[List the files owned by the queried package]:package:_pacman_completions_all_packages'
+_kepler_opts_files=(
+	{-l,--list}'[List the files owned by the queried package]:package:_kepler_completions_all_packages'
 	{-x,--regex}'[Enable searching using regular expressions]:regex:'
 	{-y,--refresh}'[Download fresh files databases from the server]'
 	'--machinereadable[Produce machine-readable output]'
@@ -107,7 +107,7 @@ _pacman_opts_files=(
 )
 
 # options for passing to _arguments: options for --sync command
-_pacman_opts_sync_actions=(
+_kepler_opts_sync_actions=(
 	'(-S --sync)'{-S,--sync}
 	{\*-c,\*--clean}'[Remove old packages from cache]:\*:clean:->sync_clean'
 	{-g,--groups}'[View all members of a package group]:*:package groups:->sync_group'
@@ -118,7 +118,7 @@ _pacman_opts_sync_actions=(
 )
 
 # options for passing to _arguments: options for --sync command
-_pacman_opts_sync_modifiers=(
+_kepler_opts_sync_modifiers=(
 	{\*-d,\*--nodeps}'[Skip dependency checks]'
 	'*--assume-installed[Add virtual package to satisfy dependencies]'
 	{\*-i,\*--info}'[View package information]'
@@ -128,99 +128,99 @@ _pacman_opts_sync_modifiers=(
 	{\*-u,\*--sysupgrade}'[Upgrade all out-of-date packages]'
 	{-w,--downloadonly}'[Download packages only]'
 	{\*-y,\*--refresh}'[Download fresh package databases]'
-	'*--ignore[Ignore a package upgrade]:package: _pacman_completions_all_packages'
-	'*--ignoregroup[Ignore a group upgrade]:package group:_pacman_completions_all_groups'
+	'*--ignore[Ignore a package upgrade]:package: _kepler_completions_all_packages'
+	'*--ignoregroup[Ignore a group upgrade]:package group:_kepler_completions_all_groups'
 	'--asdeps[Install packages as non-explicitly installed]'
 	'--asexplicit[Install packages as explicitly installed]'
 	'--print-format[Specify how the targets should be printed]'
 )
 
 # handles --help subcommand
-_pacman_action_help() {
+_kepler_action_help() {
 	_arguments -s : \
-		"$_pacman_opts_commands[@]"
+		"$_kepler_opts_commands[@]"
 }
 
 # handles cases where no subcommand has yet been given
-_pacman_action_none() {
+_kepler_action_none() {
 	_arguments -s : \
-		"$_pacman_opts_commands[@]"
+		"$_kepler_opts_commands[@]"
 }
 
 # handles --query subcommand
-_pacman_action_query() {
+_kepler_action_query() {
 	local context state line
 	typeset -A opt_args
 
 	case $state in
 		query_file)
 			_arguments -s : \
-				"$_pacman_opts_common[@]" \
-				"$_pacman_opts_query_modifiers[@]" \
+				"$_kepler_opts_common[@]" \
+				"$_kepler_opts_query_modifiers[@]" \
 				'*:package file:_files -g "*.pkg.tar*~*.sig(.,@)"'
 			;;
 		query_group)
 			_arguments -s : \
-				"$_pacman_opts_common[@]" \
-				"$_pacman_opts_query_modifiers[@]" \
-				'*:groups:_pacman_completions_installed_groups'
+				"$_kepler_opts_common[@]" \
+				"$_kepler_opts_query_modifiers[@]" \
+				'*:groups:_kepler_completions_installed_groups'
 			;;
 		query_owner)
 			_arguments -s : \
-				"$_pacman_opts_common[@]" \
-				"$_pacman_opts_query_modifiers[@]" \
+				"$_kepler_opts_common[@]" \
+				"$_kepler_opts_query_modifiers[@]" \
 				'*:file:_files'
 			;;
 		query_search)
 			_arguments -s : \
-				"$_pacman_opts_common[@]" \
-				"$_pacman_opts_query_modifiers[@]" \
+				"$_kepler_opts_common[@]" \
+				"$_kepler_opts_query_modifiers[@]" \
 				'*:search text: '
 			;;
 		*)
 			_arguments -s : \
-				"$_pacman_opts_common[@]" \
-				"$_pacman_opts_query_actions[@]" \
-				"$_pacman_opts_query_modifiers[@]" \
-				'*:package:_pacman_completions_installed_packages'
+				"$_kepler_opts_common[@]" \
+				"$_kepler_opts_query_actions[@]" \
+				"$_kepler_opts_query_modifiers[@]" \
+				'*:package:_kepler_completions_installed_packages'
 			;;
 	esac
 }
 
 # handles --remove subcommand
-_pacman_action_remove() {
+_kepler_action_remove() {
 	_arguments -s : \
 		'(--remove -R)'{-R,--remove} \
-		"$_pacman_opts_common[@]" \
-		"$_pacman_opts_remove[@]"
+		"$_kepler_opts_common[@]" \
+		"$_kepler_opts_remove[@]"
 }
 
 # handles --database subcommand
-_pacman_action_database() {
+_kepler_action_database() {
 	_arguments -s : \
 		'(--database -D)'{-D,--database} \
-		"$_pacman_opts_common[@]" \
-		"$_pacman_opts_database[@]"
+		"$_kepler_opts_common[@]" \
+		"$_kepler_opts_database[@]"
 }
 
 # handles --files subcommand
-_pacman_action_files() {
+_kepler_action_files() {
 	_arguments -s : \
 		'(--files -F)'{-F,--files} \
-		"$_pacman_opts_common[@]" \
-		"$_pacman_opts_files[@]"
+		"$_kepler_opts_common[@]" \
+		"$_kepler_opts_files[@]"
 }
 
-_pacman_action_deptest () {
+_kepler_action_deptest () {
 	_arguments -s : \
 		'(--deptest)-T' \
-		"$_pacman_opts_common[@]" \
-		":packages:_pacman_all_packages"
+		"$_kepler_opts_common[@]" \
+		":packages:_kepler_all_packages"
 }
 
 
 # handles --sync subcommand
-_pacman_action_sync() {
+_kepler_action_sync() {
 	local context state line
 	typeset -A opt_args
 	if (( $+words[(r)--clean] )); then
@@ -235,50 +235,50 @@ _pacman_action_sync() {
 		sync_clean)
 			_arguments -s : \
 				{\*-c,\*--clean}'[Remove old packages from cache]' \
-				"$_pacman_opts_common[@]" \
-				"$_pacman_opts_sync_modifiers[@]"
+				"$_kepler_opts_common[@]" \
+				"$_kepler_opts_sync_modifiers[@]"
 				;;
 		sync_group)
 			_arguments -s : \
-				"$_pacman_opts_common[@]" \
-				"$_pacman_opts_sync_modifiers[@]" \
+				"$_kepler_opts_common[@]" \
+				"$_kepler_opts_sync_modifiers[@]" \
 				'(-g --group)'{-g,--groups} \
-				'*:package group:_pacman_completions_all_groups'
+				'*:package group:_kepler_completions_all_groups'
 			;;
 		sync_search)
 			_arguments -s : \
-				"$_pacman_opts_common[@]" \
-				"$_pacman_opts_sync_modifiers[@]" \
+				"$_kepler_opts_common[@]" \
+				"$_kepler_opts_sync_modifiers[@]" \
 				'*:search text: '
 			;;
 		*)
 			_arguments -s : \
-				"$_pacman_opts_common[@]" \
-				"$_pacman_opts_sync_actions[@]" \
-				"$_pacman_opts_sync_modifiers[@]" \
-				'*:package:_pacman_completions_all_packages'
+				"$_kepler_opts_common[@]" \
+				"$_kepler_opts_sync_actions[@]" \
+				"$_kepler_opts_sync_modifiers[@]" \
+				'*:package:_kepler_completions_all_packages'
 			;;
 	esac
 }
 
 # handles --upgrade subcommand
-_pacman_action_upgrade() {
+_kepler_action_upgrade() {
 	_arguments -s : \
 		'(-U --upgrade)'{-U,--upgrade} \
-		"$_pacman_opts_common[@]" \
-		"$_pacman_opts_pkgfile[@]"
+		"$_kepler_opts_common[@]" \
+		"$_kepler_opts_pkgfile[@]"
 }
 
 # handles --version subcommand
-_pacman_action_version() {
+_kepler_action_version() {
 	# no further arguments
 	return 0
 }
 
 # provides completions for package groups
-_pacman_completions_all_groups() {
+_kepler_completions_all_groups() {
 	local -a cmd groups
-	_pacman_get_command
+	_kepler_get_command
 	groups=( $(_call_program groups $cmd[@] -Sg) )
 	typeset -U groups
 
@@ -291,9 +291,9 @@ _pacman_completions_all_groups() {
 
 # provides completions for packages available from repositories
 # these can be specified as either 'package' or 'repository/package'
-_pacman_completions_all_packages() {
+_kepler_completions_all_packages() {
 	local -a seq sep cmd packages repositories packages_long
-	_pacman_get_command
+	_kepler_get_command
 
 	if [[ ${words[CURRENT-1]} == '--ignore' ]]; then
 		seq='_sequence'
@@ -312,50 +312,50 @@ _pacman_completions_all_packages() {
 		typeset -U packages
 		${seq} _wanted packages expl "packages" compadd ${sep[@]} - "${(@)packages}"
 
-		repositories=($(pacman-conf --repo-list))
+		repositories=($(kepler-conf --repo-list))
 		typeset -U repositories
 		_wanted repo_packages expl "repository/package" compadd -S "/" $repositories
 	fi
 }
 
 # provides completions for package groups
-_pacman_completions_installed_groups() {
+_kepler_completions_installed_groups() {
 	local -a cmd groups
-	_pacman_get_command
+	_kepler_get_command
 	groups=(${(o)${(f)"$(_call_program groups $cmd[@] -Qg)"}% *})
 	typeset -U groups
 	compadd "$@" -a groups
 }
 
 # provides completions for installed packages
-_pacman_completions_installed_packages() {
+_kepler_completions_installed_packages() {
 	local -a cmd packages packages_long
-	packages_long=(@localstatedir@/lib/pacman/local/*(/))
-	packages=( ${${packages_long#@localstatedir@/lib/pacman/local/}%-*-*} )
+	packages_long=(@localstatedir@/lib/kepler/local/*(/))
+	packages=( ${${packages_long#@localstatedir@/lib/kepler/local/}%-*-*} )
 	compadd "$@" -a packages
 }
 
-_pacman_all_packages() {
+_kepler_all_packages() {
 	_alternative : \
-		'localpkgs:local packages:_pacman_completions_installed_packages' \
-		'repopkgs:repository packages:_pacman_completions_all_packages'
+		'localpkgs:local packages:_kepler_completions_installed_packages' \
+		'repopkgs:repository packages:_kepler_completions_all_packages'
 }
 
 # provides completions for repository names
-_pacman_completions_repositories() {
+_kepler_completions_repositories() {
 	local -a cmd repositories
-	repositories=($(pacman-conf --repo-list))
+	repositories=($(kepler-conf --repo-list))
 	# Uniq the array
 	typeset -U repositories
 	compadd "$@" -a repositories
 }
 
-# builds command for invoking pacman in a _call_program command - extracts
+# builds command for invoking kepler in a _call_program command - extracts
 # relevant options already specified (config file, etc)
 # $cmd must be declared by calling function
-_pacman_get_command() {
+_kepler_get_command() {
 	# this is mostly nicked from _perforce
-	cmd=( "pacman" "2>/dev/null")
+	cmd=( "kepler" "2>/dev/null")
 	integer i
 	for (( i = 2; i < CURRENT - 1; i++ )); do
 		if [[ ${words[i]} = "--config" || ${words[i]} = "--root" ]]; then
@@ -365,17 +365,17 @@ _pacman_get_command() {
 }
 
 # main dispatcher
-_pacman_zsh_comp() {
+_kepler_zsh_comp() {
 	local -a args cmds
 	local tmp
 	args=( ${${${(M)words:#-*}#-}:#-*} )
 	for tmp in $words; do
-		cmds+=("${${_pacman_opts_commands[(r)*$tmp\[*]%%\[*}#*\)}")
+		cmds+=("${${_kepler_opts_commands[(r)*$tmp\[*]%%\[*}#*\)}")
 	done
 	case $args in #$words[2] in
 		h*)
 			if (( ${(c)#args} <= 1 && ${(w)#cmds} <= 1 )); then
-				_pacman_action_help
+				_kepler_action_help
 			else
 				_message "no more arguments"
 			fi
@@ -384,119 +384,119 @@ _pacman_zsh_comp() {
 			_message "no more arguments"
 			;;
 		D*)
-			_pacman_action_database
+			_kepler_action_database
 			;;
 		F*)
-			_pacman_action_files
+			_kepler_action_files
 			;;
 		Q*g*) # ipkg groups
 			_arguments -s : \
-				"$_pacman_opts_common[@]" \
-				"$_pacman_opts_query_modifiers[@]" \
-				'*:groups:_pacman_completions_installed_groups'
+				"$_kepler_opts_common[@]" \
+				"$_kepler_opts_query_modifiers[@]" \
+				'*:groups:_kepler_completions_installed_groups'
 			;;
 		Q*o*) # file
 			_arguments -s : \
-				"$_pacman_opts_common[@]" \
-				"$_pacman_opts_query_modifiers[@]" \
+				"$_kepler_opts_common[@]" \
+				"$_kepler_opts_query_modifiers[@]" \
 				'*:package file:_files'
 			;;
 		Q*p*) # file *.pkg.tar*
 			_arguments -s : \
-				"$_pacman_opts_common[@]" \
-				"$_pacman_opts_query_modifiers[@]" \
+				"$_kepler_opts_common[@]" \
+				"$_kepler_opts_query_modifiers[@]" \
 				'*:package file:_files -g "*.pkg.tar*~*.sig(.,@)"'
 			;;
 		T*)
-			_pacman_action_deptest
+			_kepler_action_deptest
 			;;
 		Q*)
-			_pacman_action_query
+			_kepler_action_query
 			;;
 		R*)
-			_pacman_action_remove
+			_kepler_action_remove
 			;;
 		S*c*) # no completion
 			_arguments -s : \
 				'(-c --clean)'{\*-c,\*--clean}'[Remove all files from the cache]' \
-				"$_pacman_opts_common[@]"
+				"$_kepler_opts_common[@]"
 			;;
 		S*l*) # repos
 			_arguments -s : \
-				"$_pacman_opts_common[@]" \
-				"$_pacman_opts_sync_modifiers[@]" \
-				'*:package repo:_pacman_completions_repositories' \
+				"$_kepler_opts_common[@]" \
+				"$_kepler_opts_sync_modifiers[@]" \
+				'*:package repo:_kepler_completions_repositories' \
 			;;
 		S*g*) # pkg groups
 			_arguments -s : \
-				"$_pacman_opts_common[@]" \
-				"$_pacman_opts_sync_modifiers[@]" \
-				'*:package group:_pacman_completions_all_groups'
+				"$_kepler_opts_common[@]" \
+				"$_kepler_opts_sync_modifiers[@]" \
+				'*:package group:_kepler_completions_all_groups'
 			;;
 		S*s*)
 			_arguments -s : \
-				"$_pacman_opts_common[@]" \
-				"$_pacman_opts_sync_modifiers[@]" \
+				"$_kepler_opts_common[@]" \
+				"$_kepler_opts_sync_modifiers[@]" \
 				'*:search text: '
 				;;
 		S*)
-			_pacman_action_sync
+			_kepler_action_sync
 			;;
 		T*)
 			 _arguments -s : \
 				'-T' \
-				"$_pacman_opts_common[@]" \
-				":packages:_pacman_all_packages"
+				"$_kepler_opts_common[@]" \
+				":packages:_kepler_all_packages"
 			;;
 		U*)
-			_pacman_action_upgrade
+			_kepler_action_upgrade
 			;;
 		V*)
-			_pacman_action_version
+			_kepler_action_version
 			;;
 		*)
 
 			case ${(M)words:#--*} in
 				*--help*)
 					if (( ${(w)#cmds} == 1 )); then
-						_pacman_action_help
+						_kepler_action_help
 					else
 						return 0
 					fi
 					;;
 				*--sync*)
-					_pacman_action_sync
+					_kepler_action_sync
 					;;
 				*--query*)
-					_pacman_action_query
+					_kepler_action_query
 					;;
 				*--remove*)
-					_pacman_action_remove
+					_kepler_action_remove
 					;;
 				*--deptest*)
-					_pacman_action_deptest
+					_kepler_action_deptest
 					;;
 				*--database*)
-					_pacman_action_database
+					_kepler_action_database
 					;;
 				*--files*)
-					_pacman_action_files
+					_kepler_action_files
 					;;
 				*--version*)
-					_pacman_action_version
+					_kepler_action_version
 					;;
 				*--upgrade*)
-					_pacman_action_upgrade
+					_kepler_action_upgrade
 					;;
 				*)
-					_pacman_action_none
+					_kepler_action_none
 					;;
 			esac
 			;;
 	esac
 }
 
-_pacman_conf_general_directives=(
+_kepler_conf_general_directives=(
 	'RootDir'
 	'DBPath'
 	'CacheDir'
@@ -522,63 +522,63 @@ _pacman_conf_general_directives=(
 	'RemoteFileSigLevel'
 )
 
-_pacman_conf_repo_directives=(
+_kepler_conf_repo_directives=(
 	'Server'
 	'SigLevel'
 	'Usage'
 )
 
-_pacman_conf_completions_repositories() {
+_kepler_conf_completions_repositories() {
 	local -a repositories
 	# If the user specified an alternate config, use those repos
-	repositories=($(pacman-conf ${(kv)opt_args[(I)-c|--config]} --repo-list ))
+	repositories=($(kepler-conf ${(kv)opt_args[(I)-c|--config]} --repo-list ))
 	typeset -U repositories
 	compadd "$@" -a repositories
 }
 
-_pacman_conf_directive() {
+_kepler_conf_directive() {
 	# Directives use a case-insensitive matcher-list
 	local casematch="m:{[:lower:][:upper:]}={[:upper:][:lower:]}"
 
 	if [[ -n ${opt_args[(I)-r|--repo]} ]]; then
-		compadd -M "$casematch" "$@" -a _pacman_conf_repo_directives
+		compadd -M "$casematch" "$@" -a _kepler_conf_repo_directives
 	else
 		if [[ $words[$CURRENT] == [iI][lL]* ]]; then
 			compadd -M "$casematch" "$@" ILoveCandy # Secret completion!
 		else
-			compadd -M "$casematch" "$@" -a _pacman_conf_general_directives
+			compadd -M "$casematch" "$@" -a _kepler_conf_general_directives
 		fi
 	fi
 }
 
-_pacman_conf_commands=(
+_kepler_conf_commands=(
 	{-l,--repo-list}'[List configured repositories]:*: :->repo_list'
 	{-h,--help}'[Output systax and command line options]:*: :->complete'
 	{-V,--version}'[Display version and exit]:*: :->complete'
 )
 
-_pacman_conf_options=(
-	'(-r --repo)'{-r,--repo=}'[Query options for a specific repository]:package repo:_pacman_conf_completions_repositories'
+_kepler_conf_options=(
+	'(-r --repo)'{-r,--repo=}'[Query options for a specific repository]:package repo:_kepler_conf_completions_repositories'
 	'(-v --verbose)'{-v,--verbose}'[Always show directive names]'
 )
 
-_pacman_conf_options_common=(
+_kepler_conf_options_common=(
 	'*'{-c,--config=}'[Specify an alternate configuration file]: :_files'
 	'*'{-R,--rootdir=}'[Specify an alternate insallation root]: :_files'
 )
 
-_pacman_conf() {
+_kepler_conf() {
 	_arguments -s : \
-		"$_pacman_conf_commands[@]" \
-		"$_pacman_conf_options_common[@]" \
-		"$_pacman_conf_options[@]" \
-		'*:pacman directive:_pacman_conf_directive'
+		"$_kepler_conf_commands[@]" \
+		"$_kepler_conf_options_common[@]" \
+		"$_kepler_conf_options[@]" \
+		'*:kepler directive:_kepler_conf_directive'
 
 	case $state in
 		repo_list)
 			_arguments -s \
 				'(-l --repo-list)'{-l,--repo-list} \
-				"$_pacman_conf_options_common[@]"
+				"$_kepler_conf_options_common[@]"
 			;;
 		*)
 			_message "no more arguments"
@@ -594,7 +594,7 @@ _key_shortopts=(
 	'-f[List fingerprint for specified or all keyids]:*: :_keys'
 	'-l[List the specified or all keys]:*: :_keys'
 	'-r[Fetch the specified keyids]:*: :_keys'
-	'-u[Update the trustdb of pacman]'
+	'-u[Update the trustdb of kepler]'
 	'-v[Verify the file specified by the signature]: :_files -g "*.sig"'
 	'-V[Show program version]'
 )
@@ -607,7 +607,7 @@ _key_longopts=(
 	'--finger[List fingerprint for specified or all keyids]:*: :_keys'
 	'--list-keys[List the specified or all keys]:*: :_keys'
 	'--recv-keys[Fetch the specified keyids]:*: :_keys'
-	'--updatedb[Update the trustdb of pacman]'
+	'--updatedb[Update the trustdb of kepler]'
 	'--verify[Verify the file specified by the signature]: :_files -g "*.sig"'
 	'--version[Show program version]'
 	'--edit-key[Present a menu for key management task on keyids]:*: :_keys'
@@ -616,43 +616,43 @@ _key_longopts=(
 	'--init[Ensure the keyring is properly initialized]'
 	'--list-sigs[List keys and their signatures]:*: :_keys'
 	'--lsign-key[Locally sign the specified keyid]:*: :_keys'
-	'--populate[Reload the default keys from the (given) keyrings in '/usr/share/pacman/keyrings']: :_path_files -W /usr/share/pacman/keyrings'
+	'--populate[Reload the default keys from the (given) keyrings in '/usr/share/kepler/keyrings']: :_path_files -W /usr/share/kepler/keyrings'
 	'--refresh-keys[Update specified or all keys from a keyserver]:*: :_keys'
 )
 
-_pacman_key_options=(
-	'--config[Use an alternate config file (instead of @sysconfdir@/pacman.conf)]: :_files'
-	'--gpgdir[Set an alternate directory for GnuPG (instead of @sysconfdir@/pacman.d/gnupg)]: :_files -/'
+_kepler_key_options=(
+	'--config[Use an alternate config file (instead of @sysconfdir@/kepler.conf)]: :_files'
+	'--gpgdir[Set an alternate directory for GnuPG (instead of @sysconfdir@/kepler.d/gnupg)]: :_files -/'
 	'--keyserver[Specify a keyserver to use if necessary]'
 )
 
-_pacman_key() {
+_kepler_key() {
 	case $words[CURRENT] in
 		--*)
 			_arguments -s : \
-				"$_pacman_key_options[@]" \
+				"$_kepler_key_options[@]" \
 				"$_key_longopts[@]"
 			;;
 		-*)
 			_arguments -s : \
-				"$_pacman_key_options[@]" \
+				"$_kepler_key_options[@]" \
 				"$_key_shortopts[@]" \
 				"$_key_longopts[@]"
 			;;
 		*)
 			i=$#
-			while [[ $words[$i] != -* ]] && [[ $words[$i] != "pacman-key" ]];do
+			while [[ $words[$i] != -* ]] && [[ $words[$i] != "kepler-key" ]];do
 				i=$(($i-1))
 			done
 			case $i in
 				--*)
 					_arguments -s : \
-						"$_pacman_key_options[@]" \
+						"$_kepler_key_options[@]" \
 						"$_key_longopts[@]"
 					;;
 				-*)
 					_arguments -s : \
-						"$_pacman_key_options[@]" \
+						"$_kepler_key_options[@]" \
 						"$_key_shortopts[@]" \
 						"$_key_longopts[@]"
 					;;
@@ -666,7 +666,7 @@ _pacman_key() {
 
 _keys() {
 	local keylist keys
-	keylist=$(pacman-key --list-keys 2>/dev/null | awk '
+	keylist=$(kepler-key --list-keys 2>/dev/null | awk '
 		$1 == "pub" {
 			# key id
 			split($2, a, "/"); print a[2]
@@ -686,7 +686,7 @@ _keys() {
 }
 
 _makepkg_shortopts=(
-	'-s[Install missing dependencies with pacman]'
+	'-s[Install missing dependencies with kepler]'
 	'-i[Install package after successful build]'
 	'-A[Ignore incomplete arch field in PKGBUILD]'
 	'-c[Clean up work files after build]'
@@ -726,7 +726,7 @@ _makepkg_longopts=(
 	'--nobuild[Download and extract files only]'
 	'--rmdeps[Remove installed dependencies after a successful build]'
 	'--repackage[Repackage contents of the package without rebuilding]'
-	'--syncdeps[Install missing dependencies with pacman]'
+	'--syncdeps[Install missing dependencies with kepler]'
 	'--source[Generate a source-only tarball without downloading sources]'
 	'--version[Show version information and exit]'
 	'--allsource[Generate a source-only tarball including downloaded source]'
@@ -789,19 +789,19 @@ _makepkg(){
 			;;
 	esac
 }
-_pacman_comp() {
+_kepler_comp() {
 	case "$service" in
 		makepkg)
 			_makepkg "$@"
 			;;
-		pacman-conf)
-			_pacman_conf "$@"
+		kepler-conf)
+			_kepler_conf "$@"
 			;;
-		pacman-key)
-			_pacman_key "$@"
+		kepler-key)
+			_kepler_key "$@"
 			;;
-		pacman)
-			_pacman_zsh_comp "$@"
+		kepler)
+			_kepler_zsh_comp "$@"
 			;;
 		*)
 			_message "Error"
@@ -809,4 +809,4 @@ _pacman_comp() {
 	esac
 }
 
-_pacman_comp "$@"
+_kepler_comp "$@"

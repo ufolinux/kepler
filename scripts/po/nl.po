@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR "Pacman Development Team <pacman-dev@archlinux.org>"
-# This file is distributed under the same license as the pacman-scripts package.
+# Copyright (C) YEAR "Kepler Development Team <kepler-dev@archlinux.org>"
+# This file is distributed under the same license as the kepler-scripts package.
 #
 # Translators:
 # 56d5d7c9ccc04394ef84fc87640272f6, 2014
@@ -22,12 +22,12 @@
 # zenlord <zenlord@gmail.com>, 2015,2018
 msgid ""
 msgstr ""
-"Project-Id-Version: Arch Linux Pacman package manager\n"
+"Project-Id-Version: Arch Linux Kepler package manager\n"
 "Report-Msgid-Bugs-To: http://bugs.archlinux.org/index.php?project=3\n"
 "POT-Creation-Date: 2021-09-04 16:15+1000\n"
 "PO-Revision-Date: 2021-08-03 21:30+0000\n"
 "Last-Translator: Philip Goto <philip.goto@gmail.com>\n"
-"Language-Team: Dutch (http://www.transifex.com/toofishes/archlinux-pacman/"
+"Language-Team: Dutch (http://www.transifex.com/toofishes/archlinux-kepler/"
 "language/nl/)\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
@@ -96,8 +96,8 @@ msgid "Aborting..."
 msgstr "Afbreken..."
 
 #: scripts/makepkg.sh.in:248
-msgid "Pacman is currently in use, please wait..."
-msgstr "Pacman is in gebruik - even geduld..."
+msgid "Kepler is currently in use, please wait..."
+msgstr "Kepler is in gebruik - even geduld..."
 
 #: scripts/makepkg.sh.in:269
 msgid "'%s' returned a fatal error (%i): %s"
@@ -232,14 +232,14 @@ msgstr ""
 "Een deel van de pakketgroep werd al gemaakt. (gebruik %s om te overschrijven)"
 
 #: scripts/makepkg.sh.in:964
-msgid "Make packages compatible for use with pacman"
-msgstr "Maak pakketten compatibel met het gebruik van pacman"
+msgid "Make packages compatible for use with kepler"
+msgstr "Maak pakketten compatibel met het gebruik van kepler"
 
-#: scripts/makepkg.sh.in:966 scripts/pacman-db-upgrade.sh.in:41
+#: scripts/makepkg.sh.in:966 scripts/kepler-db-upgrade.sh.in:41
 msgid "Usage: %s [options]"
 msgstr "Gebruik: %s [opties]"
 
-#: scripts/makepkg.sh.in:968 scripts/pacman-key.sh.in:82
+#: scripts/makepkg.sh.in:968 scripts/kepler-key.sh.in:82
 msgid "Options:"
 msgstr "Opties:"
 
@@ -427,8 +427,8 @@ msgstr "--noprogressbar Toon geen voortgangsbalk tijdens het downloaden"
 msgid "If %s is not specified, %s will look for '%s'"
 msgstr "Als %s niet werd gespecificeerd, zal %s zoeken naar '%s'"
 
-#: scripts/makepkg.sh.in:1020 scripts/pacman-db-upgrade.sh.in:57
-#: scripts/pacman-key.sh.in:97 scripts/repo-add.sh.in:101
+#: scripts/makepkg.sh.in:1020 scripts/kepler-db-upgrade.sh.in:57
+#: scripts/kepler-key.sh.in:97 scripts/repo-add.sh.in:101
 msgid ""
 "This is free software; see the source for copying conditions.\\nThere is NO "
 "WARRANTY, to the extent permitted by law.\\n"
@@ -529,147 +529,147 @@ msgstr "Pakketten map is klaar."
 msgid "Finished making: %s"
 msgstr "Klaar met het maken van: %s"
 
-#: scripts/pacman-db-upgrade.sh.in:39
-msgid "Upgrade the local pacman database to a newer format"
-msgstr "Upgrade de lokale pacman database naar een nieuwer formaat"
+#: scripts/kepler-db-upgrade.sh.in:39
+msgid "Upgrade the local kepler database to a newer format"
+msgstr "Upgrade de lokale kepler database naar een nieuwer formaat"
 
-#: scripts/pacman-db-upgrade.sh.in:43
+#: scripts/kepler-db-upgrade.sh.in:43
 msgid "options:"
 msgstr "opties:"
 
-#: scripts/pacman-db-upgrade.sh.in:44
+#: scripts/kepler-db-upgrade.sh.in:44
 msgid "  -d, --dbpath <path>  set an alternate database location"
 msgstr "-s, --dbpath <path> zet een alternatieve databaselocatie"
 
-#: scripts/pacman-db-upgrade.sh.in:45
+#: scripts/kepler-db-upgrade.sh.in:45
 msgid "  -h, --help           show this help message and exit"
 msgstr "-h, --help toon dit helpbericht en stop"
 
-#: scripts/pacman-db-upgrade.sh.in:46
+#: scripts/kepler-db-upgrade.sh.in:46
 msgid "  -r, --root <path>    set an alternate installation root"
 msgstr "-r, --root <pad> stel een alternatief installatiepad in"
 
-#: scripts/pacman-db-upgrade.sh.in:47
+#: scripts/kepler-db-upgrade.sh.in:47
 msgid "  -V, --version        show version information and exit"
 msgstr "-V, --version toon versieinformatie en stop"
 
-#: scripts/pacman-db-upgrade.sh.in:48
+#: scripts/kepler-db-upgrade.sh.in:48
 msgid "  --config <path>      set an alternate configuration file"
 msgstr "--config <pad> stel een alternatief configuratiebestand in"
 
-#: scripts/pacman-db-upgrade.sh.in:49
+#: scripts/kepler-db-upgrade.sh.in:49
 msgid "  --nocolor            disable colorized output messages"
 msgstr "--nocolor zet gekleurde uitvoer uit"
 
-#: scripts/pacman-db-upgrade.sh.in:122 scripts/repo-add.sh.in:392
+#: scripts/kepler-db-upgrade.sh.in:122 scripts/repo-add.sh.in:392
 msgid "%s does not exist or is not a directory."
 msgstr "%s bestaat niet of is geen map."
 
-#: scripts/pacman-db-upgrade.sh.in:126
-msgid "%s is not a pacman database directory."
-msgstr "%s is geen pacman database map."
+#: scripts/kepler-db-upgrade.sh.in:126
+msgid "%s is not a kepler database directory."
+msgstr "%s is geen kepler database map."
 
-#: scripts/pacman-db-upgrade.sh.in:130
+#: scripts/kepler-db-upgrade.sh.in:130
 msgid "You must have correct permissions to upgrade the database."
 msgstr "Om de database to upgraden heb je de juiste rechten nodig."
 
-#: scripts/pacman-db-upgrade.sh.in:140
-msgid "Pacman lock file was found. Cannot run while pacman is running."
+#: scripts/kepler-db-upgrade.sh.in:140
+msgid "Kepler lock file was found. Cannot run while kepler is running."
 msgstr ""
-"Pacman lockbestand gevonden. Kan niet uitvoeren wanneer pacman actief is."
+"Kepler lockbestand gevonden. Kan niet uitvoeren wanneer kepler actief is."
 
-#: scripts/pacman-db-upgrade.sh.in:152
+#: scripts/kepler-db-upgrade.sh.in:152
 msgid "Pre-3.5 database format detected - upgrading..."
 msgstr "Pre-3.5 database formaat gedetecteerd - upgraden...."
 
-#: scripts/pacman-db-upgrade.sh.in:159
+#: scripts/kepler-db-upgrade.sh.in:159
 msgid "Done."
 msgstr "Gereed."
 
-#: scripts/pacman-db-upgrade.sh.in:163
+#: scripts/kepler-db-upgrade.sh.in:163
 msgid "Pre-4.2 database format detected - upgrading..."
 msgstr "Pre-4.2 database formaat gedetecteerd - upgraden...."
 
-#: scripts/pacman-db-upgrade.sh.in:185
-msgid "symlink '%s' points outside pacman root, manual repair required"
+#: scripts/kepler-db-upgrade.sh.in:185
+msgid "symlink '%s' points outside kepler root, manual repair required"
 msgstr ""
-"symlink '%s' verwijzing ligt buiten de pacman root, handmatig herstel nodig"
+"symlink '%s' verwijzing ligt buiten de kepler root, handmatig herstel nodig"
 
-#: scripts/pacman-key.sh.in:58
+#: scripts/kepler-key.sh.in:58
 msgid "Usage: %s [options] operation [targets]"
 msgstr "Gebruik: %s [opties]  bewerking [doel]"
 
-#: scripts/pacman-key.sh.in:60
-msgid "Manage pacman's list of trusted keys"
-msgstr "Beheer pacman's lijst van vertrouwde sleutels"
+#: scripts/kepler-key.sh.in:60
+msgid "Manage kepler's list of trusted keys"
+msgstr "Beheer kepler's lijst van vertrouwde sleutels"
 
-#: scripts/pacman-key.sh.in:62
+#: scripts/kepler-key.sh.in:62
 msgid "Operations:"
 msgstr "Bewerkingen:"
 
-#: scripts/pacman-key.sh.in:63
+#: scripts/kepler-key.sh.in:63
 msgid "  -a, --add                 Add the specified keys (empty for stdin)"
 msgstr "-a, --add Voeg gespecificeerde sleutels toe (leeg voor stdin)"
 
-#: scripts/pacman-key.sh.in:64
+#: scripts/kepler-key.sh.in:64
 msgid "  -d, --delete              Remove the specified keyids"
 msgstr "-d, --delete Verwijder gespecificeerde keyids"
 
-#: scripts/pacman-key.sh.in:65
+#: scripts/kepler-key.sh.in:65
 msgid "  -e, --export              Export the specified or all keyids"
 msgstr "-e, --export Exporteer de gespecificeerde of alle keyids"
 
-#: scripts/pacman-key.sh.in:66
+#: scripts/kepler-key.sh.in:66
 msgid ""
 "  -f, --finger              List fingerprint for specified or all keyids"
 msgstr "-f, --finger Toon vingerafdruk voor gespecificeerde of alle sleutelids"
 
-#: scripts/pacman-key.sh.in:67
+#: scripts/kepler-key.sh.in:67
 msgid "  -l, --list-keys           List the specified or all keys"
 msgstr "-l, --list-keys Toon de gespecificeerde of alle sleutels"
 
-#: scripts/pacman-key.sh.in:68
+#: scripts/kepler-key.sh.in:68
 msgid "  -r, --recv-keys           Fetch the specified keyids"
 msgstr "-r, --recv-keys Haal de gespecificeerde sleutelids op"
 
-#: scripts/pacman-key.sh.in:69
-msgid "  -u, --updatedb            Update the trustdb of pacman"
-msgstr "-u, --updatedb Werk de trustdb van pacman bij"
+#: scripts/kepler-key.sh.in:69
+msgid "  -u, --updatedb            Update the trustdb of kepler"
+msgstr "-u, --updatedb Werk de trustdb van kepler bij"
 
-#: scripts/pacman-key.sh.in:70
+#: scripts/kepler-key.sh.in:70
 msgid ""
 "  -v, --verify              Verify the file(s) specified by the signature(s)"
 msgstr ""
 "-v, --verify Verifieer de bestand(en) gespecificeerd door de signatu(u)r(en)"
 
-#: scripts/pacman-key.sh.in:71
+#: scripts/kepler-key.sh.in:71
 msgid ""
 "  --edit-key                Present a menu for key management task on keyids"
 msgstr "--edit-key Toon een menu voor sleutelbeheertaken op sleutelids"
 
-#: scripts/pacman-key.sh.in:72
+#: scripts/kepler-key.sh.in:72
 msgid "  --import                  Imports pubring.gpg from dir(s)"
 msgstr "--import Importeer pubring.gpg uit map(pen)"
 
-#: scripts/pacman-key.sh.in:73
+#: scripts/kepler-key.sh.in:73
 msgid ""
 "  --import-trustdb          Imports ownertrust values from trustdb.gpg in "
 "dir(s)"
 msgstr "--import-trustdb Importeer ownertrust uit trustdb.gpg in map(pen)"
 
-#: scripts/pacman-key.sh.in:74
+#: scripts/kepler-key.sh.in:74
 msgid "  --init                    Ensure the keyring is properly initialized"
 msgstr "--init Zorg ervoor dat de sleutelbos correct geïnitialiseerd is"
 
-#: scripts/pacman-key.sh.in:75
+#: scripts/kepler-key.sh.in:75
 msgid "  --list-sigs               List keys and their signatures"
 msgstr "--list-sigs Toon sleutels en hun signaturen"
 
-#: scripts/pacman-key.sh.in:76
+#: scripts/kepler-key.sh.in:76
 msgid "  --lsign-key               Locally sign the specified keyid"
 msgstr "--lsign-key Onderteken de gespecificeerde sleutelid lokaal"
 
-#: scripts/pacman-key.sh.in:77
+#: scripts/kepler-key.sh.in:77
 msgid ""
 "  --populate                Reload the default keys from the (given) keyrings"
 "\\n                            in '%s'"
@@ -677,18 +677,18 @@ msgstr ""
 "--populate Herlaad de standaard sleutels van de (gegeven) sleutelbossen\\n "
 "in '%s'"
 
-#: scripts/pacman-key.sh.in:79
+#: scripts/kepler-key.sh.in:79
 msgid ""
 "  --refresh-keys            Update specified or all keys from a keyserver"
 msgstr ""
 "--refresh-keys Werk de gespecificeerde of alle sleutels bij van een "
 "sleutelserver"
 
-#: scripts/pacman-key.sh.in:80
+#: scripts/kepler-key.sh.in:80
 msgid "  --verbose                 Show extra information"
 msgstr "  --verbose                 Extra informatie tonen"
 
-#: scripts/pacman-key.sh.in:83
+#: scripts/kepler-key.sh.in:83
 msgid ""
 "  --config <file>           Use an alternate config file (instead of"
 "\\n                            '%s')"
@@ -696,7 +696,7 @@ msgstr ""
 "--config <bestand> Gebruik een alternatief configuratiebestand (in plaats van"
 "\\n '%s')"
 
-#: scripts/pacman-key.sh.in:85
+#: scripts/kepler-key.sh.in:85
 msgid ""
 "  --gpgdir <dir>            Set an alternate directory for GnuPG (instead"
 "\\n                            of '%s')"
@@ -704,203 +704,203 @@ msgstr ""
 "--gpgdir <map> Stel een alternatieve map in voor GnuPG (in plaats van\\n "
 "'%s')"
 
-#: scripts/pacman-key.sh.in:87
+#: scripts/kepler-key.sh.in:87
 msgid "  --keyserver <server-url>  Specify a keyserver to use if necessary"
 msgstr ""
 "--keyserver <server-url> Specificeer een sleutelserver om te gebruiken "
 "indien nodig"
 
-#: scripts/pacman-key.sh.in:89
+#: scripts/kepler-key.sh.in:89
 msgid "  -h, --help                Show this help message and exit"
 msgstr "-h, --help Toon dit helpbericht en stop"
 
-#: scripts/pacman-key.sh.in:90
+#: scripts/kepler-key.sh.in:90
 msgid "  -V, --version             Show program version"
 msgstr "-V, --version Toon programmaversie"
 
-#: scripts/pacman-key.sh.in:132
+#: scripts/kepler-key.sh.in:132
 msgid "Failed to lookup key by name:"
 msgstr "Opzoeken van sleutel op naam mislukt:"
 
-#: scripts/pacman-key.sh.in:140
+#: scripts/kepler-key.sh.in:140
 msgid "Key name is ambiguous:"
 msgstr "Sleutelnaam is dubbelzinnig:"
 
-#: scripts/pacman-key.sh.in:148
-msgid "Generating pacman master key. This may take some time."
-msgstr "Pacman-hoofdsleutel genereren. Dit kan even duren."
+#: scripts/kepler-key.sh.in:148
+msgid "Generating kepler master key. This may take some time."
+msgstr "Kepler-hoofdsleutel genereren. Dit kan even duren."
 
-#: scripts/pacman-key.sh.in:185
+#: scripts/kepler-key.sh.in:185
 msgid "The key identified by %s could not be found locally."
 msgstr "De sleutel geïdentificeerd als %s kon lokaal niet gevonden worden."
 
-#: scripts/pacman-key.sh.in:196 scripts/pacman-key.sh.in:208
+#: scripts/kepler-key.sh.in:196 scripts/kepler-key.sh.in:208
 #: scripts/libmakepkg/integrity/verify_signature.sh.in:204
 msgid "_"
 msgstr "_"
 
-#: scripts/pacman-key.sh.in:208
+#: scripts/kepler-key.sh.in:208
 msgid "flags"
 msgstr "vlaggen"
 
-#: scripts/pacman-key.sh.in:263
+#: scripts/kepler-key.sh.in:263
 msgid "You do not have sufficient permissions to read the %s keyring."
 msgstr "Je hebt onvoldoende rechten om de %s sleutelbos te lezen."
 
-#: scripts/pacman-key.sh.in:264 scripts/pacman-key.sh.in:271
+#: scripts/kepler-key.sh.in:264 scripts/kepler-key.sh.in:271
 msgid "Use '%s' to correct the keyring permissions."
 msgstr "Gebruik '%s' om de sleutelbos-rechten te corrigeren."
 
-#: scripts/pacman-key.sh.in:270
+#: scripts/kepler-key.sh.in:270
 msgid "You do not have sufficient permissions to run this command."
 msgstr "Je hebt onvoldoende rechten om dit commando uit te voeren."
 
-#: scripts/pacman-key.sh.in:278
+#: scripts/kepler-key.sh.in:278
 msgid "There is no secret key available to sign with."
 msgstr "Er is geen geheime sleutel beschikbaar om mee te ondertekenen."
 
-#: scripts/pacman-key.sh.in:279
+#: scripts/kepler-key.sh.in:279
 msgid "Use '%s' to generate a default secret key."
 msgstr "Gebruik '%s' om een standaard geheime sleutel te genereren."
 
-#: scripts/pacman-key.sh.in:298
+#: scripts/kepler-key.sh.in:298
 msgid "No keyring files exist in %s."
 msgstr "Sleutelbosbestanden bestaan niet in %s."
 
-#: scripts/pacman-key.sh.in:305
+#: scripts/kepler-key.sh.in:305
 msgid "The keyring file %s does not exist."
 msgstr "Sleutelbosbestand %s bestaat niet"
 
-#: scripts/pacman-key.sh.in:320
+#: scripts/kepler-key.sh.in:320
 msgid "Appending keys from %s.gpg..."
 msgstr "Toevoegen sleutels van %s.gpg..."
 
-#: scripts/pacman-key.sh.in:360
+#: scripts/kepler-key.sh.in:360
 msgid "Locally signing trusted keys in keyring..."
 msgstr "Lokaal vertrouwde sleutels in sleutelbos aan het ondertekenen..."
 
-#: scripts/pacman-key.sh.in:362
+#: scripts/kepler-key.sh.in:362
 msgid "Importing owner trust values..."
 msgstr "Importeren van ownertrust"
 
-#: scripts/pacman-key.sh.in:372
+#: scripts/kepler-key.sh.in:372
 msgid "Disabling revoked keys in keyring..."
 msgstr "Herroepen sleutels in sleutelbos deactiveren..."
 
-#: scripts/pacman-key.sh.in:375
+#: scripts/kepler-key.sh.in:375
 msgid "Disabling key %s..."
 msgstr "Deactiveren sleutel %s..."
 
-#: scripts/pacman-key.sh.in:381
+#: scripts/kepler-key.sh.in:381
 msgid "Disabled %s keys."
 msgstr "%s sleutels gedeactiveerd."
 
-#: scripts/pacman-key.sh.in:388
+#: scripts/kepler-key.sh.in:388
 msgid "A specified keyfile could not be added to the keyring."
 msgstr ""
 "Een gespecificeerd sleutelbestand kon niet aan de sleutelbos toegevoegd "
 "worden."
 
-#: scripts/pacman-key.sh.in:396
+#: scripts/kepler-key.sh.in:396
 msgid "A specified key could not be removed from the keyring."
 msgstr ""
 "Een gespecificeerde sleutel kon niet verwijderd worden uit de sleutelbos."
 
-#: scripts/pacman-key.sh.in:406
+#: scripts/kepler-key.sh.in:406
 msgid "The key identified by %s could not be edited."
 msgstr "De sleutel, geïdentificeerd door %s, kon niet worden bewerkt."
 
-#: scripts/pacman-key.sh.in:418
+#: scripts/kepler-key.sh.in:418
 msgid "A specified key could not be exported from the keyring."
 msgstr "Een bepaalde sleutel kon niet worden ge-exporteerd uit de sleutelbos."
 
-#: scripts/pacman-key.sh.in:426
+#: scripts/kepler-key.sh.in:426
 msgid "The fingerprint of a specified key could not be determined."
 msgstr "De vingerafdruk van een bepaalde sleutel kon niet worden bepaald."
 
-#: scripts/pacman-key.sh.in:439 scripts/pacman-key.sh.in:458
+#: scripts/kepler-key.sh.in:439 scripts/kepler-key.sh.in:458
 msgid "%s could not be imported."
 msgstr "%s kon niet worden geïmporteerd."
 
-#: scripts/pacman-key.sh.in:443 scripts/pacman-key.sh.in:462
+#: scripts/kepler-key.sh.in:443 scripts/kepler-key.sh.in:462
 msgid "File %s does not exist and could not be imported."
 msgstr "Bestand %s bestaat niet en kon niet worden geïmporteerd."
 
-#: scripts/pacman-key.sh.in:474
+#: scripts/kepler-key.sh.in:474
 msgid "A specified key could not be listed."
 msgstr "Een bepaalde sleutel kon niet worden opgelijst."
 
-#: scripts/pacman-key.sh.in:482
+#: scripts/kepler-key.sh.in:482
 msgid "A specified signature could not be listed."
 msgstr "Een bepaalde signatuur kon niet worden opgelijst."
 
-#: scripts/pacman-key.sh.in:494
+#: scripts/kepler-key.sh.in:494
 msgid "Locally signing key %s..."
 msgstr "Lokaal ondertekenen sleutel %s..."
 
-#: scripts/pacman-key.sh.in:499
+#: scripts/kepler-key.sh.in:499
 msgid "%s could not be locally signed."
 msgstr "%s kon niet lokaal ondertekend worden."
 
-#: scripts/pacman-key.sh.in:509
+#: scripts/kepler-key.sh.in:509
 msgid "Locally signed %s keys."
 msgstr "%s sleutels lokaal ondertekend."
 
-#: scripts/pacman-key.sh.in:532
+#: scripts/kepler-key.sh.in:532
 msgid "Remote key not fetched correctly from WKD or keyserver."
 msgstr "Sleutel niet correct opgehaald van WKD of keyserver."
 
-#: scripts/pacman-key.sh.in:537
+#: scripts/kepler-key.sh.in:537
 msgid "Remote key not fetched correctly from keyserver."
 msgstr "Sleutel op afstand niet correct van sleutelserver gehaald."
 
-#: scripts/pacman-key.sh.in:569
+#: scripts/kepler-key.sh.in:569
 msgid "Could not update key: %s"
 msgstr "Kan sleutel niet updaten: %s"
 
-#: scripts/pacman-key.sh.in:590 scripts/repo-add.sh.in:265
+#: scripts/kepler-key.sh.in:590 scripts/repo-add.sh.in:265
 msgid "Cannot use armored signatures for packages: %s"
 msgstr "Kan geen gepantserde signaturen gebruiken voor pakketten: %s"
 
-#: scripts/pacman-key.sh.in:594
+#: scripts/kepler-key.sh.in:594
 msgid "The signature identified by %s could not be verified."
 msgstr "De signatuur, geïdentificeerd door %s, kon niet geverifieerd worden."
 
-#: scripts/pacman-key.sh.in:601
+#: scripts/kepler-key.sh.in:601
 msgid "Updating trust database..."
 msgstr "Trust database bijwerken..."
 
-#: scripts/pacman-key.sh.in:603
+#: scripts/kepler-key.sh.in:603
 msgid "Trust database could not be updated."
 msgstr "Trust database kon niet worden bijgewerkt..."
 
-#: scripts/pacman-key.sh.in:671
+#: scripts/kepler-key.sh.in:671
 msgid "Cannot find the %s binary required for all %s operations."
 msgstr ""
 "Kan het uitvoerbare bestand %s, vereist voor alle %s bewerkingen, niet "
 "vinden."
 
-#: scripts/pacman-key.sh.in:676
+#: scripts/kepler-key.sh.in:676
 msgid "%s needs to be run as root for this operation."
 msgstr "De bewerking %s moet worden uitgevoerd als root."
 
-#: scripts/pacman-key.sh.in:682
+#: scripts/kepler-key.sh.in:682
 msgid "%s configuration file '%s' not found."
 msgstr "%s configuratiebestand '%s' niet gevonden."
 
-#: scripts/pacman-key.sh.in:703
+#: scripts/kepler-key.sh.in:703
 msgid "no operation specified (use -h for help)"
 msgstr "geen bewerking gespecificeerd (gebruik -h voor hulp)"
 
-#: scripts/pacman-key.sh.in:708
+#: scripts/kepler-key.sh.in:708
 msgid "Multiple operations specified."
 msgstr "Meerdere bewerkingen gespecificeerd."
 
-#: scripts/pacman-key.sh.in:709
+#: scripts/kepler-key.sh.in:709
 msgid "Please run %s with each operation separately."
 msgstr "Draai %s op iedere bewerking afzonderlijk."
 
-#: scripts/pacman-key.sh.in:717
+#: scripts/kepler-key.sh.in:717
 msgid "No targets specified"
 msgstr "Geen doel gespecificeerd."
 
@@ -991,9 +991,9 @@ msgstr ""
 
 #: scripts/repo-add.sh.in:90
 msgid ""
-"Example:  repo-add /path/to/repo.db.tar.gz pacman-3.0.0-1-i686.pkg.tar.gz\\n"
+"Example:  repo-add /path/to/repo.db.tar.gz kepler-3.0.0-1-i686.pkg.tar.gz\\n"
 msgstr ""
-"Bijvoorbeeld: repo-add /pad/naar/repo.db.tar.gz pacman-3.0.0-1-i686.pkg.tar."
+"Bijvoorbeeld: repo-add /pad/naar/repo.db.tar.gz kepler-3.0.0-1-i686.pkg.tar."
 "gz\\n"
 
 #: scripts/repo-add.sh.in:92
@@ -1081,8 +1081,8 @@ msgid "Held by process %s"
 msgstr "Gereserveerd door proces %s"
 
 #: scripts/repo-add.sh.in:414
-msgid "Repository file '%s' is not a proper pacman database."
-msgstr "Repositorybestand '%s' is geen echte pacman database."
+msgid "Repository file '%s' is not a proper kepler database."
+msgstr "Repositorybestand '%s' is geen echte kepler database."
 
 #: scripts/repo-add.sh.in:419
 msgid "Extracting %s to a temporary location..."

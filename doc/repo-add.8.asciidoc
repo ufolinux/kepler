@@ -16,7 +16,7 @@ Synopsis
 Description
 -----------
 'repo-add' and 'repo-remove' are two scripts to help build a package database for
-packages built with linkman:makepkg[8] and installed with linkman:pacman[8].
+packages built with linkman:makepkg[8] and installed with linkman:kepler[8].
 
 'repo-add' will update a package database by reading a built package file.
 Multiple packages to add can be specified on the command line.
@@ -78,13 +78,13 @@ Example
 'repo-add' foo.db.tar.xz <pkg1> [<pkg2> ...]
 
 This creates two separate databases; a smaller database ``foo.db.tar.xz'' used by
-pacman and a large database containing package file lists ``foo.files.tar.xz'' for
-use by other utilities. While pacman can use the large database (if renamed with a
+kepler and a large database containing package file lists ``foo.files.tar.xz'' for
+use by other utilities. While kepler can use the large database (if renamed with a
 db.tar* extension), there is currently no additional benefit for the larger download.
 
 
 See Also
 --------
-linkman:makepkg[8], linkman:pacman[8]
+linkman:makepkg[8], linkman:kepler[8]
 
 include::footer.asciidoc[]

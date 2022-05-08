@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR "Pacman Development Team <pacman-dev@archlinux.org>"
-# This file is distributed under the same license as the pacman-scripts package.
+# Copyright (C) YEAR "Kepler Development Team <kepler-dev@archlinux.org>"
+# This file is distributed under the same license as the kepler-scripts package.
 #
 # Translators:
 # Alimspender Dong <akillcool@outlook.com>, 2019
@@ -22,13 +22,13 @@
 # 甘 露 <rhythm.gan@gmail.com>, 2011
 msgid ""
 msgstr ""
-"Project-Id-Version: Arch Linux Pacman package manager\n"
+"Project-Id-Version: Arch Linux Kepler package manager\n"
 "Report-Msgid-Bugs-To: http://bugs.archlinux.org/index.php?project=3\n"
 "POT-Creation-Date: 2021-09-04 16:15+1000\n"
 "PO-Revision-Date: 2021-04-23 10:02+0000\n"
 "Last-Translator: 张海\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/toofishes/archlinux-"
-"pacman/language/zh_CN/)\n"
+"kepler/language/zh_CN/)\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -96,8 +96,8 @@ msgid "Aborting..."
 msgstr "正在放弃..."
 
 #: scripts/makepkg.sh.in:248
-msgid "Pacman is currently in use, please wait..."
-msgstr "Pacman 正在被使用，请稍候…"
+msgid "Kepler is currently in use, please wait..."
+msgstr "Kepler 正在被使用，请稍候…"
 
 #: scripts/makepkg.sh.in:269
 msgid "'%s' returned a fatal error (%i): %s"
@@ -230,14 +230,14 @@ msgid "Part of the package group has already been built. (use %s to overwrite)"
 msgstr "软件包组的一部分已经构建过。(使用 %s 覆盖)"
 
 #: scripts/makepkg.sh.in:964
-msgid "Make packages compatible for use with pacman"
-msgstr "创建出可供 pacman 使用的软件包"
+msgid "Make packages compatible for use with kepler"
+msgstr "创建出可供 kepler 使用的软件包"
 
-#: scripts/makepkg.sh.in:966 scripts/pacman-db-upgrade.sh.in:41
+#: scripts/makepkg.sh.in:966 scripts/kepler-db-upgrade.sh.in:41
 msgid "Usage: %s [options]"
 msgstr "用法：%s [选项]"
 
-#: scripts/makepkg.sh.in:968 scripts/pacman-key.sh.in:82
+#: scripts/makepkg.sh.in:968 scripts/kepler-key.sh.in:82
 msgid "Options:"
 msgstr "选项："
 
@@ -411,8 +411,8 @@ msgstr "  --noprogressbar  下载文件时不显示进度条"
 msgid "If %s is not specified, %s will look for '%s'"
 msgstr "如果没有指定 %s，%s 将寻找 '%s'"
 
-#: scripts/makepkg.sh.in:1020 scripts/pacman-db-upgrade.sh.in:57
-#: scripts/pacman-key.sh.in:97 scripts/repo-add.sh.in:101
+#: scripts/makepkg.sh.in:1020 scripts/kepler-db-upgrade.sh.in:57
+#: scripts/kepler-key.sh.in:97 scripts/repo-add.sh.in:101
 msgid ""
 "This is free software; see the source for copying conditions.\\nThere is NO "
 "WARRANTY, to the extent permitted by law.\\n"
@@ -509,166 +509,166 @@ msgstr "软件包目录已准备好。"
 msgid "Finished making: %s"
 msgstr "完成创建：%s"
 
-#: scripts/pacman-db-upgrade.sh.in:39
-msgid "Upgrade the local pacman database to a newer format"
-msgstr "升级本地 pacman 数据库到更新的格式"
+#: scripts/kepler-db-upgrade.sh.in:39
+msgid "Upgrade the local kepler database to a newer format"
+msgstr "升级本地 kepler 数据库到更新的格式"
 
-#: scripts/pacman-db-upgrade.sh.in:43
+#: scripts/kepler-db-upgrade.sh.in:43
 msgid "options:"
 msgstr "选项："
 
-#: scripts/pacman-db-upgrade.sh.in:44
+#: scripts/kepler-db-upgrade.sh.in:44
 msgid "  -d, --dbpath <path>  set an alternate database location"
 msgstr "-d, --dbpath <路径> 指定另外的数据库位置"
 
-#: scripts/pacman-db-upgrade.sh.in:45
+#: scripts/kepler-db-upgrade.sh.in:45
 msgid "  -h, --help           show this help message and exit"
 msgstr "-h, --help 显示本帮助信息并退出"
 
-#: scripts/pacman-db-upgrade.sh.in:46
+#: scripts/kepler-db-upgrade.sh.in:46
 msgid "  -r, --root <path>    set an alternate installation root"
 msgstr "-r, --root <路径> 指定另外的安装根目录"
 
-#: scripts/pacman-db-upgrade.sh.in:47
+#: scripts/kepler-db-upgrade.sh.in:47
 msgid "  -V, --version        show version information and exit"
 msgstr "  -V, --version 显示版本信息并退出"
 
-#: scripts/pacman-db-upgrade.sh.in:48
+#: scripts/kepler-db-upgrade.sh.in:48
 msgid "  --config <path>      set an alternate configuration file"
 msgstr "--config <路径> 指定另外的配置文件"
 
-#: scripts/pacman-db-upgrade.sh.in:49
+#: scripts/kepler-db-upgrade.sh.in:49
 msgid "  --nocolor            disable colorized output messages"
 msgstr "--nocolor 禁止彩色输出信息"
 
-#: scripts/pacman-db-upgrade.sh.in:122 scripts/repo-add.sh.in:392
+#: scripts/kepler-db-upgrade.sh.in:122 scripts/repo-add.sh.in:392
 msgid "%s does not exist or is not a directory."
 msgstr "%s 不存在或不是一个目录。"
 
-#: scripts/pacman-db-upgrade.sh.in:126
-msgid "%s is not a pacman database directory."
-msgstr "%s 不是一个 pacman 的数据库目录。"
+#: scripts/kepler-db-upgrade.sh.in:126
+msgid "%s is not a kepler database directory."
+msgstr "%s 不是一个 kepler 的数据库目录。"
 
-#: scripts/pacman-db-upgrade.sh.in:130
+#: scripts/kepler-db-upgrade.sh.in:130
 msgid "You must have correct permissions to upgrade the database."
 msgstr "您必须有相应的权限才可升级数据库。"
 
-#: scripts/pacman-db-upgrade.sh.in:140
-msgid "Pacman lock file was found. Cannot run while pacman is running."
-msgstr "发现 pacman 锁文件。不能在 pacman 运行时再次运行。"
+#: scripts/kepler-db-upgrade.sh.in:140
+msgid "Kepler lock file was found. Cannot run while kepler is running."
+msgstr "发现 kepler 锁文件。不能在 kepler 运行时再次运行。"
 
-#: scripts/pacman-db-upgrade.sh.in:152
+#: scripts/kepler-db-upgrade.sh.in:152
 msgid "Pre-3.5 database format detected - upgrading..."
 msgstr "探测到 3.5 版本以前的数据库格式 - 正在升级中..."
 
-#: scripts/pacman-db-upgrade.sh.in:159
+#: scripts/kepler-db-upgrade.sh.in:159
 msgid "Done."
 msgstr "完成。"
 
-#: scripts/pacman-db-upgrade.sh.in:163
+#: scripts/kepler-db-upgrade.sh.in:163
 msgid "Pre-4.2 database format detected - upgrading..."
 msgstr "探测到 4.2 版本以前的数据库格式 - 正在升级中..."
 
-#: scripts/pacman-db-upgrade.sh.in:185
-msgid "symlink '%s' points outside pacman root, manual repair required"
-msgstr "符号链接 '%s' 指向pacman根路径外，需要手动修复"
+#: scripts/kepler-db-upgrade.sh.in:185
+msgid "symlink '%s' points outside kepler root, manual repair required"
+msgstr "符号链接 '%s' 指向kepler根路径外，需要手动修复"
 
-#: scripts/pacman-key.sh.in:58
+#: scripts/kepler-key.sh.in:58
 msgid "Usage: %s [options] operation [targets]"
 msgstr "用法： %s [选项] 操作 [目标]"
 
-#: scripts/pacman-key.sh.in:60
-msgid "Manage pacman's list of trusted keys"
-msgstr "管理 pacman 的可信密匙清单"
+#: scripts/kepler-key.sh.in:60
+msgid "Manage kepler's list of trusted keys"
+msgstr "管理 kepler 的可信密匙清单"
 
-#: scripts/pacman-key.sh.in:62
+#: scripts/kepler-key.sh.in:62
 msgid "Operations:"
 msgstr "操作："
 
-#: scripts/pacman-key.sh.in:63
+#: scripts/kepler-key.sh.in:63
 msgid "  -a, --add                 Add the specified keys (empty for stdin)"
 msgstr "  -a, --add              添加指定的密匙 (空则使用 stdin)"
 
-#: scripts/pacman-key.sh.in:64
+#: scripts/kepler-key.sh.in:64
 msgid "  -d, --delete              Remove the specified keyids"
 msgstr "  -d, --delete              删除指定的密匙识别号"
 
-#: scripts/pacman-key.sh.in:65
+#: scripts/kepler-key.sh.in:65
 msgid "  -e, --export              Export the specified or all keyids"
 msgstr "  -e, --export              导出指定的或所有密匙识别号"
 
-#: scripts/pacman-key.sh.in:66
+#: scripts/kepler-key.sh.in:66
 msgid ""
 "  -f, --finger              List fingerprint for specified or all keyids"
 msgstr "  -f, --finger              列出指定的或所有密匙识别号的指纹"
 
-#: scripts/pacman-key.sh.in:67
+#: scripts/kepler-key.sh.in:67
 msgid "  -l, --list-keys           List the specified or all keys"
 msgstr "  -l, --list-keys            列出指定的或全部的密匙"
 
-#: scripts/pacman-key.sh.in:68
+#: scripts/kepler-key.sh.in:68
 msgid "  -r, --recv-keys           Fetch the specified keyids"
 msgstr "  -r, --recv-keys            取回指定的密钥id"
 
-#: scripts/pacman-key.sh.in:69
-msgid "  -u, --updatedb            Update the trustdb of pacman"
-msgstr "  -u, --updatedb            更新 pacman 的信任数据库"
+#: scripts/kepler-key.sh.in:69
+msgid "  -u, --updatedb            Update the trustdb of kepler"
+msgstr "  -u, --updatedb            更新 kepler 的信任数据库"
 
-#: scripts/pacman-key.sh.in:70
+#: scripts/kepler-key.sh.in:70
 msgid ""
 "  -v, --verify              Verify the file(s) specified by the signature(s)"
 msgstr "  -v, --verify         验证该签名指定的文件"
 
-#: scripts/pacman-key.sh.in:71
+#: scripts/kepler-key.sh.in:71
 msgid ""
 "  --edit-key                Present a menu for key management task on keyids"
 msgstr "  --edit-key                为有关密匙识别号的管理密匙任务提供一个菜单"
 
-#: scripts/pacman-key.sh.in:72
+#: scripts/kepler-key.sh.in:72
 msgid "  --import                  Imports pubring.gpg from dir(s)"
 msgstr "  --import                从目录中导入 pubring.gpg"
 
-#: scripts/pacman-key.sh.in:73
+#: scripts/kepler-key.sh.in:73
 msgid ""
 "  --import-trustdb          Imports ownertrust values from trustdb.gpg in "
 "dir(s)"
 msgstr "  --import-trustdb        从目录中的 trustdb.gpg 导入拥有者信任值"
 
-#: scripts/pacman-key.sh.in:74
+#: scripts/kepler-key.sh.in:74
 msgid "  --init                    Ensure the keyring is properly initialized"
 msgstr "  --init                    确保密匙环已正确初始化"
 
-#: scripts/pacman-key.sh.in:75
+#: scripts/kepler-key.sh.in:75
 msgid "  --list-sigs               List keys and their signatures"
 msgstr "  --list-sigs               列出密匙及对应签名"
 
-#: scripts/pacman-key.sh.in:76
+#: scripts/kepler-key.sh.in:76
 msgid "  --lsign-key               Locally sign the specified keyid"
 msgstr "  --lsign-key                  在本地签名指定的密匙识别号"
 
-#: scripts/pacman-key.sh.in:77
+#: scripts/kepler-key.sh.in:77
 msgid ""
 "  --populate                Reload the default keys from the (given) keyrings"
 "\\n                            in '%s'"
 msgstr ""
 "  --populate              从 (给定的) 密匙环中重新加载默认密匙\\n（在'%s'中）"
 
-#: scripts/pacman-key.sh.in:79
+#: scripts/kepler-key.sh.in:79
 msgid ""
 "  --refresh-keys            Update specified or all keys from a keyserver"
 msgstr "  --refresh-keys            从密匙服务器中更新指定的或所有的密匙"
 
-#: scripts/pacman-key.sh.in:80
+#: scripts/kepler-key.sh.in:80
 msgid "  --verbose                 Show extra information"
 msgstr "  --verbose                 显示额外信息"
 
-#: scripts/pacman-key.sh.in:83
+#: scripts/kepler-key.sh.in:83
 msgid ""
 "  --config <file>           Use an alternate config file (instead of"
 "\\n                            '%s')"
 msgstr "--config <file>           使用另外的配置文件(而不是\\n '%s')"
 
-#: scripts/pacman-key.sh.in:85
+#: scripts/kepler-key.sh.in:85
 msgid ""
 "  --gpgdir <dir>            Set an alternate directory for GnuPG (instead"
 "\\n                            of '%s')"
@@ -676,196 +676,196 @@ msgstr ""
 "  --gpgdir <dir>            为 GnuPG 设定的另外目录 (而"
 "\\n                            非 '%s')"
 
-#: scripts/pacman-key.sh.in:87
+#: scripts/kepler-key.sh.in:87
 msgid "  --keyserver <server-url>  Specify a keyserver to use if necessary"
 msgstr "  --keyserver <server-url>              如果需要，指定使用的密匙服务器"
 
-#: scripts/pacman-key.sh.in:89
+#: scripts/kepler-key.sh.in:89
 msgid "  -h, --help                Show this help message and exit"
 msgstr "  -h, --help                显示本帮助并退出"
 
-#: scripts/pacman-key.sh.in:90
+#: scripts/kepler-key.sh.in:90
 msgid "  -V, --version             Show program version"
 msgstr "  -V, --version             显示程序版本"
 
-#: scripts/pacman-key.sh.in:132
+#: scripts/kepler-key.sh.in:132
 msgid "Failed to lookup key by name:"
 msgstr "根据名字查询密钥失败："
 
-#: scripts/pacman-key.sh.in:140
+#: scripts/kepler-key.sh.in:140
 msgid "Key name is ambiguous:"
 msgstr "关键字有歧义："
 
-#: scripts/pacman-key.sh.in:148
-msgid "Generating pacman master key. This may take some time."
-msgstr "正在生成 pacman 主密钥。这可能需要一段时间。"
+#: scripts/kepler-key.sh.in:148
+msgid "Generating kepler master key. This may take some time."
+msgstr "正在生成 kepler 主密钥。这可能需要一段时间。"
 
-#: scripts/pacman-key.sh.in:185
+#: scripts/kepler-key.sh.in:185
 msgid "The key identified by %s could not be found locally."
 msgstr "本地没有找到由 %s 认定的密匙。"
 
-#: scripts/pacman-key.sh.in:196 scripts/pacman-key.sh.in:208
+#: scripts/kepler-key.sh.in:196 scripts/kepler-key.sh.in:208
 #: scripts/libmakepkg/integrity/verify_signature.sh.in:204
 msgid "_"
 msgstr "_"
 
-#: scripts/pacman-key.sh.in:208
+#: scripts/kepler-key.sh.in:208
 msgid "flags"
 msgstr ""
 
-#: scripts/pacman-key.sh.in:263
+#: scripts/kepler-key.sh.in:263
 msgid "You do not have sufficient permissions to read the %s keyring."
 msgstr "您没有足够的许可权来读取 %s 密匙环。"
 
-#: scripts/pacman-key.sh.in:264 scripts/pacman-key.sh.in:271
+#: scripts/kepler-key.sh.in:264 scripts/kepler-key.sh.in:271
 msgid "Use '%s' to correct the keyring permissions."
 msgstr "使用 '%s' 更正密匙环许可。"
 
-#: scripts/pacman-key.sh.in:270
+#: scripts/kepler-key.sh.in:270
 msgid "You do not have sufficient permissions to run this command."
 msgstr "您没有足够的许可权来运行该命令。"
 
-#: scripts/pacman-key.sh.in:278
+#: scripts/kepler-key.sh.in:278
 msgid "There is no secret key available to sign with."
 msgstr "没有签名可用的机密密匙。"
 
-#: scripts/pacman-key.sh.in:279
+#: scripts/kepler-key.sh.in:279
 msgid "Use '%s' to generate a default secret key."
 msgstr "使用 '%s' 来生成默认的机密密匙。"
 
-#: scripts/pacman-key.sh.in:298
+#: scripts/kepler-key.sh.in:298
 msgid "No keyring files exist in %s."
 msgstr "在 %s 中没有密匙环文件。"
 
-#: scripts/pacman-key.sh.in:305
+#: scripts/kepler-key.sh.in:305
 msgid "The keyring file %s does not exist."
 msgstr "密匙环文件 %s 不存在。"
 
-#: scripts/pacman-key.sh.in:320
+#: scripts/kepler-key.sh.in:320
 msgid "Appending keys from %s.gpg..."
 msgstr "正在从 %s.gpg 添加密匙..."
 
-#: scripts/pacman-key.sh.in:360
+#: scripts/kepler-key.sh.in:360
 msgid "Locally signing trusted keys in keyring..."
 msgstr "正在本地签名密匙环中的可信密匙..."
 
-#: scripts/pacman-key.sh.in:362
+#: scripts/kepler-key.sh.in:362
 msgid "Importing owner trust values..."
 msgstr "正在导入拥有者信任值..."
 
-#: scripts/pacman-key.sh.in:372
+#: scripts/kepler-key.sh.in:372
 msgid "Disabling revoked keys in keyring..."
 msgstr "正在密匙环中禁用已激活密匙..."
 
-#: scripts/pacman-key.sh.in:375
+#: scripts/kepler-key.sh.in:375
 msgid "Disabling key %s..."
 msgstr "正在禁用密匙 %s..."
 
-#: scripts/pacman-key.sh.in:381
+#: scripts/kepler-key.sh.in:381
 msgid "Disabled %s keys."
 msgstr "已禁用 %s 把密钥。"
 
-#: scripts/pacman-key.sh.in:388
+#: scripts/kepler-key.sh.in:388
 msgid "A specified keyfile could not be added to the keyring."
 msgstr "指定的键文件无法添加到密钥环。"
 
-#: scripts/pacman-key.sh.in:396
+#: scripts/kepler-key.sh.in:396
 msgid "A specified key could not be removed from the keyring."
 msgstr "无法从密钥环删除指定的键。"
 
-#: scripts/pacman-key.sh.in:406
+#: scripts/kepler-key.sh.in:406
 msgid "The key identified by %s could not be edited."
 msgstr "由 %s 认定的密匙不能编辑。"
 
-#: scripts/pacman-key.sh.in:418
+#: scripts/kepler-key.sh.in:418
 msgid "A specified key could not be exported from the keyring."
 msgstr "无法从密钥环导出指定的键。"
 
-#: scripts/pacman-key.sh.in:426
+#: scripts/kepler-key.sh.in:426
 msgid "The fingerprint of a specified key could not be determined."
 msgstr "无法确定指定密匙的指纹。"
 
-#: scripts/pacman-key.sh.in:439 scripts/pacman-key.sh.in:458
+#: scripts/kepler-key.sh.in:439 scripts/kepler-key.sh.in:458
 msgid "%s could not be imported."
 msgstr "%s 无法导入。"
 
-#: scripts/pacman-key.sh.in:443 scripts/pacman-key.sh.in:462
+#: scripts/kepler-key.sh.in:443 scripts/kepler-key.sh.in:462
 msgid "File %s does not exist and could not be imported."
 msgstr "文件 %s 不存在且无法导入。"
 
-#: scripts/pacman-key.sh.in:474
+#: scripts/kepler-key.sh.in:474
 msgid "A specified key could not be listed."
 msgstr "指定密匙无法列出。"
 
-#: scripts/pacman-key.sh.in:482
+#: scripts/kepler-key.sh.in:482
 msgid "A specified signature could not be listed."
 msgstr "指定签名无法列出。"
 
-#: scripts/pacman-key.sh.in:494
+#: scripts/kepler-key.sh.in:494
 msgid "Locally signing key %s..."
 msgstr "正在本地签名密匙 %s..."
 
-#: scripts/pacman-key.sh.in:499
+#: scripts/kepler-key.sh.in:499
 msgid "%s could not be locally signed."
 msgstr "%s无法在本地签署。"
 
-#: scripts/pacman-key.sh.in:509
+#: scripts/kepler-key.sh.in:509
 msgid "Locally signed %s keys."
 msgstr "已本地签名 %s 把密钥。"
 
-#: scripts/pacman-key.sh.in:532
+#: scripts/kepler-key.sh.in:532
 msgid "Remote key not fetched correctly from WKD or keyserver."
 msgstr "无法从WKD或者公钥服务器获取远程公钥。"
 
-#: scripts/pacman-key.sh.in:537
+#: scripts/kepler-key.sh.in:537
 msgid "Remote key not fetched correctly from keyserver."
 msgstr "无法从密匙服务器中正确取回远端密匙。"
 
-#: scripts/pacman-key.sh.in:569
+#: scripts/kepler-key.sh.in:569
 msgid "Could not update key: %s"
 msgstr "无法更新密钥：%s"
 
-#: scripts/pacman-key.sh.in:590 scripts/repo-add.sh.in:265
+#: scripts/kepler-key.sh.in:590 scripts/repo-add.sh.in:265
 msgid "Cannot use armored signatures for packages: %s"
 msgstr "无法对这些软件包使用明文签名: %s"
 
-#: scripts/pacman-key.sh.in:594
+#: scripts/kepler-key.sh.in:594
 msgid "The signature identified by %s could not be verified."
 msgstr "由 %s 认定的签名无法验证。"
 
-#: scripts/pacman-key.sh.in:601
+#: scripts/kepler-key.sh.in:601
 msgid "Updating trust database..."
 msgstr "正在更新可信数据库..."
 
-#: scripts/pacman-key.sh.in:603
+#: scripts/kepler-key.sh.in:603
 msgid "Trust database could not be updated."
 msgstr "信任数据库无法更新。"
 
-#: scripts/pacman-key.sh.in:671
+#: scripts/kepler-key.sh.in:671
 msgid "Cannot find the %s binary required for all %s operations."
 msgstr "无法找到所需的 %s 二进制文件以进行所有 %s 操作。"
 
-#: scripts/pacman-key.sh.in:676
+#: scripts/kepler-key.sh.in:676
 msgid "%s needs to be run as root for this operation."
 msgstr "%s 需要以 root 运行来完成此操作。"
 
-#: scripts/pacman-key.sh.in:682
+#: scripts/kepler-key.sh.in:682
 msgid "%s configuration file '%s' not found."
 msgstr "%s 配置文件 '%s' 没有找到"
 
-#: scripts/pacman-key.sh.in:703
+#: scripts/kepler-key.sh.in:703
 msgid "no operation specified (use -h for help)"
 msgstr "没有指定的操作 (使用 -h 获取帮助)"
 
-#: scripts/pacman-key.sh.in:708
+#: scripts/kepler-key.sh.in:708
 msgid "Multiple operations specified."
 msgstr "多个操作已指定。"
 
-#: scripts/pacman-key.sh.in:709
+#: scripts/kepler-key.sh.in:709
 msgid "Please run %s with each operation separately."
 msgstr "请分别加 %s 每个操作运行。"
 
-#: scripts/pacman-key.sh.in:717
+#: scripts/kepler-key.sh.in:717
 msgid "No targets specified"
 msgstr "没有指定目标"
 
@@ -948,9 +948,9 @@ msgstr "\\n更多可用选项的描述及细节请参见 %s(8)。\\n"
 
 #: scripts/repo-add.sh.in:90
 msgid ""
-"Example:  repo-add /path/to/repo.db.tar.gz pacman-3.0.0-1-i686.pkg.tar.gz\\n"
+"Example:  repo-add /path/to/repo.db.tar.gz kepler-3.0.0-1-i686.pkg.tar.gz\\n"
 msgstr ""
-"示例：repo-add /path/to/repo.db.tar.gz pacman-3.0.0-1-i686.pkg.tar.gz\\n"
+"示例：repo-add /path/to/repo.db.tar.gz kepler-3.0.0-1-i686.pkg.tar.gz\\n"
 
 #: scripts/repo-add.sh.in:92
 msgid "Example:  repo-remove /path/to/repo.db.tar.gz kernel26\\n"
@@ -1037,8 +1037,8 @@ msgid "Held by process %s"
 msgstr "被过程 %s 保留"
 
 #: scripts/repo-add.sh.in:414
-msgid "Repository file '%s' is not a proper pacman database."
-msgstr "库文件 '%s' 不是一个有效的 pacman 数据库。"
+msgid "Repository file '%s' is not a proper kepler database."
+msgstr "库文件 '%s' 不是一个有效的 kepler 数据库。"
 
 #: scripts/repo-add.sh.in:419
 msgid "Extracting %s to a temporary location..."

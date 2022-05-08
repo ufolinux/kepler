@@ -49,7 +49,7 @@ option('gpgme', type : 'feature', value : 'auto',
        description : 'use GPGME for PGP signature verification')
 
 option('i18n', type : 'boolean', value : true,
-       description : 'enable localization of pacman, libalpm and scripts')
+       description : 'enable localization of kepler, libalpm and scripts')
 
 # tools
 option('file-seccomp', type: 'feature', value: 'auto',

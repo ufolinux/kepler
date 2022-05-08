@@ -1,6 +1,6 @@
 
-See the pacman website at https://archlinux.org/pacman/[] for current
-information on pacman and its related tools.
+See the kepler website at https://archlinux.org/kepler/[] for current
+information on kepler and its related tools.
 
 
 Bugs
@@ -8,7 +8,7 @@ Bugs
 Bugs? You must be kidding; there are no bugs in this software. But if we
 happen to be wrong, submit a bug report with as much detail as possible
 at the https://bugs.archlinux.org/index.php?project=3[Arch Linux Bug Tracker]
-in the Pacman section.
+in the Kepler section.
 
 
 Authors
@@ -31,5 +31,5 @@ Past major contributors:
 * Nagy Gabor <ngaba@bibl.u-szeged.hu>
 * Dave Reisner <dreisner@archlinux.org>
 
-For additional contributors, use `git shortlog -s` on the pacman.git
+For additional contributors, use `git shortlog -s` on the kepler.git
 repository.

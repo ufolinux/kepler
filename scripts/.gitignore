@@ -1,8 +1,8 @@
 libmakepkg.pc
 makepkg
 makepkg-template
-pacman-db-upgrade
-pacman-key
+kepler-db-upgrade
+kepler-key
 repo-add
 repo-elephant
 repo-remove

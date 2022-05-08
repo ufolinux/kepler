@@ -1,0 +1,26 @@
+# List of source files with translatable strings
+# If a file is commented out, it is because it shouldn't have any
+# translatable strings
+
+# kepler frontend source files
+src/kepler/callback.c
+src/kepler/check.c
+src/kepler/conf.c
+src/kepler/database.c
+src/kepler/deptest.c
+src/kepler/files.c
+#src/kepler/ini.c
+src/kepler/package.c
+src/kepler/kepler.c
+src/kepler/query.c
+src/kepler/remove.c
+src/kepler/sighandler.c
+src/kepler/sync.c
+src/kepler/upgrade.c
+src/kepler/util.c
+#src/kepler/util-common.c
+
+# utililty files
+src/kepler/kepler-conf.c
+src/util/testpkg.c
+src/util/vercmp.c

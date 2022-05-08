@@ -8,7 +8,7 @@ makepkg.conf - makepkg configuration file
 
 Synopsis
 --------
-{sysconfdir}/makepkg.conf, $XDG_CONFIG_HOME/pacman/makepkg.conf, ~/.makepkg.conf
+{sysconfdir}/makepkg.conf, $XDG_CONFIG_HOME/kepler/makepkg.conf, ~/.makepkg.conf
 
 
 Description
@@ -24,7 +24,7 @@ variables. Some of them are non-standard.
 
 The system-wide configuration file is found in {sysconfdir}/makepkg.conf.
 Individual options can be overridden (or added to) on a per-user basis in
-$XDG_CONFIG_HOME/pacman/makepkg.conf or ~/.makepkg.conf, with the former
+$XDG_CONFIG_HOME/kepler/makepkg.conf or ~/.makepkg.conf, with the former
 taking priority.
 
 The default file is fairly well commented, so it may be easiest to simply
@@ -289,8 +289,8 @@ Options
 	`.tar.lzo`, `.tar.lrz`, `.tar.lz4`, `.tar.lz` and `.tar.Z`, or
 	simply `.tar` to disable compression entirely.
 
-**PACMAN_AUTH=()**::
-	Specify a command prefix for running pacman as root. If unset, makepkg will
+**KEPLER_AUTH=()**::
+	Specify a command prefix for running kepler as root. If unset, makepkg will
 	check for the presence of sudo(8) and su(1) in turn, and try the first one
 	it finds.
 	+
@@ -301,6 +301,6 @@ Options
 
 See Also
 --------
-linkman:makepkg[8], linkman:pacman[8], linkman:PKGBUILD[5]
+linkman:makepkg[8], linkman:kepler[8], linkman:PKGBUILD[5]
 
 include::footer.asciidoc[]

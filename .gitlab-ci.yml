@@ -10,7 +10,7 @@ default:
   image: archlinux:base-devel
   before_script:
     - >
-      pacman -Syu --needed --noconfirm
+      kepler -Syu --needed --noconfirm
       git
       gpgme libarchive curl
       python
@@ -34,14 +34,14 @@ arch-debug:
 arch-docs:
   extends: .arch-test
   script:
-    - pacman -Syu --needed --noconfirm asciidoc
+    - kepler -Syu --needed --noconfirm asciidoc
     - meson -Ddoc=enabled build
     - ninja -C build
 
 arch-clang:
   extends: .arch-test
   script:
-    - pacman -Syu --needed --noconfirm clang
+    - kepler -Syu --needed --noconfirm clang
     - CC=clang meson build
     - ninja -C build
     - fakechroot meson test -C build
@@ -49,7 +49,7 @@ arch-clang:
 arch-valgrind:
   extends: .arch-test
   script:
-    - pacman -Syu --needed --noconfirm valgrind
+    - kepler -Syu --needed --noconfirm valgrind
     - meson build
     - ninja -C build
     - PACTEST_VALGRIND=1 fakechroot meson test -C build

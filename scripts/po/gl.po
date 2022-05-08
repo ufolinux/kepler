@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR "Pacman Development Team <pacman-dev@archlinux.org>"
-# This file is distributed under the same license as the pacman-scripts package.
+# Copyright (C) YEAR "Kepler Development Team <kepler-dev@archlinux.org>"
+# This file is distributed under the same license as the kepler-scripts package.
 #
 # Translators:
 # Adrián Chaves Fernández <adriyetichaves@gmail.com>, 2013
@@ -10,12 +10,12 @@
 # Daniel, 2016-2017
 msgid ""
 msgstr ""
-"Project-Id-Version: Arch Linux Pacman package manager\n"
+"Project-Id-Version: Arch Linux Kepler package manager\n"
 "Report-Msgid-Bugs-To: http://bugs.archlinux.org/index.php?project=3\n"
 "POT-Creation-Date: 2021-09-04 16:15+1000\n"
 "PO-Revision-Date: 2021-04-23 00:41+0000\n"
 "Last-Translator: Allan McRae <allan@archlinux.org>\n"
-"Language-Team: Galician (http://www.transifex.com/toofishes/archlinux-pacman/"
+"Language-Team: Galician (http://www.transifex.com/toofishes/archlinux-kepler/"
 "language/gl/)\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
@@ -86,7 +86,7 @@ msgid "Aborting..."
 msgstr "Interrompendo…"
 
 #: scripts/makepkg.sh.in:248
-msgid "Pacman is currently in use, please wait..."
+msgid "Kepler is currently in use, please wait..."
 msgstr ""
 
 #: scripts/makepkg.sh.in:269
@@ -221,14 +221,14 @@ msgid "Part of the package group has already been built. (use %s to overwrite)"
 msgstr "Xa se construíu parte do grupo de paquetes (use «%s» para forzar)."
 
 #: scripts/makepkg.sh.in:964
-msgid "Make packages compatible for use with pacman"
-msgstr "Facer os paquetes compatíbeis con Pacman."
+msgid "Make packages compatible for use with kepler"
+msgstr "Facer os paquetes compatíbeis con Kepler."
 
-#: scripts/makepkg.sh.in:966 scripts/pacman-db-upgrade.sh.in:41
+#: scripts/makepkg.sh.in:966 scripts/kepler-db-upgrade.sh.in:41
 msgid "Usage: %s [options]"
 msgstr "Sintaxe: %s [opcións]"
 
-#: scripts/makepkg.sh.in:968 scripts/pacman-key.sh.in:82
+#: scripts/makepkg.sh.in:968 scripts/kepler-key.sh.in:82
 msgid "Options:"
 msgstr "Opcións:"
 
@@ -439,8 +439,8 @@ msgstr ""
 msgid "If %s is not specified, %s will look for '%s'"
 msgstr "Se non se usa o parámetro «%s», «%s» buscará un ficheiro co nome «%s»."
 
-#: scripts/makepkg.sh.in:1020 scripts/pacman-db-upgrade.sh.in:57
-#: scripts/pacman-key.sh.in:97 scripts/repo-add.sh.in:101
+#: scripts/makepkg.sh.in:1020 scripts/kepler-db-upgrade.sh.in:57
+#: scripts/kepler-key.sh.in:97 scripts/repo-add.sh.in:101
 msgid ""
 "This is free software; see the source for copying conditions.\\nThere is NO "
 "WARRANTY, to the extent permitted by law.\\n"
@@ -538,150 +538,150 @@ msgstr "O cartafol do paquete está listo."
 msgid "Finished making: %s"
 msgstr "Rematouse a creación de «%s»."
 
-#: scripts/pacman-db-upgrade.sh.in:39
-msgid "Upgrade the local pacman database to a newer format"
+#: scripts/kepler-db-upgrade.sh.in:39
+msgid "Upgrade the local kepler database to a newer format"
 msgstr ""
-"Anovar a base de datos local de Pacman para que use un formato máis novo."
+"Anovar a base de datos local de Kepler para que use un formato máis novo."
 
-#: scripts/pacman-db-upgrade.sh.in:43
+#: scripts/kepler-db-upgrade.sh.in:43
 msgid "options:"
 msgstr "Opcións:"
 
-#: scripts/pacman-db-upgrade.sh.in:44
+#: scripts/kepler-db-upgrade.sh.in:44
 msgid "  -d, --dbpath <path>  set an alternate database location"
 msgstr "  -d, --dbpath <ruta>  Define a ruta dunha base de datos alternativa."
 
-#: scripts/pacman-db-upgrade.sh.in:45
+#: scripts/kepler-db-upgrade.sh.in:45
 msgid "  -h, --help           show this help message and exit"
 msgstr "  -h, --help           Mostra esta mensaxe de axuda."
 
-#: scripts/pacman-db-upgrade.sh.in:46
+#: scripts/kepler-db-upgrade.sh.in:46
 msgid "  -r, --root <path>    set an alternate installation root"
 msgstr ""
 "  -r, --root <ruta>    Define unha ruta raíz de instalación alternativa."
 
-#: scripts/pacman-db-upgrade.sh.in:47
+#: scripts/kepler-db-upgrade.sh.in:47
 msgid "  -V, --version        show version information and exit"
 msgstr "  -V, --version        Mostra información da versión."
 
-#: scripts/pacman-db-upgrade.sh.in:48
+#: scripts/kepler-db-upgrade.sh.in:48
 msgid "  --config <path>      set an alternate configuration file"
 msgstr ""
 "  --config <ruta>      Definir un ficheiro de configuración alternativo."
 
-#: scripts/pacman-db-upgrade.sh.in:49
+#: scripts/kepler-db-upgrade.sh.in:49
 msgid "  --nocolor            disable colorized output messages"
 msgstr "  --nocolor            Desactiva o uso de cores nas mensaxes de saída."
 
-#: scripts/pacman-db-upgrade.sh.in:122 scripts/repo-add.sh.in:392
+#: scripts/kepler-db-upgrade.sh.in:122 scripts/repo-add.sh.in:392
 msgid "%s does not exist or is not a directory."
 msgstr "«%s» non existe ou non é un cartafol."
 
-#: scripts/pacman-db-upgrade.sh.in:126
-msgid "%s is not a pacman database directory."
-msgstr "«%s» non é o cartafol dunha base de datos de Pacman."
+#: scripts/kepler-db-upgrade.sh.in:126
+msgid "%s is not a kepler database directory."
+msgstr "«%s» non é o cartafol dunha base de datos de Kepler."
 
-#: scripts/pacman-db-upgrade.sh.in:130
+#: scripts/kepler-db-upgrade.sh.in:130
 msgid "You must have correct permissions to upgrade the database."
 msgstr "Debe contar cos permisos necesarios para anovar a base de datos."
 
-#: scripts/pacman-db-upgrade.sh.in:140
-msgid "Pacman lock file was found. Cannot run while pacman is running."
+#: scripts/kepler-db-upgrade.sh.in:140
+msgid "Kepler lock file was found. Cannot run while kepler is running."
 msgstr ""
-"Atopouse o ficheiro de bloqueo de Pacman. Non pode executar este script ao "
-"mesmo tempo que executa Pacman."
+"Atopouse o ficheiro de bloqueo de Kepler. Non pode executar este script ao "
+"mesmo tempo que executa Kepler."
 
-#: scripts/pacman-db-upgrade.sh.in:152
+#: scripts/kepler-db-upgrade.sh.in:152
 msgid "Pre-3.5 database format detected - upgrading..."
 msgstr ""
 "Detectouse que o formato da base de datos é anterior á versión 3.5. "
 "Anovándoo…"
 
-#: scripts/pacman-db-upgrade.sh.in:159
+#: scripts/kepler-db-upgrade.sh.in:159
 msgid "Done."
 msgstr "Listo."
 
-#: scripts/pacman-db-upgrade.sh.in:163
+#: scripts/kepler-db-upgrade.sh.in:163
 msgid "Pre-4.2 database format detected - upgrading..."
 msgstr ""
 "Detectouse un formato de base de datos anterior á versión 4.2, anovándoo…"
 
-#: scripts/pacman-db-upgrade.sh.in:185
-msgid "symlink '%s' points outside pacman root, manual repair required"
+#: scripts/kepler-db-upgrade.sh.in:185
+msgid "symlink '%s' points outside kepler root, manual repair required"
 msgstr ""
-"A ligazón simbólica «%s» apunta fóra da raíz de Pacman, debe solucionar o "
+"A ligazón simbólica «%s» apunta fóra da raíz de Kepler, debe solucionar o "
 "problema manualmente."
 
-#: scripts/pacman-key.sh.in:58
+#: scripts/kepler-key.sh.in:58
 msgid "Usage: %s [options] operation [targets]"
 msgstr "Sintaxe: %s [opcións] operación [obxectivos]"
 
-#: scripts/pacman-key.sh.in:60
-msgid "Manage pacman's list of trusted keys"
-msgstr "Xestionar a lista de chaves de confianza de Pacman."
+#: scripts/kepler-key.sh.in:60
+msgid "Manage kepler's list of trusted keys"
+msgstr "Xestionar a lista de chaves de confianza de Kepler."
 
-#: scripts/pacman-key.sh.in:62
+#: scripts/kepler-key.sh.in:62
 msgid "Operations:"
 msgstr "Operacións:"
 
-#: scripts/pacman-key.sh.in:63
+#: scripts/kepler-key.sh.in:63
 msgid "  -a, --add                 Add the specified keys (empty for stdin)"
 msgstr ""
 "  -a, --add                 Engadir as chaves especificadas. Se non "
 "especifica\\n                            ningunha, leranse da entrada "
 "estándar (stdin)."
 
-#: scripts/pacman-key.sh.in:64
+#: scripts/kepler-key.sh.in:64
 msgid "  -d, --delete              Remove the specified keyids"
 msgstr ""
 "  -d, --delete              Eliminar os identificadores de chave indicados."
 
-#: scripts/pacman-key.sh.in:65
+#: scripts/kepler-key.sh.in:65
 msgid "  -e, --export              Export the specified or all keyids"
 msgstr ""
 "  -e, --export              Exportar os identificadores de chave indicados ou"
 "\\n                            todos eles."
 
-#: scripts/pacman-key.sh.in:66
+#: scripts/kepler-key.sh.in:66
 msgid ""
 "  -f, --finger              List fingerprint for specified or all keyids"
 msgstr ""
 "  -f, --finger              Listar as pegadas dixitais dos identificadores de"
 "\\n                            chave indicados ou de todos eles."
 
-#: scripts/pacman-key.sh.in:67
+#: scripts/kepler-key.sh.in:67
 msgid "  -l, --list-keys           List the specified or all keys"
 msgstr "  -l, --list-keys           Listar as chaves indicadas ou todas elas."
 
-#: scripts/pacman-key.sh.in:68
+#: scripts/kepler-key.sh.in:68
 msgid "  -r, --recv-keys           Fetch the specified keyids"
 msgstr ""
 "  -r, --recv-keys           Obter os identificadores de chave indicados."
 
-#: scripts/pacman-key.sh.in:69
-msgid "  -u, --updatedb            Update the trustdb of pacman"
+#: scripts/kepler-key.sh.in:69
+msgid "  -u, --updatedb            Update the trustdb of kepler"
 msgstr ""
 "  -u, --updatedb            Actualizar a táboa de confianza (trustdb) de "
-"Pacman."
+"Kepler."
 
-#: scripts/pacman-key.sh.in:70
+#: scripts/kepler-key.sh.in:70
 msgid ""
 "  -v, --verify              Verify the file(s) specified by the signature(s)"
 msgstr ""
 "  -v, --verify              Verificar os ficheiros indicados polas sinaturas."
 
-#: scripts/pacman-key.sh.in:71
+#: scripts/kepler-key.sh.in:71
 msgid ""
 "  --edit-key                Present a menu for key management task on keyids"
 msgstr ""
 "  --edit-key                Mostrar un menú para tarefas de xestión de "
 "chaves en\\n                            identificadores de chaves."
 
-#: scripts/pacman-key.sh.in:72
+#: scripts/kepler-key.sh.in:72
 msgid "  --import                  Imports pubring.gpg from dir(s)"
 msgstr "  --import                  Importa «pubring.gpg» dos cartafoles."
 
-#: scripts/pacman-key.sh.in:73
+#: scripts/kepler-key.sh.in:73
 msgid ""
 "  --import-trustdb          Imports ownertrust values from trustdb.gpg in "
 "dir(s)"
@@ -689,23 +689,23 @@ msgstr ""
 "  --import-trustdb          Importa os valores de confianza en propietarios"
 "\\n                            (ownertrust) de «trustdb.gpg» nos cartafoles."
 
-#: scripts/pacman-key.sh.in:74
+#: scripts/kepler-key.sh.in:74
 msgid "  --init                    Ensure the keyring is properly initialized"
 msgstr ""
 "  --init                    Asegúrase de que o chaveiro se cree "
 "correctamente."
 
-#: scripts/pacman-key.sh.in:75
+#: scripts/kepler-key.sh.in:75
 msgid "  --list-sigs               List keys and their signatures"
 msgstr "  --list-sigs               Lista chaves e mailas súas sinaturas."
 
-#: scripts/pacman-key.sh.in:76
+#: scripts/kepler-key.sh.in:76
 msgid "  --lsign-key               Locally sign the specified keyid"
 msgstr ""
 "  --lsign-key               Asina o identificador de chave indicado "
 "localmente."
 
-#: scripts/pacman-key.sh.in:77
+#: scripts/kepler-key.sh.in:77
 msgid ""
 "  --populate                Reload the default keys from the (given) keyrings"
 "\\n                            in '%s'"
@@ -713,18 +713,18 @@ msgstr ""
 "  --populate                Recargar as chaves predeterminadas dos chaveiros"
 "\\n                            indicados en «%s»."
 
-#: scripts/pacman-key.sh.in:79
+#: scripts/kepler-key.sh.in:79
 msgid ""
 "  --refresh-keys            Update specified or all keys from a keyserver"
 msgstr ""
 "  --refresh-keys            Actualizar as chaves indicadas ou todas desde un"
 "\\n                            servidor."
 
-#: scripts/pacman-key.sh.in:80
+#: scripts/kepler-key.sh.in:80
 msgid "  --verbose                 Show extra information"
 msgstr ""
 
-#: scripts/pacman-key.sh.in:83
+#: scripts/kepler-key.sh.in:83
 msgid ""
 "  --config <file>           Use an alternate config file (instead of"
 "\\n                            '%s')"
@@ -732,7 +732,7 @@ msgstr ""
 "  --config <ficheiro>       Usar un ficheiro de configuración alternativo "
 "(en vez de\\n                            «%s»)"
 
-#: scripts/pacman-key.sh.in:85
+#: scripts/kepler-key.sh.in:85
 msgid ""
 "  --gpgdir <dir>            Set an alternate directory for GnuPG (instead"
 "\\n                            of '%s')"
@@ -740,206 +740,206 @@ msgstr ""
 "  --gpgdir <cartafol>       Definir un cartafol alternativo para GnuPG (en "
 "vez\\n                            de «%s»)."
 
-#: scripts/pacman-key.sh.in:87
+#: scripts/kepler-key.sh.in:87
 msgid "  --keyserver <server-url>  Specify a keyserver to use if necessary"
 msgstr ""
 "  --keyserver <URL>         Indique o servidor de chaves a usar se fose"
 "\\n                            necesario."
 
-#: scripts/pacman-key.sh.in:89
+#: scripts/kepler-key.sh.in:89
 msgid "  -h, --help                Show this help message and exit"
 msgstr "  -h, --help                Mostrar esta mensaxe de axuda e saír."
 
-#: scripts/pacman-key.sh.in:90
+#: scripts/kepler-key.sh.in:90
 msgid "  -V, --version             Show program version"
 msgstr "  -V, --version             Mostrar a versión do programa."
 
-#: scripts/pacman-key.sh.in:132
+#: scripts/kepler-key.sh.in:132
 msgid "Failed to lookup key by name:"
 msgstr "Non foi posíbel atopar a chave polo nome:"
 
-#: scripts/pacman-key.sh.in:140
+#: scripts/kepler-key.sh.in:140
 msgid "Key name is ambiguous:"
 msgstr "O nome da chave é ambiguo."
 
-#: scripts/pacman-key.sh.in:148
-msgid "Generating pacman master key. This may take some time."
+#: scripts/kepler-key.sh.in:148
+msgid "Generating kepler master key. This may take some time."
 msgstr ""
 
-#: scripts/pacman-key.sh.in:185
+#: scripts/kepler-key.sh.in:185
 msgid "The key identified by %s could not be found locally."
 msgstr "Non se atopou ningunha clave identificada como «%s» no sistema."
 
-#: scripts/pacman-key.sh.in:196 scripts/pacman-key.sh.in:208
+#: scripts/kepler-key.sh.in:196 scripts/kepler-key.sh.in:208
 #: scripts/libmakepkg/integrity/verify_signature.sh.in:204
 msgid "_"
 msgstr ""
 
-#: scripts/pacman-key.sh.in:208
+#: scripts/kepler-key.sh.in:208
 msgid "flags"
 msgstr ""
 
-#: scripts/pacman-key.sh.in:263
+#: scripts/kepler-key.sh.in:263
 msgid "You do not have sufficient permissions to read the %s keyring."
 msgstr "Non ter permisos de lectura para o anel de chaves «%s»."
 
-#: scripts/pacman-key.sh.in:264 scripts/pacman-key.sh.in:271
+#: scripts/kepler-key.sh.in:264 scripts/kepler-key.sh.in:271
 msgid "Use '%s' to correct the keyring permissions."
 msgstr "Use «%s» para corrixir os permisos do anel de chaves."
 
-#: scripts/pacman-key.sh.in:270
+#: scripts/kepler-key.sh.in:270
 msgid "You do not have sufficient permissions to run this command."
 msgstr "Non ten permisos suficientes para executar esta orde."
 
-#: scripts/pacman-key.sh.in:278
+#: scripts/kepler-key.sh.in:278
 msgid "There is no secret key available to sign with."
 msgstr "Non hai dispoñíbel ningunha chave secreta coa que asinar."
 
-#: scripts/pacman-key.sh.in:279
+#: scripts/kepler-key.sh.in:279
 msgid "Use '%s' to generate a default secret key."
 msgstr "Use «%s» para xerar unha chave secreta predeterminada."
 
-#: scripts/pacman-key.sh.in:298
+#: scripts/kepler-key.sh.in:298
 msgid "No keyring files exist in %s."
 msgstr "En «%s» non existen ficheiros de aneis de chaves."
 
-#: scripts/pacman-key.sh.in:305
+#: scripts/kepler-key.sh.in:305
 msgid "The keyring file %s does not exist."
 msgstr "O ficheiro de anel de chaves «%s» non existe."
 
-#: scripts/pacman-key.sh.in:320
+#: scripts/kepler-key.sh.in:320
 msgid "Appending keys from %s.gpg..."
 msgstr "Engadindo as chaves de «%s.gpg»…"
 
-#: scripts/pacman-key.sh.in:360
+#: scripts/kepler-key.sh.in:360
 msgid "Locally signing trusted keys in keyring..."
 msgstr "Asinando localmente as chaves de confianza do anel…"
 
-#: scripts/pacman-key.sh.in:362
+#: scripts/kepler-key.sh.in:362
 msgid "Importing owner trust values..."
 msgstr "Importando os valores de confianza do propietario…"
 
-#: scripts/pacman-key.sh.in:372
+#: scripts/kepler-key.sh.in:372
 msgid "Disabling revoked keys in keyring..."
 msgstr "Desactivando as chaves revogadas do anel…"
 
-#: scripts/pacman-key.sh.in:375
+#: scripts/kepler-key.sh.in:375
 msgid "Disabling key %s..."
 msgstr "Desactivando a chave «%s»…"
 
-#: scripts/pacman-key.sh.in:381
+#: scripts/kepler-key.sh.in:381
 msgid "Disabled %s keys."
 msgstr ""
 
-#: scripts/pacman-key.sh.in:388
+#: scripts/kepler-key.sh.in:388
 msgid "A specified keyfile could not be added to the keyring."
 msgstr ""
 "Un dos ficheiros de anel de chaves indicado non puido engadirse ao anel de "
 "chaves."
 
-#: scripts/pacman-key.sh.in:396
+#: scripts/kepler-key.sh.in:396
 msgid "A specified key could not be removed from the keyring."
 msgstr "Unha das chaves indicadas non puido eliminarse do anel."
 
-#: scripts/pacman-key.sh.in:406
+#: scripts/kepler-key.sh.in:406
 msgid "The key identified by %s could not be edited."
 msgstr "Non foi posíbel editar a chave con identificador «%s»."
 
-#: scripts/pacman-key.sh.in:418
+#: scripts/kepler-key.sh.in:418
 msgid "A specified key could not be exported from the keyring."
 msgstr "Non foi posíbel exportar desde o anel unha das chaves indicadas."
 
-#: scripts/pacman-key.sh.in:426
+#: scripts/kepler-key.sh.in:426
 msgid "The fingerprint of a specified key could not be determined."
 msgstr ""
 "Non foi posíbel determinar a pegada dixital dunha das chaves indicadas."
 
-#: scripts/pacman-key.sh.in:439 scripts/pacman-key.sh.in:458
+#: scripts/kepler-key.sh.in:439 scripts/kepler-key.sh.in:458
 msgid "%s could not be imported."
 msgstr "Non foi posíbel importar «%s»."
 
-#: scripts/pacman-key.sh.in:443 scripts/pacman-key.sh.in:462
+#: scripts/kepler-key.sh.in:443 scripts/kepler-key.sh.in:462
 msgid "File %s does not exist and could not be imported."
 msgstr "O ficheiro «%s» non existe. Non foi posíbel importalo."
 
-#: scripts/pacman-key.sh.in:474
+#: scripts/kepler-key.sh.in:474
 msgid "A specified key could not be listed."
 msgstr "Non foi posíbel listar unha das chaves indicadas."
 
-#: scripts/pacman-key.sh.in:482
+#: scripts/kepler-key.sh.in:482
 msgid "A specified signature could not be listed."
 msgstr "Non foi posíbel listar unha das sinaturas indicadas."
 
-#: scripts/pacman-key.sh.in:494
+#: scripts/kepler-key.sh.in:494
 msgid "Locally signing key %s..."
 msgstr "Asinando a chave «%s» localmente…"
 
-#: scripts/pacman-key.sh.in:499
+#: scripts/kepler-key.sh.in:499
 msgid "%s could not be locally signed."
 msgstr "Non foi posíbel asinar «%s» localmente."
 
-#: scripts/pacman-key.sh.in:509
+#: scripts/kepler-key.sh.in:509
 msgid "Locally signed %s keys."
 msgstr ""
 
-#: scripts/pacman-key.sh.in:532
+#: scripts/kepler-key.sh.in:532
 msgid "Remote key not fetched correctly from WKD or keyserver."
 msgstr ""
 
-#: scripts/pacman-key.sh.in:537
+#: scripts/kepler-key.sh.in:537
 msgid "Remote key not fetched correctly from keyserver."
 msgstr "Non foi posíbel obter a chave remota correctamente do servidor."
 
-#: scripts/pacman-key.sh.in:569
+#: scripts/kepler-key.sh.in:569
 msgid "Could not update key: %s"
 msgstr ""
 
-#: scripts/pacman-key.sh.in:590 scripts/repo-add.sh.in:265
+#: scripts/kepler-key.sh.in:590 scripts/repo-add.sh.in:265
 msgid "Cannot use armored signatures for packages: %s"
 msgstr "Non poden usarse sinaturas protexidas para paquetes: %s"
 
-#: scripts/pacman-key.sh.in:594
+#: scripts/kepler-key.sh.in:594
 msgid "The signature identified by %s could not be verified."
 msgstr "Non foi posíbel verificar a sinatura identificada como «%s»."
 
-#: scripts/pacman-key.sh.in:601
+#: scripts/kepler-key.sh.in:601
 msgid "Updating trust database..."
 msgstr "Actualizando a base de datos de confianza…"
 
-#: scripts/pacman-key.sh.in:603
+#: scripts/kepler-key.sh.in:603
 msgid "Trust database could not be updated."
 msgstr "Non foi posíbel actualizar a base de datos de confianza."
 
-#: scripts/pacman-key.sh.in:671
+#: scripts/kepler-key.sh.in:671
 msgid "Cannot find the %s binary required for all %s operations."
 msgstr ""
 "Non foi posíbel atopar o executábel «%s», necesario para todas as operacións "
 "de «%s»."
 
-#: scripts/pacman-key.sh.in:676
+#: scripts/kepler-key.sh.in:676
 msgid "%s needs to be run as root for this operation."
 msgstr ""
 "Para realizar esta operación, ten que executar «%s» como administrador "
 "(root)."
 
-#: scripts/pacman-key.sh.in:682
+#: scripts/kepler-key.sh.in:682
 msgid "%s configuration file '%s' not found."
 msgstr "%s non se atopou o ficheiro de configuración «%s»."
 
-#: scripts/pacman-key.sh.in:703
+#: scripts/kepler-key.sh.in:703
 msgid "no operation specified (use -h for help)"
 msgstr ""
 "non indicou ningunha operación. Use o parámetro «-h» para máis información."
 
-#: scripts/pacman-key.sh.in:708
+#: scripts/kepler-key.sh.in:708
 msgid "Multiple operations specified."
 msgstr "Indicou máis dunha operación."
 
-#: scripts/pacman-key.sh.in:709
+#: scripts/kepler-key.sh.in:709
 msgid "Please run %s with each operation separately."
 msgstr "Execute «%s» con cada unha das operacións por separado."
 
-#: scripts/pacman-key.sh.in:717
+#: scripts/kepler-key.sh.in:717
 msgid "No targets specified"
 msgstr "Non indicou ningún argumento."
 
@@ -1029,9 +1029,9 @@ msgstr "\\nVéxase %s(8) para máis información sobre as opcións dispoñíbeis
 
 #: scripts/repo-add.sh.in:90
 msgid ""
-"Example:  repo-add /path/to/repo.db.tar.gz pacman-3.0.0-1-i686.pkg.tar.gz\\n"
+"Example:  repo-add /path/to/repo.db.tar.gz kepler-3.0.0-1-i686.pkg.tar.gz\\n"
 msgstr ""
-"Exemplo:  repo-add /ruta/a/repo.db.tar.gz pacman-3.0.0-1-i686.pkg.tar.gz\\n"
+"Exemplo:  repo-add /ruta/a/repo.db.tar.gz kepler-3.0.0-1-i686.pkg.tar.gz\\n"
 
 #: scripts/repo-add.sh.in:92
 msgid "Example:  repo-remove /path/to/repo.db.tar.gz kernel26\\n"
@@ -1118,9 +1118,9 @@ msgid "Held by process %s"
 msgstr "O proceso «%s» está a usala."
 
 #: scripts/repo-add.sh.in:414
-msgid "Repository file '%s' is not a proper pacman database."
+msgid "Repository file '%s' is not a proper kepler database."
 msgstr ""
-"O ficheiro de repositorio «%s» non é unha base de datos de Pacman válida."
+"O ficheiro de repositorio «%s» non é unha base de datos de Kepler válida."
 
 #: scripts/repo-add.sh.in:419
 msgid "Extracting %s to a temporary location..."

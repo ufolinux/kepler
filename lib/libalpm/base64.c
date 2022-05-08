@@ -22,7 +22,7 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 /*
- *  Pacman Notes:
+ *  Kepler Notes:
  *
  *  Taken from the PolarSSL project at www.polarssl.org under terms of the
  *  GPL. This is from version 0.14.2 of the library, and has been modified

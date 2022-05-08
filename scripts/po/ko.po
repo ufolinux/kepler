@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR "Pacman Development Team <pacman-dev@archlinux.org>"
-# This file is distributed under the same license as the pacman-scripts package.
+# Copyright (C) YEAR "Kepler Development Team <kepler-dev@archlinux.org>"
+# This file is distributed under the same license as the kepler-scripts package.
 #
 # Translators:
 # Seong-ho Cho <darkcircle.0426@gmail.com>, 2013
@@ -16,12 +16,12 @@
 # Thomas Sungjin Kang <potopro@gmail.com>, 2013
 msgid ""
 msgstr ""
-"Project-Id-Version: Arch Linux Pacman package manager\n"
+"Project-Id-Version: Arch Linux Kepler package manager\n"
 "Report-Msgid-Bugs-To: http://bugs.archlinux.org/index.php?project=3\n"
 "POT-Creation-Date: 2021-09-04 16:15+1000\n"
 "PO-Revision-Date: 2021-04-23 00:41+0000\n"
 "Last-Translator: Allan McRae <allan@archlinux.org>\n"
-"Language-Team: Korean (http://www.transifex.com/toofishes/archlinux-pacman/"
+"Language-Team: Korean (http://www.transifex.com/toofishes/archlinux-kepler/"
 "language/ko/)\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
@@ -90,7 +90,7 @@ msgid "Aborting..."
 msgstr "중지하는 중..."
 
 #: scripts/makepkg.sh.in:248
-msgid "Pacman is currently in use, please wait..."
+msgid "Kepler is currently in use, please wait..."
 msgstr "팩맨이 현재 사용 중입니다. 기다려 주세요..."
 
 #: scripts/makepkg.sh.in:269
@@ -225,14 +225,14 @@ msgstr ""
 "꾸러미 그룹 일부를 이미 빌드했습니다(덮어 쓰려면 %s 옵션을 사용하십시오)."
 
 #: scripts/makepkg.sh.in:964
-msgid "Make packages compatible for use with pacman"
-msgstr "Pacman 사용과 호환되는 꾸러미를 만듭니다."
+msgid "Make packages compatible for use with kepler"
+msgstr "Kepler 사용과 호환되는 꾸러미를 만듭니다."
 
-#: scripts/makepkg.sh.in:966 scripts/pacman-db-upgrade.sh.in:41
+#: scripts/makepkg.sh.in:966 scripts/kepler-db-upgrade.sh.in:41
 msgid "Usage: %s [options]"
 msgstr "사용법: %s  <옵션>"
 
-#: scripts/makepkg.sh.in:968 scripts/pacman-key.sh.in:82
+#: scripts/makepkg.sh.in:968 scripts/kepler-key.sh.in:82
 msgid "Options:"
 msgstr "옵션:"
 
@@ -412,8 +412,8 @@ msgstr ""
 msgid "If %s is not specified, %s will look for '%s'"
 msgstr "%s를 지정하지 않으면, %s는 %s를 찾습니다"
 
-#: scripts/makepkg.sh.in:1020 scripts/pacman-db-upgrade.sh.in:57
-#: scripts/pacman-key.sh.in:97 scripts/repo-add.sh.in:101
+#: scripts/makepkg.sh.in:1020 scripts/kepler-db-upgrade.sh.in:57
+#: scripts/kepler-key.sh.in:97 scripts/repo-add.sh.in:101
 msgid ""
 "This is free software; see the source for copying conditions.\\nThere is NO "
 "WARRANTY, to the extent permitted by law.\\n"
@@ -513,130 +513,130 @@ msgstr "꾸러미 디렉터리가 준비되었습니다."
 msgid "Finished making: %s"
 msgstr "만들기 완료: %s"
 
-#: scripts/pacman-db-upgrade.sh.in:39
-msgid "Upgrade the local pacman database to a newer format"
-msgstr "가지고 있는 pacman 데이터베이스를 새로운 형식으로 업그레이드합니다"
+#: scripts/kepler-db-upgrade.sh.in:39
+msgid "Upgrade the local kepler database to a newer format"
+msgstr "가지고 있는 kepler 데이터베이스를 새로운 형식으로 업그레이드합니다"
 
-#: scripts/pacman-db-upgrade.sh.in:43
+#: scripts/kepler-db-upgrade.sh.in:43
 msgid "options:"
 msgstr "옵션:"
 
-#: scripts/pacman-db-upgrade.sh.in:44
+#: scripts/kepler-db-upgrade.sh.in:44
 msgid "  -d, --dbpath <path>  set an alternate database location"
 msgstr "  -d, --dbpath <path>  대체 데이터베이스 경로를 설정합니다"
 
-#: scripts/pacman-db-upgrade.sh.in:45
+#: scripts/kepler-db-upgrade.sh.in:45
 msgid "  -h, --help           show this help message and exit"
 msgstr "  -h, --help           이 도움말 메시지를 보이고 나갑니다"
 
-#: scripts/pacman-db-upgrade.sh.in:46
+#: scripts/kepler-db-upgrade.sh.in:46
 msgid "  -r, --root <path>    set an alternate installation root"
 msgstr "  -r, --root <path>    대체 설치 최상위 경로를 설정합니다"
 
-#: scripts/pacman-db-upgrade.sh.in:47
+#: scripts/kepler-db-upgrade.sh.in:47
 msgid "  -V, --version        show version information and exit"
 msgstr "  -V, --version        버전 정보를 보이고 나갑니다"
 
-#: scripts/pacman-db-upgrade.sh.in:48
+#: scripts/kepler-db-upgrade.sh.in:48
 msgid "  --config <path>      set an alternate configuration file"
 msgstr "  --config <path>      대체 구성 파일을 설정합니다"
 
-#: scripts/pacman-db-upgrade.sh.in:49
+#: scripts/kepler-db-upgrade.sh.in:49
 msgid "  --nocolor            disable colorized output messages"
 msgstr "  --nocolor            출력 메시지의 색 구분 기능을 끕니다"
 
-#: scripts/pacman-db-upgrade.sh.in:122 scripts/repo-add.sh.in:392
+#: scripts/kepler-db-upgrade.sh.in:122 scripts/repo-add.sh.in:392
 msgid "%s does not exist or is not a directory."
 msgstr "%s가 존재하지 않거나 디렉터리가 아닙니다."
 
-#: scripts/pacman-db-upgrade.sh.in:126
-msgid "%s is not a pacman database directory."
-msgstr "%s는 pacman 데이터베이스 디렉터리가 아닙니다."
+#: scripts/kepler-db-upgrade.sh.in:126
+msgid "%s is not a kepler database directory."
+msgstr "%s는 kepler 데이터베이스 디렉터리가 아닙니다."
 
-#: scripts/pacman-db-upgrade.sh.in:130
+#: scripts/kepler-db-upgrade.sh.in:130
 msgid "You must have correct permissions to upgrade the database."
 msgstr "데이터베이스를 업그레이드하려면 권한을 올바르게 고쳐야 합니다."
 
-#: scripts/pacman-db-upgrade.sh.in:140
-msgid "Pacman lock file was found. Cannot run while pacman is running."
+#: scripts/kepler-db-upgrade.sh.in:140
+msgid "Kepler lock file was found. Cannot run while kepler is running."
 msgstr ""
-"pacman 잠금 파일이 있습니다. pacman이 실행중인 동안에는 실행할 수 없습니다."
+"kepler 잠금 파일이 있습니다. kepler이 실행중인 동안에는 실행할 수 없습니다."
 
-#: scripts/pacman-db-upgrade.sh.in:152
+#: scripts/kepler-db-upgrade.sh.in:152
 msgid "Pre-3.5 database format detected - upgrading..."
 msgstr "3.5 이전 데이터베이스 형식을 찾았습니다 - 업그레이드 중..."
 
-#: scripts/pacman-db-upgrade.sh.in:159
+#: scripts/kepler-db-upgrade.sh.in:159
 msgid "Done."
 msgstr "완료했습니다."
 
-#: scripts/pacman-db-upgrade.sh.in:163
+#: scripts/kepler-db-upgrade.sh.in:163
 msgid "Pre-4.2 database format detected - upgrading..."
 msgstr "4.2 이전 데이터베이스 형식을 감지했습니다 - 업그레이드 중..."
 
-#: scripts/pacman-db-upgrade.sh.in:185
-msgid "symlink '%s' points outside pacman root, manual repair required"
+#: scripts/kepler-db-upgrade.sh.in:185
+msgid "symlink '%s' points outside kepler root, manual repair required"
 msgstr ""
-"심볼릭 연결 '%s'가 pacman 최상위 디렉터리 바깥을 가리킵니다. 수동 조치 필요"
+"심볼릭 연결 '%s'가 kepler 최상위 디렉터리 바깥을 가리킵니다. 수동 조치 필요"
 
-#: scripts/pacman-key.sh.in:58
+#: scripts/kepler-key.sh.in:58
 msgid "Usage: %s [options] operation [targets]"
 msgstr "사용법: %s <옵션> <동작> <대상>"
 
-#: scripts/pacman-key.sh.in:60
-msgid "Manage pacman's list of trusted keys"
-msgstr "Pacman의 신뢰하는 키 목록을 관리합니다"
+#: scripts/kepler-key.sh.in:60
+msgid "Manage kepler's list of trusted keys"
+msgstr "Kepler의 신뢰하는 키 목록을 관리합니다"
 
-#: scripts/pacman-key.sh.in:62
+#: scripts/kepler-key.sh.in:62
 msgid "Operations:"
 msgstr "동작:"
 
-#: scripts/pacman-key.sh.in:63
+#: scripts/kepler-key.sh.in:63
 msgid "  -a, --add                 Add the specified keys (empty for stdin)"
 msgstr "  -a, --add                 지정한 키를 추가합니다(빈 값은 표준 입력)"
 
-#: scripts/pacman-key.sh.in:64
+#: scripts/kepler-key.sh.in:64
 msgid "  -d, --delete              Remove the specified keyids"
 msgstr "  -d, --delete              지정한 키 ID를 제거합니다"
 
-#: scripts/pacman-key.sh.in:65
+#: scripts/kepler-key.sh.in:65
 msgid "  -e, --export              Export the specified or all keyids"
 msgstr "  -e, --export              지정한 또는 모든 키 ID를 내보냅니다"
 
-#: scripts/pacman-key.sh.in:66
+#: scripts/kepler-key.sh.in:66
 msgid ""
 "  -f, --finger              List fingerprint for specified or all keyids"
 msgstr ""
 "  -f, --finger              지정한 또는 모든 키 ID에 대한 지문키를 출력합니다"
 
-#: scripts/pacman-key.sh.in:67
+#: scripts/kepler-key.sh.in:67
 msgid "  -l, --list-keys           List the specified or all keys"
 msgstr "  -l, --list-keys           지정한 또는 모든 키를 조회합니다"
 
-#: scripts/pacman-key.sh.in:68
+#: scripts/kepler-key.sh.in:68
 msgid "  -r, --recv-keys           Fetch the specified keyids"
 msgstr "  -r, --recv-keys           지정한 키 ID를 가져옵니다"
 
-#: scripts/pacman-key.sh.in:69
-msgid "  -u, --updatedb            Update the trustdb of pacman"
-msgstr "  -u, --updatedb            pacman의 trustdb를 업데이트합니다"
+#: scripts/kepler-key.sh.in:69
+msgid "  -u, --updatedb            Update the trustdb of kepler"
+msgstr "  -u, --updatedb            kepler의 trustdb를 업데이트합니다"
 
-#: scripts/pacman-key.sh.in:70
+#: scripts/kepler-key.sh.in:70
 msgid ""
 "  -v, --verify              Verify the file(s) specified by the signature(s)"
 msgstr "  -v, --verify              지정한 파일을 서명으로 검증합니다"
 
-#: scripts/pacman-key.sh.in:71
+#: scripts/kepler-key.sh.in:71
 msgid ""
 "  --edit-key                Present a menu for key management task on keyids"
 msgstr ""
 "  --edit-key                키 ID에 대한 키 관리 작업 메뉴를 나타냅니다"
 
-#: scripts/pacman-key.sh.in:72
+#: scripts/kepler-key.sh.in:72
 msgid "  --import                  Imports pubring.gpg from dir(s)"
 msgstr "  --import                  디렉터리에서 pubring.gpg를 가져옵니다"
 
-#: scripts/pacman-key.sh.in:73
+#: scripts/kepler-key.sh.in:73
 msgid ""
 "  --import-trustdb          Imports ownertrust values from trustdb.gpg in "
 "dir(s)"
@@ -644,20 +644,20 @@ msgstr ""
 "  --import-trustdb          디렉터리의 trustdb.gpg에서 소유자 신뢰 값을 가져"
 "옵니다"
 
-#: scripts/pacman-key.sh.in:74
+#: scripts/kepler-key.sh.in:74
 msgid "  --init                    Ensure the keyring is properly initialized"
 msgstr ""
 "  --init                    키 모음이 제대로 초기화 되었는지 확인합니다"
 
-#: scripts/pacman-key.sh.in:75
+#: scripts/kepler-key.sh.in:75
 msgid "  --list-sigs               List keys and their signatures"
 msgstr "  --list-sigs               키와 서명을 목록으로 표시합니다"
 
-#: scripts/pacman-key.sh.in:76
+#: scripts/kepler-key.sh.in:76
 msgid "  --lsign-key               Locally sign the specified keyid"
 msgstr "  --lsign-key               지정한 키 ID로 로컬 서명합니다"
 
-#: scripts/pacman-key.sh.in:77
+#: scripts/kepler-key.sh.in:77
 msgid ""
 "  --populate                Reload the default keys from the (given) keyrings"
 "\\n                            in '%s'"
@@ -665,23 +665,23 @@ msgstr ""
 "  --populate                '%s'의(주어진) 키 모음에서 기본값을 다시 불러옵니"
 "다"
 
-#: scripts/pacman-key.sh.in:79
+#: scripts/kepler-key.sh.in:79
 msgid ""
 "  --refresh-keys            Update specified or all keys from a keyserver"
 msgstr ""
 "  --refresh-keys            키 서버에서 지정한 또는 모든 키를 업데이트합니다"
 
-#: scripts/pacman-key.sh.in:80
+#: scripts/kepler-key.sh.in:80
 msgid "  --verbose                 Show extra information"
 msgstr ""
 
-#: scripts/pacman-key.sh.in:83
+#: scripts/kepler-key.sh.in:83
 msgid ""
 "  --config <file>           Use an alternate config file (instead of"
 "\\n                            '%s')"
 msgstr "  --config <파일>           ('%s' 대신) 지정한 설정 파일을 사용합니다"
 
-#: scripts/pacman-key.sh.in:85
+#: scripts/kepler-key.sh.in:85
 msgid ""
 "  --gpgdir <dir>            Set an alternate directory for GnuPG (instead"
 "\\n                            of '%s')"
@@ -689,196 +689,196 @@ msgstr ""
 "  --gpgdir <디렉터리>            ('%s' 대신) GnuPG에서 사용할 대체 디렉터리를"
 "\\n                            설정합니다."
 
-#: scripts/pacman-key.sh.in:87
+#: scripts/kepler-key.sh.in:87
 msgid "  --keyserver <server-url>  Specify a keyserver to use if necessary"
 msgstr "  --keyserver <서버 URL 주소>  필요한 경우 사용할 키 서버를 지정합니다"
 
-#: scripts/pacman-key.sh.in:89
+#: scripts/kepler-key.sh.in:89
 msgid "  -h, --help                Show this help message and exit"
 msgstr "  -h, --help                이 도움말 메시지를 표시하고 나갑니다"
 
-#: scripts/pacman-key.sh.in:90
+#: scripts/kepler-key.sh.in:90
 msgid "  -V, --version             Show program version"
 msgstr "  -V, --version             프로그램 버전을 표시합니다"
 
-#: scripts/pacman-key.sh.in:132
+#: scripts/kepler-key.sh.in:132
 msgid "Failed to lookup key by name:"
 msgstr "이름으로 키를 찾는데 실패했습니다:"
 
-#: scripts/pacman-key.sh.in:140
+#: scripts/kepler-key.sh.in:140
 msgid "Key name is ambiguous:"
 msgstr "키 이름이 애매모호합니다:"
 
-#: scripts/pacman-key.sh.in:148
-msgid "Generating pacman master key. This may take some time."
+#: scripts/kepler-key.sh.in:148
+msgid "Generating kepler master key. This may take some time."
 msgstr ""
 
-#: scripts/pacman-key.sh.in:185
+#: scripts/kepler-key.sh.in:185
 msgid "The key identified by %s could not be found locally."
 msgstr "%s로 식별되는 키를 로컬에서 찾을 수 없습니다."
 
-#: scripts/pacman-key.sh.in:196 scripts/pacman-key.sh.in:208
+#: scripts/kepler-key.sh.in:196 scripts/kepler-key.sh.in:208
 #: scripts/libmakepkg/integrity/verify_signature.sh.in:204
 msgid "_"
 msgstr ""
 
-#: scripts/pacman-key.sh.in:208
+#: scripts/kepler-key.sh.in:208
 msgid "flags"
 msgstr ""
 
-#: scripts/pacman-key.sh.in:263
+#: scripts/kepler-key.sh.in:263
 msgid "You do not have sufficient permissions to read the %s keyring."
 msgstr "%s 키 모음을 읽을 충분한 권한이 없습니다."
 
-#: scripts/pacman-key.sh.in:264 scripts/pacman-key.sh.in:271
+#: scripts/kepler-key.sh.in:264 scripts/kepler-key.sh.in:271
 msgid "Use '%s' to correct the keyring permissions."
 msgstr "키 모음 권한을 바로 잡으려면 '%s' 옵션을 사용하십시오."
 
-#: scripts/pacman-key.sh.in:270
+#: scripts/kepler-key.sh.in:270
 msgid "You do not have sufficient permissions to run this command."
 msgstr "이 명령을 실행하는데 충분한 권한이 없습니다."
 
-#: scripts/pacman-key.sh.in:278
+#: scripts/kepler-key.sh.in:278
 msgid "There is no secret key available to sign with."
 msgstr "서명할 수 있는 비밀 키가 없습니다."
 
-#: scripts/pacman-key.sh.in:279
+#: scripts/kepler-key.sh.in:279
 msgid "Use '%s' to generate a default secret key."
 msgstr "기본 서명키를 만들려면 '%s'를 사용하십시오."
 
-#: scripts/pacman-key.sh.in:298
+#: scripts/kepler-key.sh.in:298
 msgid "No keyring files exist in %s."
 msgstr "%s에 키 모음 파일이 없습니다."
 
-#: scripts/pacman-key.sh.in:305
+#: scripts/kepler-key.sh.in:305
 msgid "The keyring file %s does not exist."
 msgstr "%s 키 모음 파일이 없습니다."
 
-#: scripts/pacman-key.sh.in:320
+#: scripts/kepler-key.sh.in:320
 msgid "Appending keys from %s.gpg..."
 msgstr "%s.gpg에서 키 덧붙이는 중..."
 
-#: scripts/pacman-key.sh.in:360
+#: scripts/kepler-key.sh.in:360
 msgid "Locally signing trusted keys in keyring..."
 msgstr "키 모음에 있는 신뢰하는 키를 자체적으로 서명하는 중..."
 
-#: scripts/pacman-key.sh.in:362
+#: scripts/kepler-key.sh.in:362
 msgid "Importing owner trust values..."
 msgstr "소유자 신뢰 값 가져오는 중..."
 
-#: scripts/pacman-key.sh.in:372
+#: scripts/kepler-key.sh.in:372
 msgid "Disabling revoked keys in keyring..."
 msgstr "키 모음에 있는 폐기된 키들을 비활성화하는 중..."
 
-#: scripts/pacman-key.sh.in:375
+#: scripts/kepler-key.sh.in:375
 msgid "Disabling key %s..."
 msgstr "키 %s 비활성화하는 중..."
 
-#: scripts/pacman-key.sh.in:381
+#: scripts/kepler-key.sh.in:381
 msgid "Disabled %s keys."
 msgstr ""
 
-#: scripts/pacman-key.sh.in:388
+#: scripts/kepler-key.sh.in:388
 msgid "A specified keyfile could not be added to the keyring."
 msgstr "지정한 키 파일을 키 모음에 추가할 수 없습니다."
 
-#: scripts/pacman-key.sh.in:396
+#: scripts/kepler-key.sh.in:396
 msgid "A specified key could not be removed from the keyring."
 msgstr "키 모음에서 지정한 키를 제거할 수 없습니다."
 
-#: scripts/pacman-key.sh.in:406
+#: scripts/kepler-key.sh.in:406
 msgid "The key identified by %s could not be edited."
 msgstr "%s가 식별한 키를 편집할 수 없습니다."
 
-#: scripts/pacman-key.sh.in:418
+#: scripts/kepler-key.sh.in:418
 msgid "A specified key could not be exported from the keyring."
 msgstr "키 모음에서 지정한 키를 내보낼 수 없습니다."
 
-#: scripts/pacman-key.sh.in:426
+#: scripts/kepler-key.sh.in:426
 msgid "The fingerprint of a specified key could not be determined."
 msgstr "지정한 키의 지문 키를 결정할 수 없습니다."
 
-#: scripts/pacman-key.sh.in:439 scripts/pacman-key.sh.in:458
+#: scripts/kepler-key.sh.in:439 scripts/kepler-key.sh.in:458
 msgid "%s could not be imported."
 msgstr "%s를 가져올 수 없습니다."
 
-#: scripts/pacman-key.sh.in:443 scripts/pacman-key.sh.in:462
+#: scripts/kepler-key.sh.in:443 scripts/kepler-key.sh.in:462
 msgid "File %s does not exist and could not be imported."
 msgstr "%s 파일이 없어 가져올 수 없습니다."
 
-#: scripts/pacman-key.sh.in:474
+#: scripts/kepler-key.sh.in:474
 msgid "A specified key could not be listed."
 msgstr "지정한 키를 목록에 표시할 수 없습니다."
 
-#: scripts/pacman-key.sh.in:482
+#: scripts/kepler-key.sh.in:482
 msgid "A specified signature could not be listed."
 msgstr "지정한 서명을 목록에 표시할 수 없습니다."
 
-#: scripts/pacman-key.sh.in:494
+#: scripts/kepler-key.sh.in:494
 msgid "Locally signing key %s..."
 msgstr "키 %s로 로컬 서명중..."
 
-#: scripts/pacman-key.sh.in:499
+#: scripts/kepler-key.sh.in:499
 msgid "%s could not be locally signed."
 msgstr "%s를 자체적으로 서명할 수 없습니다."
 
-#: scripts/pacman-key.sh.in:509
+#: scripts/kepler-key.sh.in:509
 msgid "Locally signed %s keys."
 msgstr ""
 
-#: scripts/pacman-key.sh.in:532
+#: scripts/kepler-key.sh.in:532
 msgid "Remote key not fetched correctly from WKD or keyserver."
 msgstr "원격 키를 WKD나 키 서버에서 올바르게 가져올 수 없습니다."
 
-#: scripts/pacman-key.sh.in:537
+#: scripts/kepler-key.sh.in:537
 msgid "Remote key not fetched correctly from keyserver."
 msgstr "원격 키를 키 서버에서 올바르게 가져올 수 없습니다."
 
-#: scripts/pacman-key.sh.in:569
+#: scripts/kepler-key.sh.in:569
 msgid "Could not update key: %s"
 msgstr ""
 
-#: scripts/pacman-key.sh.in:590 scripts/repo-add.sh.in:265
+#: scripts/kepler-key.sh.in:590 scripts/repo-add.sh.in:265
 msgid "Cannot use armored signatures for packages: %s"
 msgstr "꾸러미들에 외장 서명을 사용할 수 없습니다: %s"
 
-#: scripts/pacman-key.sh.in:594
+#: scripts/kepler-key.sh.in:594
 msgid "The signature identified by %s could not be verified."
 msgstr "%s가 식별한 서명을 검증할 수 없습니다."
 
-#: scripts/pacman-key.sh.in:601
+#: scripts/kepler-key.sh.in:601
 msgid "Updating trust database..."
 msgstr "신뢰 데이터베이스 업그레이드 중..."
 
-#: scripts/pacman-key.sh.in:603
+#: scripts/kepler-key.sh.in:603
 msgid "Trust database could not be updated."
 msgstr "신뢰 데이터베이스를 업데이트할 수 없습니다."
 
-#: scripts/pacman-key.sh.in:671
+#: scripts/kepler-key.sh.in:671
 msgid "Cannot find the %s binary required for all %s operations."
 msgstr "%s 바이너리를 찾을 수 없습니다. 모든 %s 동작에 필요합니다."
 
-#: scripts/pacman-key.sh.in:676
+#: scripts/kepler-key.sh.in:676
 msgid "%s needs to be run as root for this operation."
 msgstr "%s의 동작을 루트 권한으로 실행해야 합니다."
 
-#: scripts/pacman-key.sh.in:682
+#: scripts/kepler-key.sh.in:682
 msgid "%s configuration file '%s' not found."
 msgstr "%s 설정 파일 '%s'가 없습니다."
 
-#: scripts/pacman-key.sh.in:703
+#: scripts/kepler-key.sh.in:703
 msgid "no operation specified (use -h for help)"
 msgstr "동작을 지정하지 않았습니다(도움말을 보시려면 -h를 사용하십시오)"
 
-#: scripts/pacman-key.sh.in:708
+#: scripts/kepler-key.sh.in:708
 msgid "Multiple operations specified."
 msgstr "여러 동작을 지정했습니다."
 
-#: scripts/pacman-key.sh.in:709
+#: scripts/kepler-key.sh.in:709
 msgid "Please run %s with each operation separately."
 msgstr "각각의 동작을 따로따로 지정하여 %s를 실행하십시오."
 
-#: scripts/pacman-key.sh.in:717
+#: scripts/kepler-key.sh.in:717
 msgid "No targets specified"
 msgstr "대상을 지정하지 않았습니다"
 
@@ -967,9 +967,9 @@ msgstr ""
 
 #: scripts/repo-add.sh.in:90
 msgid ""
-"Example:  repo-add /path/to/repo.db.tar.gz pacman-3.0.0-1-i686.pkg.tar.gz\\n"
+"Example:  repo-add /path/to/repo.db.tar.gz kepler-3.0.0-1-i686.pkg.tar.gz\\n"
 msgstr ""
-"예시:  repo-add /path/to/repo.db.tar.gz pacman-3.0.0-1-i686.pkg.tar.gz\\n"
+"예시:  repo-add /path/to/repo.db.tar.gz kepler-3.0.0-1-i686.pkg.tar.gz\\n"
 
 #: scripts/repo-add.sh.in:92
 msgid "Example:  repo-remove /path/to/repo.db.tar.gz kernel26\\n"
@@ -1056,8 +1056,8 @@ msgid "Held by process %s"
 msgstr "%s 프로세스가 유지중입니다"
 
 #: scripts/repo-add.sh.in:414
-msgid "Repository file '%s' is not a proper pacman database."
-msgstr "'%s' 저장소 파일은 적당한 pacman 데이터베이스가 아닙니다."
+msgid "Repository file '%s' is not a proper kepler database."
+msgstr "'%s' 저장소 파일은 적당한 kepler 데이터베이스가 아닙니다."
 
 #: scripts/repo-add.sh.in:419
 msgid "Extracting %s to a temporary location..."

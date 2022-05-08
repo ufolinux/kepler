@@ -1,8 +1,8 @@
 /*
- *  vercmp.c - Compare package version numbers using pacman's version
+ *  vercmp.c - Compare package version numbers using kepler's version
  *      comparison logic
  *
- *  Copyright (c) 2006-2022 Pacman Development Team <pacman-dev@lists.archlinux.org>
+ *  Copyright (c) 2006-2022 Kepler Development Team <kepler-dev@lists.archlinux.org>
  *  Copyright (c) 2002-2005 by Judd Vinet <jvinet@zeroflux.org>
  *
  *  This program is free software; you can redistribute it and/or modify
@@ -29,8 +29,8 @@ int alpm_pkg_vercmp(const char *a, const char *b);
 
 static void usage(void)
 {
-	fprintf(stderr, "vercmp (pacman) v" PACKAGE_VERSION "\n\n"
-		"Compare package version numbers using pacman's version comparison logic.\n\n"
+	fprintf(stderr, "vercmp (kepler) v" PACKAGE_VERSION "\n\n"
+		"Compare package version numbers using kepler's version comparison logic.\n\n"
 		"Usage: vercmp <ver1> <ver2>\n\n"
 		"Output values:\n"
 		"  < 0 : if ver1 < ver2\n"

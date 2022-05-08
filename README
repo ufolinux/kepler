@@ -16,7 +16,7 @@ In addition to "alpm.h", the interfaces of "alpm_list.h" have also been made
 available to the frontend, for allowing it to manipulate the lists returned by
 the backend.
 
-Several structures and functions have been renamed compared to pacman 2.9 code.
+Several structures and functions have been renamed compared to kepler 2.9 code.
 This was done at first for the sake of naming scheme consistency, and then
 primarily because of potential namespace conflicts between library and frontend
 spaces. Indeed, it is not possible to have two different functions with the
@@ -61,7 +61,7 @@ library is initialized.
 * default_siglevel: Default signature verification level.
 * local_file_siglevel: Signature verification level for local file upgrades.
 * remote_file_siglevel: Signature verification level for remote file upgrades.
-* logfile: The base path to pacman's log file (Default: /var/log/pacman.log)
+* logfile: The base path to kepler's log file (Default: /var/log/kepler.log)
 * usesyslog: Log to syslog instead of `logfile` for file-base logging.
 
 The following options also have `alpm_option_{add,remove}_*` functions, as the
@@ -69,15 +69,15 @@ values are list structures.
 NOTE: The add and remove functions are NOT plural, as they are in English:
 alpm_option_{get,set}_noupgrades -> alpm_option_{add,remove}_noupgrade.
 
-* cachedirs: Paths to pacman's download caches (Default: /var/cache/pacman/pkg)
-* noupgrades: Files which will never be touched by pacman (extracted as .pacnew)
+* cachedirs: Paths to kepler's download caches (Default: /var/cache/kepler/pkg)
+* noupgrades: Files which will never be touched by kepler (extracted as .pacnew)
 * noextracts: Files which will never be extracted at all (no .pacnew file)
 * ignorepkgs: Packages to ignore when upgrading.
 * ignoregrps: Groups to ignore when upgrading.
 
 The following options are read-only, having ONLY alpm_option_get_* functions:
 
-* root: The root directory for pacman to install to
+* root: The root directory for kepler to install to
 * dbpath: The toplevel database directory
 * lockfile: The file used for locking the database (Default: <dbpath>/db.lck)
 
@@ -165,7 +165,7 @@ See the proper man pages for alpm_list_t references.
 
 
 
-PACMAN frontend overview & internals
+KEPLER frontend overview & internals
 ====================================
 
 Here are some words about the frontend responsibilities.
@@ -176,23 +176,23 @@ High level features are left to the frontend ;)
 
 For instance, during a sysupgrade, the library returns the whole list of
 packages to be upgraded, without any care for its content.
-The frontend can inspect the list and perhaps notice that "pacman"
+The frontend can inspect the list and perhaps notice that "kepler"
 itself has to be upgraded. In such a case, the frontend can choose to
 perform a special action.
 
 
-[MAIN] (see pacman.c)
+[MAIN] (see kepler.c)
 
 Calls for alpm_initialize(), and alpm_release().
 Read the configuration file, and parse command line arguments.
 Based on the action requested, it initiates the appropriate transactions
-(see pacman_upgrade(), pacman_remove(), pacman_sync() in files upgrade.c,
+(see kepler_upgrade(), kepler_remove(), kepler_sync() in files upgrade.c,
 remove.c and sync.c).
 
 
 [CONFIGURATION] (see conf.h)
 
-The frontend is using a configuration file, usually "/etc/pacman.conf".  Some
+The frontend is using a configuration file, usually "/etc/kepler.conf".  Some
 of these options are only useful for the frontend only (mainly the ones used to
 control the output like verbosepkglist, or the behavior with cleanmethod).
 The rest is used to configure the library.
@@ -200,9 +200,9 @@ The rest is used to configure the library.
 
 [UPGRADE/REMOVE/SYNC]
 
-The file pacman.c has been divided into several smaller files, namely
-upgrade.c, remove.c, sync.c and query.c, to hold the big parts: pacman_upgrade,
-pacman_remove, pacman_sync.
+The file kepler.c has been divided into several smaller files, namely
+upgrade.c, remove.c, sync.c and query.c, to hold the big parts: kepler_upgrade,
+kepler_remove, kepler_sync.
 
 These 3 functions have been split to ease the code reading.
 
@@ -625,7 +625,7 @@ API CHANGES BETWEEN 5.0 AND 5.1
 - access make/checkdepends info
   - alpm_pkg_get_checkdepends()
   - alpm_pkg_get_makedepends()
-- check pacman capabilities
+- check kepler capabilities
   - alpm_capabilities()
 - duplicate and add to list
   - alpm_list_append_strdup()

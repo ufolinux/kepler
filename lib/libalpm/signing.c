@@ -1,7 +1,7 @@
 /*
  *  signing.c
  *
- *  Copyright (c) 2008-2022 Pacman Development Team <pacman-dev@lists.archlinux.org>
+ *  Copyright (c) 2008-2022 Kepler Development Team <kepler-dev@lists.archlinux.org>
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -161,7 +161,7 @@ static int init_gpgme(alpm_handle_t *handle)
 		_alpm_log(handle, ALPM_LOG_DEBUG, "Signature verification will fail!\n");
 		_alpm_log(handle, ALPM_LOG_WARNING,
 				_("Public keyring not found; have you run '%s'?\n"),
-				"pacman-key --init");
+				"kepler-key --init");
 	}
 
 	/* calling gpgme_check_version() returns the current version and runs

@@ -2,7 +2,7 @@
 #
 #   config.sh - functions for handling makepkg config files
 #
-#   Copyright (c) 2006-2022 Pacman Development Team <pacman-dev@lists.archlinux.org>
+#   Copyright (c) 2006-2022 Kepler Development Team <kepler-dev@lists.archlinux.org>
 #   Copyright (c) 2002-2006 by Judd Vinet <jvinet@zeroflux.org>
 #
 #   This program is free software; you can redistribute it and/or modify
@@ -45,10 +45,10 @@ source_makepkg_config() {
 
 	# Source user-specific makepkg.conf overrides, but only if no override config
 	# file was specified
-	XDG_PACMAN_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/pacman"
+	XDG_KEPLER_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/kepler"
 	if [[ $MAKEPKG_CONF = "@sysconfdir@/makepkg.conf" ]]; then
-		if [[ -r $XDG_PACMAN_DIR/makepkg.conf ]]; then
-			source_safe "$XDG_PACMAN_DIR/makepkg.conf"
+		if [[ -r $XDG_KEPLER_DIR/makepkg.conf ]]; then
+			source_safe "$XDG_KEPLER_DIR/makepkg.conf"
 		elif [[ -r $HOME/.makepkg.conf ]]; then
 			source_safe "$HOME/.makepkg.conf"
 		fi

@@ -1,7 +1,7 @@
 /*
  *  handle.h
  *
- *  Copyright (c) 2006-2022 Pacman Development Team <pacman-dev@lists.archlinux.org>
+ *  Copyright (c) 2006-2022 Kepler Development Team <kepler-dev@lists.archlinux.org>
  *  Copyright (c) 2002-2006 by Judd Vinet <jvinet@zeroflux.org>
  *
  *  This program is free software; you can redistribute it and/or modify
@@ -87,11 +87,11 @@ struct _alpm_handle_t {
 
 	/* filesystem paths */
 	char *root;              /* Root path, default '/' */
-	char *dbpath;            /* Base path to pacman's DBs */
+	char *dbpath;            /* Base path to kepler's DBs */
 	char *logfile;           /* Name of the log file */
 	char *lockfile;          /* Name of the lock file */
 	char *gpgdir;            /* Directory where GnuPG files are stored */
-	alpm_list_t *cachedirs;  /* Paths to pacman cache directories */
+	alpm_list_t *cachedirs;  /* Paths to kepler cache directories */
 	alpm_list_t *hookdirs;   /* Paths to hook directories */
 	alpm_list_t *overwrite_files; /* Paths that may be overwritten */
 

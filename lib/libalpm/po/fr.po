@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR "Pacman Development Team <pacman-dev@archlinux.org>"
+# Copyright (C) YEAR "Kepler Development Team <kepler-dev@archlinux.org>"
 # This file is distributed under the same license as the libalpm package.
 #
 # Translators:
@@ -18,12 +18,12 @@
 # Xavier Devlamynck <magicrhesus@ouranos.be>, 2011
 msgid ""
 msgstr ""
-"Project-Id-Version: Arch Linux Pacman package manager\n"
+"Project-Id-Version: Arch Linux Kepler package manager\n"
 "Report-Msgid-Bugs-To: http://bugs.archlinux.org/index.php?project=3\n"
 "POT-Creation-Date: 2021-09-04 16:15+1000\n"
 "PO-Revision-Date: 2021-07-05 08:09+0000\n"
 "Last-Translator: Charles Monzat <c.monzat@laposte.net>\n"
-"Language-Team: French (http://www.transifex.com/toofishes/archlinux-pacman/"
+"Language-Team: French (http://www.transifex.com/toofishes/archlinux-kepler/"
 "language/fr/)\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"

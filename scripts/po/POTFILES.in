@@ -3,8 +3,8 @@
 # scripts with gettext translations
 scripts/makepkg.sh.in
 scripts/makepkg-template.pl.in
-scripts/pacman-db-upgrade.sh.in
-scripts/pacman-key.sh.in
+scripts/kepler-db-upgrade.sh.in
+scripts/kepler-key.sh.in
 scripts/repo-add.sh.in
 scripts/libmakepkg/integrity.sh.in
 scripts/libmakepkg/integrity/generate_checksum.sh.in

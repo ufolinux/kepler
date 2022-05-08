@@ -1,4 +1,4 @@
-project('pacman',
+project('kepler',
         'c',
         version : '6.0.1',
         license : 'GPLv2+',
@@ -38,7 +38,7 @@ if BASH.found()
   have_bash = bash_version.version_compare('>= 4.4.0')
 endif
 if not have_bash
-  error('bash >= 4.4.0 is required for pacman scripts.')
+  error('bash >= 4.4.0 is required for kepler scripts.')
 endif
 
 bashcompletion = dependency('bash-completion', required : false)
@@ -67,12 +67,12 @@ conf.set_quoted('SCRIPTLET_SHELL', get_option('scriptlet-shell'))
 conf.set_quoted('LDCONFIG', LDCONFIG)
 conf.set_quoted('LIB_VERSION', libalpm_version)
 conf.set_quoted('SYSHOOKDIR', join_paths(DATAROOTDIR, 'libalpm/hooks/'))
-conf.set_quoted('CONFFILE', join_paths(SYSCONFDIR, 'pacman.conf'))
-conf.set_quoted('DBPATH', join_paths(LOCALSTATEDIR, 'lib/pacman/'))
-conf.set_quoted('GPGDIR', join_paths(SYSCONFDIR, 'pacman.d/gnupg/'))
-conf.set_quoted('LOGFILE', join_paths(LOCALSTATEDIR, 'log/pacman.log'))
-conf.set_quoted('CACHEDIR', join_paths(LOCALSTATEDIR, 'cache/pacman/pkg/'))
-conf.set_quoted('HOOKDIR', join_paths(SYSCONFDIR, 'pacman.d/hooks/'))
+conf.set_quoted('CONFFILE', join_paths(SYSCONFDIR, 'kepler.conf'))
+conf.set_quoted('DBPATH', join_paths(LOCALSTATEDIR, 'lib/kepler/'))
+conf.set_quoted('GPGDIR', join_paths(SYSCONFDIR, 'kepler.d/gnupg/'))
+conf.set_quoted('LOGFILE', join_paths(LOCALSTATEDIR, 'log/kepler.log'))
+conf.set_quoted('CACHEDIR', join_paths(LOCALSTATEDIR, 'cache/kepler/pkg/'))
+conf.set_quoted('HOOKDIR', join_paths(SYSCONFDIR, 'kepler.d/hooks/'))
 conf.set_quoted('ROOTDIR', ROOTDIR)
 
 libintl = dependency('', required: false)
@@ -214,7 +214,7 @@ if get_option('debug')
   ]
   add_project_arguments(cc.get_supported_arguments(extra_cflags), language : 'c')
 
-  conf.set('PACMAN_DEBUG', 1)
+  conf.set('KEPLER_DEBUG', 1)
 endif
 
 config_h = configure_file(
@@ -276,7 +276,7 @@ substs.set('STRIP_STATIC', strip_static)
 
 subdir('lib/libalpm')
 subdir('src/common')
-subdir('src/pacman')
+subdir('src/kepler')
 subdir('src/util')
 subdir('scripts')
 
@@ -284,7 +284,7 @@ subdir('scripts')
 if get_option('i18n')
   i18n = import('i18n')
   subdir('lib/libalpm/po')
-  subdir('src/pacman/po')
+  subdir('src/kepler/po')
   subdir('scripts/po')
 endif
 
@@ -334,11 +334,11 @@ pkgconfig.generate(
   name : 'libalpm',
   description : 'Arch Linux package management library',
   version : libalpm_version,
-  url : 'http://archlinux.org/pacman/')
+  url : 'http://archlinux.org/kepler/')
 
-pacman_bin = executable(
-  'pacman',
-  pacman_sources,
+kepler_bin = executable(
+  'kepler',
+  kepler_sources,
   include_directories : includes,
   link_with : [libalpm, libcommon],
   dependencies : [libarchive],
@@ -346,8 +346,8 @@ pacman_bin = executable(
 )
 
 executable(
-  'pacman-conf',
-  pacman_conf_sources,
+  'kepler-conf',
+  kepler_conf_sources,
   include_directories : includes,
   link_with : [libalpm, libcommon],
   dependencies : [libarchive],
@@ -393,8 +393,8 @@ configure_file(
   install_dir : SYSCONFDIR)
 
 configure_file(
-  input : 'etc/pacman.conf.in',
-  output : 'pacman.conf',
+  input : 'etc/kepler.conf.in',
+  output : 'kepler.conf',
   configuration : substs,
   install_dir : SYSCONFDIR)
 
@@ -403,11 +403,11 @@ install_data(
   'proto/PKGBUILD-vcs.proto',
   'proto/PKGBUILD.proto',
   'proto/proto.install',
-  install_dir : join_paths(DATAROOTDIR, 'pacman'))
+  install_dir : join_paths(DATAROOTDIR, 'kepler'))
 
 foreach path : [
-	join_paths(LOCALSTATEDIR, 'lib/pacman/'),
-	join_paths(LOCALSTATEDIR, 'cache/pacman/pkg/'),
+	join_paths(LOCALSTATEDIR, 'lib/kepler/'),
+	join_paths(LOCALSTATEDIR, 'cache/kepler/pkg/'),
 	join_paths(DATAROOTDIR, 'makepkg-template/'),
 	join_paths(DATAROOTDIR, 'libalpm/hooks/'),
 	]
@@ -420,7 +420,7 @@ TEST_ENV.set('PMTEST_LIBMAKEPKG_DIR', join_paths(meson.build_root(), 'scripts/li
 TEST_ENV.set('PMTEST_UTIL_DIR', meson.build_root() + '/')
 TEST_ENV.set('PMTEST_SCRIPT_DIR', join_paths(meson.build_root(), 'scripts/'))
 
-subdir('test/pacman')
+subdir('test/kepler')
 subdir('test/scripts')
 subdir('test/util')
 
@@ -429,10 +429,10 @@ message('\n    '.join([
   'Build information:',
   '   prefix                  : @0@'.format(PREFIX),
   '   sysconfdir              : @0@'.format(SYSCONFDIR),
-  '       conf file           : @0@'.format(join_paths(SYSCONFDIR, 'pacman.conf')),
+  '       conf file           : @0@'.format(join_paths(SYSCONFDIR, 'kepler.conf')),
   '   localstatedir           : @0@'.format(LOCALSTATEDIR),
-  '       database dir        : @0@'.format(join_paths(LOCALSTATEDIR, 'lib/pacman/')),
-  '       cache dir           : @0@'.format(join_paths(LOCALSTATEDIR, 'cache/pacman/pkg/')),
+  '       database dir        : @0@'.format(join_paths(LOCALSTATEDIR, 'lib/kepler/')),
+  '       cache dir           : @0@'.format(join_paths(LOCALSTATEDIR, 'cache/kepler/pkg/')),
   '   compiler                : @0@ @1@'.format(cc.get_id(), cc.version()),
   '',
   '   Architecture            : @0@'.format(carch),
@@ -440,7 +440,7 @@ message('\n    '.join([
   '   File inode command      : @0@'.format(inodecmd),
   '   File seccomp command    : @0@'.format(filecmd),
   '   libalpm version         : @0@'.format(libalpm_version),
-  '   pacman version          : @0@'.format(PACKAGE_VERSION),
+  '   kepler version          : @0@'.format(PACKAGE_VERSION),
   '',
   'Directory and file information:',
   '   root working directory  : @0@'.format(ROOTDIR),

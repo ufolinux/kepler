@@ -1,7 +1,7 @@
 /*
  * alpm.h
  *
- *  Copyright (c) 2006-2022 Pacman Development Team <pacman-dev@lists.archlinux.org>
+ *  Copyright (c) 2006-2022 Kepler Development Team <kepler-dev@lists.archlinux.org>
  *  Copyright (c) 2002-2006 by Judd Vinet <jvinet@zeroflux.org>
  *  Copyright (c) 2005 by Aurelien Foret <orelien@chez.com>
  *  Copyright (c) 2005 by Christian Hamar <krics@linuxforum.hu>
@@ -24,7 +24,7 @@
 
 /** @mainpage alpm
  *
- * libalpm is a package management library, primarily used by pacman.
+ * libalpm is a package management library, primarily used by kepler.
  */
 
 #ifndef ALPM_H
@@ -48,7 +48,7 @@ extern "C" {
  *
  *
  *
- * libalpm is a package management library, primarily used by pacman.
+ * libalpm is a package management library, primarily used by kepler.
  * For ease of access, the libalpm manual has been split up into several sections.
  *
  * @section see_also See Also

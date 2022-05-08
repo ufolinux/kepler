@@ -1,8 +1,8 @@
-Pacman - Contributing
+Kepler - Contributing
 =====================
 
 This file is meant to give you a brief overview of coding style and other
-concerns when hacking on pacman. If you are interested in contributing, please
+concerns when hacking on kepler. If you are interested in contributing, please
 read link:submitting-patches.html[submitting-patches] and
 link:translation-help.html[translation-help] as well.
 
@@ -153,7 +153,7 @@ general pattern, including blank lines:
 -------------------------------------------
 
 Follow this with some more headers, depending on whether the file is in libalpm
-or pacman proper. For libalpm:
+or kepler proper. For libalpm:
 
 [source,C]
 -------------------------------------------
@@ -163,14 +163,14 @@ or pacman proper. For libalpm:
 #include "anythingelse.h"
 -------------------------------------------
 
-For pacman:
+For kepler:
 
 [source,C]
 -------------------------------------------
 #include <alpm.h>
 #include <alpm_list.h>
 
-/* pacman */
+/* kepler */
 #include "yourfile.h"
 #include "anythingelse.h"
 -------------------------------------------

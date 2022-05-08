@@ -27,8 +27,8 @@ _arch_incomp() {
   local r="[[:space:]]-(-${1#* }[[:space:]]|[[:alnum:]_]*${1% *})"; [[ $COMP_LINE =~ $r ]]
 }
 
-_pacman_keyids() {
-  \pacman-key --list-keys 2>/dev/null | awk '
+_kepler_keyids() {
+  \kepler-key --list-keys 2>/dev/null | awk '
     $1 == "pub" {
       # key id
       split($2, a, "/"); print a[2]
@@ -40,7 +40,7 @@ _pacman_keyids() {
     }'
 }
 
-_pacman_key() {
+_kepler_key() {
   local o opts wantfiles
   local cur prev words cword
   _init_completion || return
@@ -60,12 +60,12 @@ _pacman_key() {
   # options for which we want file completion
   wantfiles='-@(c|-config|g|-gpgdir)'
 
-  if [[ $prev = 'pacman-key' || ( $cur = -* && $prev != $wantfiles ) ]]; then
+  if [[ $prev = 'kepler-key' || ( $cur = -* && $prev != $wantfiles ) ]]; then
     _arch_ptr2comp opts
   elif [[ $prev = @(-k|--keyserver) ]]; then
     return
   elif [[ $prev != $wantfiles && $o ]]; then
-    COMPREPLY=($(compgen -W '$(_pacman_keyids)' -- "$cur"))
+    COMPREPLY=($(compgen -W '$(_kepler_keyids)' -- "$cur"))
   fi
   true
 }
@@ -89,21 +89,21 @@ _makepkg() {
   true
 }
 
-_pacman_pkg() {
+_kepler_pkg() {
   _arch_compgen "$(
     if [[ $2 ]]; then
-      \pacman -$1 2>/dev/null | \cut -d' ' -f1 | \sort -u
+      \kepler -$1 2>/dev/null | \cut -d' ' -f1 | \sort -u
     else
-      \pacman -$1 2>/dev/null
+      \kepler -$1 2>/dev/null
     fi
   )"
 }
 
-_pacman_repo_list() {
-  _arch_compgen "$(pacman-conf --repo-list)"
+_kepler_repo_list() {
+  _arch_compgen "$(kepler-conf --repo-list)"
 }
 
-_pacman() {
+_kepler() {
   compopt -o default
   local common core database files query remove sync upgrade o
   local cur prev words cword
@@ -133,35 +133,35 @@ _pacman() {
     [[ $cur = -* ]] && _arch_ptr2comp ${o#* } common ||
       case ${o% *} in
       D|R)
-          _pacman_pkg Qq;;
+          _kepler_pkg Qq;;
       F)
-        { _arch_incomp 'l list'   && _pacman_pkg Slq ; }       ||
+        { _arch_incomp 'l list'   && _kepler_pkg Slq ; }       ||
           compopt +o default;;
       Q)
-        { _arch_incomp 'g groups' && _pacman_pkg Qg sort; }    ||
-        { _arch_incomp 'p file'   && _pacman_file; }           ||
+        { _arch_incomp 'g groups' && _kepler_pkg Qg sort; }    ||
+        { _arch_incomp 'p file'   && _kepler_file; }           ||
         { _arch_incomp 's search' && compopt +o default; }     ||
         { _arch_incomp 'u upgrades' && compopt +o default; }   ||
           _arch_incomp 'o owns'   ||
-          _pacman_pkg Qq;;
+          _kepler_pkg Qq;;
       S)
-        { _arch_incomp 'g groups' && _pacman_pkg Sg; }      ||
-        { _arch_incomp 'l list'   && _pacman_repo_list; } ||
+        { _arch_incomp 'g groups' && _kepler_pkg Sg; }      ||
+        { _arch_incomp 'l list'   && _kepler_repo_list; } ||
         { _arch_incomp 's search' && compopt +o default; }  ||
-          _pacman_pkg Slq;;
+          _kepler_pkg Slq;;
       U)
-          _pacman_file;;
+          _kepler_file;;
       esac
   fi
   true
 }
 
-_pacman_file() {
+_kepler_file() {
   compopt -o filenames; _filedir 'pkg.tar*'
 }
 
-complete -F _pacman pacman
+complete -F _kepler kepler
 complete -F _makepkg makepkg
-complete -F _pacman_key -o default pacman-key
+complete -F _kepler_key -o default kepler-key
 
 # ex:et ts=2 sw=2 ft=sh

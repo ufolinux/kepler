@@ -34,7 +34,7 @@ of a single '[Action]' section describing the action to be run and one or more
 
 Hooks are read from files located in the system hook directory
 +{datarootdir}/libalpm/hooks+, and additional custom directories specified in
-linkman:pacman.conf[5] (the default is +{sysconfdir}/pacman.d/hooks+).  The
+linkman:kepler.conf[5] (the default is +{sysconfdir}/kepler.d/hooks+).  The
 file names are required to have the suffix ".hook".  Hooks are run in
 alphabetical order of their file name, where the ordering ignores the suffix.
 

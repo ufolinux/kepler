@@ -1,4 +1,4 @@
-Pacman - Submitting Patches
+Kepler - Submitting Patches
 ===========================
 
 This document is here mainly to make the job of those who review patches
@@ -18,9 +18,9 @@ started with GIT if you have not worked with it before.
 * https://www.kernel.org/pub/software/scm/git/docs/gittutorial.html
 * https://wiki.archlinux.org/index.php/Super_Quick_Git_Guide
 
-The pacman code can be fetched using the following command:
+The kepler code can be fetched using the following command:
 
-	git clone https://gitlab.archlinux.org/pacman/pacman.git
+	git clone https://gitlab.archlinux.org/kepler/kepler.git
 
 
 Creating your patch
@@ -57,7 +57,7 @@ Submitting your patch
 ---------------------
 
 --
-* Send the patch to the pacman-dev mailing list
+* Send the patch to the kepler-dev mailing list
 
 The mailing list is the primary queue for review and acceptance.  Here you
 will get feedback, and let the reviewers know the details of your patch.

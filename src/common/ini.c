@@ -1,7 +1,7 @@
 /*
  *  ini.c
  *
- *  Copyright (c) 2013-2022 Pacman Development Team <pacman-dev@lists.archlinux.org>
+ *  Copyright (c) 2013-2022 Kepler Development Team <kepler-dev@lists.archlinux.org>
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -26,7 +26,7 @@
 #include "util-common.h"
 
 /**
- * @brief Parse a pacman-style INI config file.
+ * @brief Parse a kepler-style INI config file.
  *
  * @param file path to the config file
  * @param cb callback for key/value pairs

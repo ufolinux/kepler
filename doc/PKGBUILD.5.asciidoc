@@ -15,7 +15,7 @@ Description
 -----------
 This manual page describes general rules about PKGBUILDs. Once a
 PKGBUILD is written, the actual package is built using makepkg and installed
-with pacman.
+with kepler.
 
 NOTE: An example PKGBUILD, useful for reference, is located in '{pkgdatadir}'
 along with other example files such as an install script. You can copy the
@@ -70,7 +70,7 @@ systems (see below).
 	such an upgrade. This value is required to be a positive integer; the
 	default value if left unspecified is '0'. This is useful when the version
 	numbering scheme of a package changes (or is alphanumeric), breaking normal
-	version comparison logic. See linkman:pacman[8] for more information on
+	version comparison logic. See linkman:kepler[8] for more information on
 	version comparisons.
 
 *pkgdesc*::
@@ -177,7 +177,7 @@ contain whitespace characters.
 	An array of file names, without preceding slashes, that
 	should be backed up if the package is removed or upgraded. This is
 	commonly used for packages placing configuration files in '/etc'. See
-	`"Handling Config Files"` in linkman:pacman[8] for more information.
+	`"Handling Config Files"` in linkman:kepler[8] for more information.
 
 *depends (array)*::
 	An array of packages this package depends on to run. Entries in
@@ -211,7 +211,7 @@ underscore and the architecture name e.g., 'checkdepends_x86_64=()'.
 	An array of packages (and accompanying reasons) that are not essential for
 	base functionality, but may be necessary to make full use of the contents
 	of this package. optdepends are currently for informational purposes only
-	and are not utilized by pacman during dependency resolution. Packages in
+	and are not utilized by kepler during dependency resolution. Packages in
 	this list follow the same format as depends, with an optional description
 	appended. The format for specifying optdepends descriptions is:
 
@@ -250,7 +250,7 @@ underscore and the architecture name e.g., 'provides_x86_64=()'.
 	as expected even though the package has moved. Versioned replaces are
 	supported using the operators as described in `depends`.
 +
-Sysupgrade is currently the only pacman operation that utilizes this field.
+Sysupgrade is currently the only kepler operation that utilizes this field.
 A normal sync or upgrade will not use its value.
 +
 Additional architecture-specific replaces can be added by appending an
@@ -414,7 +414,7 @@ An optional global directive is available when building a split package:
 
 Install/Upgrade/Remove Scripting
 --------------------------------
-Pacman has the ability to store and execute a package-specific script when it
+Kepler has the ability to store and execute a package-specific script when it
 installs, removes, or upgrades a package. This allows a package to configure
 itself after installation and perform an opposite action upon removal.
 
@@ -526,6 +526,6 @@ include::PKGBUILD-example.txt[]
 
 See Also
 --------
-linkman:makepkg[8], linkman:pacman[8], linkman:makepkg.conf[5]
+linkman:makepkg[8], linkman:kepler[8], linkman:makepkg.conf[5]
 
 include::footer.asciidoc[]

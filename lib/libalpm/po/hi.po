@@ -1,17 +1,17 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR "Pacman Development Team <pacman-dev@archlinux.org>"
+# Copyright (C) YEAR "Kepler Development Team <kepler-dev@archlinux.org>"
 # This file is distributed under the same license as the libalpm package.
 #
 # Translators:
 # Panwar108 <caspian7pena@gmail.com>, 2018,2020-2021
 msgid ""
 msgstr ""
-"Project-Id-Version: Arch Linux Pacman package manager\n"
+"Project-Id-Version: Arch Linux Kepler package manager\n"
 "Report-Msgid-Bugs-To: http://bugs.archlinux.org/index.php?project=3\n"
 "POT-Creation-Date: 2021-09-04 16:15+1000\n"
 "PO-Revision-Date: 2021-05-20 14:03+0000\n"
 "Last-Translator: Panwar108 <caspian7pena@gmail.com>\n"
-"Language-Team: Hindi (http://www.transifex.com/toofishes/archlinux-pacman/"
+"Language-Team: Hindi (http://www.transifex.com/toofishes/archlinux-kepler/"
 "language/hi/)\n"
 "Language: hi\n"
 "MIME-Version: 1.0\n"

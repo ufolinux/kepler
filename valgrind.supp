@@ -1,4 +1,4 @@
-# pacman suppressions for valgrind.
+# kepler suppressions for valgrind.
 #
 # To have valgrind use this file (and have pactest use it as well),
 # just create a ~/.valgrindrc containing the following line:

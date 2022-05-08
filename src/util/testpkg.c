@@ -1,7 +1,7 @@
 /*
- *  testpkg.c : Test a pacman package for validity
+ *  testpkg.c : Test a kepler package for validity
  *
- *  Copyright (c) 2007-2022 Pacman Development Team <pacman-dev@lists.archlinux.org>
+ *  Copyright (c) 2007-2022 Kepler Development Team <kepler-dev@lists.archlinux.org>
  *  Copyright (c) 2007 by Aaron Griffin <aaronmgriffin@gmail.com>
  *
  *  This program is free software; you can redistribute it and/or modify
@@ -52,8 +52,8 @@ int main(int argc, char *argv[])
 #endif
 
 	if(argc != 2) {
-		fprintf(stderr, "testpkg (pacman) v" PACKAGE_VERSION "\n\n");
-		fprintf(stderr,	_("Test a pacman package for validity.\n\n"));
+		fprintf(stderr, "testpkg (kepler) v" PACKAGE_VERSION "\n\n");
+		fprintf(stderr,	_("Test a kepler package for validity.\n\n"));
 		fprintf(stderr,	_("Usage: testpkg <package file>\n"));
 		return 1;
 	}

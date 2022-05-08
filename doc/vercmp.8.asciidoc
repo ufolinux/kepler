@@ -67,6 +67,6 @@ Examples
 
 See Also
 --------
-linkman:pacman[8], linkman:makepkg[8], linkman:libalpm[3]
+linkman:kepler[8], linkman:makepkg[8], linkman:libalpm[3]
 
 include::footer.asciidoc[]

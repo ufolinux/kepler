@@ -13,7 +13,7 @@ VERSION         DESCRIPTION
               - makepkg:
                 - Fix stripping debug symbols with binutils 2.37 (FS#71722)
                 - Export PYTHONHASHSEED for reproducible python packages
-              - pacman-key:
+              - kepler-key:
                 - Quieten trust db checks.
 6.0.0         - internal downloader can retrieve files in parallel (FS#20056)
               - an additional progress bar is added to track total download
@@ -31,7 +31,7 @@ VERSION         DESCRIPTION
               - colored upgrade summary now dulls version numbers for contrast
               - libalpm frontends can now supply context to callbacks (FS#12721)
               - support xattr when extracting packages
-              - allow setting --noprogressbar in pacman.conf
+              - allow setting --noprogressbar in kepler.conf
               - fix output alignment for CJK translated text (FS#59229)
               - fix reading targets from stdin when using --sysroot (FS#68630)
               - fix deleting signatures for existing databases with -Sc
@@ -45,7 +45,7 @@ VERSION         DESCRIPTION
                 - add link time optimization support to makepkg
                 - add support for sources using the fossil VCS
                 - allow specifying alternative authentication commands when
-                  running pacman as root (FS#32621)
+                  running kepler as root (FS#32621)
                 - support zstd decompression for sources
                 - strip: fix removing file attributes such as xattr
                 - switch to CRC as default integrity checksum
@@ -64,18 +64,18 @@ VERSION         DESCRIPTION
                 - strip: silence warnings emitted by readelf while detecting
                   source filenames
                 - fix use of spaces in source file renaming (FS#70254)
-              - pacman-key:
+              - kepler-key:
                 - --refresh-keys queries WKD before keyserver
                 - be less noisy when populating the keyring (FS#64142)
                 - warn about time taken for master key generation
               - repo-add:
                 - support the same compression methods as makepkg
-              - zsh completion: add pacman-conf support
+              - zsh completion: add kepler-conf support
               - various documentation updates
               - after a decade and a half of promising libalpm.3 documentation
                 "once we get around to doing good Doxygen documentation", it
                 has happened!
-5.2.2         - fix pacman test suite under python 3.8
+5.2.2         - fix kepler test suite under python 3.8
               - only prompt to import new keys once in a transaction
               - fix handling of fully downloaded .part files
               - increase maximum database size (FS#65197)
@@ -87,7 +87,7 @@ VERSION         DESCRIPTION
               - fix documentation typos (FS#67000)
               - change master signing key to RSA4096
               - improve error message when building without autoconf-archive
-              - pacman-conf:
+              - kepler-conf:
                 - allow querying ILoveCandy individually
                 - fix querying NoExtract individually
               - makepkg:
@@ -117,7 +117,7 @@ VERSION         DESCRIPTION
               - repo-add:
                 - fix compression of databases with zstd (FS#64213)
 5.2.0         - completely remove delta support (CVE-2019-18183)
-              - add support to pacman and pacman-key for downloading PGP
+              - add support to kepler and kepler-key for downloading PGP
                 signing keys using the WKD protocol (FS#63171)
               - completely remove the --force option
               - renovate and simplify the UI for -F (FS#47949)
@@ -151,23 +151,23 @@ VERSION         DESCRIPTION
               - use standard, consistent units in the download progress
                 (FS#59201)
               - fix segfault when Usage is specified without a value
-              - include timezones in pacman.log
+              - include timezones in kepler.log
               - bash-completion: use POSIX character classes for portability
               - correctly report a download failiure for 404s
               - fix handling of signals during SIGSEGV
-              - fix buffer overread in pacman/callback
+              - fix buffer overread in kepler/callback
               - fix crash when downloading files with a Content-Disposition
                 that has no directory component
-              - pacman-conf, testpkg are now properly localized
+              - kepler-conf, testpkg are now properly localized
               - when -F returns zero results, set a failing exit code
               - improve wording for the error message when a package cannot be
                 removed due to dependencies
               - fix segfaults and other incorrect behavior when using -Qip if
-                pacman was compiled without GPGME support
+                kepler was compiled without GPGME support
               - makepkg:
                 - implement extendable source/signature verification routines
                   within libmakepkg (FS#49076)
-                - if pacman is in use, wait until it is available before
+                - if kepler is in use, wait until it is available before
                   continuing (FS#28840)
                 - add support for lzip, lz4 and zst compressed packages
                   (FS#56676, FS#59081)
@@ -216,7 +216,7 @@ VERSION         DESCRIPTION
                 - fix exit code when removing deps fails
                 - reproducible builds: suppress filesystem-specific archive
                   metadata from built packages as they are not needed
-              - pacman-key:
+              - kepler-key:
                 - just accept one file to verify, and enforce detached sigs
                   (FS#52022)
                 - after recent GnuPG updates, ensure the Web of Trust is still
@@ -232,7 +232,7 @@ VERSION         DESCRIPTION
               - various documentation updates
 5.1.3         - Sanitize file name received from Content-Disposition header
                 during -U (CVE-2019-9686)
-5.1.2         - pacman-conf: add missing DisableDownloadTimeout support
+5.1.2         - kepler-conf: add missing DisableDownloadTimeout support
               - Include version when checking optdepend install status
                 during -Qi (FS#60106)
               - Improve error message for unresolvable urls (FS#48285)
@@ -250,7 +250,7 @@ VERSION         DESCRIPTION
 5.1.1         - Allow full path including root prefix to be passed to
                 --overwrite
               - Revert deprecation of --root
-              - Document comment syntax restrictions in pacman.conf
+              - Document comment syntax restrictions in kepler.conf
               - makepkg:
                 - handle pre-existing directories when checking for write
                   permissions
@@ -259,13 +259,13 @@ VERSION         DESCRIPTION
                 - remove unintended chmod of $BUILDDIR (FS#58790)
                 - fix issue when $startdir was not an absolute path (FS#58865)
                 - fix syntax error when $pkgname is empty
-                - fix --nocolor being passed to pacman (FS#58820)
+                - fix --nocolor being passed to kepler (FS#58820)
                 - fix issues with trap handling
                 - fix several issues with debug packages (signing, printing of
                   package names, clearing of global package options, source
                   file inclusion)
                 - fix --help text for --packagelist
-              - pacman-conf: Fix detection of Usage option
+              - kepler-conf: Fix detection of Usage option
 5.1.0         - Add new --overwrite option and deprecate --force. This accepts a
                 glob pattern with far more control than the widely abused force
                 option which mostly just causes issues (FS#31549)
@@ -314,7 +314,7 @@ VERSION         DESCRIPTION
               - -Dk now reports if it is successful (FS#50087)
               - consider version for optdepends (FS#44957)
               - remove vim modelines in favor of EditorConfig
-              - implement pacman-conf, a new tool to safely parse pacman.conf,
+              - implement kepler-conf, a new tool to safely parse kepler.conf,
                 and use it in internal scripts
               - bash completion now completes -Qn
               - various small documentation updates
@@ -336,7 +336,7 @@ VERSION         DESCRIPTION
                   they can be used (FS#43537)
                 - parseopts, srcinfo, and integrity are now part of libmakepkg
                 - consistently use coreutils for checksumming instead of openssl
-                  (which may be replaced by nettle in pacman)
+                  (which may be replaced by nettle in kepler)
                 - lint build_references now prints affected filenames (FS#31558)
                 - lint_package can now abort on fatal packaging errors
                 - lint_package now checks for filenames with newline characters
@@ -368,7 +368,7 @@ VERSION         DESCRIPTION
                 - don't recreate the database when only verifying signature
                   (FS#48085)
                 - fix error when repo directory path contains spaces (FS#50285)
-              - pacman-key:
+              - kepler-key:
                 - reject armored signatures
                 - don't set a default keyserver, deferring to gpg's sane default
                 - disable scdaemon as we don't use it and it breaks --lsign when
@@ -397,7 +397,7 @@ VERSION         DESCRIPTION
 5.0.1         - fix alignment issues with wide character locales (FS#47980)
               - fix removal of .pacnew files (FS#47993)
               - fix triggering of Install hooks (FS#47996)
-              - fix handling of stdin scripts called by pacman
+              - fix handling of stdin scripts called by kepler
               - hook activity is logged
               - documentation updates for alpm-hooks (FS#48080)
               - makepkg:
@@ -411,11 +411,11 @@ VERSION         DESCRIPTION
                 - fix checking for non-existent database
               - contrib:
                 - zsh_completion: updated makepkg options
-5.0.0         - pacman can run hooks pre- and post-transaction. See the
+5.0.0         - kepler can run hooks pre- and post-transaction. See the
                 alpm-hooks(5) man page for details and an example hook (FS#2985)
-              - pacman can now sync and read .files databases (-Fy) and do basic
+              - kepler can now sync and read .files databases (-Fy) and do basic
                 searching for files in sync repos (-Fs, -Fo) (FS#23787)
-              - pacman can check the validity of the local and sync databases
+              - kepler can check the validity of the local and sync databases
                 (-Dk and -Dkk respectively).  This replaces the 'testdb'
                 software (FS#42444)
               - the package description output (-Si ,-Qi) is now correctly
@@ -480,7 +480,7 @@ VERSION         DESCRIPTION
                 the source tarball (FS#43655)
               - A number of typos and translation errors have been fixed
                 (FS#43257, FS#43280, FS#43279, FS#43617, FS#43739)
-              - set sane umask in pacman-db-upgrade (FS#43200) and make it
+              - set sane umask in kepler-db-upgrade (FS#43200) and make it
                 more verbose
               - Use correct permissions when creating the log file
               - Fix memory management for file list storage
@@ -504,7 +504,7 @@ VERSION         DESCRIPTION
                   (FS#43286)
 4.2.0         - symlinks to directories on the filesystem are no longer
                 treated as directories
-              - pacman-db-upgrade - fix local database for files installed
+              - kepler-db-upgrade - fix local database for files installed
                 into directory symlinks
               - added --assume-installed option to help upgrades where not all
                 installed packages have been rebuilt
@@ -519,13 +519,13 @@ VERSION         DESCRIPTION
               - Group queries can be filtered with --explicit/--deps (FS#19716)
               - Filesystem checking now only produces a warning for altered
                 backup files (FS#34739)
-              - pacman prints a warning if an installed directory has different
+              - kepler prints a warning if an installed directory has different
                 permission to that already on the filesystem (FS#34740)
               - both current and new versions are displayed when querying
                 updates
               - --print-format now implies --print
               - package scriptlets are not run when using --dbonly
-              - invalid option combinations cause pacman to abort (FS#20950)
+              - invalid option combinations cause kepler to abort (FS#20950)
               - improve output when a package is missing a required signature
                 (FS#28014)
               - PGP signature key IDs are listed with -Sii (FS#34742)
@@ -569,7 +569,7 @@ VERSION         DESCRIPTION
                 - sign created source package when using --sign
                 - enforce source signatures to be trusted or have their full
                   fingerprint listed in the validpgpkeys array of the PKGBUILD
-                - look for configuration in XDG_CONFIG_HOME/pacman/makepkg.conf
+                - look for configuration in XDG_CONFIG_HOME/kepler/makepkg.conf
                   (FS#43030)
                 - ensure vcs tools are available when source entries require
                   them
@@ -591,11 +591,11 @@ VERSION         DESCRIPTION
                 - Use LOGDEST for log pipe
                 - fix distcc disabling (FS#35741)
                 - correct stat usage on BSD/Darwin (FS#35469)
-              - pacman-key:
+              - kepler-key:
                 - Do not reinterpret keys from revoked keyrings
               - contrib:
                 - paccache: remove broken su privilege escalation (FS#35173)
-                - pacscripts: update for current pacman options
+                - pacscripts: update for current kepler options
                 - checkupdates: be consistent with naming (FS#35755)
 4.1.1         - fix bug causing negative "Total Installed Size" (FS#34616)
               - report libalpm version it is pkg-config file (FS#34967)
@@ -609,7 +609,7 @@ VERSION         DESCRIPTION
               - contrib:
                 - fix privilege escalation in paccache (FS#34656)
 4.1.0         - check file properties when using -Qkk (FS#11091)
-              - add color to pacman output - new configuration option "Color"
+              - add color to kepler output - new configuration option "Color"
               - add informational messages for optdepends installation
                 status (FS#13035, FS#27116)
               - add number suffix to pacsave files instead of overwriting
@@ -640,8 +640,8 @@ VERSION         DESCRIPTION
                 cache (FS#25166)
               - improve conflict checking with directory symlinks (FS#30681)
               - remove Cygwin support
-              - add program prefix to pacman log entries
-              - add --native filter to pacman -Q
+              - add program prefix to kepler log entries
+              - add --native filter to kepler -Q
               - makepkg:
                 - require bash>=4.0
                 - support for VCS URLs (git, bzr, svn and hg) (FS#7816,
@@ -662,7 +662,7 @@ VERSION         DESCRIPTION
                 - add makedepends/checkdepends information to .PKGINFO
                 - url can be overridden in split packages
                 - allow wildcards in PURGE_TARGETS
-                - pass --asdep and --needed flags to pacman when installing
+                - pass --asdep and --needed flags to kepler when installing
                 - use last match in BUILDENV/OPTIONS arrays (FS#26701)
                 - fix "arch" handling in split packages (FS#27204)
                 - add LOGDEST configuration option
@@ -670,7 +670,7 @@ VERSION         DESCRIPTION
               - repo-add:
                 - honor TMPDIR environmental variable
                 - add makedepends/checkdepends information to database
-              - pacman-key:
+              - kepler-key:
                 - fix importing keys with quotes in file name (FS#28445)
                 - allow verification of multiple sig files
                 - add zsh completion (FS#29062)
@@ -699,14 +699,14 @@ VERSION         DESCRIPTION
                 - small fixes related to multiple libdeps, parsing issues
                 - exit via default handler in trap_exit (FS#28491)
                 - attempt to work around Btrfs file/block size reporting issues
-              - pacman-key:
+              - kepler-key:
                 - remove signature verification in --populate
                 - make -e option work as advertised without arguments
                 - exit with correct return codes when verifying signature
               - pacsysclean: fix description, fix option parsing (FS#28434)
               - pkgdelta: use bsdtar -q option for better performance
               - translations: various updates and corrections
-4.0.2         - allow comments after a repository header in pacman.conf
+4.0.2         - allow comments after a repository header in kepler.conf
               - search for and import PGP subkeys if necessary (FS#27612)
               - fix rare segfault on removal operations (FS#27805, FS#28195)
               - skip all unknown files when cleaning package cache
@@ -719,13 +719,13 @@ VERSION         DESCRIPTION
                 - ensure all source files are included in --source (FS#26580)
                 - fix locale sort/comm related issues (FS#26580)
                 - abort on missing download agent
-                - restrict flags passed to pacman (FS#28012)
+                - restrict flags passed to kepler (FS#28012)
                 - work around certain zipman glob/existence issues
                 - fix non-writable SRCPKGDEST error message (FS#28197)
                 - fix printf interpreting gettext string as arg (FS#28069)
                 - don't abort on non-zero hg return codes (FS#28248)
                 - disable extglob when sourcing BUILDSCRIPT (FS#27780)
-              - pacman-key: improve return codes of operations (FS#26730)
+              - kepler-key: improve return codes of operations (FS#26730)
               - repo-add: enforce maximum signature file size (FS#27453)
               - contrib/paclist: support --help (FS#27258)
               - contrib/pacsysclean: new script
@@ -740,7 +740,7 @@ VERSION         DESCRIPTION
               - allow -U operation even without sync databases (FS#26899)
               - update libtool files and update fix for -Wl,-as-needed
               - fix build when using --disable-static (FS#26652)
-              - pacman-key: add a keyserver timeout value in --init
+              - kepler-key: add a keyserver timeout value in --init
               - repo-add: fix race condition around lock file removal
               - makepkg:
                 - accept changelog= or install= without a value
@@ -749,8 +749,8 @@ VERSION         DESCRIPTION
                 - delay attachment of signal traps (FS#26196)
               - translations: multiple updates and corrections
 4.0.0         - well-integrated and powerful signed packages and databases
-                support in pacman, the library, and scripts (FS#5331)
-              - over 800 commits to pacman.git since 3.5.4 release
+                support in kepler, the library, and scripts (FS#5331)
+              - over 800 commits to kepler.git since 3.5.4 release
               - many code cleanup commits across library/binaries/scripts
               - many performance improvement commits across library/binaries
               - add new -S --recursive operation to upgrade a full dep chain
@@ -788,7 +788,7 @@ VERSION         DESCRIPTION
               - pactest: several performance/checking improvements
               - scripts:
                 - refactor some common components into shared bash library
-                - split translations into pacman-scripts catalog (FS#15148)
+                - split translations into kepler-scripts catalog (FS#15148)
               - makepkg:
                 - allow signing packages after creation
                 - allow verifying source file signatures (FS#20448)
@@ -805,8 +805,8 @@ VERSION         DESCRIPTION
                 - be more POSIX-compatible in use of `ln` (FS#24893)
                 - handle spaces with filenames in noextract (FS#25100)
                 - allow epoch-versioned optdepends
-              - pacman-key: new keyring management tool for signed data
-              - pacsort: new utility, sort version numbers as pacman does
+              - kepler-key: new keyring management tool for signed data
+              - pacsort: new utility, sort version numbers as kepler does
               - pactree: support sync databases with -s option
               - pkgdelta: add a manpage
               - repo-add:
@@ -817,7 +817,7 @@ VERSION         DESCRIPTION
                 - add sha256sums to database (FS#23103)
               - contrib/bacman: code cleanups and small bug fixes
               - contrib/bash_completion: updates for new options/commands
-              - contrib/paccache: new, pacman cache cleanup script
+              - contrib/paccache: new, kepler cache cleanup script
               - contrib/paclist: rewrite using bash
               - contrib/paclog-pkglist: new, recover from missing local DB
               - documentation: extensive updates to all manpages
@@ -840,7 +840,7 @@ VERSION         DESCRIPTION
               - repo-add: include dotfiles in file lists (FS#24534)
               - minor translation updates: de, fi, fr, sk, zh_CN
 3.5.2         - ensure we show correct missing dependency info (FS#23424)
-              - pacman usage/--help updates (FS#23433, FS#23369)
+              - kepler usage/--help updates (FS#23433, FS#23369)
               - ensure stdout/stderr are flushed before prompts (FS#23492)
               - compile/portability fixes for FreeBSD platform
               - extensive documentation updates for alpm.h interfaces
@@ -852,7 +852,7 @@ VERSION         DESCRIPTION
                 - fix GNU-ism in `su` invocation
               - bacman: update for new local database format (FS#23641)
               - extensive translation updates and fixes
-3.5.1         - don't error on unknown pacman.conf directives (FS#23055)
+3.5.1         - don't error on unknown kepler.conf directives (FS#23055)
               - only read arguments from stdin if '-' is provided as target
               - fix case with ignore handling in argument list (FS#23342)
               - don't show group selection prompt with -Sp (FS#23340)
@@ -870,10 +870,10 @@ VERSION         DESCRIPTION
 3.5.0         - sync DBs read directly from the database tarball
                 (FS#8586, FS#20233)
               - local DB "depends" file has been merged into the "desc" file
-                - pacman-db-upgrade script provided to update the local
+                - kepler-db-upgrade script provided to update the local
                   database format
               - sync database extension is .db (without compression suffix)
-                - requires repo-add from pacman-3.4+
+                - requires repo-add from kepler-3.4+
               - package versions can have an 'epoch' value defined that will
                 overrule any version comparison
                 - this replaces the use of the "force" option in allowing for
@@ -881,7 +881,7 @@ VERSION         DESCRIPTION
                   default version comparison operations
                 - package versions have the format [epoch:]pkgver-pkgrel
               - check available disk space before installing packages (FS#11639)
-                - enabled by the "CheckSpace" option in pacman.conf
+                - enabled by the "CheckSpace" option in kepler.conf
                 - attempt to stop install if we hit an extraction issue
                   (FS#7692, FS#22034)
               - improved interactive selection for groups/provides
@@ -936,7 +936,7 @@ VERSION         DESCRIPTION
                 - sk: new Slovak translation
                 - pt: new European Portuguese translation
                 - other small updates to various translations
-3.4.0         - new "Architecture" option that will restrict pacman to
+3.4.0         - new "Architecture" option that will restrict kepler to
                 installing only packages from the given architecture. Can be
                 set to "auto" in which case the output of "uname -m" is used
               - use "$arch" when specifying a mirror url to automatically
@@ -945,7 +945,7 @@ VERSION         DESCRIPTION
                 dependencies, conflict resolution and replacing packages
                 (FS#3492, FS#5798)
               - can upgrade the system and install a new package using
-                "pacman -Syu <pkg>" (FS#15581)
+                "kepler -Syu <pkg>" (FS#15581)
               - new -D/--database operation for modifying package install
                 reasons (FS#12950)
               - new --print and --print-format options to output information
@@ -1007,7 +1007,7 @@ VERSION         DESCRIPTION
                 - new pkgdelta script to create deltas
                 - repo-add can add both deltas and packages to a database
               - xz archive format supported for packages and databases
-              - in case of unresolvable packages, pacman now asks
+              - in case of unresolvable packages, kepler now asks
                 if they should be skipped instead of aborting
               - -Suu synchronizes all packages with the version from the
                 repository (including upgrade and downgrade)
@@ -1042,9 +1042,9 @@ VERSION         DESCRIPTION
               - contrib
                 - pacdiff - improvements and new -l flag for using locate
                 - pacscripts - print install scripts for a package
-3.2.2         - log pacsave warnings to pacman.log (FS#12531)
+3.2.2         - log pacsave warnings to kepler.log (FS#12531)
               - separate local DB creation and writing (FS#12263)
-              - pacman-optimize: rewrite and refresh (FS#11767)
+              - kepler-optimize: rewrite and refresh (FS#11767)
               - repo-add: use openssl instead of md5sum
               - simplify doc building process for ease of development
               - ensure correct handling of syscall interruptions
@@ -1075,7 +1075,7 @@ VERSION         DESCRIPTION
               - documentation and help updates (including fix for FS#11203)
               - new Ukrainian translation
               - existing translation updates
-3.2.0         - removed -A/--add option from pacman frontend
+3.2.0         - removed -A/--add option from kepler frontend
               - added --asexplicit option
               - new remove option --unneeded
               - add -Rss option to remove all dependencies
@@ -1086,12 +1086,12 @@ VERSION         DESCRIPTION
               - handle multiple groups in -Ss and -Qs operations
               - allow -q/--quiet option with -o/--own and -g/--groups options
               - removed hack for packages with unknown installed size
-              - add SyncFirst option to pacman.conf
-              - support installation of versioned deps : pacman -S "dep>=2.0"
+              - add SyncFirst option to kepler.conf
+              - support installation of versioned deps : kepler -S "dep>=2.0"
               - add --enable-git-version configure flag to identify
                 developmental build version
               - do not duplicate packages in required by list
-              - pacman.static is no longer built
+              - kepler.static is no longer built
               - all error messages use pm_fprintf
               - disable geteuid in cygwin
               - use off_t type for large file support
@@ -1142,7 +1142,7 @@ VERSION         DESCRIPTION
                 - remove deprecated --usesudo option
                 - handle spaces in build directory
                 - made keeping docs the default option
-                - use pacman version dep resolving
+                - use kepler version dep resolving
                 - fix regression in library stripping
                 - make strip paths configurable
               - MANY other bug fixes and small improvements
@@ -1160,7 +1160,7 @@ VERSION         DESCRIPTION
 3.1.2         - updates to proto.install, add ChangeLog.proto (FS#7231)
               - add 'force' option to packages, and have repo-add respect it
               - mark gensync and updatesync as deprecated
-              - fix pacman -Qo behavior on symlinks (FS#9473)
+              - fix kepler -Qo behavior on symlinks (FS#9473)
               - fix segfault on a broken symlinks in backup code (FS#9235)
               - ensure filename is determined correctly for a pkg (FS#9547)
               - fix conflict progress bar with UTF-8 chars (FS#6437)
@@ -1184,23 +1184,23 @@ VERSION         DESCRIPTION
               - ensure correct dir permissions in database (FS#9176)
               - ensure /tmp is created with correct permissions (FS#9183)
               - disallow NULL section in parseconfig (reported on forums)
-              - remove Arch-specific pacman.conf and mirrorlist from source
+              - remove Arch-specific kepler.conf and mirrorlist from source
               - makepkg: --holdver option for devel PKGBUILDs (FS#9194)
               - documentation updates (FS# 9142, 9146, 9175, 9192, 9204)
               - many translation updates
 3.1.0         - paths are now specified as absolute paths (or defaulting to
                 under the specified root directory)
-              - all paths can be specified in pacman.conf or on command line
-              - updates to pacman clean operation- now cleans uninstalled
+              - all paths can be specified in kepler.conf or on command line
+              - updates to kepler clean operation- now cleans uninstalled
                 packages and old sync DBs (FS#8061)
               - remove all hardcoded paths and allow them to be set at
                 configure/build time
-              - single mirrorfile- pacman substitutes the repository name in
+              - single mirrorfile- kepler substitutes the repository name in
                 mirror file when $repo is found (FS#6389)
               - New config file options: ShowSize, TotalDownload, IgnoreGroup,
                 UseDelta
               - all scripts have been gettext-ized and can be translated
-              - added testdb utility to check pacman DBs for common problems
+              - added testdb utility to check kepler DBs for common problems
               - huge additions to pactest suite
               - remove -F/--freshen operation
               - add --ignoregroup option (FS#1592)
@@ -1224,7 +1224,7 @@ VERSION         DESCRIPTION
               - bash completion updates
               - mirrorlist updates
               - removed ABS script from codebase (now a separate project)
-              - allow multiple pacman cache directories
+              - allow multiple kepler cache directories
               - all manpages are now generated using Asciidoc (FS#7312)
               - moved parseconfig from backend library to frontend
               - clean up and refactoring of the ENTIRE codebase
@@ -1307,7 +1307,7 @@ VERSION         DESCRIPTION
               - documentation - man pages updated, new conf manpages added
               - repository mirror list updates
               - added support for package changelogs
-              - logging of all install scriptlet messages to pacman.log
+              - logging of all install scriptlet messages to kepler.log
               - orphans search (-Qe) now shows true orphans
               - new -Qu option - show all packages that can be upgraded
               - new -Se option - install only dependencies
@@ -1315,13 +1315,13 @@ VERSION         DESCRIPTION
               - check for free space before installing packages
               - prompt to delete corrupted packages
               - improved backup handling - backup array proactive on upgrade
-              - removed NoUpgrade lines from default pacman.conf
+              - removed NoUpgrade lines from default kepler.conf
               - new uncompressed size field, shown on sync upgrade
               - improved progress and progressbar output
               - reduced unnecessary calling of ldconfig
               - selective loading of database to speed up certain operations
               - debugging output improved with --debug flag
-              - pacman-optimize - now supports DBs on separate filesystem
+              - kepler-optimize - now supports DBs on separate filesystem
               - makepkg and abs now support conf files in home directory
               - makepkg changes:
                 - arch field is required
@@ -1358,7 +1358,7 @@ VERSION         DESCRIPTION
               - fix for segfaults that occurred when propagating requiredby
                 fields to replaced packages where one package depended on
                 another replaced package
-              - a better fix for pacman-optimize integrity checks
+              - a better fix for kepler-optimize integrity checks
               - fix for regex searches with -Ss (Miklos Vajna)
               - added a --noprogressbar for scripts to use
 2.9.7         - fixed the dupe listings of packages when dealing w/ groups
@@ -1371,12 +1371,12 @@ VERSION         DESCRIPTION
               - changed license field to operate as an array, not a string
               - added more logic for file conflict checks - if one target
                 is a file and the other is a directory, then it's a conflict
-              - fixed the integrity check in pacman-optimize
+              - fixed the integrity check in kepler-optimize
               - reverted NoUpgrade to old behaviour and instead, added the
-                NoExtract directive to pacman.conf, which prevents a file
+                NoExtract directive to kepler.conf, which prevents a file
                 from ever being extracted on to the system
                  eg, NoExtract = home/httpd/html/index.html
-2.9.6         - added a pacman-optimize script to try and defragment the DB
+2.9.6         - added a kepler-optimize script to try and defragment the DB
               - modified NoUpgrade behaviour to avoid extracting files
                 that are missing from the filesystem -- this helps in
                 situations where the admin does not want the file there, eg,
@@ -1405,7 +1405,7 @@ VERSION         DESCRIPTION
 2.9.2         - bugfix for 2.9.1
 2.9.1         - --refresh now only downloads fresh packages lists if they've
                 been updated (currently only works with FTP)
-2.9           - Improved -Rs functionality -- pacman now tracks why a package
+2.9           - Improved -Rs functionality -- kepler now tracks why a package
                 is installed: explicitly, or as a dependency for another
                 package.  -Rs will only remove dependencies that were not
                 explicitly installed.
@@ -1420,8 +1420,8 @@ VERSION         DESCRIPTION
               - Added checks for additional hyphens in package versions
               - mktemp was failing if %pmo_root%/tmp was missing -- fixed
 2.8.4         - Added updatesync script from Jason Chu
-              - Changed the pacman binary to be dynamically linked
-                - Included a pacman.static binary as well
+              - Changed the kepler binary to be dynamically linked
+                - Included a kepler.static binary as well
                 - Added fakeroot checks when seeing if we're root
               - Fixed makepkg to use 'tail -n 1' instead of 'tail -1'
               - Added patch from Kevin Piche:
@@ -1436,8 +1436,8 @@ VERSION         DESCRIPTION
                 - Even smarter file-conflict checking
 2.8.2         - Fixed a segfault bug in file-conflict checks
               - Made --noconfirm actually work.  Go me.
-2.8.1         - Added a HoldPkg option in pacman.conf, for the more
-                exploratory users who run things like "pacman -R pacman".  It
+2.8.1         - Added a HoldPkg option in kepler.conf, for the more
+                exploratory users who run things like "kepler -R kepler".  It
                 will ask for confirmation before removing any packages listed
                 in the HoldPkg list
               - Added a --noconfirm switch for use with script automation
@@ -1458,7 +1458,7 @@ VERSION         DESCRIPTION
                 - FS#875:  detect low disk space properly
                 - FS#986:  makepkg -e doesn't validate files
                 - FS#1010: add -j option to makepkg
-                - FS#1028: make pacman -Sp runnable as non-root
+                - FS#1028: make kepler -Sp runnable as non-root
               - added pre_install and pre_upgrade scriptlet support
               - added an "Architecture" field in the package meta-data
               - added patch from Aurelien Foret which improves performance
@@ -1467,7 +1467,7 @@ VERSION         DESCRIPTION
                 portability
               - added explicit unlink() calls when --force is used, which
                 prevents those nasty "Text file busy" errors when you
-                force-upgrade something like pacman or glibc.
+                force-upgrade something like kepler or glibc.
 2.7.9         - added the "force" option to packages, so --sysupgrade can
                 downgrade packages when it needs to
 2.7.8         - added post_remove scriptlet support
@@ -1490,7 +1490,7 @@ VERSION         DESCRIPTION
                 - fixed a little display bug in the progress bar
                 - made -Qip look like -Qi
                 - -Sc now removes OLD packages from cache, use -Scc for all
-2.7.7         - added an XferCommand directive that will make pacman use an
+2.7.7         - added an XferCommand directive that will make kepler use an
                 external download utility like wget
               - added a license field to package meta-data
               - add url support to -A and -U operations (download packages)
@@ -1499,7 +1499,7 @@ VERSION         DESCRIPTION
 2.7.6         - added --print-uris option
               - fixed an http download bug (FS#667)
               - fixed a segfault related to replaces/conflicts handling
-2.7.5         - "replaces" packages were ignoring IgnorePkg in pacman.conf
+2.7.5         - "replaces" packages were ignoring IgnorePkg in kepler.conf
               - fixed another bug in conflict handling
               - found an out-dated reference to /usr/abs, fixed
               - added a --recursive option for package removal, which removes
@@ -1507,7 +1507,7 @@ VERSION         DESCRIPTION
 2.7.4         - fixed a bug in conflict handling, where installing a
                 conflicting package would fail even if the new package
                 "provided" it
-              - if pacman sees a newer version of itself during an upgrade,
+              - if kepler sees a newer version of itself during an upgrade,
                 it will ask to install itself first, then be re-run to upgrade
                 the other packages.
               - You can now use the --info option with --sync to display an
@@ -1521,14 +1521,14 @@ VERSION         DESCRIPTION
                 - an improved progress bar with transfer rates and ETA
               - cleaned up warning output a bit
 2.7.2         - Suppressed "No such file" messages during stripping
-              - Removed extra newlines in /var/log/pacman.log
+              - Removed extra newlines in /var/log/kepler.log
               - Added a --noextract option to makepkg to skip source extraction
 2.7.1         - Fixed a couple obscure segfaults
               - LogFiles were logging incorrect dates - fixed
               - Cleaned up md5sum output in makepkg -g
               - Added (optional) colorized output messages to makepkg
-              - Renamed the "stable" repo to "release" in pacman.conf
-              - Renamed the "unofficial" repo to "extra" in pacman.conf
+              - Renamed the "stable" repo to "release" in kepler.conf
+              - Renamed the "unofficial" repo to "extra" in kepler.conf
 2.7           - Added build-time dependencies to makepkg (Jason Chu)
               - Added md5sum integrity checking to packages in --sync
                 mode (Aurelien Foret)
@@ -1537,18 +1537,18 @@ VERSION         DESCRIPTION
               - Added LogFile option for direct-to-file logging
               - Added -Qii handling to show modified config files
               - Allow --sync targets to specify an explicit repository to
-                sync from (eg, pacman -S current/patch)
-2.6.4         - Altered pacman_upgrade() to allow a package to replace itself
+                sync from (eg, kepler -S current/patch)
+2.6.4         - Altered kepler_upgrade() to allow a package to replace itself
 2.6.3         - A couple memory fixes in the new replaces code
 2.6.2         - Fixed a memory cleanup bug
               - Aurelien's patch:
                 - FS#159 implemented (for -S and -R)
-                - fixed a bug with pacman -Sg (pacman was browsing only one
+                - fixed a bug with kepler -Sg (kepler was browsing only one
                   db to get groups)
                 - fixed a bug with list_merge()
                 - fixed some MLK (in dumppkg() and with "-Qi --orphans")
-                - now "pacman -Sg" only displays groups (without content)
-                  whereas "pacman -Sg target1 target2" displays groups
+                - now "kepler -Sg" only displays groups (without content)
+                  whereas "kepler -Sg target1 target2" displays groups
                   target1 and target2 with content
 2.6.1         - Added http download support (Aurelien Foret)
               - Improved makepkg's --builddeps behaviour when called via
@@ -1556,14 +1556,14 @@ VERSION         DESCRIPTION
               - makepkg's md5 validation now occurs before source extraction
               - makepkg delays fakeroot entry until after option parsing
               - Fixed an argument-passing bug in fakeroot
-              - Modified pacman's behaviour wrt provides -- it now allows
+              - Modified kepler's behaviour wrt provides -- it now allows
                 multiple packages to be installed, even if they provide the
                 same thing (they were treated as conflicts before)
-2.6           - Added group handling, so one can run 'pacman -S kde' and
+2.6           - Added group handling, so one can run 'kepler -S kde' and
                 install all files from the KDE group
               - Fixed a duplication bug in cascade package removal
               - Added support for virtual provisions with "provides" tags
-              - When conflicts are encountered, pacman now offers the chance
+              - When conflicts are encountered, kepler now offers the chance
                 to remove the conflicting packages (provides or literals)
               - Added support for renamed/combined packages with a "replaces"
                 tag
@@ -1588,7 +1588,7 @@ VERSION         DESCRIPTION
               - Added patch from Aurlien Foret:
                 - Better lock handling (RW and RO)
                 - Sorted package order in -Qi's dependency lists
-                - Added a DBPath option to pacman.conf
+                - Added a DBPath option to kepler.conf
                 - Fixed memory leaks
                 - Added the --nodeps option to -S
 2.4.1         - Fixed a bug in makepkg's option parsing
@@ -1602,22 +1602,22 @@ VERSION         DESCRIPTION
                 - the REQUIREDBY field is now updated when a package is
                   removed with --nodeps, then re-installed.
                 - Avoids duplicate dependency checks with sync
-                - Added a "NoPassiveFtp" option in pacman.conf
+                - Added a "NoPassiveFtp" option in kepler.conf
                 - Improvements to the --query listings
 2.3.2         - Added patches from Aurelien Foret:
                 - FTP resume feature
                 - removed the hit-^C-and-delete-the-downloading-file safety
-                - IgnorePkg option in pacman.conf
+                - IgnorePkg option in kepler.conf
                 - FTPAGENT setting in makepkg.conf
                 - Added --cleancache option to makepkg
 2.3.1         - Fixed the progress bar overflow
-              - Pacman does not ask "Are you sure" when you use --downloadonly
+              - Kepler does not ask "Are you sure" when you use --downloadonly
               - Switched up a couple makepkg options to be more consistent
-                with pacman's options
+                with kepler's options
               - If you ^C out of a file download, the package will now be
                 removed from the cache directory
 2.3           - The beginnings of source-side dependency resolution, makepkg
-                can now either A) download/install missing deps with pacman
+                can now either A) download/install missing deps with kepler
                 -S; or B) find missing deps in the /usr/abs tree and
                 build/install them.
               - Added a --nodeps option to makepkg
@@ -1631,10 +1631,10 @@ VERSION         DESCRIPTION
 2.0           - Added dependency functionality
               - Completely new database format, similar to FreeBSD
               - Better internal data structures
-              - Merged pacsync functionality into pacman
+              - Merged pacsync functionality into kepler
               - Now uses libftp for all file retrieval (currently only ftp)
               - Automatic dependency resolution, a la apt-get
-              - Moved config stuff from /etc/pacsync.conf to /etc/pacman.conf
+              - Moved config stuff from /etc/pacsync.conf to /etc/kepler.conf
               - Much better backup file handling, now uses md5 hashes a la rpm
 1.23          - Added install/upgrade/remove scripting control
 1.22          - Some manpage typo fixes
