@@ -250,7 +250,7 @@ bugs under the Kepler project.
 
 Copyright
 ---------
-kepler is Copyright (C) 2006-2022 Kepler Development Team
+kepler is Copyright (C) 2006-2022 Pacman Development Team
 <kepler-dev@lists.archlinux.org> and Copyright (C) 2002-2006 Judd Vinet
 <jvinet@zeroflux.org> and is licensed through the GNU General Public License,
 version 2 or later.

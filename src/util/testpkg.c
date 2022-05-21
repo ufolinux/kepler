@@ -1,7 +1,7 @@
 /*
  *  testpkg.c : Test a kepler package for validity
  *
- *  Copyright (c) 2007-2022 Kepler Development Team <kepler-dev@lists.archlinux.org>
+ *  Copyright (c) 2007-2022 Pacman Development Team <pacman-dev@lists.archlinux.org>
  *  Copyright (c) 2007 by Aaron Griffin <aaronmgriffin@gmail.com>
  *
  *  This program is free software; you can redistribute it and/or modify

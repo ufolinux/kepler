@@ -3,7 +3,7 @@ i18n.gettext(
   args : [
     '--directory=@0@'.format(meson.current_source_dir()),
     '--msgid-bugs-address=http://bugs.archlinux.org/index.php?project=3',
-    '--copyright-holder="Kepler Development Team <kepler-dev@archlinux.org>"',
+    '--copyright-holder="Pacman Development Team <pacman-dev@archlinux.org>"',
     '--language', 'c',
 
     '--keyword=_',
