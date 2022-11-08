@@ -2929,6 +2929,12 @@ const char *alpm_version(void);
  * */
 int alpm_capabilities(void);
 
+/** Drop privileges by switching to a different user.
+ * @param sandboxuser the user to switch to
+ * @return 0 on success, the value of errno otherwise
+ */
+int alpm_sandbox_child(const char *sandboxuser);
+
 /* End of libalpm_misc */
 /** @} */
 
