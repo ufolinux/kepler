@@ -28,6 +28,7 @@
 #include <sys/time.h>
 #include <sys/types.h>
 #include <sys/stat.h>
+#include <sys/wait.h>
 #include <signal.h>
 
 #ifdef HAVE_NETINET_IN_H
@@ -48,6 +49,7 @@
 #include "log.h"
 #include "util.h"
 #include "handle.h"
+#include "sandbox.h"
 
 #ifdef HAVE_LIBCURL
 
@@ -938,6 +940,140 @@ static int curl_download_internal(alpm_handle_t *handle,
 	return err ? -1 : updated ? 0 : 1;
 }
 
+/* Download the requested files by launching a process inside a sandbox.
+ * Returns -1 if an error happened for a required file
+ * Returns 0 if a payload was actually downloaded
+ * Returns 1 if no files were downloaded and all errors were non-fatal
+ */
+static int curl_download_internal_sandboxed(alpm_handle_t *handle,
+		alpm_list_t *payloads /* struct dload_payload */,
+		const char *localpath)
+{
+	int pid, err = 0, ret = -1, callbacks_fd[2];
+	sigset_t oldblock;
+	struct sigaction sa_ign = { .sa_handler = SIG_IGN }, oldint, oldquit;
+	_alpm_sandbox_callback_context callbacks_ctx;
+
+	if(pipe(callbacks_fd) != 0) {
+		return -1;
+	}
+
+	sigaction(SIGINT, &sa_ign, &oldint);
+	sigaction(SIGQUIT, &sa_ign, &oldquit);
+	sigaddset(&sa_ign.sa_mask, SIGCHLD);
+	sigprocmask(SIG_BLOCK, &sa_ign.sa_mask, &oldblock);
+
+	pid = fork();
+
+	/* child */
+	if(pid == 0) {
+		close(callbacks_fd[0]);
+		fcntl(callbacks_fd[1], F_SETFD, FD_CLOEXEC);
+		callbacks_ctx.callback_pipe = callbacks_fd[1];
+		alpm_option_set_logcb(handle, _alpm_sandbox_cb_log, &callbacks_ctx);
+		alpm_option_set_dlcb(handle, _alpm_sandbox_cb_dl, &callbacks_ctx);
+		alpm_option_set_fetchcb(handle, NULL, NULL);
+		alpm_option_set_eventcb(handle, NULL, NULL);
+		alpm_option_set_questioncb(handle, NULL, NULL);
+		alpm_option_set_progresscb(handle, NULL, NULL);
+
+		/* restore signal handling for the child to inherit */
+		sigaction(SIGINT, &oldint, NULL);
+		sigaction(SIGQUIT, &oldquit, NULL);
+		sigprocmask(SIG_SETMASK, &oldblock, NULL);
+
+		/* cwd to the download directory */
+		ret = chdir(localpath);
+		if(ret != 0) {
+			_alpm_log(handle, ALPM_LOG_ERROR, _("could not chdir to download directory %s\n"), localpath);
+			ret = -1;
+		} else {
+			ret = alpm_sandbox_child(handle->sandboxuser);
+			if (ret != 0) {
+				_alpm_log(handle, ALPM_LOG_ERROR, _("switching to sandbox user '%s' failed!\n"), handle->sandboxuser);
+				_Exit(ret | 128);
+			}
+
+			ret = curl_download_internal(handle, payloads, localpath);
+		}
+
+		/* pass the result back to the parent */
+		if(ret == 0) {
+			/* a payload was actually downloaded */
+			exit(0);
+		}
+		else if(ret == 1) {
+			/* no files were downloaded and all errors were non-fatal */
+			_Exit(handle->pm_errno);
+		}
+		else {
+			/* an error happened for a required file */
+			_Exit(handle->pm_errno | 128);
+		}
+	}
+
+	/* parent */
+	close(callbacks_fd[1]);
+
+	if(pid != -1)  {
+		do {
+			_alpm_sandbox_callback_t callback_type;
+			ssize_t got = read(callbacks_fd[0], &callback_type, sizeof(callback_type));
+			if(got < 0 || (size_t)got != sizeof(callback_type)) {
+				break;
+			}
+
+			if(callback_type == ALPM_SANDBOX_CB_DOWNLOAD) {
+				if(!_alpm_sandbox_process_cb_download(handle, callbacks_fd[0])) {
+					break;
+				}
+			}
+			else if(callback_type == ALPM_SANDBOX_CB_LOG) {
+				if(!_alpm_sandbox_process_cb_log(handle, callbacks_fd[0])) {
+					break;
+				}
+			}
+		}
+		while(true);
+
+		int wret;
+		while((wret = waitpid(pid, &ret, 0)) == -1 && errno == EINTR);
+		if(wret > 0) {
+			if(!WIFEXITED(ret)) {
+				/* the child did not terminate normally */
+				ret = -1;
+			}
+			else {
+				ret = WEXITSTATUS(ret);
+				if(ret & 128) {
+					/* an error happened for a required file, or unexpected exit status */
+					handle->pm_errno = ret & ~128;
+					ret = -1;
+				}
+			}
+		}
+		else {
+			/* waitpid failed */
+			err = errno;
+		}
+	} else {
+		/* fork failed, make sure errno is preserved after cleanup */
+		err = errno;
+	}
+
+	close(callbacks_fd[0]);
+
+	sigaction(SIGINT, &oldint, NULL);
+	sigaction(SIGQUIT, &oldquit, NULL);
+	sigprocmask(SIG_SETMASK, &oldblock, NULL);
+
+	if(err) {
+		errno = err;
+		ret = -1;
+	}
+  return ret;
+}
+
 #endif
 
 /* Returns -1 if an error happened for a required file
@@ -950,7 +1086,11 @@ int _alpm_download(alpm_handle_t *handle,
 {
 	if(handle->fetchcb == NULL) {
 #ifdef HAVE_LIBCURL
-		return curl_download_internal(handle, payloads, localpath);
+		if(handle->sandboxuser) {
+			return curl_download_internal_sandboxed(handle, payloads, localpath);
+		} else {
+			return curl_download_internal(handle, payloads, localpath);
+		}
 #else
 		RET_ERR(handle, ALPM_ERR_EXTERNAL_DOWNLOAD, -1);
 #endif

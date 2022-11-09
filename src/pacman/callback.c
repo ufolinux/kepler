@@ -57,7 +57,7 @@ static alpm_list_t *output = NULL;
 #endif
 
 struct pacman_progress_bar {
-	const char *filename;
+	char *filename;
 	off_t xfered; /* Current amount of transferred data */
 	off_t total_size;
 	size_t downloaded;
@@ -731,7 +731,8 @@ static void init_total_progressbar(void)
 {
 	totalbar = calloc(1, sizeof(struct pacman_progress_bar));
 	assert(totalbar);
-	totalbar->filename = _("Total");
+	totalbar->filename = strdup(_("Total"));
+	assert(totalbar->filename);
 	totalbar->init_time = get_time_ms();
 	totalbar->total_size = list_total;
 	totalbar->howmany = list_total_pkgs;
@@ -871,7 +872,8 @@ static void dload_init_event(const char *filename, alpm_download_event_init_t *d
 
 	struct pacman_progress_bar *bar = calloc(1, sizeof(struct pacman_progress_bar));
 	assert(bar);
-	bar->filename = filename;
+	bar->filename = strdup(filename);
+	assert(bar->filename);
 	bar->init_time = get_time_ms();
 	bar->rate = 0.0;
 	multibar_ui.active_downloads = alpm_list_add(multibar_ui.active_downloads, bar);
@@ -1076,6 +1078,7 @@ static void dload_complete_event(const char *filename, alpm_download_event_compl
 			multibar_ui.active_downloads = alpm_list_remove_item(
 				multibar_ui.active_downloads, head);
 			free(head);
+			free(j->filename);
 			free(j);
 		} else {
 			break;
