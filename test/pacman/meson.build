@@ -154,6 +154,8 @@ pacman_tests = [
   'tests/replace103.py',
   'tests/replace104.py',
   'tests/replace110.py',
+  'tests/sandbox-download-upgrade.py',
+  'tests/sandbox-download-basic.py',
   'tests/scriptlet001.py',
   'tests/scriptlet002.py',
   'tests/scriptlet-signal-handling.py',
