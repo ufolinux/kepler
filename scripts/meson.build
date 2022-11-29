@@ -2,6 +2,7 @@ wrapped_scripts = [
   'makepkg.sh.in',
   'pacman-db-upgrade.sh.in',
   'pacman-key.sh.in',
+  'pkgdiff.sh.in',
   'repo-add.sh.in'
 ]
 

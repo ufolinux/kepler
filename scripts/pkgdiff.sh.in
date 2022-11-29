@@ -1,0 +1,301 @@
+#!/bin/bash
+#
+#   pkgdiff - package differencing utility
+#
+#   Copyright (c) 2022 Pacman Development Team <pacman-dev@lists.archlinux.org>
+#
+#   This program is free software; you can redistribute it and/or modify
+#   it under the terms of the GNU General Public License as published by
+#   the Free Software Foundation; either version 2 of the License, or
+#   (at your option) any later version.
+#
+#   This program is distributed in the hope that it will be useful,
+#   but WITHOUT ANY WARRANTY; without even the implied warranty of
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#   GNU General Public License for more details.
+#
+#   You should have received a copy of the GNU General Public License
+#   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+# gettext initialization
+export TEXTDOMAIN='pacman-scripts'
+export TEXTDOMAINDIR='@localedir@'
+
+declare -r myver='@PACKAGE_VERSION@'
+declare -r confdir='@sysconfdir@'
+
+LIBRARY=${LIBRARY:-'@libmakepkgdir@'}
+
+QUIET=0
+USE_COLOR='y'
+
+source "$LIBRARY"/util/compress.sh
+source "$LIBRARY"/util/message.sh
+source "$LIBRARY"/util/parseopts.sh
+
+# minimal of package before a pkgdiff is generated (bytes)
+min_pkg_size=$((1024*1024))
+
+# percent of new package above which the pkgdiff will be discarded
+max_diff_size=70
+
+# ensure we have a sane umask set
+umask 0022
+
+# print usage instructions
+usage() {
+	cmd=${0##*/}
+	printf "%s (pacman) %s\n\n" "$cmd" "$myver"
+	echo
+	printf -- $(gettext "Usage: pkgdiff <old> <new>\n")
+	echo
+	printf -- "$(gettext "\
+pkgdiff will create a file providing the differences between two packages.\n
+This file can then be added to a database using repo-add.\n")"
+	echo
+	printf -- "$(gettext "Example:  pkgdiff pacman-6.0.0-1-x86_64.pkg.tar.gz pacman-6.0.1-1-x86_64.pkg.tar.gz")\n"
+	echo
+	printf -- "$(gettext "Options:\n")"
+	printf -- "$(gettext "  -q, --quiet      minimize output\n")"
+	printf -- "$(gettext "  --nocolor        remove color from output\n")"
+	printf -- "$(gettext "  --min-pkg-size   minimum package size before pkgdiffs are generated\n")"
+	printf -- "$(gettext "  --max-diff-size  percent of new package above which the pkgdiff will be discarded\n")"
+}
+
+version() {
+	cmd=${0##*/}
+	printf "%s (pacman) %s\n\n" "$cmd" "$myver"
+	printf -- "Copyright (c) 2022 Pacman Development Team <pacman-dev@lists.archlinux.org>.\n"
+	echo
+	printf -- "$(gettext "\
+This is free software; see the source for copying conditions.\n\
+There is NO WARRANTY, to the extent permitted by law.\n")"
+}
+
+trap_exit() {
+	# unhook all traps to avoid race conditions
+	trap '' EXIT TERM HUP QUIT INT ERR
+
+	echo
+	error "$@"
+	clean_up 1
+}
+
+clean_up() {
+	local exit_code=${1:-$?}
+
+	# unhook all traps to avoid race conditions
+	trap '' EXIT TERM HUP QUIT INT ERR
+
+	[[ -d $tmpdir ]] && rm -rf "$tmpdir"
+
+	exit $exit_code
+}
+
+read_pkginfo() {
+	unset pkgver pkgname arch
+	while IFS='=' read -r field value; do
+		# skip comments and invalid lines
+		[[ $field = '#'* || -z $value ]] && continue
+
+		# skip lines which aren't fields we care about
+		[[ $field != @(pkgver|pkgname|arch) ]] || continue
+
+		declare -g "${field% }=${value# }"
+
+		[[ $pkgname && $pkgver && $arch ]] && return 0
+	done < <(bsdtar -xOqf "$1" .PKGINFO 2>/dev/null)
+
+	error "$(gettext "Invalid package file '%s'.")" "$1"
+	return 1
+}
+
+create_pkgdiff() {
+	local oldfile=$1
+	local newfile=$2
+	local \
+		oldname oldver oldarch \
+		newname newver newarch \
+		diff_file
+
+	read_pkginfo "$oldfile" || return 1
+	oldname="$pkgname"
+	oldver="$pkgver"
+	oldarch="$arch"
+
+	read_pkginfo "$newfile" || return 1
+	newname="$pkgname"
+	newver="$pkgver"
+	newarch="$arch"
+
+	pkgsize=$(wc -c < "$newfile")
+
+	if ((pkgsize < min_pkg_size)); then
+		msg "$(gettext "Skipping pkgdiff creation for small package: %s - size %s")" "$newname" "$pkgsize"
+		return 0
+	fi
+
+	if [[ $oldname != "$newname" ]]; then
+		error "$(gettext "The package names don't match : '%s' and '%s'")" "$oldname" "$newname"
+		return 1
+	fi
+
+	if [[ $oldarch != "$newarch" ]]; then
+		error "$(gettext "The package architectures don't match : '%s' and '%s'")" "$oldarch" "$newarch"
+		return 1
+	fi
+
+	if [[ $oldver == "$newver" ]]; then
+		error "$(gettext "Both packages have the same version : '%s'")" "$newver"
+		return 1
+	fi
+
+	### TODO: check oldver < newver with vercmp ###
+
+	declare -r startdir="$(pwd -P)"
+
+	if [[ ${oldfile::1} != "/" ]]; then
+		oldfile=${startdir}/${oldfile}
+	fi
+
+	if [[ ${newfile::1} != "/" ]]; then
+		newfile=${startdir}/${newfile}
+	fi
+
+	tmpdir=$(mktemp -d "${TMPDIR:-/tmp}/pkgdiff.XXXXXXXXXX")
+	pushd $tmpdir &>/dev/null
+
+
+	### TODO: almost everything below here is a quick hack... ###
+
+	bsdtar -xOf $oldfile .MTREE | zcat | awk '{for (i=1;i<=NF;i++){if ($i ~/^sha256/) {print $1 " "  $i}}}' > ${oldver}.files
+	bsdtar -xOf $newfile .MTREE | zcat | awk '{for (i=1;i<=NF;i++){if ($i ~/^sha256/) {print $1 " "  $i}}}' > ${newver}.files
+
+	files=($(diff -Naur ${oldver}.files ${newver}.files |
+		grep "^+\./" |
+		grep -v -e "\.BUILDINFO" -e "\.PKGINFO" |
+		cut -f1 -d' ' |
+		sed 's|+./||'))
+
+	mkdir $newname
+	tar -xf $newfile -C $newname
+
+	diffdir="${oldname}-${oldver}-to-${newname}-${newver}-${newarch}.pkgdiff"
+	mkdir $diffdir
+
+	for f in ${files[@]}; do
+		mkdir -p ${diffdir}/${f%/*}
+		cp ${newname}/$f ${diffdir}/$f
+	done
+
+	cp ${newname}/.{BUILD,PKG}INFO ${diffdir}
+
+
+	### TODO: this should use libmakepkg/compress - need PKGEXT from makepkg.conf ###
+	### TODO: collect files in same order as makepkg ###
+
+	tar -cf ${diffdir}.tar ${diffdir}
+	zstd -T0 --ultra -20 ${diffdir}.tar &> /dev/null
+	diff_file=${diffdir}.tar.zst
+
+
+	diffsize=$(wc -c < "$diff_file")
+
+	if ((max_diff_size * pkgsize / 100 < diffsize)); then
+		msg "$(gettext "pkgdiff larger than maximum size. Removing.")"
+		rm -f "$diff_file"
+		return 0
+	fi
+
+	popd &>/dev/null
+
+	mv ${tmpdir}/${diff_file} .
+
+	msg "$(gettext "Generated pkgdiff : '%s'")" "$diff_file"
+	(( QUIET )) && echo "$diff_file"
+
+	return 0
+}
+
+
+# PROGRAM START
+
+# determine whether we have gettext; make it a no-op if we do not
+if ! type gettext &>/dev/null; then
+	gettext() {
+		echo "$@"
+	}
+fi
+
+case $1 in
+	-h|--help) usage; exit 0;;
+	-V|--version) version; exit 0;;
+esac
+
+trap 'clean_up' EXIT
+for signal in TERM HUP QUIT; do
+	trap "trap_exit \"$(gettext "%s signal caught. Exiting...")\" \"$signal\"" "$signal"
+done
+trap 'trap_exit "$(gettext "Aborted by user! Exiting...")"' INT
+trap 'trap_exit "$(gettext "An unknown error has occurred. Exiting...")"' ERR
+
+
+OPT_SHORT='hqV'
+OPT_LONG=('help' 'quiet' 'max-diff-size:' 'min-pkg-size:' 'nocolor' 'version')
+if ! parseopts "$OPT_SHORT" "${OPT_LONG[@]}" -- "$@"; then
+	exit 1
+fi
+set -- "${OPTRET[@]}"
+unset OPT_SHORT OPT_LONG OPTRET
+
+# parse options
+while :; do
+	case $1 in
+		-h|--help)
+			usage
+			exit 0 ;;
+		-V|--version)
+			version
+			exit 0 ;;
+		-q|--quiet)
+			QUIET=1;;
+		--nocolor)
+			USE_COLOR='n';;
+		--min-pkg-size)
+			### TODO ###
+			shift ;;
+		--max-delta-size)
+			### TODO ###
+			shift ;;
+		--)
+			shift
+			break ;;
+	esac
+	shift
+done
+
+
+# check if messages are to be printed using color
+if [[ -t 2 && $USE_COLOR != "n" ]]; then
+	colorize
+else
+	unset ALL_OFF BOLD BLUE GREEN RED YELLOW
+fi
+
+
+if (( $# != 2 )); then
+	usage
+	exit 1
+fi
+
+for i in "$@"; do
+	if [[ ! -f $i ]]; then
+		error "$(gettext "File '%s' does not exist")" "$i"
+		exit 1
+	fi
+done
+
+
+### TODO: the creation of the pkgdiff should be done in fakeroot ###
+
+create_pkgdiff "$@"
