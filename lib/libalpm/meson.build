@@ -28,5 +28,7 @@ libalpm_sources = files('''
   sync.h sync.c
   trans.h trans.c
   util.h util.c
+  info.c
+  mfmt.c mfmt.h
   version.c
 '''.split())

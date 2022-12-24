@@ -1168,6 +1168,10 @@ double humanize_size(off_t bytes, const char target_unit, int precision,
 void print_packages(const alpm_list_t *packages)
 {
 	const alpm_list_t *i;
+	if(config->pformat) {
+		alpm_info_print_pkgs(config->pformat, (alpm_list_t*) packages);
+		return;
+	}
 	if(!config->print_format) {
 		config->print_format = strdup("%l");
 	}
