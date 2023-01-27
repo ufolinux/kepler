@@ -100,6 +100,12 @@ int SYMEXPORT alpm_release(alpm_handle_t *myhandle)
 
 	CHECK_HANDLE(myhandle, return -1);
 
+	/* free transaction memory if we can */
+	if(myhandle->trans && alpm_trans_release(myhandle) == -1) {
+		/* if we can't then the caller is mid transaction so refuse release */
+		return -1;
+	}
+
 	/* close local database */
 	db = myhandle->db_local;
 	if(db) {
