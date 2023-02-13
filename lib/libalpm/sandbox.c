@@ -29,8 +29,8 @@
 static int switch_to_user(const char *user)
 {
 	struct passwd const *pw = NULL;
-	ASSERT(user != NULL, return 1);
-	ASSERT(getuid() == 0, return 1);
+	ASSERT(user != NULL, return EINVAL);
+	ASSERT(getuid() == 0, return EPERM);
 	ASSERT((pw = getpwnam(user)), return errno);
 	ASSERT(setgid(pw->pw_gid) == 0, return errno);
 	ASSERT(setgroups(0, NULL) == 0, return errno);
