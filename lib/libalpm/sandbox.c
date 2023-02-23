@@ -40,6 +40,54 @@ static int switch_to_user(const char *user)
 	return 0;
 }
 
+static int should_retry(int errnum)
+{
+	return errnum == EAGAIN
+/* EAGAIN may be the same value as EWOULDBLOCK (POSIX.1) - prevent GCC warning */
+#if EAGAIN != EWOULDBLOCK
+	|| errnum == EWOULDBLOCK
+#endif
+	|| errnum == EINTR;
+}
+
+static int read_from_pipe(int fd, void *buf, size_t count)
+{
+	size_t nread = 0;
+
+	ASSERT(count > 0, return -1);
+
+	while(nread < count) {
+		ssize_t r = read(fd, (char *)buf + nread, count-nread);
+		if(r < 0) {
+			if(!should_retry(errno)) {
+				return -1;
+			}
+		}
+		nread += r;
+	}
+
+	return 0;
+}
+
+static int write_to_pipe(int fd, const void *buf, size_t count)
+{
+	size_t nwrite = 0;
+
+	ASSERT(count > 0, return -1);
+
+	while(nwrite < count) {
+		ssize_t r = write(fd, (char *)buf + nwrite, count-nwrite);
+		if(r < 0) {
+			if(!should_retry(errno)) {
+				return -1;
+			}
+		}
+		nwrite += r;
+	}
+
+	return 0;
+}
+
 int SYMEXPORT alpm_sandbox_child(const char* sandboxuser)
 {
 	ASSERT(sandboxuser != NULL, return 1);
@@ -60,10 +108,10 @@ void _alpm_sandbox_cb_log(void *ctx, alpm_loglevel_t level, const char *fmt, va_
 
 	string_size = vasprintf(&string, fmt, args);
 	if(string != NULL) {
-		write(context->callback_pipe, &type, sizeof(type));
-		write(context->callback_pipe, &level, sizeof(level));
-		write(context->callback_pipe, &string_size, sizeof(string_size));
-		write(context->callback_pipe, string, string_size);
+		write_to_pipe(context->callback_pipe, &type, sizeof(type));
+		write_to_pipe(context->callback_pipe, &level, sizeof(level));
+		write_to_pipe(context->callback_pipe, &string_size, sizeof(string_size));
+		write_to_pipe(context->callback_pipe, string, string_size);
 		FREE(string);
 	}
 }
@@ -86,24 +134,24 @@ void _alpm_sandbox_cb_dl(void *ctx, const char *filename, alpm_download_event_ty
 
 	filename_len = strlen(filename);
 
-	write(context->callback_pipe, &type, sizeof(type));
-	write(context->callback_pipe, &event, sizeof(event));
+	write_to_pipe(context->callback_pipe, &type, sizeof(type));
+	write_to_pipe(context->callback_pipe, &event, sizeof(event));
 	switch(event) {
 		case ALPM_DOWNLOAD_INIT:
-			write(context->callback_pipe, data, sizeof(alpm_download_event_init_t));
+			write_to_pipe(context->callback_pipe, data, sizeof(alpm_download_event_init_t));
 			break;
 		case ALPM_DOWNLOAD_PROGRESS:
-			write(context->callback_pipe, data, sizeof(alpm_download_event_progress_t));
+			write_to_pipe(context->callback_pipe, data, sizeof(alpm_download_event_progress_t));
 			break;
 		case ALPM_DOWNLOAD_RETRY:
-			write(context->callback_pipe, data, sizeof(alpm_download_event_retry_t));
+			write_to_pipe(context->callback_pipe, data, sizeof(alpm_download_event_retry_t));
 			break;
 		case ALPM_DOWNLOAD_COMPLETED:
-			write(context->callback_pipe, data, sizeof(alpm_download_event_completed_t));
+			write_to_pipe(context->callback_pipe, data, sizeof(alpm_download_event_completed_t));
 			break;
 	}
-	write(context->callback_pipe, &filename_len, sizeof(filename_len));
-	write(context->callback_pipe, filename, filename_len);
+	write_to_pipe(context->callback_pipe, &filename_len, sizeof(filename_len));
+	write_to_pipe(context->callback_pipe, filename, filename_len);
 }
 
 
@@ -111,21 +159,13 @@ bool _alpm_sandbox_process_cb_log(alpm_handle_t *handle, int callback_pipe) {
 	alpm_loglevel_t level;
 	char *string = NULL;
 	int string_size = 0;
-	ssize_t got;
 
-	got = read(callback_pipe, &level, sizeof(level));
-	ASSERT(got > 0 && (size_t)got == sizeof(level), return false);
-
-	got = read(callback_pipe, &string_size, sizeof(string_size));
-	ASSERT(got > 0 && (size_t)got == sizeof(string_size), return false);
+	ASSERT(read_from_pipe(callback_pipe, &level, sizeof(level)) != -1, return false);
+	ASSERT(read_from_pipe(callback_pipe, &string_size, sizeof(string_size)) != -1, return false);
 
 	MALLOC(string, string_size + 1, return false);
 
-	got = read(callback_pipe, string, string_size);
-	if(got < 0 || got != string_size) {
-		FREE(string);
-		return false;
-	}
+	ASSERT(read_from_pipe(callback_pipe, string, string_size) != -1, FREE(string); return false);
 	string[string_size] = '\0';
 
 	_alpm_log(handle, level, "%s", string);
@@ -137,7 +177,6 @@ bool _alpm_sandbox_process_cb_download(alpm_handle_t *handle, int callback_pipe)
 	alpm_download_event_type_t type;
 	char *filename = NULL;
 	size_t filename_size, cb_data_size;
-	ssize_t got;
 	union {
 		alpm_download_event_init_t init;
 		alpm_download_event_progress_t progress;
@@ -145,41 +184,34 @@ bool _alpm_sandbox_process_cb_download(alpm_handle_t *handle, int callback_pipe)
 		alpm_download_event_completed_t completed;
 	} cb_data;
 
-	got = read(callback_pipe, &type, sizeof(type));
-	ASSERT(got > 0 && (size_t)got == sizeof(type), return false);
+	ASSERT(read_from_pipe(callback_pipe, &type, sizeof(type)) != -1, return false);
 
 	switch (type) {
 	case ALPM_DOWNLOAD_INIT:
 		cb_data_size = sizeof(alpm_download_event_init_t);
-		got = read(callback_pipe, &cb_data.init, cb_data_size);
+		ASSERT(read_from_pipe(callback_pipe, &cb_data.init, cb_data_size) != -1, return false);
 		break;
 	case ALPM_DOWNLOAD_PROGRESS:
 		cb_data_size = sizeof(alpm_download_event_progress_t);
-		got = read(callback_pipe, &cb_data.progress, cb_data_size);
+		ASSERT(read_from_pipe(callback_pipe, &cb_data.progress, cb_data_size) != -1, return false);
 		break;
 	case ALPM_DOWNLOAD_RETRY:
 		cb_data_size = sizeof(alpm_download_event_retry_t);
-		got = read(callback_pipe, &cb_data.retry, cb_data_size);
+		ASSERT(read_from_pipe(callback_pipe, &cb_data.retry, cb_data_size) != -1, return false);
 		break;
 	case ALPM_DOWNLOAD_COMPLETED:
 		cb_data_size = sizeof(alpm_download_event_completed_t);
-		got = read(callback_pipe, &cb_data.completed, cb_data_size);
+		ASSERT(read_from_pipe(callback_pipe, &cb_data.completed, cb_data_size) != -1, return false);
 		break;
 	default:
 		return false;
 	}
-	ASSERT(got > 0 && (size_t)got == cb_data_size, return false);
 
-	got = read(callback_pipe, &filename_size, sizeof(filename_size));
-	ASSERT(got > 0 && (size_t)got == sizeof(filename_size), return false);
+	ASSERT(read_from_pipe(callback_pipe, &filename_size, sizeof(filename_size)) != -1, return false);;
 
 	MALLOC(filename, filename_size + 1, return false);
 
-	got = read(callback_pipe, filename, filename_size);
-	if(got < 0 || (size_t)got != filename_size) {
-		FREE(filename);
-		return false;
-	}
+	ASSERT(read_from_pipe(callback_pipe, filename, filename_size) != -1, FREE(filename); return false);
 	filename[filename_size] = '\0';
 
 	handle->dlcb(handle->dlcb_ctx, filename, type, &cb_data);
