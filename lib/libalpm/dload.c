@@ -951,8 +951,11 @@ static int curl_download_internal_sandboxed(alpm_handle_t *handle,
 {
 	int pid, err = 0, ret = -1, callbacks_fd[2];
 	sigset_t oldblock;
-	struct sigaction sa_ign = { .sa_handler = SIG_IGN }, oldint, oldquit;
+	struct sigaction sa_ign, oldint, oldquit;
 	_alpm_sandbox_callback_context callbacks_ctx;
+
+	sigemptyset(&sa_ign.sa_mask);
+	sa_ign.sa_handler = SIG_IGN;
 
 	if(pipe(callbacks_fd) != 0) {
 		return -1;
@@ -1000,7 +1003,7 @@ static int curl_download_internal_sandboxed(alpm_handle_t *handle,
 		/* pass the result back to the parent */
 		if(ret == 0) {
 			/* a payload was actually downloaded */
-			exit(0);
+			_Exit(0);
 		}
 		else if(ret == 1) {
 			/* no files were downloaded and all errors were non-fatal */
