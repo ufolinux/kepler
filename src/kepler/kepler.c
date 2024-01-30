@@ -240,12 +240,12 @@ static void usage(int op, const char * const myname)
 static void version(void)
 {
 	printf("\n");
-	printf("     ___     Kepler v%s - libalpm v%s\n", PACKAGE_VERSION, alpm_version());
-	printf(" ___/   \___       Copyright (C) 2006-2022 Pacman Development Team\n");
-	printf("/   '---'   \       Copyright (C) 2002-2006 Judd Vinet\n");
-	printf("'--_______--'    \n");
-	printf("     / \    \n");
-	printf("    /   \    \n");
+	printf("     ###     Kepler v%s - libalpm v%s\n", PACKAGE_VERSION, alpm_version());
+	printf(" ####   ####       Copyright (C) 2006-2022 Pacman Development Team\n");
+	printf("#   #####   #       Copyright (C) 2002-2006 Judd Vinet\n");
+	printf("#############    \n");
+	printf("     # #    \n");
+	printf("    #   #    \n");
 	printf(_("                       This program may be freely redistributed under\n"
 	         "                       the terms of the GNU General Public License.\n"));
 	printf("\n");
