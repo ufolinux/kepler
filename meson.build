@@ -451,7 +451,7 @@ message('\n    '.join([
   '',
   'Compilation options:',
   '  i18n support             : @0@'.format(get_option('i18n')),
-  '  Build docs               : @0@'.format(build_doc),
+#  '  Build docs               : @0@'.format(build_doc),
   '  debug build              : @0@'.format(get_option('buildtype') == 'debug'),
   '  Use libcurl              : @0@'.format(conf.get('HAVE_LIBCURL')),
   '  Use GPGME                : @0@'.format(conf.get('HAVE_LIBGPGME')),
